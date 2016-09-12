@@ -1,0 +1,32 @@
+<div id="postArticle">
+    <div class="head-title">
+        <p>{{title}}</p>
+    </div>
+    <div class="row">
+        <loading-item url="assets/img/fbloader.gif" enable="false"></loading-item>
+        <div class="col-sm-6 col-xs-12 " ng-repeat="event in events" >
+            <div class="festival-item row">
+                <div class="col-xs-12 festival-img">
+                    <a href="/article/detail/{{event._id}}"><img class="img-responsive" src="{{event.thumbnail.imgResize}}" /></a>
+                </div>
+                <div class="col-xs-12 festival-info">
+                    <div class="header row">
+                        <div class="col-md-9 col-sm-12">
+                            <a href="/article/detail/{{event._id}}">{{event.title.trunc(45)}}</a>
+                            <div class="address"><span class="glyphicon glyphicon-map-marker"></span> {{event.address.city}}</div>
+                            <div><span class="glyphicon glyphicon-calendar"></span> {{event.timeBegin.fomatDate()}} - {{event.timeBegin.fomatDate()}}</div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 infoPrice">
+                            <span class="price" ng-if="event.priceTicket!=0">
+                                    <span class="glyphicon glyphicon-usd"></span>Từ {{event.priceTicket}} VNĐ
+                            </span>
+                            <span class="price" ng-if="event.priceTicket===0">
+                              <span class="glyphicon glyphicon-usd"></span>Miễn phí
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

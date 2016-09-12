@@ -1,0 +1,409 @@
+@import "var";
+.bg-grey {
+    background-color: #F5F5F5;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.boderTop {
+    border-top: 1px solid #e1e1e1;
+}
+
+.fontWeitgh600 {
+    font-weight: 600;
+}
+
+.font15 {
+    font-size: 15px;
+}
+
+.brleft {
+    border-left: 1px solid #e1e1e1;
+}
+
+.brright {
+    border-right: 1px solid #e1e1e1;
+}
+
+.colorWord {
+    color: #228aa9;
+}
+.checkErroLink{
+    display: none;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 5px 0 5px 10px;
+    border-left: 5px solid;
+}
+
+#article {
+    font-size: 15px;
+    color: #555;
+    font-weight: 400;
+}
+.btn-xs{
+    border-radius: 0;
+}
+.arrayContent{
+        padding-left: 10px;
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+.info-festival {
+    border-top: 10px solid #e1e1e1;
+    margin-top: 41px;
+    padding: 30px 0;
+    img {
+        width: 100%;
+        height: 381px;
+    }
+    span {
+        text-transform: uppercase;
+    }
+    .content {
+        padding: 5px 0 0 20px;
+        font-weight: 400;
+        h3 {
+            font-weight: 700;
+            margin: 7px 0;
+        }
+        li {
+            margin-top: 7px;
+        }
+    }
+    .res-summary-point {
+        text-align: center;
+        border-top: 1px solid #e1e1e1;
+        border-bottom: 1px solid #e1e1e1;
+        margin: 5px 0;
+        padding: 10px 0;
+        .sumary-point {
+            font-size: 18px;
+            color: #228aa9;
+            font-weight: 700;
+        }
+        .sumary-common {
+            font-size: 18px;
+            font-weight: 700;
+            color: $primary-color-content;
+        }
+    }
+}
+
+#slideImage {
+    .modal-body {
+        padding: 0px;
+        img {
+            height: 550px;
+            width: auto;
+            margin: 0 auto;
+        }
+        .carousel-control {
+            width: 5%;
+            .left,
+            .right {
+                background-image: #fff;
+            }
+        }
+    }
+    .carousel-control.right,
+    .carousel-control.left {
+        background-image: none;
+    }
+    .modal-content {
+        border-radius: 0;
+    }
+}
+
+.introduce {
+    padding-bottom: 20px;
+    li {
+        margin-top: 10px;
+        margin-left: 25px;
+        list-style-type: disc;
+    }
+}
+
+.imageFestival {
+    .imgContent {
+        img {
+            height: 155px;
+            width: auto;
+        }
+        .col-sm-3,
+        .col-xs-2 {
+            margin: 10px 0;
+        }
+    }
+    .btn-custom {
+        margin-top: 10px;
+    }
+}
+
+.actionUser {
+    margin-top: 20px;
+    a {
+        text-align: center;
+        display: inline-block;
+        padding: 5px;
+        color: #fff;
+        background-color: #f80;
+        border: 1px solid #fff;
+        transition: 0.4s;
+        &:hover {
+            text-decoration: none;
+            background-color: #247ba0;
+        }
+    }
+    a:focus,
+    a:visited {
+        text-decoration: none;
+    }
+}
+
+.related-box {
+    text-align: center;
+    padding: 20px 10px;
+    .boxContent{
+        padding: 10px;
+    }
+    h3 {
+        font-size: 16px;
+        font-weight: 300;
+        color: #555;
+        margin-top: 10px;
+    }
+    .info {
+        padding: 10px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.20)
+    }
+    .box {
+        margin: 20px 10px;
+        text-align: left;
+        img{
+            width: 100%;
+            height: 190px;
+        }
+        a {
+            display: block;
+            color: #247ba0;
+            font-weight: 700;
+            font-size: 16px;
+            &:hover {
+                text-decoration: none;
+                color: #f80;
+            }
+        }
+    }
+}
+
+#post-common {
+    color: #333;
+    padding: 20px 0;
+    // background-color: #fff;
+    .microsite-box-heading {
+        cursor: point;
+        font-size: 18px;
+    }
+    .panel-heading {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .panel-body {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .box-cmt-main {
+        margin-bottom: 10px;
+    }
+    .microsite-box {
+        #resreviews {
+            #micro-review-filter {
+                background-color: #cce1f3;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                .btn,
+                .dropdown-menu {
+                    font-size: 12px;
+                }
+            }
+            #review-list {
+                ul,
+                li {
+                    padding: 0px;
+                    margin: 0px;
+                    list-style: none;
+                }
+                margin-top: 20px;
+                .micro-home-recent-review {
+                    .col-sm-2,
+                    .col-sm-10,
+                    .col-xs-2,
+                    .col-xs-10 {
+                        padding: 0px;
+                    }
+                    margin-top: 5px;
+                    .panel {
+                        margin-top: 10px;
+                        position: relative;
+                    }
+                    .panel>.panel-heading:after,
+                    .panel>.panel-heading:before {
+                        position: absolute;
+                        top: 10px;
+                        left: -16px;
+                        right: 100%;
+                        width: 0;
+                        height: 0;
+                        display: block;
+                        content: " ";
+                        border-color: transparent;
+                        border-style: solid solid outset;
+                        pointer-events: none;
+                    }
+                    .panel>.panel-heading:after {
+                        border-width: 7px;
+                        border-right-color: #f7f7f7;
+                        margin-top: 1px;
+                        margin-left: 2px;
+                    }
+                    .panel>.panel-heading:before {
+                        border-right-color: #ddd;
+                        border-width: 8px;
+                    }
+                    .leftimage {
+                        text-align: center;
+                        .microsite-review-new-avatar {
+                            margin-top: 10px;
+                            img {
+                                width: 50px;
+                                margin-left: auto;
+                                margin-right: auto;
+                            }
+                        }
+                    }
+                    .rightdesc {
+                        .photos {
+                            padding-bottom: 10px;
+                        }
+                        img {
+                            width: 100%;
+                            border: 1px solid #fff;
+                            border-radius: 3px;
+                        }
+                        .picturecounts {
+                            background-color: #ddd;
+                            padding: 5px 10px;
+                            a {
+                                color: #333;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                        .share {
+                            margin-top: 10px;
+                            a {
+                                color: #aaa;
+                                background-color: #fff;
+                                border: 1px solid #f0f0f0;
+                                border-radius: 3px;
+                                padding: 4px 10px;
+                                margin-right: 5px;
+                            }
+                            a:hover {
+                                color: #333;
+                                background-color: #ddd;
+                            }
+                        }
+                        .desc {
+                            margin-bottom: 10px;
+                        }
+                        .review-reply {
+                            .review-all-comment {
+                                margin-top: 5px;
+                                margin-bottom: 5px;
+                                a:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .review-reply-item {
+                                padding-bottom: 5px;
+                                padding-top: 5px;
+                                background: #f0f0f0 none repeat scroll 0 0;
+                                border-bottom: 1px solid #fff;
+                                .col-xs-11 {
+                                    padding-left: 0px;
+                                }
+                                .review-reply-item-avatar {
+                                    padding-top: 5px;
+                                    padding-left: 10px;
+                                    text-align: center;
+                                    img {
+                                        width: 40px;
+                                        height: 40px;
+                                        border-radius: 40px;
+                                    }
+                                }
+                                .review-reply-item-content {
+                                    .user-link {
+                                        padding-right: 5px;
+                                    }
+                                    a {
+                                        color: #000;
+                                        text-transform: capitalize;
+                                    }
+                                    a:hover {
+                                        text-decoration: underline;
+                                    }
+                                    .address {
+                                        font-size: 11px;
+                                        padding-right: 5px;
+                                    }
+                                    .userlike,
+                                    .glyphicon {
+                                        color: #2fb8da;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .title-desc {
+            font-size: 14px;
+            color: #444;
+            font-weight: 600;
+        }
+    }
+    /*#microsite-box*/
+    .micro-whiterow {
+        margin: 20px 0px 20px 0px;
+        .microsite-box-album {
+            margin: 10px 0px 10px 0px;
+            .col-sm-3 {
+                padding: 0px;
+            }
+            .micro-home-album {
+                img {
+                    width: 100%;
+                    border-radius: 3px;
+                }
+                border: 3px solid #fff;
+                a {
+                    padding-top: 10px;
+                    color: #333;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .micro-greyrow {
+        margin-top: 20px;
+    }
+}

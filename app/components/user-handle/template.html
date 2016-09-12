@@ -1,0 +1,251 @@
+<div id="login">
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="false" id="dangnhap">
+      <div class="modal-dialog modal-sm">
+          <form role="form" name="loginForm">
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h3 class="modal-title"><i class="fa fa-fw fa-puzzle-piece"></i>Đăng nhập:</h3>
+                  </div>
+                  <div class="modal-body">
+                      <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <input name="email" type="email" class="form-control" placeholder="Email" required="required" ng-model="email" />
+                              <div class="input-group-addon">
+                                  <i class="glyphicon glyphicon-envelope"></i>
+                              </div>
+                          </div>
+                          <!-- /.input group -->
+                          <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
+                          <span ng-show="loginForm.email.$error.required">Email là bắt buộc</span>
+                          <span ng-show="loginForm.email.$error.email">Email không hợp lệ</span>
+                          </span>
+                      </div>
+                      <!-- /.form group -->
+                      <div class="form-group">
+                          <div class="input-group">
+                              <input name="password" type="Password" class="form-control" placeholder="Password" required="required" ng-model="password" />
+                              <div class="input-group-addon">
+                                  <i class="glyphicon glyphicon-lock"></i>
+                              </div>
+                          </div>
+                          <!-- /.input group -->
+                          <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                          <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
+                          </span>
+                      </div>
+                      <!-- /.form group -->
+                      <div class="form-group row">
+                          <div class="checkbox col-xs-6">
+                              <label>
+                                  <input type="checkbox" ng-model="remember" /> Ghi nhớ
+                              </label>
+                          </div>
+                          <div class="col-xs-6" style="text-align: right ">
+                              <button type="Submit" class="btn-blue " ng-click="login()">Đăng nhập</button>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="social-or-login center">
+                      <span>Hoặc đăng nhập bằng</span>
+                  </div>
+                  <div class="social-login center">
+                      <a class="btn btn-primary" href="../users/facebook">
+                          <i class="fa fa-facebook-square"></i>
+                      </a>
+                      <a class="btn btn-danger">
+                          <i class="fa fa-google-plus"></i>
+                      </a>
+                  </div>
+                  <div class="modal-footer toolbar clearfix row">
+                      <div class="col-xs-6" style="text-align: left;">
+                          <a id="forgot" href="" ng-click='forgetPasswordView()' class="button user-signup-link">
+                              <i class="fa fa-arrow-left"></i> Quên mật khẩu
+                          </a>
+                      </div>
+                      <div class="col-xs-6" style="text-align: right;">
+                          <a id="registerlink" href="" ng-click='signupView()' class="user-signup-link">
+                          Đăng kí
+                          <i class="fa fa-arrow-right"></i>
+                      </a>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+  <div class="modal fade" id="forgot-password" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+          <form role="form" name="forgotPassword">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h3 class="modal-title" id="upload-avatar-title"><i class="ace-icon fa fa-key"></i> Bạn quên mật khẩu</h3>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <label>Nhập email của bạn để nhận lại mật khẩu:</label>
+                          <div class="input-group">
+                              <input name="email" type="email" class="form-control" placeholder="Email" required="required" ng-model="emailpw" />
+                              <div class="input-group-addon">
+                                  <i class="glyphicon glyphicon-envelope"></i>
+                              </div>
+                          </div>
+                          <!-- /.input group -->
+                          <span class="text-error" ng-show="forgotPassword.email.$dirty && forgotPassword.email.$invalid">
+                          <span ng-show="forgotPassword.email.$error.required">Email là bắt buộc</span>
+                          <span ng-show="forgotPassword.email.$error.email">Email không hợp lệ</span>
+                          </span>
+                      </div>
+                      <!-- /.form group -->
+                      <div style="text-align: right;">
+                          <button type="Submit" class="btn btn-forgot" ng-click="emailPasswd()">Gửi</button>
+                      </div>
+                  </div>
+                  <div class="toolbar clearfix">
+                      <div style="text-align: center;">
+                          <a id="back" href="#" ng-click='loginView()' class="user-back-link">
+                          Quay lại đăng nhập
+                          <i class="fa fa-arrow-right"></i>
+                      </a>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+  <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register-title" aria-hidden="true">
+      <div class="modal-dialog">
+          <form role="form" name="resgiterFrom" novalidate>
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h3 class="modal-title" id="upload-avatar-title"><i class="fa fa-fw fa-smile-o"></i>Đăng kí tài khoản</h3>
+                  </div>
+                  <div class="modal-body row">
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Tên</label>
+                          <div class="col-xs-9">
+                              <input ng-model="firstname" name="firstname" type="text" class="form-control" required>
+                              <span class="text-error" ng-show="resgiterFrom.firstname.$dirty && resgiterFrom.firstname.$invalid">
+                          <span ng-show="resgiterFrom.firstname.$error.required">Tên là bắt buộc.</span>
+                              </span>
+                          </div>
+                      </div>
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Họ</label>
+                          <div class="col-xs-9">
+                              <input ng-model="lastname" name="lastname" type="text" class="form-control" required>
+                              <span class="text-error" ng-show="resgiterFrom.lastname.$dirty && resgiterFrom.lastname.$invalid">
+                          <span ng-show="resgiterFrom.lastname.$error.required">Họ là bắt buộc.</span>
+                              </span>
+                          </div>
+                          <!-- /.input group -->
+                      </div>
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Email</label>
+                          <div class="col-xs-9">
+                              <input ng-model="email" name="email" type="email" class="form-control" required>
+                              <span class="text-error" ng-show="resgiterFrom.email.$dirty && resgiterFrom.email.$invalid">
+                        <span ng-show="resgiterFrom.email.$error.required">Email là bắt buộc</span>
+                              <span ng-show="resgiterFrom.email.$error.email">Email không đúng</span>
+                              </span>
+                          </div>
+                          <!-- /.input group -->
+                      </div>
+                      <!-- /.form group -->
+                      <!-- /.form group -->
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Mật khẩu</label>
+                          <div class="col-xs-9">
+                              <input ng-model="password" name="password" type="Password" class="form-control" required>
+                              <span class="text-error" ng-show="resgiterFrom.password.$dirty && resgiterFrom.password.$invalid">
+                          <span ng-show="resgiterFrom.password.$error.required">Mật khẩu là bắt buộc</span>
+                              </span>
+                          </div>
+                          <!-- /.input group -->
+                      </div>
+                      <!-- /.form group -->
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Nhập lại mật khẩu:</label>
+                          <div class="col-xs-9">
+                              <input type="password" id="password_c" name="password_c" ng-model="password_c" valid-password-c class="form-control" required>
+                              <span class="text-error" ng-show="resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$dirty && resgiterFrom.password.$invalid">Please confirm your password.</span>
+                              <span class="text-error" ng-show="!resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$error.noMatch && resgiterFrom.password.$dirty">Mật khẩu không khớp</span>
+                          </div>
+                          <!-- /.input group -->
+                      </div>
+                      <!-- /.form group -->
+                      <div class="form-group col-xs-12 row">
+                          <label class="col-xs-3">Giới tính</label>
+                          <div class="col-xs-9 row" required>
+                              <label class="radio-inline">
+                                  <input ng-model="gender" ng-value="1" type="radio" name="gender">Nam
+                              </label>
+                              <label class="radio-inline">
+                                  <input ng-model="gender" ng-value="2" type="radio" name="gender">Nữ
+                              </label>
+                          </div>
+                      </div>
+                      <!-- /.form group -->
+                      <div class="checkbox form-group col-xs-12">
+                          <label>
+                              <input type="checkbox" required> Tôi đồng ý với những <a href="#">điều khoản</a> và <a href="#">nội quy</a> của diễn đàn
+                          </label>
+                      </div>
+                      <div style="text-align: right;">
+                          <button ng-click="signup()" type="Submit" class="btn btn-forgot">Đăng kí</button>
+                      </div>
+                  </div>
+                  <div class="modal-footer toolbar clearfix">
+                      <div style="text-align: center;">
+                          <a id="loginback" href="#" ng-click='loginView()' class="user-back-link">
+                              <i class="fa fa-arrow-left"></i> Quay lại đăng nhập
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <!-- /.modal-content -->
+          </form>
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <div class="modal fade" id="reset-success" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+      <div class="modal-dialog modal-sm">
+          <form role="form" name="forgotPassword">
+              <div class="modal-content">
+                  <div class="modal-body" style="text-align: center;">
+                      <div class="row">
+                          <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Chúng tôi đã gửi Email cho bạn!</label>
+                          <div class="col-xs-12 ">
+                          </div>
+                          <a href="" type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</a>
+                      </div>
+                      <!-- /.form group -->
+                  </div>
+              </div>
+              <!-- /.modal-content -->
+          </form>
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <div class="modal fade" id="not-signed" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+      <div class="modal-dialog modal-sm">
+          <form role="form" name="forgotPassword">
+              <div class="modal-content">
+                  <div class="modal-body" style="text-align: center;">
+                      <div class="row">
+                          <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Hãy đăng nhập trước khi thực hiện!</label>
+                          <div class="col-xs-12 ">
+                          </div>
+                          <a id="dismissLogin" type="button" class="btn btn-primary" href="#" ng-click='loginView()'>Đồng ý</a>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

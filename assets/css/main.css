@@ -1,0 +1,330 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic&subset=latin,vietnamese);
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #555;
+    background: #f1f1f1;
+    /*scrollbar-face-color: #333*/
+}
+
+
+/*begin:header*/
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    padding-top: 100px;
+    -webkit-background-size: cover!important;
+    -ms-background-size: cover!important;
+    -o-background-size: cover!important;
+    background-size: cover!important;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(50, 66, 90, .50)
+}
+
+#header blockquote {
+    position: relative;
+    z-index: 2;
+    font-family: 'Noto Serif', serif;
+    text-align: center;
+    border-left: none;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 20px;
+}
+
+#header blockquote p {
+    font-size: 28px;
+    line-height: 34px;
+    font-style: italic;
+    color: #fff;
+}
+
+#header blockquote small {
+    font-family: Raleway, sans-serif;
+    color: #fff;
+    font-style: italic;
+}
+
+#header blockquote::before {
+    font-family: FontAwesome;
+    content: "\f10d";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 25px;
+    color: #d9dae9;
+    width: 25px;
+    height: 25px;
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    transform: rotate(15deg)
+}
+
+#header blockquote::after {
+    font-family: FontAwesome;
+    content: "\f10e";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 25px;
+    color: #d9dae9;
+    width: 25px;
+    height: 25px;
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    transform: rotate(15deg)
+}
+
+#header.heading {
+    width: 100%;
+    min-height: 240px;
+    height: auto;
+    padding-top: 10px;
+    -webkit-background-size: cover!important;
+    -ms-background-size: cover!important;
+    -o-background-size: cover!important;
+    background-size: cover!important;
+    background-position: center top;
+    background-repeat: no-repeat
+}
+
+#header.heading .title-desc {
+    position: relative;
+    z-index: 3;
+    padding: 90px 0 40px;
+    text-align: center;
+    color: #fff
+}
+
+#header.heading h2 {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
+    font-style: italic
+}
+
+
+/*end:header*/
+
+
+/*begin:footer*/
+
+#footer {
+    width: 100%;
+    color: #fff;
+    padding: 10px 0 10px 0;
+    background-color: #2466a0;
+    background-repeat: no-repeat;
+    background-position: top center
+}
+
+#copyright {
+    width: 100%;
+    padding: 15px 0 5px;
+    background-color: #205b90;
+    color: #ccc;
+    font-size: 13px;
+    text-align: center;
+}
+
+#footer .social-icon>li>a {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    display: block;
+    border-radius: 100%
+}
+
+#footer .social-icon>li>a>.fa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: -8px;
+    margin-top: -10px;
+    color: #1b1d2a;
+    font-size: 19px
+}
+
+#footer .social-icon>li>a:hover>.fa {
+    color: #fff;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+#footer .social-icon>li>.icon-twitter:hover {
+    background: #4099FF
+}
+
+#footer .social-icon>li>.icon-facebook:hover {
+    background: #4467AD
+}
+
+#footer .social-icon>li>.icon-youtube:hover {
+    background: #FF4B4B
+}
+
+#footer .social-icon>li>.icon-instagram:hover {
+    background: #6e99b2
+}
+
+
+/*slide index*/
+
+@media (min-width: 380px) and (max-width: 993px) {
+    .festival-item .festival-img img {
+        width: 100%;
+        height: 100px;
+    }
+    .festival-item .festival-info .header i {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 379px) {
+    #postArticle h3 {
+        font-size: 14px;
+    }
+    #postArticle .festival-item {
+        margin-top: 10px;
+    }
+    .festival-item .festival-img img {
+        width: 100%;
+        height: 100px;
+    }
+    .festival-item .festival-info .header i {
+        font-size: 14px;
+    }
+}
+
+.festival-item {
+    background-color: #fff;
+    color: #555;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+}
+
+.festival-item .col-xs-12 {
+    padding: 0px;
+}
+
+.festival-item .festival-img img {
+    width: 100%;
+    height: 250px;
+}
+
+.festival-item .festival-info {
+    padding: 10px;
+    padding: 10px;
+}
+
+
+.festival-item .festival-info .col-xs-3 {
+    padding: 0px;
+    text-align: center;
+}
+
+.festival-item .festival-info ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.festival-item .festival-info li {
+    list-style: none;
+}
+
+.festival-item .festival-info .header {
+    margin-bottom: 5px;
+}
+
+.festival-item .festival-info .header i {
+    margin-top: 5px;
+    font-size: 35px;
+    color: #c7c4b7;
+}
+
+.festival-item .festival-info .header a{
+    margin: 0px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #337ab7;
+    line-height: 150%;
+    transition: 0.5;
+}
+.festival-item .festival-info .header a:hover{
+    text-decoration: none;
+    color: #f80;
+}
+.festival-item .infoPrice{
+    text-align: right;
+}
+.festival-item .festival-info .price {
+    background-color: #fe8802;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+
+}
+#page {
+    display: none;
+}
+#loading {
+    display: block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: white;
+    /* rgba(192, 192, 192, 0.5) */
+    background-image: url('/images/Preloader_2.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}

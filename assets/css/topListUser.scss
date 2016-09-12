@@ -1,0 +1,27 @@
+#review-top-list{
+	
+	margin-top: 20px;
+	margin-bottom: 20px;
+	img{
+		width: 60px;
+	}
+	.username{
+		a{
+			font-size: 18px;
+			color: #333;
+			font-weight: 500;
+			&:hover{
+				text-decoration: none;
+				color: #f80;
+			}
+		}
+	}
+	.user-item{
+		margin-top: 10px;
+	}
+	.box-item{
+		padding: 5px 0;
+		background-color: #fff;
+		border: 1px solid #eee;
+	}
+}

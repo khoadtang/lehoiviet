@@ -1,0 +1,81 @@
+<div id="menu">
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/"><img class="img-responsive" src="assets/img/logo150x40.png"/></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav menu-left">
+                    <li><a href="#/festival">Lễ hội</a></li>
+                    <li><a href="#/blog">Blogs</a></li>
+                    <li><a href="#/video">Videos</a></li>
+                    <li><a href="#/video">Trực tiếp</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right menu-right">
+                    <li>
+                        <form id="search" method="post" action="index.html">
+                            <input type="text" name="search" placeholder="Tìm kiếm lễ hội..." ng-keyup="searchKeyword()" ng-model="keySearch" id="key" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" />
+                            <ul class="dropdown-menu results">
+                                <li>Kết quả tìm kiếm</li>
+                                <li ng-repeat="item in dataSearch"><a href="/article/detail/{{item._id}}">{{item.title.trunc(35)}}</a></li>
+                            </ul>
+                        </form>
+                    </li>
+                    <li class="dropdown" ng-show="$root.token != null">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" style="width:30px;" class="img-circle" /></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/profile/{{$root.id}}">
+                                    <strong>{{$root.firstName}}</strong>
+                                </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/me/profile/edit/{{$root.id}}">Cập nhật tài khoản</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/postReview.html">Viết cảm nghĩ</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="logout()">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="btn createPost" ng-click="checkLoginCreatePost()">
+                            Đăng bài <span class="caret"></span>
+                        </button>
+                    </li>
+                    <li class="login"><a type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="modal fade" tabindex="-1" role="dialog" id="searchbox">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Tìm kiếm lễ hội đã diễn ra</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="search" method="post" action="index.html">
+                        <input type="text" name="search" placeholder="Tìm kiếm lễ hội..." ng-keyup="searchKeyword()" ng-model="keySearch" id="key" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" />
+                        <ul class="showSearch">
+                            <li ng-repeat="item in dataSearch"><a href="/create/festival/{{item._id}}">{{item.title.trunc(80)}}</a></li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- inject other component -->
+<user-handler></user-handler>

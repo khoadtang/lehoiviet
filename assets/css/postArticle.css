@@ -1,0 +1,105 @@
+#mainpost {
+  color: #222;
+  font-size: 15px;
+  /*end:postcontent*/
+}
+
+#mainpost #postcontent {
+  background-color: #fff;
+  padding: 25px;
+}
+
+#mainpost #postcontent .static-header {
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 1px 1px #fff;
+}
+
+#mainpost #postcontent .create-festival {
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 20px;
+  border-style: none;
+  color: #fff;
+}
+
+.btn-file {
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-file span {
+  cursor: pointer !important;
+}
+
+.feedback-form .infomation-box span {
+  color: #c00;
+  font-weight: 700;
+}
+
+.feedback-form .infomation-box .infomation-name {
+  color: #c00;
+  border-bottom: 1px solid #222;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.feedback-form .infomation-box .infomation-content {
+  margin-bottom: 5px;
+}
+
+.feedback-form .infomation-box .box-info-normal {
+  padding: 5px 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.feedback-form .infomation-box .box-info-normal .lable {
+  padding-top: 10px;
+}
+
+.feedback-form .infomation-box .box-info-normal .details textarea {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border: 1px solid #a0a0a0;
+  width: 100%;
+}
+
+.feedback-form .infomation-box .box-info-normal .details textarea:focus {
+  border: 1px solid #f80;
+}
+
+.feedback-form .infomation-box .box-info-normal .details input {
+  padding: 10px 6px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+  width: 100%;
+}
+
+.feedback-form .infomation-box .box-info-normal .details input:focus {
+  border-bottom: 1px solid #f80;
+}
+
+.feedback-form .infomation-box .box-info-normal .details select {
+  padding: 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.feedback-form .infomation-box .box-info-normal .details select:focus {
+  border-bottom: 1px solid #f80;
+}
+
+.overhight {
+  height: 450px;
+  overflow-y: scroll;
+}
+
+/*end:feedback-form*/

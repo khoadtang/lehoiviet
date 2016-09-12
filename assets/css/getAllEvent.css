@@ -1,0 +1,61 @@
+.event-item {
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+    border-radius: 2px;
+    margin: 20px 0;
+}
+
+.thumbnail {
+    padding: 0px;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.event-info {
+    padding-left: 10px;
+}
+
+.event-title p {
+    white-space: initial;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+}
+
+.event-price {
+    padding: 5px 0;
+}
+
+.event-price small {
+    font-weight: bold;
+}
+
+.tag-venues{
+	float:left;
+}
+
+.tag-venues small {
+    margin-right: 6px;
+    padding: 1px 4px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+.tag-kinds{
+	float: right;
+}
+
+.tag-kinds p{
+	margin-right: 10px;
+}
+
+
+.event-date{
+	margin-bottom:10px;
+}
+
+.event-date img{
+	margin-bottom: 10px;
+}

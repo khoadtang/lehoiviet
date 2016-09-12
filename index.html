@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html ng-app="lehoiviet" ng-controller="appController" ng-init="init()" xmlns="http://www.w3.org/1999/xhtml" lang="vi-VN" xml:lang="vi-VN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link href="images/favicon1.ico" rel="icon" />
+    <title>Lễ Hội Việt</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.css">
+    <script src="assets/libs/bootstrap/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/libs/bootstrap/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <top-menu></top-menu>
+    <div id="page">
+        <div class="main">
+              <div ng-view></div>
+        </div>
+    </div>
+
+  <info-footer></info-footer>
+</body>
+
+<!-- Include Libs -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="app/application.js"></script>
+<script src="app/components/components.js"></script>
+<script src="app/services/net.js"></script>
+
+<!-- inject controller -->
+<script src="app/pods/home/controller.js"></script>
+<script src="app/pods/festival/controller.js"></script>
+<script src="app/pods/video/controller.js"></script>
+<script src="app/pods/blog/controller.js"></script>
+
+<!-- inject component -->
+<script src="app/components/lobby/lobby.js"></script>
+<script src="app/components/menu/menu.js"></script>
+<script src="app/components/info-footer/info-footer.js"></script>
+<script src="app/components/loading/loading.js"></script>
+<script src="app/components/top-member/top-member.js"></script>
+<script src="app/components/user-handle/user-handle.js"></script>
+<script src="app/components/date/date.js"></script>
+
+<!-- inject service -->
+<script src="app/services/festival.js"></script>
+<script src="app/services/user.js"></script>
+<script src="app/services/video.js"></script>
+<script src="app/helper/date.js"></script>
+</html>

@@ -1,0 +1,135 @@
+#getAllFestival .search-box .input-group-addon {
+  background-color: #fff;
+  border-radius: none;
+}
+
+#getAllFestival .col-md-6 {
+  padding: 10px;
+}
+
+#getAllFestival .festival-item {
+  margin-top: 10px;
+  background-color: #fff;
+  color: #555;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+#getAllFestival .festival-item .col-xs-12 {
+  padding: 0px;
+}
+
+#getAllFestival .festival-item .festival-img img {
+  width: 100%;
+  height: 200px;
+}
+
+#getAllFestival .festival-item .festival-info {
+  padding: 10px;
+  padding: 10px;
+}
+
+#getAllFestival .festival-item .festival-info .col-xs-3 {
+  padding: 0px;
+  text-align: center;
+}
+
+#getAllFestival .festival-item .festival-info ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+#getAllFestival .festival-item .festival-info li {
+  list-style: none;
+}
+
+#getAllFestival .festival-item .festival-info .header {
+  margin-bottom: 5px;
+}
+
+#getAllFestival .festival-item .festival-info .header i {
+  margin-top: 5px;
+  font-size: 35px;
+  color: #c7c4b7;
+}
+
+#getAllFestival .festival-item .festival-info .header h3 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #337ab7;
+  line-height: 150%;
+}
+
+#getAllFestival .festival-item .festival-info .price {
+  background-color: #fe8802;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+#getAllFestival .search-box {
+  background: #fff;
+  padding: 10px;
+}
+
+#getAllFestival .loadMore {
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#getAllFestival .loadMore button {
+  height: 50px;
+  width: 250px;
+  font-size: 20px;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+
+#getAllFestival .loadMore button span {
+  border-right: 1px solid #ccc;
+  margin-right: 5px;
+  padding: 10px;
+  float: left;
+}
+
+#getAllFestival .create-festival {
+  text-align: center;
+  padding: 10px;
+}
+
+#getAllFestival .create-festival button {
+  height: 50px;
+  width: 250px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#getAllFestival .create-festival button span {
+  border-right: 1px solid #ccc;
+  margin-right: 5px;
+  padding: 10px;
+  float: left;
+}
+
+#getAllFestival .guide-helper {
+  margin: 40px 0;
+  background: #fff;
+  padding: 10px 0;
+}
+
+#getAllFestival .guide-helper h4 {
+  margin-bottom: 5px;
+}
+
+#getAllFestival .advert-festival {
+  background: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+#getAllFestival #btnLoadMore {
+  cursor: pointer;
+}
