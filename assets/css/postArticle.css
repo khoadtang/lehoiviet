@@ -1,12 +1,8 @@
 #mainpost {
   color: #222;
   font-size: 15px;
+  padding-top: 80px;
   /*end:postcontent*/
-}
-
-#mainpost #postcontent {
-  background-color: #fff;
-  padding: 25px;
 }
 
 #mainpost #postcontent .static-header {
@@ -21,6 +17,11 @@
   margin-top: 20px;
   border-style: none;
   color: #fff;
+}
+
+#mainpost #postcontent .createPostForm {
+  background-color: #fff;
+  padding: 25px;
 }
 
 .btn-file {

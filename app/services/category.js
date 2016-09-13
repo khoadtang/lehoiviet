@@ -7,7 +7,7 @@ app.service("categoryService", function(net) {
         net.post('/category/create/', data, eventHandler);
     };
 
-    categoryService.getLists = function(eventHandler) {
+    categoryService.get = function(eventHandler) {
         net.get("/category/lists", eventHandler);
     };
 
@@ -18,6 +18,6 @@ app.service("categoryService", function(net) {
     categoryService.update = function(data, eventHandler){
         net.post('/category/update/', data, eventHandler);
     };
-   
+
     return categoryService;
 });

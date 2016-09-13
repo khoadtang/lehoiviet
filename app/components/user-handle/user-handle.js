@@ -26,6 +26,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
       $('#register').modal('hide');
       $('#forgot-password').modal('hide');
       $('#dangnhap').modal('show');
+      $('#not-signed').modal('hide');
   };
   $scope.forgetPasswordView = function(){
       $('#register').modal('hide');

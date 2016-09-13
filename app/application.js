@@ -22,6 +22,16 @@ app.config(['$routeProvider', function ($routeProvider) {
                     controller: "blogController",
                     controllerAs: 'blog'
                 })
+                .when('/festival/create', {
+                    templateUrl : 'app/pods/create-festival/view.html',
+                    controller: "createFestivalController",
+                    controllerAs: 'createFestival'
+                })
+                .when('/blog/create', {
+                    templateUrl : 'app/pods/create-blog/view.html',
+                    controller: "createBlogController",
+                    controllerAs: 'createBlog'
+                })
         }]);
 
 app.constant("ENV", {

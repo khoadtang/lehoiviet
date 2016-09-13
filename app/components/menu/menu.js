@@ -11,8 +11,19 @@ menu.directive("topMenu", function(){
     };
 });
 
-menu.controller("menuController", function($scope) {
+menu.controller("menuController", function($scope, $rootScope) {
   $scope.loginView = function(){
       $('#dangnhap').modal('show');
+  };
+  $scope.actionUserPanel = function(){
+      console.log('test');
+      $('.actionUserPanel .dropdown-menu').slideToggle(600);
+  };
+  $scope.createFestivalView = function() {
+    if ($rootScope.token != null) {
+      window.location = "#/festival/create";
+    } else {
+      $('#not-signed').modal('show');
+    }
   }
 });

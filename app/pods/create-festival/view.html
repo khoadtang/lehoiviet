@@ -1,0 +1,243 @@
+<div class="container" ng-init="initData()">
+<div id="mainpost">
+<div id="postcontent">
+<div class="row">
+    <form name="createPostForm" class="createPostForm col-md-8 col-md-offset-2 col-sm-12 inputCustom">
+        <h1 class="static-header" ng-show="showInfo"><span class="glyphicon glyphicon-edit"></span> Thêm lễ hội</h1>
+        <h1 class="text-error static-header" ng-show="showError">Đăng bài bị lỗi</h1>
+        <div class="feedback-form">
+            <div class="feedback-notes">Những lễ hội bạn biết vẫn chưa có trên <b>Lehoiviet.vn</b>? Chia sẻ với cộng đồng ngay!</div>
+            <div class="feedback-table">
+                <section>
+                    <div class="infomation-box">
+                        <div class="infomation-name">Thông tin cơ bản</div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Tên lễ hội<span> *</span></div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="title" type="text" name="title" required="required" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
+                                </div>
+                                <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                    <span class="text-error" ng-show="createPostForm.title.$dirty && createPostForm.title.$invalid">
+                                        <span ng-show="createPostForm.title.$error.required">Tên là bắt buộc</span>
+                                        <span ng-show="createPostForm.title.$error.minlength" class="text-error">Bạn phải nhập ít nhất 10 kí tự</span>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Loại lễ hội<span> *</span></div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <select class="col-sm-4 col-xs-12" ng-model="typeEvent">
+                                        <option ng-repeat="category in categories">{{category.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Tên địa điểm<span> *</span></div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false" required/>
+                                </div>
+                                <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                    <span class="text-error" ng-show="createPostForm.nameAddress.$dirty && createPostForm.nameAddress.$invalid">
+                                        <span ng-show="createPostForm.nameAddress.$error.required">Tên địa điểm là bắt buộc</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Địa chỉ<span> *</span></div>
+                                <div class="details col-sm-9 row col-xs-12">
+                                    <select class="col-sm-4 col-xs-5" ng-model="province">
+                                        <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
+                                    </select>
+                                    <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="district">
+                                        <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="description" type="text" spellcheck="false" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <textarea rows="5" ng-model="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Đăng ảnh bìa<span> *</span></div>
+                                <div class="details col-sm-9 row col-xs-12">
+                                    <div class="upload-image">
+                                        <ul id="listImage" class="row"></ul>
+                                    </div>
+                                    <div class="file-input hvr-shutter-out-horizontal btn-file">
+                                        Chọn hình&hellip;
+                                        <input type="file" name="file" ng-files="getTheFiles($files)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="infomation-box">
+                        <div class="infomation-name">Thông tin thời gian</div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Thời gian bắt đầu<span> *</span></div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                                </div>
+                                <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                    <span class="text-error" ng-show="createPostForm.timeBegin.$dirty && createPostForm.timeBegin.$invalid">
+                                        <span ng-show="createPostForm.timeBegin.$error.required">thời gian là bắt buộc</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end:infomation-content-->
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Thời gian kết thúc<span> *</span></div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                                </div>
+                                <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                    <span class="text-error" ng-show="createPostForm.timeEnd.$dirty && createPostForm.timeEnd.$invalid">
+                                        <span ng-show="createPostForm.timeEnd.$error.required">Thời gian là bắt buộc</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end:infomation-content-->
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Giá</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="infomation-box">
+                        <div class="infomation-name">Thông tin nhà tổ chức</div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="phoneNumber" type="text" onkeypress="return isNumberKey(event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Email</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input type="email" ng-model="emailAddress" name='emailAddress' spellcheck="false" />
+                                </div>
+                                <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                    <span ng-show="createPostForm.emailAddress.$error.email">Email không hợp lệ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infomation-content row">
+                            <div class="box-info-normal">
+                                <div class="lable col-sm-3 col-xs-12">Website</div>
+                                <div class="details col-sm-9 col-xs-12">
+                                    <input ng-model="website" type="text" spellcheck="false" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div>
+                <button ng-click="onCreateFestival()" class="create-festival hvr-shutter-out-horizontal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!--alert succes delete post-->
+<div class="modal fade" id="post-success" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+    <div class="modal-dialog modal-sm">
+        <form role="form" name="forgotPassword">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <div class="row">
+                        <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Đăng bài thành công</label>
+                        <div class="col-xs-12 ">
+                        </div>
+                        <a href="/" type="button" class="btn btn-primary">Đồng ý</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+$(function() {
+
+    $('input[name="timeBegin"]').daterangepicker({
+        "singleDatePicker": true,
+        timePicker: true,
+        timePickerIncrement: 5,
+        locale: {
+            format: 'DD/MM/YYYY HH:mm:ss'
+        }
+    });
+
+    $('input[name="timeEnd"]').daterangepicker({
+        "singleDatePicker": true,
+        timePicker: true,
+        timePickerIncrement: 5,
+        locale: {
+            format: 'DD/MM/YYYY HH:mm:ss'
+        }
+    });
+});
+//upload and display image
+$(function() {
+    $(":file").change(function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+function imageIsLoaded(e) {
+    $("#listImage").empty();
+    $("#listImage").append("<li class='col-xs-4'><img id='imgThumbnail' class='imgsize' src='#'/><div class='delete' onclick='removeImgThumbnail()';><span>x</span></div></li>");
+    $('#imgThumbnail').attr('src', e.target.result);
+
+};
+
+$("#listImage").on("click", "li", function() {
+
+});
+
+function removeImgThumbnail() {
+    $("#listImage").empty();
+}
+</script>

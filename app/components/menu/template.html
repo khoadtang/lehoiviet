@@ -27,8 +27,8 @@
                             </ul>
                         </form>
                     </li>
-                    <li class="dropdown" ng-show="$root.token != null">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" style="width:30px;" class="img-circle" /></a>
+                    <li class="dropdown actionUserPanel" ng-show="$root.token != null">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()"> <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" style="width:30px;" class="img-circle" /></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="/profile/{{$root.id}}">
@@ -44,8 +44,7 @@
                         </ul>
                     </li>
                     <li>
-                        <button type="button" class="btn createPost" ng-click="checkLoginCreatePost()">
-                            Đăng bài <span class="caret"></span>
+                        <button type="button" class="btn createPost" ng-click="createFestivalView()">Đăng bài
                         </button>
                     </li>
                     <li class="login"><a type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>

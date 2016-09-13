@@ -1,9 +1,10 @@
 var app = angular.module("lehoiviet");
 
-app.service("festivalService", function(net) {
+app.service("festivalService", function(net, $rootScope) {
     var festivalService = {};
 
     festivalService.create = function(festival, eventHandler){
+        festival.Authorization = $rootScope.token;
         net.post('/festival/create/', festival, eventHandler);
     };
 
