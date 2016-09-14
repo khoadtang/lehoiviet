@@ -40,7 +40,7 @@ user.service("userService", function(net) {
     };
 
     userService.getProfile = function(id, eventHandler){
-        net.get('/user/profile', eventHandler);
+        net.get('/user/profile/'.concat(id), eventHandler);
     };
 
     userService.changePassword = function(data, eventHandler){

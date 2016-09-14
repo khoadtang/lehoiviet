@@ -1,0 +1,156 @@
+#profile {
+  padding: 10px 0;
+  /**/
+}
+
+#profile .borderBottom {
+  border-bottom: 1px solid #ddd;
+}
+
+#profile .user_left_page {
+  padding: 5px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+#profile .user-avatar {
+  text-align: center;
+}
+
+#profile .user-avatar img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+#profile .user-name-bar {
+  text-align: center;
+}
+
+#profile .user-name-bar h4 {
+  font-size: 16px;
+}
+
+#profile .tabAction {
+  margin-top: 10px;
+}
+
+#profile .tabAction ul {
+  margin: 0;
+  padding: 0;
+}
+
+#profile .tabAction li {
+  list-style-type: none;
+}
+
+#profile .tabAction i {
+  margin-right: 10px;
+}
+
+#profile .tabAction a {
+  display: block;
+  padding: 5px;
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+  transition: 0.4s;
+  border: 1px solid #fff;
+}
+
+#profile .tabAction a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #337ab7;
+  color: #fff;
+}
+
+#profile .tabAction .action {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+#profile .tabAction .action:hover {
+  color: #fff;
+}
+
+#profile .infoTab section {
+  margin-top: 10px;
+}
+
+#profile .infoTab article,
+#profile .infoTab .infoUserTab {
+  padding: 10px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#profile .infoTab .lastReviewTab h3,
+#profile .infoTab .lastBlogsTab h3,
+#profile .infoTab .profileEdit h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+#profile .infoTab .lastReviewTab a:hover,
+#profile .infoTab .lastBlogsTab a:hover,
+#profile .infoTab .profileEdit a:hover {
+  text-decoration: none;
+  color: #f80;
+}
+
+#profile .infoTab .lastReviewTab .col-xs-12,
+#profile .infoTab .lastReviewTab .col-sm-10,
+#profile .infoTab .lastReviewTab .col-sm-2,
+#profile .infoTab .lastReviewTab .col-xs-4,
+#profile .infoTab .lastReviewTab .col-xs-8,
+#profile .infoTab .lastBlogsTab .col-xs-12,
+#profile .infoTab .lastBlogsTab .col-sm-10,
+#profile .infoTab .lastBlogsTab .col-sm-2,
+#profile .infoTab .lastBlogsTab .col-xs-4,
+#profile .infoTab .lastBlogsTab .col-xs-8,
+#profile .infoTab .profileEdit .col-xs-12,
+#profile .infoTab .profileEdit .col-sm-10,
+#profile .infoTab .profileEdit .col-sm-2,
+#profile .infoTab .profileEdit .col-xs-4,
+#profile .infoTab .profileEdit .col-xs-8 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#profile .infoTab .lastReviewTab img,
+#profile .infoTab .lastBlogsTab img,
+#profile .infoTab .profileEdit img {
+  width: 100%;
+  height: 300px;
+}
+
+#profile .infoTab .lastReviewTab .desc,
+#profile .infoTab .lastBlogsTab .desc,
+#profile .infoTab .profileEdit .desc {
+  position: relative;
+}
+
+#profile .infoTab .lastReviewTab .content,
+#profile .infoTab .lastBlogsTab .content,
+#profile .infoTab .profileEdit .content {
+  position: absolute;
+  bottom: -10px;
+  padding: 10px 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+#profile .videoYTTab iframe {
+  height: 300px;
+}
+
+.profileEdit .row {
+  margin-bottom: 10px;
+}
+
+.profileEdit .col-xs-3 {
+  padding-top: 7px;
+}

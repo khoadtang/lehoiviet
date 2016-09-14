@@ -65,12 +65,11 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
           $rootScope.email = data.user.email;
           $rootScope.avatar = data.user.avatar;
           $rootScope.firstName = data.user.firstName;
-          $rootScope.uid = data.user_id;
+          $rootScope.uid = data.user._id;
           $scope.errorMessage = null;
         } else {
           $scope.errorMessage = "Đăng Nhập Không Thành Công";
         }
-
       }
     });
   };

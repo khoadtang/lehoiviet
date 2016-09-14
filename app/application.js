@@ -7,8 +7,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                     controller: "homeController",
                     controllerAs: 'home'
                 })
-                .when('/festival', {
-                    templateUrl : 'app/pods/festival/view.html',
+                .when('/festivals', {
+                    templateUrl : 'app/pods/festivals/view.html',
                     controller: "festivalController",
                     controllerAs: 'festival'
                 })
@@ -31,6 +31,14 @@ app.config(['$routeProvider', function ($routeProvider) {
                     templateUrl : 'app/pods/create-blog/view.html',
                     controller: "createBlogController",
                     controllerAs: 'createBlog'
+                }).when('/user/profile', {
+                    templateUrl : 'app/pods/user/view.html',
+                    controller: "userController",
+                    controllerAs: 'user'
+                }).when('/account/setting', {
+                    templateUrl : 'app/pods/account/view.html',
+                    controller: "accountController",
+                    controllerAs: 'account'
                 })
         }]);
 

@@ -22,7 +22,6 @@
                                         <span ng-show="createPostForm.title.$error.required">Tên là bắt buộc</span>
                                         <span ng-show="createPostForm.title.$error.minlength" class="text-error">Bạn phải nhập ít nhất 10 kí tự</span>
                                     </span>
-
                                 </div>
                             </div>
                         </div>
@@ -31,7 +30,7 @@
                                 <div class="lable col-sm-3 col-xs-12">Loại lễ hội<span> *</span></div>
                                 <div class="details col-sm-9 col-xs-12">
                                     <select class="col-sm-4 col-xs-12" ng-model="typeEvent">
-                                        <option ng-repeat="category in categories">{{category.name}}</option>
+                                        <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                                     </select>
                                 </div>
                             </div>
