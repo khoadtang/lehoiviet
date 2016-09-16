@@ -11,5 +11,9 @@ net.service("net", function($http, ENV) {
     $http.post(ENV.apiUrl + url, param).then(eventHandler);
   };
 
+  netService.put = function(url, param, eventHandler) {
+    $http.put(ENV.apiUrl + url, param).then(eventHandler);
+  };
+
   return netService;
 });

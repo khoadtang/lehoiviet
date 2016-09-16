@@ -6,14 +6,13 @@ user.controller("userController", function($rootScope, $scope, userService) {
   };
 
   getProfile = function() {
-    console.log($rootScope.uid);
     userService.getProfile($rootScope.uid, function(response){
       if (response.status == 200) {
         $scope.user = response.data.data;
       }
     });
   };
-  
+
   $scope.changTab = function(info){
     $('.infoList a').removeClass('action');
     $('.infoList #' + info).addClass('action');

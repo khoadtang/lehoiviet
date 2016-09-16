@@ -1,6 +1,6 @@
 var user = angular.module("lehoiviet");
 
-user.service("userService", function(net) {
+user.service("userService", function(net, $http, $rootScope) {
     var userService = {};
 
     userService.signup = function(user, eventHandler){
@@ -27,8 +27,9 @@ user.service("userService", function(net) {
         net.get('/user/avatar/update/'.concat(data), eventHandler);
     };
 
-    userService.update = function(user, eventHandler){
-        net.post('/user/update', user, eventHandler);
+    userService.update = function(uid, user, eventHandler){
+      $http.defaults.headers.common['Authorization'] = $rootScope.token;
+      net.put('/user/update/'.concat(uid), user, eventHandler);
     };
 
     userService.getUserbyId = function(id, eventHandler){
@@ -43,8 +44,9 @@ user.service("userService", function(net) {
         net.get('/user/profile/'.concat(id), eventHandler);
     };
 
-    userService.changePassword = function(data, eventHandler){
-        net.post('/user/password/change/', data, eventHandler);
+    userService.changePassword = function(uid, passwords, eventHandler){
+        $http.defaults.headers.common['Authorization'] = $rootScope.token;
+        net.post('/user/password/change/'.concat(uid), passwords, eventHandler);
     };
 
     return userService;
