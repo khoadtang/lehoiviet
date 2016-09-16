@@ -1,4 +1,4 @@
-<div id="profile_edit">
+<div id="profile_edit" ng-init="initData()">
   <div id="profile">
       <div class="row profile_edit_area">
           <!-- left column -->
@@ -6,10 +6,10 @@
               <div class="user_left_page">
                   <div class="infoUser borderBottom">
                       <div class="user-avatar">
-                          <img ng-src="{{user.avatar}}" class="img-circle" alt="avatar">
+                          <img ng-src="http://lehoiviet.herokuapp.com/{{avatar}}" class="img-circle" alt="avatar">
                       </div>
                       <div class="user-name-bar">
-                          <h4>{{user.lastName}} {{user.firstName}}</h4>
+                          <h4>{{lastName}} {{firstName}}</h4>
                       </div>
                   </div>
                   <div class="tabAction">
@@ -42,7 +42,7 @@
                           <div class="row">
                               <label class="col-xs-3 control-label">Tên: </label>
                               <div class="col-xs-9">
-                                  <input ng-model="firstName" type="text">
+                                  <input ng-model="user.firstName" type="text">
                               </div>
                           </div>
                           <div class="row">
@@ -96,7 +96,7 @@
                           <div class="row">
                               <label class="col-xs-3 control-label"></label>
                               <div class="col-xs-9" style="text-align: right;">
-                                  <button class="hvr-shutter-out-horizontal" ng-click="editProfile()">Lưu thay đổi</button>
+                                  <button class="hvr-shutter-out-horizontal" ng-click="onUpdateProfile()">Lưu thay đổi</button>
                               </div>
                           </div>
                       </article>
@@ -137,7 +137,7 @@
                           <div class="row">
                               <label class="col-xs-3 control-label"></label>
                               <div class="col-xs-9" style="text-align: right;">
-                                  <button class="hvr-shutter-out-horizontal" ng-click="updatePasswd()">Cập nhật</button>
+                                  <button class="hvr-shutter-out-horizontal" ng-click="onChangePassword()">Cập nhật</button>
                               </div>
                           </div>
                       </article>
