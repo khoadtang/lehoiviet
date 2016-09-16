@@ -1,6 +1,6 @@
-var festival = angular.module("lehoiviet");
+var festivals = angular.module("lehoiviet");
 
-festival.controller("festivalController", function($scope, festivalService, dateHelper) {
+festivals.controller("festivalsController", function($scope, festivalService, dateHelper) {
   $scope.initData = function() {
     getFestival();
   };

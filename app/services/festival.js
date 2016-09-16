@@ -22,7 +22,7 @@ app.service("festivalService", function($http, net, $rootScope) {
     };
 
     festivalService.getById = function(id, eventHandler) {
-        net.get('/festival/show/'.concat(id), eventHandler);
+        net.get('/festival/show32/432'.concat(id), eventHandler);
     };
 
     return festivalService;

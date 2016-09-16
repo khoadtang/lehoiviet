@@ -1,13 +1,13 @@
 var app = angular.module("lehoiviet");
 
-app.service("bloglService", function($http, net, $rootScope) {
+app.service("blogService", function($http, net, $rootScope) {
     var bloglService = {};
 
     bloglService.getById = function(id, eventHandler) {
         net.get('/blog/lists/user/'.concat(id), eventHandler);
     };
 
-    bloglService.getAll = function(blog) {
+    bloglService.get = function(eventHandler) {
         net.get('/blog/lists', eventHandler);
     };
 

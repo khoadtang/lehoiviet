@@ -9,8 +9,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                 })
                 .when('/festivals', {
                     templateUrl : 'app/pods/festivals/view.html',
-                    controller: "festivalController",
-                    controllerAs: 'festival'
+                    controller: "festivalsController",
+                    controllerAs: 'festivals'
                 })
                 .when('/video', {
                     templateUrl : 'app/pods/video/view.html',
@@ -39,6 +39,10 @@ app.config(['$routeProvider', function ($routeProvider) {
                     templateUrl : 'app/pods/account/view.html',
                     controller: "accountController",
                     controllerAs: 'account'
+                }).when('/festival/:festivalId', {
+                    templateUrl : 'app/pods/festival/view.html',
+                    controller: "festivalController",
+                    controllerAs: 'festival'
                 })
         }]);
 

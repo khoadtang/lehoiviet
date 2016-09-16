@@ -3,11 +3,13 @@
         <p>{{title}}</p>
     </div>
     <div class="row">
-        <loading-item url="assets/img/fbloader.gif" enable="false"></loading-item>
+      <div id="upcomingFestivalLoader" class="col-xs-12" style="text-align: center;">
+          <img ng-show="!isLoaded" src="assets/img/fbloader.gif" />
+      </div>
         <div class="col-sm-6 col-xs-12 " ng-repeat="event in events" >
             <div class="festival-item row">
                 <div class="col-xs-12 festival-img">
-                    <a href="/article/detail/{{event._id}}"><img class="img-responsive" src="{{event.thumbnail.imgResize}}" /></a>
+                    <a href="#/festival/{{event._id}}"><img class="img-responsive" src="{{event.thumbnail.imgResize}}" /></a>
                 </div>
                 <div class="col-xs-12 festival-info">
                     <div class="header row">

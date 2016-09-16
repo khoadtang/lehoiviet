@@ -4,7 +4,7 @@
           <ul class="row item">
               <li class="col-md-1 col-sm-1 col-xs-3" ng-repeat="member in members">
                   <a href="" ng-click="checkLoginSeeUser(member._id)">
-                      <img class="img-responsive img-circle" src="http://lehoiviet.herokuapp.com/{{member.avatar}}"/>
+                      <img class="img-responsive img-circle" src="http://lehoiviet.herokuapp.com{{member.avatar}}"/>
                       <span>{{member.firstName}}</span>
                   </a>
               </li>

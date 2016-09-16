@@ -1,0 +1,444 @@
+<div id="upcomingFestivalLoader" class="col-xs-12" style="text-align: center;">
+    <img ng-show="!isLoaded" src="assets/img/fbloader.gif" />
+</div>
+
+<div id="article" ng-init="initData()">
+    <div class="info-festival bg-grey">
+        <div class="container" data-ng-init="getReview()">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <a href="#">
+                        <img class="img-responsive" ng-src="{{festival.thumbnail.imgName}}" />
+                    </a>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <div class="content">
+                          <span>LỄ HỘI: {{festival.typeEvent.name}}</span>
+                        <h3>{{festival.title}}</h3>
+                        <p class="address">{{festival.address.mainAddress}} , {{festival.address.district}}, {{festival.address.city}}</p>
+                        <!-- <div class="boderTop"></div> -->
+                        <div class="res-summary-point row padd-top-bottom">
+                            <div class="sumary col-sm-3 col-xs-6">
+                                <div class="sumary-point">
+                                    <span>{{festival.statistic.views}}</span>
+                                </div>
+                                <div class="sumary-function">Lượt xem</div>
+                            </div>
+                            <div class="sumary col-sm-3 col-xs-6">
+                                <div class="sumary-point">
+                                    <span>{{festival.statistic.likes}}</span>
+                                </div>
+                                <div class="sumary-function">Yêu thích</div>
+                            </div>
+                            <div class="sumary col-sm-3 col-xs-6">
+                                <div class="sumary-point">
+                                    <span>{{calculatePoint(festival.statistic.rating.isRating, festival.statistic.rating.peopleRating) | number:1}}</span>
+                                </div>
+                                <div class="sumary-function">Đánh giá</div>
+                            </div>
+                            <div class="sumary col-sm-3 col-xs-6 brleft">
+                                <div class="sumary-common">
+                                    <span>{{festival.statistic.comments}}</span>
+                                </div>
+                                <div class="sumary-function">Bình luận</div>
+                            </div>
+                        </div>
+                        <ul class="fontWeitgh600 font15">
+                            <li>
+                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.timeBegin.fomatDate()}} <span style="margin: 0 3px">-</span> {{festival.timeEnd.fomatDate()}}
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> Giá: {{festival.priceTicket}} đ
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span>Điện thoại: {{festival.contactInfo.phoneNumber}}
+                            </li>
+                            <li>
+                                <button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">
+                                    <i class="fa fa-facebook-square"></i> Chia sẻ</button>
+                            </li>
+                        </ul>
+                        <div class="actionUser">
+                            <div class="row">
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('1')"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like bài viết</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('2')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Đánh giá</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('3')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm video</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('4')"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Thêm hình ảnh</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="introduce boderTop bg-white">
+        <div class="container">
+            <h2 class="colorWord">GIỚI THIỆU</h2>
+            <div ng-bind-html="arrayContent" class="arrayContent">
+            </div>
+        </div>
+    </div>
+    <div class="bg-grey boderTop">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="imageFestival ">
+                        <h2 class="colorWord ">HÌNH ẢNH</h2>
+                        <div class="row imgContent" data-ng-init="getImageFestival()">
+                            <div class="col-sm-3 col-xs-6" ng-repeat="img in imgFestival">
+                                <a href="" ng-click="watchSlide(imgFestival.indexOf(img))"><img class="img-responsive" ng-src="/{{img.imgName}}" /></a>
+                            </div>
+                        </div>
+                        <div style="text-align: center">
+                            <a href="" class="btn-custom hvr-shutter-out-horizontal">Xem thêm hình ảnh</a>
+                        </div>
+                        <h2 class="colorWord">VIDEO</h2>
+                        <div class="videoYoutube row" data-ng-init="getVideoByPostId()">
+                            <div ng-repeat="item in getVideoId">
+                                <div class="col-sm-3 col-xs-6 img-youtube" ng-click="watchVideoID(item.link)">
+                                    <div class="image ex1">
+                                        <img class="img-responsive" src="//img.youtube.com/vi/{{item.link}}/0.jpg">
+                                        <span class="play">
+                                 <span></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="introduce">
+                        <h2 class="colorWord">VỊ TRÍ CỦA LỄ HỘI</h2>
+                        <div class="microsite-map">
+                            <iframe width='100%' height='300px' frameborder='0' scrolling='no' frameborder="0" style="border:0" ng-src='{{urlMap}}'></iframe>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <h2 class="colorWord">BÌNH LUẬN</h2>
+                        <div id="post-common">
+                            <div>
+                                <!--begin:microsite-sumary-new-->
+                                <div class="box-cmt-main row">
+                                    <div class="item-avatar col-md-1 col-sm-1 col-xs-2">
+                                        <a href="">
+                                            <img class="img-responsive img-circle" src="{{userProfile.avatar}}" />
+                                        </a>
+                                    </div>
+                                    <div class="item-content col-md-11 col-sm-11 col-xs-10 row">
+                                        <div class="inputform-text col-xs-12">
+                                            <div class="textareas">
+                                                <textarea class="form-control" ng-model="content" placeholder="Nhập nội dung bình luận"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-xs-12 upload-image">
+                                            <ul id="listImage" class="row"></ul>
+                                        </div> -->
+                                        <div class="col-xs-12" style="text-align: right; margin-top: 10px;">
+                                            <!--  <span class="file-input btn btn-primary btn-file">
+                        Đăng hình&hellip; <input type="file" name="file" ng-files="imgComment($files)" />
+                    </span> -->
+                                            <button class="btn-blue" ng-click="postComment()">Bình luận</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--box-item-comment-->
+                                <!--end:microsite-sumary-new-->
+                                <!--begin:microsite-box-->
+                                <!--begin:microsite-box-->
+                                <div class="microsite-box2">
+                                    <div>
+                                        <div id="resreviews">
+                                            <div id="review-list" data-ng-init="getComment()">
+                                                <div class="album" ng-repeat="item in commentdata">
+                                                    <div class="micro-home-recent-review">
+                                                        <article class="micro-home-review-item row ">
+                                                            <div class="leftimage col-sm-1 col-xs-2">
+                                                                <div class="microsite-review-new-avatar">
+                                                                    <a class="user-link" href="#">
+                                                                        <img class="img-responsive img-circle" src="{{item.userId.avatar}}">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-11 col-xs-10">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-8">
+                                                                                <a class="user-link" href="/me/profile/{{item.userId._id}}">
+                                                                                    <strong>{{item.userId.lastName}} {{item.userId.firstName}}</strong>
+                                                                                </a>
+                                                                                <span class="time-row">
+                                                     <span class="address">{{item.createAt.fomatDate()}}</span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="col-xs-4" style="text-align: right;" ng-show="checkMycomment(item.userId._id)">
+                                                                                <i class="fa fa-pencil btn-edit" aria-hidden="true" ng-click="editComment(item._id, item.content)"></i>
+                                                                                <i class="fa fa-trash-o btn-remove" aria-hidden="true" ng-click="deleteComment(item._id)"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end:user-->
+                                                                    <div class="panel-body">
+                                                                        <div class="title-desc"></div>
+                                                                        <div class="desc">{{item.content}}</div>
+                                                                        <div class="photos">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                </div>
+                                                <!--end:album-->
+                                            </div>
+                                            <!--end:micro-review-filter-->
+                                        </div>
+                                        <!--end:resreviews-->
+                                    </div>
+                                </div>
+                                <!--end:microsite-box2-->
+                                <!--end:microsite-box-->
+                                <!--review-->
+                                <div id="review-comment" class="modal fade" tabindex="-1" role="dialog">
+                                    <form>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Đánh giá: <span>{{festival.title}}</span></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="inputform-right">
+                                                        <div class="inputform-rating">
+                                                            <div class="rating-item row">
+                                                                <div class="rating-lable col-xs-4">Điểm đánh giá </div>
+                                                                <div class="rating-bar col-xs-8">
+                                                                    <div class="box-body">
+                                                                        <select id="rating-address" name="rating" ng-model="ratingUser">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5" selected="selected">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col-xs-12 upload-image">
+                                                        <ul id="listImage" class="row"></ul>
+                                                    </div> -->
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <!-- input type="file" name="file" ng-files="imgComment($files)" /> -->
+                                                    <button type="button" class="btn-close" data-dismiss="modal">Đóng lại</button>
+                                                    <button type="button" class="btn-blue" ng-click="ratingPost()">Hoàn tất</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal fade" id="delete-comment" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+                                    <div class="modal-dialog modal-sm">
+                                        <form role="form" name="forgotPassword">
+                                            <div class="modal-content">
+                                                <div class="modal-body" style="text-align: center;">
+                                                    <div class="row">
+                                                        <label class="col-xs-12" style="font-size: 15px; margin-bottom: 20px; margin-top: 20px;">Bình luận đã được xóa!</label>
+                                                        <div class="col-xs-12 ">
+                                                        </div>
+                                                        <a href="" type="button" class="btn-blue" data-dismiss="modal">Đồng ý</a>
+                                                    </div>
+                                                    <!-- /.form group -->
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </form>
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <div id="edit-comment" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">Sửa bình luận!</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="textareas">
+                                                    <textarea class="form-control" ng-model="contentEdit" placeholder="Nhập nội dung bình luận"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn-close" data-dismiss="modal">Đóng</button>
+                                                <button type="button" class="btn-blue" ng-click="updateComment(idEdit)">Bình luận</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 related-box">
+                    <div class="bg-white boxContent">
+                        <h3 class="colorWord">CÓ THỂ BẠN QUAN TÂM</h3>
+                        <div class="box">
+                            <a href=""><img class="img-responsive" src="/images/cho-nga-diem-den-khong-the-bo-qua-khi-du-lich-Phnom-Penh-ivivu-3-370x215.jpg"></a>
+                            <div class="info">
+                                <a href="">Lễ hội trái cây</a>
+                                <span>Xa lộ Hà Nội, Suối Tiên</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <a href=""><img class="img-responsive" src="/images/cho-nga-diem-den-khong-the-bo-qua-khi-du-lich-Phnom-Penh-ivivu-3-370x215.jpg"></a>
+                            <div class="info">
+                                <a href="">Lễ hội trái cây</a>
+                                <span>Xa lộ Hà Nội, Suối Tiên</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Comment-->
+        <!--slideImage-->
+        <div id="slideImage" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="imageCarousel" class="carousel slide" data-ride="carousel" data-ng-init="getImageFestival()">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item" ng-repeat="img in imgFestival">
+                                    <img class="img-responsive" ng-src="/{{img.imgName}}">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#imageCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#imageCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="watchVideo" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body" id="body-player">
+                        <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="{{idVideoUrl}}" frameborder="0" allowFullScreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Box insert video -->
+        <div id="postVideo" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Nhập link video</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="checkErroLink" style="color: #c00">Link nhập chưa chính xác</h5>
+                        <input type="text" name="linkYoutube" class="form-control" ng-model="urlVideo">
+                    </div>
+                    <div class="modal-footer" style="text-align: right">
+                        <button type="Submit" class="btn-blue" ng-click="postVideoYT()">Gửi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--box insert image-->
+        <div id="upImage" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Đăng hình</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="upload-image">
+                            <ul id="listImage" class="row"></ul>
+                        </div>
+                        <div style="text-align: center; margin-top: 10px;">
+                         <button class="file-input btn-blue btn-file">
+                        Đăng hình&hellip; <input type="file" name="file" ng-files="imgComment($files)"/></button></div>
+                    </span>
+                    </div>
+                    <div class="modal-footer" style="text-align: right">
+                        <button type="Submit" class="btn-blue" data-dismiss="modal">Hoàn tất</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="schedule"></div>
+    <div class="comment"></div>
+</div>
+<script type="text/javascript">
+$(function() {
+    $('#rating-address').barrating('show', {
+        theme: 'bars-1to10'
+    });
+
+    $('#rating-price').barrating('show', {
+        theme: 'bars-1to10'
+    });
+
+    $('#rating-quality').barrating('show', {
+        theme: 'bars-1to10'
+    });
+
+    $('#rating-serve').barrating('show', {
+        theme: 'bars-1to10'
+    });
+    $('#rating-place').barrating('show', {
+        theme: 'bars-1to10'
+    });
+
+
+    $("#imageCarousel").carousel({
+        interval: false
+    });
+
+});
+
+$(function() {
+    $(":file").change(function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+var countImage = 0;
+
+function imageIsLoaded(e) {
+    var id = "img_" + countImage;
+    var idLi = "li_" + countImage;
+    alert('check');
+    $("#listImage").append("<li id='" + idLi + "' class='col-xs-2'><img id='" + id + "' class='imgsize' src='#'/><div class='delete' onclick='removeImgPost(this.parentNode.id)'><span>x</span></div><div class='bgLoader'><img class='imgLoader' src='/images/fbloader.gif'></div></li>");
+    $('#' + id).attr('src', e.target.result);
+    countImage++;
+};
+
+function removeImgPost(idImage) {
+    $('#' + idImage).remove();
+};
+</script>

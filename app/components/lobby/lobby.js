@@ -5,7 +5,8 @@ lobby.directive("lobbyEvent", function(){
         restrict: "E",
         scope: {
             events: "=data",
-            title: "@"
+            title: "@",
+            isLoaded: "="
         },
         templateUrl: "app/components/lobby/template.html",
         controller: "lobbyController"
@@ -13,5 +14,7 @@ lobby.directive("lobbyEvent", function(){
 });
 
 lobby.controller("lobbyController", function($scope) {
+  $scope.isLoaded = false;
+
 
 });

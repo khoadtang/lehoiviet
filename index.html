@@ -25,10 +25,15 @@
     <link rel="stylesheet" type="text/css" href="assets/css/postArticle.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/profileNew.css">
     <link rel="stylesheet" type="text/css" href="assets/css/profileEdit.css">
+    <link rel="stylesheet" type="text/css" href="assets/libs/barrating/bars-1to10.css">
+    <script type="text/javascript" src="assets/libs/barrating/jquery.barrating.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.googleapis.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.googleapis700.400.css">
 </head>
 
 <body>
   <top-menu></top-menu>
+  <data-loader></data-loader>
     <div id="page">
         <div class="main">
               <div ng-view></div>
@@ -57,12 +62,12 @@
 <script src="app/pods/create-blog/controller.js"></script>
 <script src="app/pods/user/controller.js"></script>
 <script src="app/pods/account/controller.js"></script>
+<script src="app/pods/festival/controller.js"></script>
 
 <!-- inject component -->
 <script src="app/components/lobby/lobby.js"></script>
 <script src="app/components/menu/menu.js"></script>
 <script src="app/components/info-footer/info-footer.js"></script>
-<script src="app/components/loading/loading.js"></script>
 <script src="app/components/top-member/top-member.js"></script>
 <script src="app/components/user-handle/user-handle.js"></script>
 <script src="app/components/date/date.js"></script>
@@ -74,5 +79,6 @@
 <script src="app/services/category.js"></script>
 <script src="app/services/province.js"></script>
 <script src="app/helper/date.js"></script>
-<script src="app/service/user.js"></script>
+<script src="app/services/user.js"></script>
+<script src="app/services/blog.js"></script>
 </html>
