@@ -2,20 +2,18 @@
 a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visited, button:focus{
     outline: 0 !important;
 }
+.modal-open {
+  overflow-y: scroll;
+  padding-right: 0 !important;
+}
+.modal-dialog{
+  padding-right: 0 !important;
+}
+a:hover{
+  text-decoration: none;
+}
 body{
   padding-top: 45px !important;
-}
-#cke_10,#cke_18, #cke_20,#cke_25,#cke_29, #cke_31,#cke_46, #cke_11, #cke_19, #cke_21, #cke_30, #cke_33, #cke_26, #cke_1_path{
-    display: none;
-}
-.cke_toolbar_break{
-    display: inline !important;
-}
-.cke_resizer{
-    margin-top: 0;
-}
-.cke_bottom{
-    padding: 0 8px 2px !important;
 }
 ::-webkit-scrollbar {
   width: 7px;

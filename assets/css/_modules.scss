@@ -40,16 +40,6 @@
         }
     }
 }
-
-
-/*end:promotion*/
-
-
-/* CONTENT */
-
-
-/* ARTICLE-POST */
-
 #content {
     margin-top: 20px;
     .col-md-4,
@@ -230,13 +220,46 @@
 
 
 /**/
-
+.modal-content{
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
 #login {
+  .form-control{
+    border-radius: 0;
+    height: 40px;
+    padding: 10px 12px;
+  }
+  p{
+    margin: 7px 0;
+  }
+    #userLogin{
+      text-transform: uppercase;
+      .modal-body{
+        padding: 15px 15px 0;
+      }
+    }
+    #userLogin, #forgot-password{
+      .modal-dialog{
+        width: 400px;
+      }
+    }
     .col-xs-6 {
         padding: 0px;
     }
+    .modal-title{
+      font-size: 18px;
+    }
+    .modal-footer{
+      text-transform: uppercase;
+    }
+    .btn-blue{
+      font-size: 16px;
+      text-transform: uppercase;
+    }
     .social-or-login {
-        margin-top: 4px;
+        margin: 5px 0;
         text-align: center;
         position: relative;
         z-index: 1;
@@ -291,9 +314,6 @@
         background-color: #228aa9;
         padding: 10px 5px 10px 5px;
         margin-top: 10px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        ;
     }
     #register {
         .form-group {

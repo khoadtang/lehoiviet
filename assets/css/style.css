@@ -400,24 +400,21 @@ a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visit
   outline: 0 !important;
 }
 
+.modal-open {
+  overflow-y: scroll;
+  padding-right: 0 !important;
+}
+
+.modal-dialog {
+  padding-right: 0 !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 body {
   padding-top: 45px !important;
-}
-
-#cke_10, #cke_18, #cke_20, #cke_25, #cke_29, #cke_31, #cke_46, #cke_11, #cke_19, #cke_21, #cke_30, #cke_33, #cke_26, #cke_1_path {
-  display: none;
-}
-
-.cke_toolbar_break {
-  display: inline !important;
-}
-
-.cke_resizer {
-  margin-top: 0;
-}
-
-.cke_bottom {
-  padding: 0 8px 2px !important;
 }
 
 ::-webkit-scrollbar {
@@ -994,9 +991,6 @@ li {
   height: 145px;
 }
 
-/*end:promotion*/
-/* CONTENT */
-/* ARTICLE-POST */
 #content {
   margin-top: 20px;
 }
@@ -1172,11 +1166,44 @@ li {
 }
 
 /**/
+.modal-content {
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+#login .form-control {
+  border-radius: 0;
+  height: 40px;
+  padding: 10px 12px;
+}
+#login p {
+  margin: 7px 0;
+}
+#login #userLogin {
+  text-transform: uppercase;
+}
+#login #userLogin .modal-body {
+  padding: 15px 15px 0;
+}
+#login #userLogin .modal-dialog, #login #forgot-password .modal-dialog {
+  width: 400px;
+}
 #login .col-xs-6 {
   padding: 0px;
 }
+#login .modal-title {
+  font-size: 18px;
+}
+#login .modal-footer {
+  text-transform: uppercase;
+}
+#login .btn-blue {
+  font-size: 16px;
+  text-transform: uppercase;
+}
 #login .social-or-login {
-  margin-top: 4px;
+  margin: 5px 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -1229,8 +1256,6 @@ li {
   background-color: #228aa9;
   padding: 10px 5px 10px 5px;
   margin-top: 10px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 #login #register .form-group {
   padding: 5px;

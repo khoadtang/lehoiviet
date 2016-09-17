@@ -13,7 +13,7 @@ menu.directive("topMenu", function(){
 
 menu.controller("menuController", function($scope, $rootScope) {
   $scope.loginView = function(){
-      $('#dangnhap').modal('show');
+      $('#userLogin').modal('show');
   };
   $scope.actionUserPanel = function(){
       console.log('test');

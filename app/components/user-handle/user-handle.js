@@ -34,6 +34,10 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
       $('#forgot-password').modal('show');
   };
 
+  $scope.showModal = function(id){
+    $('#' + id).modal('show');
+  }
+
   $scope.signup = function() {
     var userInfo = {};
     userInfo.firstName = $scope.firstName;
