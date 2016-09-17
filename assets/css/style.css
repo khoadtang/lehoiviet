@@ -641,6 +641,7 @@ li {
   font-weight: 500;
   margin-top: 5px;
   padding: 5px 10px 5px 10px;
+  border-radius: 50% !important;
 }
 #menu .menu-right .createPost:hover {
   background-color: #2466a0;
@@ -956,6 +957,60 @@ li {
   background-color: #f80;
 }
 
+.feedback-form .infomation-box span {
+  color: #c00;
+  font-weight: 700;
+}
+.feedback-form .infomation-box .infomation-name {
+  color: #c00;
+  border-bottom: 1px solid #222;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+.feedback-form .infomation-box .infomation-content {
+  margin-bottom: 5px;
+}
+.feedback-form .infomation-box .box-info-normal {
+  padding: 5px 0;
+  width: 100%;
+  vertical-align: middle;
+}
+.feedback-form .infomation-box .box-info-normal .lable {
+  padding-top: 10px;
+}
+.feedback-form .infomation-box .details textarea {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border: 1px solid #a0a0a0;
+  width: 100%;
+}
+.feedback-form .infomation-box .details textarea:focus {
+  border: 1px solid #f80;
+}
+.feedback-form .infomation-box .details input {
+  padding: 10px 6px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+  width: 100%;
+}
+.feedback-form .infomation-box .details input:focus {
+  border-bottom: 1px solid #f80;
+}
+.feedback-form .infomation-box .details select {
+  padding: 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+}
+.feedback-form .infomation-box .details select:focus {
+  border-bottom: 1px solid #f80;
+}
+
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/
 #pageHome h2 {
   padding: 0px;
@@ -1172,11 +1227,6 @@ li {
   box-shadow: none;
 }
 
-#login .form-control {
-  border-radius: 0;
-  height: 40px;
-  padding: 10px 12px;
-}
 #login p {
   margin: 7px 0;
 }

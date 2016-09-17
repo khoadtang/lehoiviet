@@ -243,6 +243,7 @@ li {
             font-weight: 500;
             margin-top: 5px;
             padding: 5px 10px 5px 10px;
+            border-radius: 50% !important;
             &:hover {
                 background-color: #2466a0;
                 color: #fff;
@@ -566,6 +567,63 @@ li {
         background-color: #f80;
     }
 }
-.btn-remove{
 
+.feedback-form {
+    .infomation-box {
+        span {
+            color: #c00;
+            font-weight: 700;
+        }
+        .infomation-name {
+            color: #c00;
+            border-bottom: 1px solid #222;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        .infomation-content {
+            margin-bottom: 5px;
+        }
+        .box-info-normal {
+            padding: 5px 0;
+            width: 100%;
+            vertical-align: middle;
+            .lable{
+                padding-top: 10px;
+            }
+        }
+        .details {
+            textarea {
+                border: 0;
+                outline: 0;
+                background: transparent;
+                border: 1px solid #a0a0a0;
+                width: 100%;
+                 &:focus{
+                    border: 1px solid #f80;
+                }
+            }
+            input {
+                padding: 10px 6px;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                border-bottom: 1px solid #a0a0a0;
+                width: 100%
+            }
+            input:focus {
+                border-bottom: 1px solid #f80;
+            }
+            select {
+                padding: 5px;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                border-bottom: 1px solid #a0a0a0;
+                &:focus{
+                    border-bottom: 1px solid #f80;
+                }
+            }
+        }
+    }
 }

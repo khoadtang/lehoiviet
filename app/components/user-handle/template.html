@@ -1,17 +1,17 @@
 <div id="login">
   <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="false" id="userLogin">
-      <div class="modal-dialog">
+      <div class="modal-dialog feedback-form">
           <form role="form" name="loginForm">
               <!-- Modal content-->
-              <div class="modal-content">
+              <div class="modal-content infomation-box">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                       <p class="modal-title"></i>Đăng nhập</p>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body details">
                       <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
                       <div class="form-group">
-                              <input name="email" type="email" class="form-control" placeholder="Email" required="required" ng-model="email" />
+                              <input name="email" type="email" placeholder="Email" required="required" ng-model="email" />
                           <!-- /.input group -->
                           <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
                           <span ng-show="loginForm.email.$error.required">Email là bắt buộc</span>
@@ -20,7 +20,7 @@
                       </div>
                       <!-- /.form group -->
                       <div class="form-group">
-                            <input name="password" type="Password" class="form-control" placeholder="Password" required="required" ng-model="password" />
+                            <input name="password" type="Password" placeholder="Password" required="required" ng-model="password" />
                           <!-- /.input group -->
                           <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
                           <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
@@ -68,17 +68,16 @@
       </div>
   </div>
   <div class="modal fade" id="forgot-password" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog feedback-form">
           <form role="form" name="forgotPassword">
-              <div class="modal-content">
+              <div class="modal-content infomation-box">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <p class="modal-title">Bạn quên mật khẩu</p>
+                      <p class="modal-title">Nhập Email để nhận lại mật khẩu</p>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body details">
                       <div class="form-group">
-                          <p>Nhập email của bạn để nhận lại mật khẩu:</p>
-                          <input name="email" type="email" class="form-control" placeholder="Email" required="required" ng-model="emailpw" />
+                          <input name="email" type="email" placeholder="Email" required="required" ng-model="emailpw" />
                           <!-- /.input group -->
                           <span class="text-error" ng-show="forgotPassword.email.$dirty && forgotPassword.email.$invalid">
                           <span ng-show="forgotPassword.email.$error.required">Email là bắt buộc</span>
@@ -103,18 +102,19 @@
       </div>
   </div>
   <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register-title" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog feedback-form">
           <form role="form" name="resgiterFrom" novalidate>
-              <div class="modal-content">
+              <div class="modal-content infomation-box">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                       <p class="modal-title"></i>Đăng kí tài khoản</p>
                   </div>
-                  <div class="modal-body row">
+                  <div class="modal-body row ">
+                    <div class="details">
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Tên</p>
                           <div class="col-xs-9">
-                              <input ng-model="firstName" name="firstName" type="text" class="form-control" required>
+                              <input ng-model="firstName" name="firstName" type="text" required>
                               <span class="text-error" ng-show="resgiterFrom.firstname.$dirty && resgiterFrom.firstname.$invalid">
                                 <span ng-show="resgiterFrom.firstname.$error.required">Tên là bắt buộc.</span>
                               </span>
@@ -123,7 +123,7 @@
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Họ</p>
                           <div class="col-xs-9">
-                              <input ng-model="lastName" name="lastName" type="text" class="form-control" required>
+                              <input ng-model="lastName" name="lastName" type="text" required>
                               <span class="text-error" ng-show="resgiterFrom.lastname.$dirty && resgiterFrom.lastname.$invalid">
                           <span ng-show="resgiterFrom.lastname.$error.required">Họ là bắt buộc.</span>
                               </span>
@@ -133,37 +133,33 @@
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Email</p>
                           <div class="col-xs-9">
-                              <input ng-model="email" name="email" type="email" class="form-control" required>
+                              <input ng-model="email" name="email" type="email" required>
                               <span class="text-error" ng-show="resgiterFrom.email.$dirty && resgiterFrom.email.$invalid">
                         <span ng-show="resgiterFrom.email.$error.required">Email là bắt buộc</span>
                               <span ng-show="resgiterFrom.email.$error.email">Email không đúng</span>
                               </span>
                           </div>
-                          <!-- /.input group -->
                       </div>
-                      <!-- /.form group -->
-                      <!-- /.form group -->
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Mật khẩu</p>
                           <div class="col-xs-9">
-                              <input ng-model="password" name="password" type="Password" class="form-control" required>
+                              <input ng-model="password" name="password" type="Password" required>
                               <span class="text-error" ng-show="resgiterFrom.password.$dirty && resgiterFrom.password.$invalid">
                           <span ng-show="resgiterFrom.password.$error.required">Mật khẩu là bắt buộc</span>
                               </span>
                           </div>
                           <!-- /.input group -->
                       </div>
-                      <!-- /.form group -->
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Nhập lại mật khẩu:</p>
                           <div class="col-xs-9">
-                              <input type="password" id="password_c" name="password_c" ng-model="password_c" valid-password-c class="form-control" required>
+                              <input type="password" id="password_c" name="password_c" ng-model="password_c" valid-password-c required>
                               <span class="text-error" ng-show="resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$dirty && resgiterFrom.password.$invalid">Please confirm your password.</span>
                               <span class="text-error" ng-show="!resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$error.noMatch && resgiterFrom.password.$dirty">Mật khẩu không khớp</span>
                           </div>
                           <!-- /.input group -->
                       </div>
-                      <!-- /.form group -->
+                    </div>
                       <div class="form-group col-xs-12 row">
                           <p class="col-xs-3">Giới tính</p>
                           <div class="col-xs-9 row" required style="margin-top: 5px;">
