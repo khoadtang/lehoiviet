@@ -483,6 +483,7 @@ li {
 /* Shutter Out Horizontal */
 
 .hvr-shutter-out-horizontal {
+    border-style: none;
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: translateZ(0);
@@ -499,6 +500,7 @@ li {
     transition-duration: 0.3s;
     color: #fff;
     padding: 5px 10px;
+    margin-top: 10px;
 }
 
 .hvr-shutter-out-horizontal:before {
@@ -569,13 +571,6 @@ li {
     .infomation-box {
         span {
             color: #c00;
-        }
-        .infomation-name {
-            color: #c00;
-            border-bottom: 1px solid #222;
-            font-size: 17px;
-            font-weight: 700;
-            margin: 15px 0;
         }
         .infomation-content {
             margin-bottom: 5px;
