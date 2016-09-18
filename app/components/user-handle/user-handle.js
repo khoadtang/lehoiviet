@@ -16,24 +16,6 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   $scope.init = function() {
     $scope.message = null;
   };
-
-  $scope.signupView = function(){
-      $('#forgot-password').modal('hide');
-      $('#dangnhap').modal('hide');
-      $('#register').modal('show');
-  };
-  $scope.loginView = function(){
-      $('#register').modal('hide');
-      $('#forgot-password').modal('hide');
-      $('#dangnhap').modal('show');
-      $('#not-signed').modal('hide');
-  };
-  $scope.forgetPasswordView = function(){
-      $('#register').modal('hide');
-      $('#dangnhap').modal('hide');
-      $('#forgot-password').modal('show');
-  };
-
   $scope.showModal = function(id){
     $('#' + id).modal('show');
   }
@@ -58,24 +40,28 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     var userInfo = {};
     userInfo.email = $scope.email;
     userInfo.password = $scope.password;
-
-    userService.login(userInfo, function(response) {
-      if (response.status == 200) {
-        var data = response.data;
-        if (data.token != null) {
-          // View Handle
-          $('#dangnhap').modal('hide');
-          $rootScope.token = data.token;
-          $rootScope.email = data.user.email;
-          $rootScope.avatar = data.user.avatar;
-          $rootScope.firstName = data.user.firstName;
-          $rootScope.uid = data.user._id;
-          $scope.errorMessage = null;
-        } else {
-          $scope.errorMessage = "Đăng Nhập Không Thành Công";
-        }
-      }
-    });
+    if($scope.email != "" &&  $scope.password != "")
+    {
+        userService.login(userInfo, function(response) {
+          if (response.status == 200) {
+            var data = response.data;
+            if (data.token != null) {
+              // View Handle
+              $('#userLogin').modal('hide');
+              $rootScope.token = data.token;
+              $rootScope.email = data.user.email;
+              $rootScope.avatar = data.user.avatar;
+              $rootScope.firstName = data.user.firstName;
+              $rootScope.uid = data.user._id;
+              $scope.errorMessage = null;
+              $scope.email = null;
+              $scope.password = null;
+            } else {
+              $scope.errorMessage = "Đăng Nhập Không Thành Công";
+            }
+          }
+      });
+    }
   };
 
   $scope.forgetPassword = function() {

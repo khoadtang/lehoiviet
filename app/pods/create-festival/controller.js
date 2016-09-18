@@ -26,10 +26,21 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     festivalService.create(data, function(response) {
       if (response.status == 200) {
         console.log("Successfull Create");
+        $('#post-success').modal('show');
+      }
+      else {
+
       }
     });
   };
 
+  $scope.changTab = function(info){
+    $('.infoList a').removeClass('action');
+    $('.infoList #' + info).addClass('action');
+    $('.infoTab section').addClass('hide');
+    $('.' + info + 'Tab').removeClass('hide')
+  };
+  
   $scope.onProvinceSelected = function(province) {
     $scope.districts = province.districts;
   };

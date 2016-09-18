@@ -8,7 +8,8 @@
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                       <p class="modal-title"></i>Đăng nhập</p>
                   </div>
-                  <div class="modal-body details">
+                  <div class="modal-body">
+                    <div class="details">
                       <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
                       <div class="form-group">
                               <input name="email" type="email" placeholder="Email" required="required" ng-model="email" />
@@ -26,6 +27,7 @@
                           <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
                           </span>
                       </div>
+                    </div>
                       <!-- /.form group -->
                       <div class="form-group row">
                           <div class="checkbox col-xs-6">
@@ -103,7 +105,7 @@
   </div>
   <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register-title" aria-hidden="true">
       <div class="modal-dialog feedback-form">
-          <form role="form" name="resgiterFrom" novalidate>
+          <form role="form" name="resgiterFrom">
               <div class="modal-content infomation-box">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

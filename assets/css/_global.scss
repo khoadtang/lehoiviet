@@ -28,9 +28,6 @@ body{
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
 }
-.feedback-form .infomation-box span{
-    color: #333 !important;
-}
 ul,
 li {
     padding: 0;
@@ -572,7 +569,6 @@ li {
     .infomation-box {
         span {
             color: #c00;
-            font-weight: 700;
         }
         .infomation-name {
             color: #c00;

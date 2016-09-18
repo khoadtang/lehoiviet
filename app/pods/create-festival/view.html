@@ -1,6 +1,559 @@
 <div class="container" ng-init="initData()">
 <div id="mainpost">
-<div id="postcontent">
+<div id="postcontent" class="templateUser">
+  <div class="row profile_area">
+      <!-- left column -->
+      <div class="col-md-3 col-md-offset-1  col-sm-5 col-xs-12">
+          <div class="user_left_page">
+              <div class="infoUser borderBottom">
+                  <div class="user-avatar">
+                      <img src="http://lehoiviet.herokuapp.com/{{user.avatar}}" class="img-circle" alt="avatar">
+                  </div>
+                  <div class="user-name-bar">
+                      <h4>{{user.firstName}} {{user.lastName}}</h4>
+                  </div>
+              </div>
+              <div class="tabAction">
+                  <ul class="infoList">
+                      <li>
+                          <a class="action" id="lastReview" ng-click="changTab('lastReview')">
+                              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Thông tin sự kiện
+                          </a>
+                      </li>
+                      <li>
+                          <a id="videoYT" ng-click="changTab('videoYT')">
+                              <i class="fa fa-file-video-o" aria-hidden="true"></i> Video Đã Đăng
+                          </a>
+                      </li>
+                      <li>
+                          <a id="lastBlogs" ng-click="changTab('lastBlogs')">
+                              <i class="fa fa-paper-plane" aria-hidden="true"></i> Blogs
+                          </a>
+                      </li>
+                      <li>
+                          <a id="infoUser" ng-click="changTab('infoUser')">
+                              <i class="fa fa-info-circle" aria-hidden="true"></i> Thông Tin Cá Nhân
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- edit form column -->
+      <div class="col-md-6 col-sm-7 col-xs-12 infoTab">
+          <section class="lastReviewTab feedback-form infoUserTab">
+                <div class="infomation-box">
+                    <div class="infomation-name">Thông tin cơ bản</div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Tên lễ hội<span> *</span></div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="title" type="text" name="title" required="required" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="createPostForm.title.$dirty && createPostForm.title.$invalid">
+                                    <span ng-show="createPostForm.title.$error.required">Tên là bắt buộc</span>
+                                    <span ng-show="createPostForm.title.$error.minlength" class="text-error">Bạn phải nhập ít nhất 10 kí tự</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Loại lễ hội<span> *</span></div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <select class="col-sm-4 col-xs-12" ng-model="typeEvent">
+                                    <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Tên địa điểm<span> *</span></div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false" required/>
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="createPostForm.nameAddress.$dirty && createPostForm.nameAddress.$invalid">
+                                    <span ng-show="createPostForm.nameAddress.$error.required">Tên địa điểm là bắt buộc</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Địa chỉ<span> *</span></div>
+                            <div class="details col-sm-9 row col-xs-12">
+                                <select class="col-sm-4 col-xs-5" ng-model="province">
+                                    <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
+                                </select>
+                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="district">
+                                    <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="description" type="text" spellcheck="false" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <textarea rows="5" ng-model="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Đăng ảnh bìa<span> *</span></div>
+                            <div class="details col-sm-9 row col-xs-12">
+                                <div class="upload-image">
+                                    <ul id="listImage" class="row"></ul>
+                                </div>
+                                <div class="file-input hvr-shutter-out-horizontal btn-file">
+                                    Chọn hình&hellip;
+                                    <input type="file" name="file" ng-files="getTheFiles($files)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </section>
+          <!--end:lastReview-->
+          <section class="hide videoYTTab"  data-ng-init="getVideoByUserId()">
+              <article class="micro-home-review-item" ng-repeat="item in getVideouser">
+                  <div class="review-header">
+                      <div class="row">
+                          <div class="col-xs-12" style="text-align: right;" ng-show="checkLoginMine">
+                              <a href="" ng-click="showEditVideo(item._id)"><i class="fa fa-pencil-square-o btn btn-default" aria-hidden="true"></i></a>
+                              <i class="fa fa-trash-o btn btn-default" aria-hidden="true" ng-click="deleteVideo(item._id)"></i>
+                          </div>
+                      </div>
+                      <div class="timereview"><i class="fa fa-calendar" aria-hidden="true"></i> {{item.createAt | date:"dd/MM/yyyy 'Vào lúc' h:mma"}}</div>
+                  </div>
+                  <div class="desc">
+                      <iframe id='yt-player' title='YouTube video player' class='youtube-player' type='text/html' width='100%' ng-src='{{getUrlYT(item.link)}}' frameborder='0' allowFullScreen></iframe>
+                  </div>
+              </article>
+          </section>
+          <!--end:lastReview-->
+          <section class="hide lastBlogsTab"  data-ng-init="getAllBlog()">
+              <article class="micro-home-review-item" ng-repeat="item in allBlogs">
+                  <div class="review-header">
+                      <div class="row">
+                          <div class="col-sm-10 col-xs-8">
+                              <h3 class="restitle">
+                                  <a href="/article/detail/{{item._id}}">{{item.title.trunc(60)}}</a>
+                              </h3>
+                          </div>
+                          <div class="col-sm-2 col-xs-4" style="text-align: right;" ng-show="checkLoginMine">
+                              <i class="fa fa-pencil-square-o btn btn-default" aria-hidden="true" ng-click="getInfoBlog(item._id)"></i>
+                              <i class="fa fa-trash-o btn btn-default" aria-hidden="true" ng-click="deleteBlog(item._id)"></i>
+                          </div>
+                      </div>
+                      <div class="timereview"><i class="fa fa-calendar" aria-hidden="true"></i> {{item.createAt | date:"dd/MM/yyyy 'Vào lúc' h:mma"}}</div>
+                  </div>
+                  <div class="desc">{{item.content.trunc(200)}}</div>
+              </article>
+          </section>
+          <!--end:#blogs-->
+          <section class="hide infoUserTab" data-ng-init="getInfoUserById()">
+              <div class="item-info">
+                  <h3 class="restitle">Thông tin cơ bản</h3>
+                  <div class="row">
+                      <div class="col-sm-3 col-xs-4">Họ tên:</div>
+                      <div class="col-sm-9 col-xs-8"><strong>{{infoUserById.lastName}} {{infoUserById.firstName}}</strong></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-3 col-xs-4">Công ty:</div>
+                      <div class="col-sm-9 col-xs-8"><strong>{{infoUserById.company}}</strong></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-3 col-xs-4">Tự giới thiệu:</div>
+                      <div class="col-sm-9 col-xs-8"><strong>{{infoUserById.description}}</strong></div>
+                  </div>
+              </div>
+          </section>
+          <!--end:#infoUser-->
+          <!--alert succes delete post-->
+          <div class="modal fade" id="alert-success" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+              <div class="modal-dialog modal-sm">
+                  <form role="form" name="forgotPassword">
+                      <div class="modal-content">
+                          <div class="modal-body" style="text-align: center;">
+                              <div class="row">
+                                  <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Xóa bài thành công!</label>
+                                  <div class="col-xs-12 ">
+                                  </div>
+                                  <a href="" type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</a>
+                              </div>
+                              <!-- /.form group -->
+                          </div>
+                      </div>
+                      <!-- /.modal-content -->
+                  </form>
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+          <!--alert succes edit post-->
+          <div class="modal fade" id="alert-edit" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+              <div class="modal-dialog modal-sm">
+                  <form role="form" name="forgotPassword">
+                      <div class="modal-content">
+                          <div class="modal-body" style="text-align: center;">
+                              <div class="row">
+                                  <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Cập nhật bài viết thành công!</label>
+                                  <div class="col-xs-12 ">
+                                  </div>
+                                  <a href="" type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</a>
+                              </div>
+                              <!-- /.form group -->
+                          </div>
+                      </div>
+                      <!-- /.modal-content -->
+                  </form>
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+          <div class="modal fade" id="alert-fail" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+              <div class="modal-dialog modal-sm">
+                  <form role="form" name="forgotPassword">
+                      <div class="modal-content">
+                          <div class="modal-body" style="text-align: center;">
+                              <div class="row">
+                                  <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Không thể upload hình ảnh!</label>
+                                  <div class="col-xs-12 ">
+                                  </div>
+                                  <a href="" type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</a>
+                              </div>
+                              <!-- /.form group -->
+                          </div>
+                      </div>
+                      <!-- /.modal-content -->
+                  </form>
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+          <div id="watchVideo" class="modal fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="modal-body" id="body-player">
+                          <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300px" ng-src="{{idVideoUrl}}" frameborder="0" allowFullScreen></iframe>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="editVideo" class="modal fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Chỉnh sửa link video</h4>
+                      </div>
+                      <div class="modal-body">
+                          <input type="text" name="linkYoutube" class="form-control" ng-model="urlVideo">
+                      </div>
+                      <div class="modal-footer" style="text-align: right">
+                          <button type="Submit" class="btn btn-primary" ng-click="editVideo(idYT)">Gửi</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="lastComment" ng-show="false">
+              <div id="filter-review">
+                  <h2>Bình luận</h2>
+              </div>
+              <div class="userreview">
+                  <div id="review-list">
+                      <div>
+                          <div class="review-item">
+                              <article class="micro-home-review-item">
+                                  <div class="review-header">
+                                      <h1 class="restitle">
+                                      <a href="">Dunkin' Donuts - Lotte Mart Nam Sài Gòn</a>
+                                  </h1>
+                                      <div class="resaddress">
+                                          Lotte Mart Nam Sài Gòn, 469 Nguyễn Hữu Thọ, P. Tân Hưng, Quận 7, TP. HCM
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <div class="title-desc">Dunkin' Donuts - Lotte Mart Nam Sài Gòn</div>
+                                      <div class="timereview">29/03/2016 00:39</div>
+                                      <div class="desc">Combo 39k thì mình biết rồi , từng ăn bên chi nhánh khác nhưng không ấn tượng. Hôm kia hứng chí đi ăn cho vui thôi nhưng lần này đổi soda vị dâu xem sao . Bánh thì bản năng tính chọn bánh mặt cười nhân kem . Tự nhiên thấy cái này bắt mắt nên gấp và ... bánh socola xanh phủ dừa nhân kem NGON không tưởng rất kích thích vị giác nha. Soda dâu cũng ngon. Do nhân viên pha chế hay sao đó nhưng lần sau mình chắc chắn quay lại nếu đi nhầm thứ 3 thì 2 combo có 49k cũng rẻ bèo à 🏼</div>
+                                      <div class="photos">
+                                          <ul class="list row">
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="" type="button" data-toggle="modal" data-target="#slideImage">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-649-635718094160259257.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-649-635718094160259257.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                      <!--end:photo-->
+                                      <div>
+                                          <div class="picturecounts">
+                                              <a href="" data-bind=""><b>12 </b>hình ảnh</a>
+                                          </div>
+                                      </div>
+                                      <div class="share">
+                                          <div>
+                                              <a href="">
+                                                  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                                                  <span>Thảo luận</span>
+                                              </a>
+                                              <a class="review-helpful-link review-like-dislike-link" href="">
+                                                  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  <span>Thích
+                                          <span data-bind="">2</span>
+                                                  </span>
+                                              </a>
+                                              <a href="">
+                                                  <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                                                  <span>Báo lỗi</span>
+                                              </a>
+                                          </div>
+                                      </div>
+                                      <div class="review-reply">
+                                          <div class="review-all-comment">
+                                              <a href="">Hiện tất cả (<span>10</span>)</a>
+                                          </div>
+                                          <div style="margin-bottom:10px;">
+                                              <div class="review-reply-item row">
+                                                  <div class="review-reply-item-avatar col-md-1 col-sm-1 col-xs-2">
+                                                      <a href="">
+                                                          <img src="/images/foody-avatar-667-635480583378993638.jpg" />
+                                                      </a>
+                                                  </div>
+                                                  <div class="review-reply-item-content col-md-11 col-sm-11 col-xs-10">
+                                                      <a class="user-link" href="">Duy Anh</a>
+                                                      <span>Yeap</span>
+                                                      <span class="address">22/08/2015 11:05</span>
+                                                      <a class="userlike" href="">like</a>
+                                                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="review-reply-item row">
+                                                  <div class="review-reply-item-avatar col-md-1 col-sm-1 col-xs-2">
+                                                      <a href="">
+                                                          <img src="/images/foody-avatar-667-635480583378993638.jpg" />
+                                                      </a>
+                                                  </div>
+                                                  <div class="review-reply-item-content col-md-11 col-sm-11 col-xs-10">
+                                                      <a class="user-link" href="">Le</a>
+                                                      <span>Bạn ơi, cho mình hỏi nếu như mình chụp hình cưới ekip 6 người, không biết trong phim trường tính phí thế nào nhỉ?</span>
+                                                      <span class="address">22/02/2016 14:08</span>
+                                                      <a class="userlike" href="">like</a>
+                                                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+                              <article class="micro-home-review-item">
+                                  <div class="review-header">
+                                      <h1 class="restitle">
+                                      <a href="">Bánh Bèo & Bánh Đúc - Huỳnh Mẫn Đạt</a>
+                                  </h1>
+                                      <div class="resaddress">
+                                          120 Huỳnh Mẫn Đạt, P. 3, Quận 5, TP. HCM
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <div class="title-desc">Bánh Bèo & Bánh Đúc - Huỳnh Mẫn Đạt</div>
+                                      <div class="timereview">29/03/2016 00:39</div>
+                                      <div class="desc">Quay lại lần 2 , đa số khách vẫn mua mang về là chính , hôm nay chụp thêm 2 - 3 bàn phía trong nhà của quán nè . Ông cụ dắt xe mới 71 tuổi, nhìn ngoại hình già hơn tuổi nhưng sức khoẻ phơi phới luôn nha mình kêu dĩa thập cẩm giống hôm bữa , chỉ 20k mà thưởng thức hết bánh bột lọc , bánh bèo , bánh đúc , bánh nậm , bánh ít trần ... Mỗi thứ ít nhất 2 </div>
+                                      <div class="photos">
+                                          <ul class="list row">
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="" type="button" data-toggle="modal" data-target="#slideImage">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-649-635718094160259257.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-634-635718094177613416.jpg" />
+                                                  </a>
+                                              </li>
+                                              <li class="col-md-2 col-sm-4 col-xs-6 micro-home-album-img">
+                                                  <a href="">
+                                                      <img src="/images/foody-checkin-long-island-618-635718094162915738.jpg" />
+                                                  </a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                      <!--end:photo-->
+                                      <div>
+                                          <div class="picturecounts">
+                                              <a href="" data-bind=""><b>12 </b>hình ảnh</a>
+                                          </div>
+                                      </div>
+                                      <div class="share">
+                                          <div>
+                                              <a href="">
+                                                  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                                                  <span>Thảo luận</span>
+                                              </a>
+                                              <a class="review-helpful-link review-like-dislike-link" href="">
+                                                  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  <span>Thích
+                                          <span data-bind="">2</span>
+                                                  </span>
+                                              </a>
+                                              <a href="">
+                                                  <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                                                  <span>Báo lỗi</span>
+                                              </a>
+                                          </div>
+                                      </div>
+                                      <div class="review-reply">
+                                          <div class="review-all-comment">
+                                              <a href="">Hiện tất cả (<span>10</span>)</a>
+                                          </div>
+                                          <div style="margin-bottom: 10px;">
+                                              <div class="review-reply-item row">
+                                                  <div class="review-reply-item-avatar col-md-1 col-sm-1 col-xs-2">
+                                                      <a href="">
+                                                          <img src="/images/foody-avatar-667-635480583378993638.jpg" />
+                                                      </a>
+                                                  </div>
+                                                  <div class="review-reply-item-content col-md-11 col-sm-11 col-xs-10">
+                                                      <a class="user-link" href="">Duy Anh</a>
+                                                      <span>Yeap</span>
+                                                      <span class="address">22/08/2015 11:05</span>
+                                                      <a class="userlike" href="">like</a>
+                                                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="review-reply-item row">
+                                                  <div class="review-reply-item-avatar col-md-1 col-sm-1 col-xs-2">
+                                                      <a href="">
+                                                          <img src="/images/foody-avatar-667-635480583378993638.jpg" />
+                                                      </a>
+                                                  </div>
+                                                  <div class="review-reply-item-content col-md-11 col-sm-11 col-xs-10">
+                                                      <a class="user-link" href="">Le</a>
+                                                      <span>hấp dẫn hen, bữa nào đi ăn với anh nữa không</span>
+                                                      <span class="address">22/02/2016 14:08</span>
+                                                      <a class="userlike" href="">like</a>
+                                                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="review-reply-item row">
+                                                  <div class="review-reply-item-avatar col-md-1 col-sm-1 col-xs-2">
+                                                      <a href="">
+                                                          <img src="/images/foody-avatar-667-635480583378993638.jpg" />
+                                                      </a>
+                                                  </div>
+                                                  <div class="review-reply-item-content col-md-11 col-sm-11 col-xs-10">
+                                                      <textarea></textarea>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--end:center_cold-->
+  </div>
+
+
+<!--check-->
 <div class="row">
     <form name="createPostForm" class="createPostForm col-md-8 col-md-offset-2 col-sm-12 inputCustom">
         <h1 class="static-header" ng-show="showInfo"><span class="glyphicon glyphicon-edit"></span> Thêm lễ hội</h1>
@@ -167,7 +720,7 @@
                     </div>
                 </section>
             </div>
-            <div>
+            <div style="text-align:center">
                 <button ng-click="onCreateFestival()" class="create-festival hvr-shutter-out-horizontal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
             </div>
         </div>
@@ -185,7 +738,7 @@
                         <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Đăng bài thành công</label>
                         <div class="col-xs-12 ">
                         </div>
-                        <a href="/" type="button" class="btn btn-primary">Đồng ý</a>
+                        <a href="#/" type="button" class="btn btn-primary">Đồng ý</a>
                     </div>
                 </div>
             </div>

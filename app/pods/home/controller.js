@@ -13,6 +13,7 @@ home.controller("homeController", function($scope, festivalService) {
         $scope.commingSoonFestival = response.data.data;
         $scope.isLoaded = true;
         console.log($scope.isLoaded);
+        console.log($scope.commingSoonFestival);
       } else {
 
       }
