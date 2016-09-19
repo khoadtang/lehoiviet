@@ -1001,20 +1001,20 @@ li {
 .pageNotFound {
   background-color: #F8F8F8;
   text-align: center;
+  padding-bottom: 20px;
+  color: #777777;
 }
 .pageNotFound h1 {
   font-size: 200px !important;
-  color: #777777;
-  margin: 50px 0 20px 0;
+  margin: 40px 0 20px 0;
 }
 .pageNotFound h2 {
-  font-size: 100px !important;
-  color: #8C8C8C;
-  margin: 10px 0;
+  font-size: 80px !important;
+  margin: 0;
+  line-height: 80px;
 }
-.pageNotFound h2 {
+.pageNotFound h3 {
   font-size: 30px;
-  color: #8C8C8C;
 }
 
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/

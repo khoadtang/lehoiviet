@@ -16,5 +16,4 @@ lobby.directive("lobbyEvent", function(){
 lobby.controller("lobbyController", function($scope) {
   $scope.isLoaded = false;
 
-
 });
