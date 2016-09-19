@@ -6,7 +6,6 @@ account.controller("accountController", function($rootScope, $scope, $rootScope,
   };
 
   $scope.onUpdateProfile = function(){
-    console.log("onUpdateProfile");
     var profile = {};
     profile.firstName = $scope.firstName;
     profile.lastName = $scope.lastName;
@@ -20,7 +19,6 @@ account.controller("accountController", function($rootScope, $scope, $rootScope,
   };
 
   $scope.onChangePassword = function(){
-    console.log("onChangePassword");
     var passwords = {};
     passwords.oldPassword = $scope.oldPassword;
     passwords.newPassword = $scope.newPassword;

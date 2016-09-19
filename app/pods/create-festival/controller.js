@@ -25,7 +25,6 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   createFestival = function(data) {
     festivalService.create(data, function(response) {
       if (response.status == 200) {
-        console.log("Successfull Create");
         $('#post-success').modal('show');
       }
       else {
@@ -40,7 +39,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $('.infoTab section').addClass('hide');
     $('.' + info + 'Tab').removeClass('hide')
   };
-  
+
   $scope.onProvinceSelected = function(province) {
     $scope.districts = province.districts;
   };
