@@ -69,7 +69,7 @@ li {
     font-size: 11px;
     background-color: #fff;
     margin-bottom: 0px;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
     margin-top: 20px;
     p {
@@ -82,15 +82,12 @@ li {
         text-align: center;
         padding: 0px;
     }
-    ul {
-        padding: 10px;
-    }
     li {
         padding-top: 5px;
     }
     img {
         width: 65px;
-        border-radius: 65px;
+        border-radius: 50%;
         margin-left: auto;
         margin-right: auto;
         display: block;
