@@ -485,6 +485,9 @@ li {
   color: #c00;
   font-size: 18px;
 }
+#top-member .member {
+  font-size: 18px;
+}
 #top-member ul,
 #top-member li {
   list-style: none;
@@ -581,6 +584,14 @@ li {
 #menu .navbar-toggle:hover {
   background-color: #2466a0;
 }
+#menu .live-now {
+  color: #c00;
+  display: inline-block;
+  border: 1px solid #c00;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  margin-top: 7px;
+}
 #menu .navbar {
   margin-bottom: 0px;
   background-color: #fff;
@@ -644,22 +655,22 @@ li {
   padding: 5px;
 }
 #menu .menu-right .dropdown-menu {
-  font-size: 12px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  font-size: 13px;
   padding: 0;
-}
-#menu .menu-right .dropdown-menu .divider {
-  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: none;
 }
 #menu .menu-right .dropdown-menu li {
   padding-left: 0px;
   padding-right: 0px;
 }
 #menu .menu-right .dropdown-menu li a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  transition: 0.4s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: 0.2s;
+  font-weight: 500;
+  text-align: left !important;
 }
 #menu .menu-right .dropdown-menu li a:hover {
   background-color: #247ba0;

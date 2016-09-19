@@ -76,6 +76,9 @@ li {
         color: #c00;
         font-size: 18px;
     }
+    .member{
+      font-size: 18px;
+    }
     ul,
     li {
         list-style: none;
@@ -172,6 +175,14 @@ li {
             background-color: #2466a0;
         }
     }
+    .live-now{
+      color: #c00;
+      display: inline-block;
+      border: 1px solid #c00;
+      padding: 5px 10px;
+      background-color: #ffffff;
+      margin-top: 7px;
+    }
     .navbar {
         margin-bottom: 0px;
         background-color: #fff;
@@ -247,20 +258,20 @@ li {
             padding: 5px;
         }
         .dropdown-menu {
-            font-size: 12px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+            font-size: 13px;
             padding: 0;
-            .divider{
-                margin: 0
-            }
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: none;
             li {
                 padding-left: 0px;
                 padding-right: 0px;
                 a {
-                    padding-top: 10px;
-                    padding-bottom: 10px;
-                    transition: 0.4s;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    transition: 0.2s;
+                    font-weight: 500;
+                    text-align: left !important;
                     &:hover {
                         background-color: #247ba0;
                         color: #fff;
@@ -628,7 +639,7 @@ li {
     font-size: 80px !important;
     margin: 0;
     line-height: 80px;
-  } 
+  }
   h3{
     font-size: 30px;
   }

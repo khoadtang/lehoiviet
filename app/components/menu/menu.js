@@ -16,7 +16,7 @@ menu.controller("menuController", function($scope, $rootScope) {
       $('#userLogin').modal('show');
   };
   $scope.actionUserPanel = function(){
-      $('.actionUserPanel .dropdown-menu').slideToggle(600);
+      $('.actionUserPanel .dropdown-menu').toggle();
   };
   $scope.createFestivalView = function() {
     if ($rootScope.token != null) {
