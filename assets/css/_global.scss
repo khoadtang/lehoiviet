@@ -619,11 +619,17 @@ li {
   background-color: #F8F8F8;
   text-align: center;
   h1{
-    font-size: 30px;
+    font-size: 200px !important;
     color: #777777;
+    margin: 50px 0 20px 0;
   }
   h2{
-    font-size: 20px;
+    font-size: 100px !important;
+    color: #8C8C8C;
+    margin: 10px 0;
+  }
+  h2{
+    font-size: 30px;
     color: #8C8C8C
   }
 }

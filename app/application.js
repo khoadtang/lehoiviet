@@ -52,6 +52,14 @@ app.config(['$routeProvider', function ($routeProvider) {
                     controller: "liveController",
                     controllerAs: 'live'
                 })
+                .when('/404', {
+                    templateUrl : 'app/pods/404/view.html',
+                    controller: "errorController",
+                    controllerAs: 'error'
+                })
+                .otherwise({
+                    redirectTo: '/404'
+                });
         }]);
 
 app.constant("ENV", {
