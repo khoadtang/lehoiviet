@@ -3,32 +3,31 @@
       <div class="modal-dialog feedback-form">
           <form role="form" name="loginForm">
               <!-- Modal content-->
-              <div class="modal-content infomation-box">
+              <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                       <p class="modal-title">Đăng nhập</p>
                   </div>
                   <div class="modal-body">
-                    <div class="details">
-                      <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
-                      <div class="form-group">
-                              <input name="email" type="email" placeholder="Email" required="required" ng-model="email" />
-                          <!-- /.input group -->
-                          <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid"></span>
-                          <span ng-show="loginForm.email.$error.required">Email là bắt buộc</span>
-                          <span ng-show="loginForm.email.$error.email">Email không hợp lệ</span>
-                          </span>
-                      </div>
-                      <!-- /.form group -->
-                      <div class="form-group">
-                            <input name="password" type="Password" placeholder="Password" required="required" ng-model="password" />
-                          <!-- /.input group -->
-                          <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-                          <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
-                          </span>
+                    <div class="infomation-box">
+                      <div class="details">
+                        <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
+                        <div class="form-group">
+                                <input name="email" type="email" placeholder="Email" ng-model="email" required/>
+                            <!-- /.input group -->
+                            <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid"></span>
+                              <span ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Email là bắt buộc</span>
+                              <span ng-show="loginForm.email.$error.email">Email không hợp lệ</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                              <input name="password" type="Password" placeholder="Password" required="required" ng-model="password" />
+                            <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                            <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
+                            </span>
+                        </div>
                       </div>
                     </div>
-                      <!-- /.form group -->
                       <div class="form-group row">
                           <div class="checkbox col-xs-6">
                               <label>

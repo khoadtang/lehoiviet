@@ -1028,6 +1028,48 @@ li {
   font-size: 30px;
 }
 
+/*video header*/
+.streamVideo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.streamVideo .videoSource {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+.streamVideo .content {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  height: 100vh;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 15%;
+  text-transform: uppercase;
+}
+.streamVideo video {
+  width: 100%;
+}
+.streamVideo .logo img {
+  width: 80px;
+  margin: 0 auto;
+}
+.streamVideo .title {
+  font-size: 36px;
+  margin: 30px 0 15px;
+}
+.streamVideo .btn-blue {
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/
 #pageHome h2 {
   padding: 0px;
