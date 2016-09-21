@@ -34,7 +34,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
 
   $scope.changTab = function(info){
-    $('.infoList a').removeClass('action');
+    $('.infoList li').removeClass('action');
     $('.infoList #' + info).addClass('action');
     $('.infoTab section').addClass('hide');
     $('.' + info + 'Tab').removeClass('hide')
@@ -46,7 +46,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
   $scope.gotoDetail = function (tab) {
     $scope.changTab(tab);
-    
+
   }
 
   $scope.onCreateFestival = function(){

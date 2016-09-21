@@ -1,47 +1,48 @@
-<div class="container" ng-init="initData()">
-<div id="mainpost">
-<div id="postcontent" class="templateUser">
-  <div class="row profile_area">
+<div ng-init="initData()">
+<!-- <div id="mainpost"> -->
+<div id="post-create">
+  <div class="profile_area">
       <!-- left column -->
-      <div class="col-md-3 col-md-offset-1  col-sm-5 col-xs-12">
-          <div class="user_left_page">
-              <div class="infoUser borderBottom">
-                  <div class="user-avatar">
-                      <img src="http://lehoiviet.herokuapp.com/{{user.avatar}}" class="img-circle" alt="avatar">
-                  </div>
-                  <div class="user-name-bar">
-                      <h4>{{user.firstName}} {{user.lastName}}</h4>
-                  </div>
-              </div>
-              <div class="tabAction">
-                  <ul class="infoList">
-                      <li>
-                          <a class="action" id="eventPost" ng-click="changTab('eventPost')">
-                              <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Thông tin sự kiện
-                          </a>
-                      </li>
-                      <li>
-                          <a id="detailPost" ng-click="changTab('detailPost')">
-                              <i class="fa fa-file-video-o" aria-hidden="true"></i> Thông tin chi tiết
-                          </a>
-                      </li>
-                      <li>
-                          <a id="last" ng-click="changTab('last')">
-                              <i class="fa fa-paper-plane" aria-hidden="true"></i> Thông tin nhà tổ chức
-                          </a>
-                      </li>
-                  </ul>
-              </div>
+      <div class="sidebar">
+          <div class="tabAction">
+            <div class="user">
+              Hương
+              <img src="assets/img/avatar.png" class="img-circle" alt="avatar">
+            </div>
+              <ul class="infoList">
+                <li class="action" id="eventPost" ng-click="changTab('eventPost')">
+                    <span>1</span>Thông tin sự kiện
+                </li>
+                <li id="detailPost" ng-click="changTab('detailPost')">
+                    <span>2</span>Thông tin chi tiết
+                </li>
+                <li id="last" ng-click="changTab('last')">
+                    <span>3</span>Thông tin nhà tổ chức
+                </li>
+              </ul>
           </div>
       </div>
       <!-- edit form column -->
-      <div class="col-md-6 col-sm-7 col-xs-12 infoTab">
+      <div class="infoTab">
           <section class="eventPostTab feedback-form infoUserTab">
+              <div class="imageHeader">
+                <img src="assets/img/banner.jpg" alt="" class="img-responsive"/>
+                <div class="bg-tran"></div>
+                <div class="btn-upload">
+                  <div class="file-input btn-load-image btn-file">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                      Tải ảnh bìa lên&hellip;
+                      <input type="file" name="file" ng-files="getTheFiles($files)" />
+                  </div>
+                </div>
+              </div>
                 <div class="infomation-box">
                   <form name="info">
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Tên lễ hội</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                Tên lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="title" type="text" name="title" required="required" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
                             </div>
@@ -55,7 +56,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="typeEvent" required>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
@@ -70,7 +73,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Tên địa điểm</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Tên địa điểm</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false" required/>
                             </div>
@@ -83,7 +88,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
                                 <select class="col-sm-4 col-xs-5" ng-model="province">
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
@@ -96,21 +103,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Đăng ảnh bìa</div>
-                            <div class="details col-sm-9 row col-xs-12">
-                                <div class="upload-image">
-                                    <ul id="listImage" class="row"></ul>
-                                </div>
-                                <div class="file-input hvr-shutter-out-horizontal btn-file">
-                                    Chọn hình&hellip;
-                                    <input type="file" name="file" ng-files="getTheFiles($files)" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Ngày bắt đầu</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
                             </div>
@@ -123,7 +118,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Ngày kết thúc</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
                             </div>
@@ -136,7 +133,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Giá</div>
+                            <div class="lable col-sm-3 col-xs-12">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                              Giá</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input name="priceTicket" ng-model="priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
                             </div>
@@ -276,7 +275,6 @@
             </div>
         </form>
     </div>
-</div>
 </div>
 <script>
 $(function() {
