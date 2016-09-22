@@ -40,9 +40,7 @@
                   <form name="info">
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                Tên lễ hội</div>
+                            <div class="lable col-sm-3 col-xs-12">Tên lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="title" type="text" name="title" required="required" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
                             </div>
@@ -56,9 +54,7 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Loại lễ hội</div>
+                            <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="typeEvent" required>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
@@ -73,9 +69,7 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Tên địa điểm</div>
+                            <div class="lable col-sm-3 col-xs-12">Tên địa điểm</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false" required/>
                             </div>
@@ -88,9 +82,7 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Địa chỉ</div>
+                            <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
                                 <select class="col-sm-4 col-xs-5" ng-model="province">
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
@@ -103,9 +95,7 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Ngày bắt đầu</div>
+                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
                             </div>
@@ -118,9 +108,7 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Ngày kết thúc</div>
+                            <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
                             </div>
@@ -133,15 +121,39 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">
-                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                              Giá</div>
+                            <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <input name="priceTicket" ng-model="priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
                                     <span ng-show="info.priceTicket.$error.required">Giá là bắt buộc</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
+                                    <span ng-show="info.timeBegin.$error.required">thời gian là bắt buộc</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
+                                    <span ng-show="info.timeEnd.$error.required">Thời gian là bắt buộc</span>
                                 </span>
                             </div>
                         </div>
@@ -171,43 +183,26 @@
                       </div>
                   </div>
               </div>
-              <div class="event">
-                <div class="list-event">
-                    <ul>
-                      <li>
-
-                      </li>
-                    </ul>
-                </div>
-                  <button type="button" name="button" class="hvr-shutter-out-horizontal">Tạo sự kiện</button>
+              <div class="listEvent">
+                <h3>Sự kiện đã tạo:</h3>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Lễ hội trăng rằm</td>
+                      <td class="center" width="30">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Lễ hội trăng rằm</td>
+                      <td class="center" width="30">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="information-content row">
-                  <div class="box-info-normal">
-                      <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
-                      <div class="details col-sm-9 col-xs-12">
-                          <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
-                      </div>
-                      <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                          <span class="text-error" ng-show="createPostForm.timeBegin.$dirty && createPostForm.timeBegin.$invalid">
-                              <span ng-show="createPostForm.timeBegin.$error.required">thời gian là bắt buộc</span>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class="infomation-content row">
-                  <div class="box-info-normal">
-                      <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
-                      <div class="details col-sm-9 col-xs-12">
-                          <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
-                      </div>
-                      <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                          <span class="text-error" ng-show="createPostForm.timeEnd.$dirty && createPostForm.timeEnd.$invalid">
-                              <span ng-show="createPostForm.timeEnd.$error.required">Thời gian là bắt buộc</span>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class="infomation-box">
+              <div class="box-event ">
                 <div class="infomation-content row">
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
@@ -216,7 +211,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="infomation-content row">
+                    <div class="box-info-normal">
+                        <div class="lable col-sm-3 col-xs-12">Từ</div>
+                        <div class="details col-sm-9 col-xs-12">
+                            <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                        </div>
+                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                            <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
+                                <span ng-show="info.timeBegin.$error.required">thời gian là bắt buộc</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="infomation-content row">
+                    <div class="box-info-normal">
+                        <div class="lable col-sm-3 col-xs-12">Đến</div>
+                        <div class="details col-sm-9 col-xs-12">
+                            <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                        </div>
+                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                            <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
+                                <span ng-show="info.timeEnd.$error.required">Thời gian là bắt buộc</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center">
+                  <button type="button" name="button" class="btn-blue">Hoàn tất</button>
+                </div>
+              </div>
             </div>
+              <div class="event">
+                  <button type="button" name="button" class="btn-create-event"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
+              </div>
           </section>
           <!--end:lastReview-->
           <section class="hide lastTab feedback-form infoUserTab">

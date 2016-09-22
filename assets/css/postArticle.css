@@ -110,12 +110,39 @@
 #post-create .infoTab .imageHeader .btn-load-image i {
   font-size: 25px;
 }
+#post-create .infoTab section {
+  min-height: 100vh;
+}
 #post-create .infoTab .infomation-box {
   padding: 30px;
 }
 #post-create .infoTab .infomation-content {
   padding: 10px 0;
+  font-size: 18px;
 }
-#post-create .infoTab .infomation-content .lable {
+#post-create .event {
+  text-align: center;
+}
+#post-create .box-event {
+  border: 1px solid #ddd;
+  padding: 0px 5px 15px 5px;
+  margin: 20px 0 5px;
+}
+#post-create .listEvent {
+  padding: 15px 10px;
+}
+#post-create .listEvent button {
+  float: right;
+}
+#post-create table td {
+  border-bottom: 0px !important;
+}
+#post-create .btn-create-event {
+  background-color: transparent;
+  text-align: center;
   font-size: 20px;
+  border: 2px dashed #7e7e81;
+  color: #7e7e81;
+  padding: 20px;
+  margin: 15px auto;
 }
