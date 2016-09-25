@@ -12,7 +12,7 @@ login.directive("userHandler", function(){
     };
 });
 
-login.controller("userHandleController", function($scope, $rootScope, userService) {
+login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager) {
   $scope.init = function() {
     $scope.message = null;
   };
@@ -54,8 +54,9 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
               $rootScope.firstName = data.user.firstName;
               $rootScope.uid = data.user._id;
               $scope.errorMessage = null;
-              $scope.email = null;
-              $scope.password = null;
+
+              cookiesManager.set("email", userInfo.email);
+              cookiesManager.set("password", userInfo.password);
             } else {
               $scope.errorMessage = "Đăng Nhập Không Thành Công";
             }
@@ -67,4 +68,6 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   $scope.forgetPassword = function() {
 
   };
+
+
 });

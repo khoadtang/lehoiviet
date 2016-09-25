@@ -1,7 +1,8 @@
-var net = angular.module("lehoiviet");
+var app = angular.module("lehoiviet");
 
-net.service("net", function($http, ENV) {
+app.service("net", function($http, ENV, $rootScope) {
   var netService = {};
+  $http.defaults.headers.common['Authorization'] = $rootScope.token;
 
   netService.get = function(url, eventHandler) {
     $http.get(ENV.apiUrl + url).then(eventHandler);

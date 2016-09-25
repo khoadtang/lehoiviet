@@ -1,4 +1,4 @@
-var app = angular.module("lehoiviet", ["ngRoute", "component"]);
+var app = angular.module("lehoiviet", ["ngRoute", "component", "ngCookies"]);
 
 app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
@@ -66,8 +66,19 @@ app.constant("ENV", {
   apiUrl: "https://lehoiviet.herokuapp.com/api"
 });
 
-app.controller("appController", function($scope, $rootScope) {
+app.controller("appController", function($scope, $rootScope, userService) {
   $scope.init = function() {
     $rootScope.token = null;
+
+    userService.autoLogin(function(response){
+      if(response.status == 200) {
+        var data = response.data;
+        $rootScope.token = data.token;
+        $rootScope.email = data.user.email;
+        $rootScope.avatar = data.user.avatar;
+        $rootScope.firstName = data.user.firstName;
+        $rootScope.uid = data.user._id;
+      }
+    });
   };
 });

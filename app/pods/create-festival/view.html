@@ -26,13 +26,13 @@
       <div class="infoTab">
           <section class="eventPostTab feedback-form infoUserTab">
               <div class="imageHeader">
-                <img src="assets/img/banner.jpg" alt="" class="img-responsive"/>
+                <img ng-src="{{imageHeader}}" alt="" class="img-responsive"/>
                 <div class="bg-tran"></div>
                 <div class="btn-upload">
                   <div class="file-input btn-load-image btn-file">
                     <i class="fa fa-camera" aria-hidden="true"></i>
                       Tải ảnh bìa lên&hellip;
-                      <input type="file" name="file" ng-files="getTheFiles($files)" />
+                      <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
                   </div>
                 </div>
               </div>
@@ -128,32 +128,6 @@
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
                                     <span ng-show="info.priceTicket.$error.required">Giá là bắt buộc</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
-                                    <span ng-show="info.timeBegin.$error.required">thời gian là bắt buộc</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
-                                    <span ng-show="info.timeEnd.$error.required">Thời gian là bắt buộc</span>
                                 </span>
                             </div>
                         </div>

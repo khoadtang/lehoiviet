@@ -67,4 +67,16 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
     createFestival(festival);
   };
+
+  $scope.onImageSelected = function(element) {
+       $scope.$apply(function(scope) {
+           var photofile = element.files[0];
+           var reader = new FileReader();
+           reader.onload = function(e) {
+             console.log(reader);
+             console.log(element.files);
+           };
+           reader.readAsDataURL(photofile);
+       });
+  }
 });

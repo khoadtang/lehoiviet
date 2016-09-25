@@ -1,6 +1,6 @@
-var user = angular.module("lehoiviet");
+var app = angular.module("lehoiviet");
 
-user.service("userService", function(net, $http, $rootScope) {
+app.service("userService", function(net, $http, $rootScope, cookiesManager) {
     var userService = {};
 
     userService.signup = function(user, eventHandler){
@@ -9,6 +9,23 @@ user.service("userService", function(net, $http, $rootScope) {
 
      userService.login = function(user, eventHandler){
         net.post('/user/login', user, eventHandler);
+    };
+
+    userService.autoLogin = function(eventHandler) {
+      var user = {};
+      user.email = cookiesManager.get("email");
+
+      if (user.email == null) {
+        return;
+      }
+
+      user.password = cookiesManager.get("password");
+
+      if (user.password == null) {
+        return;
+      }
+
+      userService.login(user, eventHandler);
     };
 
     userService.logout = function(eventHandler) {

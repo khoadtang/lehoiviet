@@ -11,7 +11,7 @@ menu.directive("topMenu", function(){
     };
 });
 
-menu.controller("menuController", function($scope, $rootScope) {
+menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService) {
   $scope.loginView = function(){
       $('#userLogin').modal('show');
   };
@@ -24,5 +24,13 @@ menu.controller("menuController", function($scope, $rootScope) {
     } else {
       $('#not-signed').modal('show');
     }
-  }
+  };
+  $scope.logout = function() {
+    userService.logout(function(response){
+      if(response.status == 200) {
+        $rootScope.token = null;
+        cookiesManager.removeUser();
+      }
+    });
+  };
 });

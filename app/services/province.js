@@ -1,6 +1,6 @@
-var province = angular.module("lehoiviet");
+var app = angular.module("lehoiviet");
 
-province.service("provinceService", function(net) {
+app.service("provinceService", function(net) {
     var provinceService = {};
 
     provinceService.get = function(eventHandler){
