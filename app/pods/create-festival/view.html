@@ -7,7 +7,7 @@
           <div class="tabAction">
             <div class="user">
               Hương
-              <img src="assets/img/avatar.png" class="img-circle" alt="avatar">
+              <img src="assets/img/avatar.png" class="img-circle" alt="avatar"/>
             </div>
               <ul class="infoList">
                 <li class="action" id="eventPost" ng-click="changTab('eventPost')">
@@ -167,16 +167,10 @@
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Lễ hội trăng rằm</td>
-                      <td class="center" width="30">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="box-event ">
+              <div class="box-event hide">
                 <div class="infomation-content row">
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
@@ -189,11 +183,11 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Từ</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                            <input ng-model="timeBeginEvent" type="text" name="timeBeginEvent" spellcheck="false" />
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
-                                <span ng-show="info.timeBegin.$error.required">thời gian là bắt buộc</span>
+                            <span class="text-error" ng-show="info.timeBeginEvent.$dirty && info.timeBeginEvent.$invalid">
+                                <span ng-show="info.timeBeginEvent.$error.required">thời gian là bắt buộc</span>
                             </span>
                         </div>
                     </div>
@@ -202,11 +196,11 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Đến</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                            <input ng-model="timeEndEvent" type="text" name="timeEndEvent" spellcheck="false" />
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
-                                <span ng-show="info.timeEnd.$error.required">Thời gian là bắt buộc</span>
+                            <span class="text-error" ng-show="info.timeEndEvent.$dirty && info.timeEndEvent.$invalid">
+                                <span ng-show="info.timeEndEvent.$error.required">Thời gian là bắt buộc</span>
                             </span>
                         </div>
                     </div>
@@ -217,7 +211,7 @@
               </div>
             </div>
               <div class="event">
-                  <button type="button" name="button" class="btn-create-event"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
+                  <button type="button" name="button" class="btn-create-event" ng-click="createEventFestival()"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
               </div>
           </section>
           <!--end:lastReview-->

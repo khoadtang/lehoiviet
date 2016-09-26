@@ -78,5 +78,9 @@ createFestival.controller("createFestivalController", function($scope, festivalS
            };
            reader.readAsDataURL(photofile);
        });
+  };
+
+  $scope.createEventFestival = function(){
+    $('.box-event').toggleClass('hide');
   }
 });
