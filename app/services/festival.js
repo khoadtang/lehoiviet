@@ -1,6 +1,6 @@
 var app = angular.module("lehoiviet");
 
-app.service("festivalService", function($http, net) {
+app.service("festivalService", function($http, net, $rootScope) {
     var festivalService = {};
 
     festivalService.create = function(festival, eventHandler){

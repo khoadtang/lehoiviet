@@ -1,6 +1,6 @@
 var createFestival = angular.module("lehoiviet");
 
-createFestival.controller("createFestivalController", function($scope, festivalService, categoryService, provinceService, dateHelper) {
+createFestival.controller("createFestivalController", function($scope, festivalService, categoryService, provinceService, imageService, dateHelper) {
   $scope.initData = function() {
     getCategories();
     getProvincies();
@@ -70,13 +70,13 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
   $scope.onImageSelected = function(element) {
        $scope.$apply(function(scope) {
-           var photofile = element.files[0];
-           var reader = new FileReader();
-           reader.onload = function(e) {
-             console.log(reader);
-             console.log(element.files);
-           };
-           reader.readAsDataURL(photofile);
+          var formData = new FormData();
+          formData.append("file", element.files[0]);
+          imageService.uploadBackgroundFestival(formData, function(response){
+            if(response.status == 200) {
+               $scope.backgroundFestival = response.data.data.imgName;
+            }
+           });
        });
   };
 
