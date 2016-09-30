@@ -277,17 +277,6 @@ body {
     text-decoration: none;
     color: #f80;
 }
-.festival-item .infoPrice{
-    text-align: right;
-}
-.festival-item .festival-info .price {
-    background-color: #fe8802;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 600;
-    padding: 5px;
-}
-
 .btn-file {
     position: relative;
     overflow: hidden;
