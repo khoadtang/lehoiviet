@@ -400,6 +400,10 @@ a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visit
   outline: 0 !important;
 }
 
+select:focus, select:active, select:visited {
+  outline: 0;
+}
+
 .modal-open {
   overflow-y: scroll;
   padding-right: 0 !important;

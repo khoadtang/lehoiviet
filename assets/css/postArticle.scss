@@ -83,9 +83,10 @@
       text-align: center;
       img{
         position: absolute;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 400px;
         background-color: #ffffff;
+        margin: 0 auto;
       }
       .bg-tran{
         background-image: linear-gradient(to top, #FFFFFF 0px, rgba(255, 255, 255, 0.8) 30%, transparent 100%);
@@ -94,12 +95,17 @@
         position: absolute;
         bottom: 0;
       }
-      .btn-upload{
+      .btn-position-upload{
         position: absolute;
         padding-top: 200px;
         z-index: 100;
         width: 100%;
         text-align: center;
+      }
+      .img-loading{
+        width: 50px;
+        height: auto;
+        margin: 0 auto;
       }
       .btn-load-image{
         background: rgba(255,255,255,0.7);
