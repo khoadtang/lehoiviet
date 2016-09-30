@@ -1,6 +1,7 @@
 var createFestival = angular.module("lehoiviet");
 
-createFestival.controller("createFestivalController", function($scope, festivalService, categoryService, provinceService, dateHelper) {
+createFestival.controller("createFestivalController", function($scope, festivalService,
+  categoryService, provinceService, imageService, dateHelper, $window) {
   $scope.initData = function() {
     getCategories();
     getProvincies();
@@ -33,11 +34,12 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     });
   };
 
-  $scope.changTab = function(info){
+  $scope.onChangeTab = function(info){
     $('.infoList li').removeClass('action');
     $('.infoList #' + info).addClass('action');
     $('.infoTab section').addClass('hide');
     $('.' + info + 'Tab').removeClass('hide')
+    $window.scrollTo(0, 0); // scroll top
   };
 
   $scope.onProvinceSelected = function(province) {
@@ -70,13 +72,15 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
   $scope.onImageSelected = function(element) {
        $scope.$apply(function(scope) {
-           var photofile = element.files[0];
-           var reader = new FileReader();
-           reader.onload = function(e) {
-             console.log(reader);
-             console.log(element.files);
-           };
-           reader.readAsDataURL(photofile);
+         $scope.isUploading = true;
+          var formData = new FormData();
+          formData.append("file", element.files[0]);
+          imageService.uploadBackgroundFestival(formData, function(response){
+            if(response.status == 200) {
+               $scope.backgroundFestival = response.data.data.imgName;
+               $scope.isUploading = false;
+            }
+           });
        });
   };
 
