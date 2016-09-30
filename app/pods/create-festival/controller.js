@@ -78,10 +78,14 @@ createFestival.controller("createFestivalController", function($scope, festivalS
           imageService.uploadBackgroundFestival(formData, function(response){
             if(response.status == 200) {
                $scope.backgroundFestival = response.data.data.imgName;
-               $scope.isUploading = false;
             }
            });
        });
+  };
+
+  // image uploaded when image's rendered on screen
+  $scope.onImageUploaded = function() {
+    $scope.isUploading = false;
   };
 
   $scope.createEventFestival = function(){
