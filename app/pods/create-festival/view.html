@@ -10,13 +10,13 @@
               <img src="assets/img/avatar.png" class="img-circle" alt="avatar"/>
             </div>
               <ul class="infoList">
-                <li class="action" id="eventPost" ng-click="changTab('eventPost')">
+                <li class="action" id="eventPost" ng-click="onChangeTab('eventPost')">
                     <span>1</span>Thông tin sự kiện
                 </li>
-                <li id="detailPost" ng-click="changTab('detailPost')">
+                <li id="detailPost" ng-click="onChangeTab('detailPost')">
                     <span>2</span>Thông tin chi tiết
                 </li>
-                <li id="last" ng-click="changTab('last')">
+                <li id="last" ng-click="onChangeTab('last')">
                     <span>3</span>Thông tin nhà tổ chức
                 </li>
               </ul>
@@ -28,12 +28,15 @@
               <div class="imageHeader">
                 <img ng-src="http://lehoiviet.herokuapp.com{{backgroundFestival}}" alt="" class="img-responsive"/>
                 <div class="bg-tran"></div>
-                <div class="btn-upload">
+                <div class="btn-upload" ng-show="!isUploading">
                   <div class="file-input btn-load-image btn-file">
                     <i class="fa fa-camera" aria-hidden="true"></i>
                       Tải ảnh bìa lên&hellip;
                       <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
                   </div>
+                </div>
+                <div class="btn-upload">
+                  <img ng-src="http://lehoiviet.herokuapp.com/uploads/posts/thumbnails/img_full_thumbnail_WmxP6qhwjdCelowm81qi.gif"/>
                 </div>
               </div>
                 <div class="infomation-box">
@@ -57,6 +60,7 @@
                             <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
                                 <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="typeEvent" required>
+                                    <option value="" ng-disabled="true">Chọn Loại Lễ Hội</option>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                                 </select>
                             </div>
@@ -85,9 +89,11 @@
                             <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
                                 <select class="col-sm-4 col-xs-5" ng-model="province">
+                                    <option value="" ng-disabled="true">Chọn Tỉnh / Thành Phố</option>
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
                                 </select>
                                 <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="district">
+                                    <option value="" ng-disabled="true">Chọn Huyện / Phường</option>
                                     <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
                                 </select>
                             </div>
