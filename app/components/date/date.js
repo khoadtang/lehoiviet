@@ -1,18 +1,15 @@
 var date = angular.module("component");
 
-date.directive("dateFormatter", function(){
+date.directive("date", function(){
   return {
         restrict: "E",
         scope: {
-            date: "@"
+            date: "=data"
         },
         templateUrl: "app/components/date/template.html",
-        controller: "dateController"
+        link: function(scope, element, attrs) {
+            console.log("Link");  
+            console.log(scope.date);
+        }
     };
-});
-
-date.controller("dateController", function($scope, dateHelper) {
-  $scope.formatData = function() {
-    $scope.date = dateHelper.parse($scope.date);
-  }
 });

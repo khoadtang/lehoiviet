@@ -90,5 +90,17 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
   $scope.createEventFestival = function(){
     $('.box-event').toggleClass('hide');
-  }
+  };
+
+  $scope.onSave = function() {
+    console.log("Save");
+    var festival = {};
+    festival.title = $scope.title;
+
+    festivalService.save(festival, function(response) {
+      if (response.status == 200) {
+        console.log("Completed Save");
+      }
+    });
+  };
 });

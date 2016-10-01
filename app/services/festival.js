@@ -8,6 +8,11 @@ app.service("festivalService", function($http, net, $rootScope) {
         net.post('/festival/create/', festival, eventHandler);
     };
 
+    festivalService.save = function(festival, eventHandler){
+        festival.userId = $rootScope.uid;
+        net.post('/festival/save/', festival, eventHandler);
+    };
+
     festivalService.update = function(festival, eventHandler){
         net.post('/festival/update/', festival, eventHandler);
     };
