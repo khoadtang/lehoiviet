@@ -15,6 +15,14 @@
 }
 #post-create{
   background-color: #ffffff;
+  .btn-blue{
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 10px;
+    i{
+      margin: 0 5px;
+    }
+  }
   .sidebar{
     width: 30%;
     background: #247ba0;
