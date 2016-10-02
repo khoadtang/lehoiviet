@@ -15,6 +15,9 @@
 }
 #post-create{
   background-color: #ffffff;
+  .box-notify{
+    margin: 10px;
+  }
   .btn-blue{
     font-size: 18px;
     padding: 10px 15px;
@@ -37,12 +40,11 @@
     font-size: 20px;
   }
   .tabAction{
-    .user{
+    .question-user{
       text-align: right;
-      padding: 15px;
-      img{
-        width: 40px;
-      }
+      font-size: 25px;
+      padding: 15px 15px 10px;
+      color: #ffffff;
     }
   }
   .infoList{
@@ -107,6 +109,8 @@
         padding-top: 180px;
         z-index: 100;
         width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.1);
         text-align: center;
       }
       .img-loading{

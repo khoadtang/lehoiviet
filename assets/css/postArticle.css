@@ -15,6 +15,9 @@
 #post-create {
   background-color: #ffffff;
 }
+#post-create .box-notify {
+  margin: 10px;
+}
 #post-create .btn-blue {
   font-size: 18px;
   padding: 10px 15px;
@@ -36,12 +39,11 @@
 #post-create .sidebar a {
   color: #ffffff;
 }
-#post-create .tabAction .user {
+#post-create .tabAction .question-user {
   text-align: right;
-  padding: 15px;
-}
-#post-create .tabAction .user img {
-  width: 40px;
+  font-size: 25px;
+  padding: 15px 15px 10px;
+  color: #ffffff;
 }
 #post-create .infoList li {
   padding: 20px;
@@ -105,6 +107,8 @@
   padding-top: 180px;
   z-index: 100;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 #post-create .infoTab .imageHeader .img-loading {

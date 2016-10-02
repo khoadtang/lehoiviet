@@ -5,10 +5,7 @@
       <!-- left column -->
       <div class="sidebar">
           <div class="tabAction">
-            <div class="user">
-              Hương
-              <img src="assets/img/avatar.png" class="img-circle" alt="avatar"/>
-            </div>
+            <div class="question-user"><a href=""><i class="fa fa-question-circle" aria-hidden="true"></i></a></div>
               <ul class="infoList">
                 <li class="action" id="eventPost" ng-click="onChangeTab('eventPost')">
                     <span>1</span>Thông tin sự kiện
@@ -40,6 +37,10 @@
                         <span class="loading"></span>
                     </div>
                 </div>
+              </div>
+              <div class="box-notify alert alert-danger">
+                  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
               </div>
                 <div class="infomation-box">
                   <form name="info">
@@ -76,7 +77,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Tên địa điểm</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false" required/>
+                                <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false"/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.nameAddress.$dirty && info.nameAddress.$invalid">
@@ -140,7 +141,7 @@
                         </div>
                     </div>
                     <div style="text-align: center">
-                      <button type="button" class="btn-blue" ng-click="onSave()"><i class="fa fa-floppy-o" aria-hidden="true" "></i>Lưu lại</button>
+                      <button type="button" class="btn-blue" ng-click="onSave()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại</button>
                       <button class="btn-blue" ng-click="gotoDetail('detailPost')">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
                   </form>

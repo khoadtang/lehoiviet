@@ -180,6 +180,10 @@ nav{
             background-color: #2466a0;
         }
     }
+    .navbar-brand img{
+        width: 180px;
+        height: auto;
+    }
     .live-now{
       color: #c00;
       display: inline-block;
@@ -674,12 +678,8 @@ nav{
     padding-top: 15%;
     text-transform: uppercase;
     }
-    video{
-      width: 100%;
-    }
-    .logo img{
-      width: 80px;
-      margin: 0 auto
+    video {
+        width: 100%;
     }
     .title{
       font-size: 36px;
