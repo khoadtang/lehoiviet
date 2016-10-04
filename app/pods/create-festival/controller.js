@@ -5,6 +5,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   $scope.initData = function() {
     getCategories();
     getProvincies();
+    validate();
   };
 
   getCategories = function() {
@@ -32,6 +33,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
 
   $scope.onProvinceSelected = function(province) {
+    $scope.festival.district = null;
     $scope.districts = province.districts;
   };
 
@@ -80,12 +82,17 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     }
 
     festival = $scope.festival;
-    
+
+    $scope.isSaving = true;
     festivalService.save(festival, $scope.festival.id, function(response) {
       if (response.status == 200) {
-        $scope.festival.id = response.data.data._id;
-        console.log($scope.festival.id);
+        $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
+        $scope.isSaving = false;
       }
     });
   };
+
+  validate = function() {
+    
+  }
 });

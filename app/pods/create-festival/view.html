@@ -40,16 +40,17 @@
               </div>
 
                 <div class="infomation-box">
-                  <form name="info">
+                  <form name="info" novalidate="true">
                     <div class="infomation-content">
                         <div class="box-info-normal row">
                             <div class="lable col-sm-3 col-xs-12">Tên lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="festival.title" type="text" name="title" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
+                                <input ng-model="festival.title" type="text" name="title" spellcheck="false" placeholder="ví dụ: lễ hội bắn pháo hoa" ng-minlength='10' required="true"/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.title.$dirty && info.title.$invalid">
-                                    <span ng-show="info.title.$error.minlength" class="text-error">Bạn phải nhập ít nhất 10 kí tự</span>
+                                    <span ng-show="info.title.$error.minlength" class="text-error">bạn phải nhập ít nhất 10 kí tự</span>
+                                    <span ng-show="info.title.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
@@ -65,7 +66,7 @@
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.typeEvent.$dirty && info.typeEvent.$invalid">
-                                    <span ng-show="info.typeEvent.$error.required">Loại sự kiện là bắt buộc</span>
+                                    <span ng-show="info.title.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
@@ -74,11 +75,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Tên địa điểm</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input type="text" ng-model="festival.mainAddress" name='mainAddress' spellcheck="false"/>
+                                <input type="text" ng-model="festival.mainAddress" name='mainAddress' placeholder="ví dụ: 466/4 Lê Quang Định" spellcheck="false"/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.mainAddress.$dirty && info.mainAddress.$invalid">
-                                    <span ng-show="info.mainAddress.$error.required">Tên địa điểm là bắt buộc</span>
+                                    <span ng-show="info.mainAddress.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
@@ -106,7 +107,7 @@
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
-                                    <span ng-show="info.timeBegin.$error.required">thời gian là bắt buộc</span>
+                                    <span ng-show="info.timeBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
@@ -115,11 +116,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                                <input ng-model="festival.timeEnd" type="text" name="timeEnd" spellcheck="false" />
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
-                                    <span ng-show="info.timeEnd.$error.required">Thời gian là bắt buộc</span>
+                                    <span ng-show="info.timeEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
@@ -128,18 +129,28 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input name="priceTicket" ng-model="festival.priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
+                                <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000"/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
-                                    <span ng-show="info.priceTicket.$error.required">Giá là bắt buộc</span>
+                                    <span ng-show="info.priceTicket.$error.number">giá phải là một con số</span>
+                                    <span ng-show="info.priceTicket.$error.min">giá phải nằm trong khoảng 0 và 1.000.000</span>
+                                    <span ng-show="info.priceTicket.$error.max">giá phải nằm trong khoảng 0 và 1.000.000</span>
+                                    <span ng-show="info.priceTicket.$error.required">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
                     </div>
                     <div style="text-align: center">
-                      <button type="button" class="btn-blue" ng-click="onSave()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại</button>
-                      <button class="btn-blue" ng-click="saveInfoEvent()">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                      <button type="button" class="btn-blue" ng-click="onSave()">
+                        <div ng-show="!isSaving">
+                          <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
+                        </div>
+                        <div class="img-loading" ng-show="isSaving">
+                            <span class="loading"></span>
+                        </div>
+                      </button>
+                      <button type="submit" class="btn-blue" ng-click="saveInfoEvent()" ng-disabled="info.$invalid">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
                   </form>
                 </div>

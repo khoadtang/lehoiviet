@@ -1386,6 +1386,7 @@ nav {
 /*#login*/
 .text-error {
   color: #c00;
+  font-size: 15px;
 }
 
 .reset-password label {
