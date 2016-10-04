@@ -8,9 +8,13 @@ app.service("festivalService", function($http, net, $rootScope) {
         net.post('/festival/create/', festival, eventHandler);
     };
 
-    festivalService.save = function(festival, eventHandler){
+    festivalService.save = function(festival, festivalId, eventHandler){
         festival.userId = $rootScope.uid;
-        net.post('/festival/save/', festival, eventHandler);
+        if (festivalId == -1 || festivalId == null || festivalId == undefined) {
+          net.post('/festival/save/', festival, eventHandler);
+        } else {
+          net.post('/festival/save/'.concat(festivalId), festival, eventHandler);
+        }
     };
 
     festivalService.update = function(festival, eventHandler){

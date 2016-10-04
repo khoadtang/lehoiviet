@@ -1,7 +1,7 @@
 var createFestival = angular.module("lehoiviet");
 
 createFestival.controller("createFestivalController", function($scope, festivalService,
-  categoryService, provinceService, imageService, dateHelper, $window) {
+  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce) {
   $scope.initData = function() {
     getCategories();
     getProvincies();
@@ -23,17 +23,6 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     });
   };
 
-  createFestival = function(data) {
-    festivalService.create(data, function(response) {
-      if (response.status == 200) {
-        $('#post-success').modal('show');
-      }
-      else {
-
-      }
-    });
-  };
-
   $scope.onChangeTab = function(info){
     $('.infoList li').removeClass('action');
     $('.infoList #' + info).addClass('action');
@@ -46,11 +35,6 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $scope.districts = province.districts;
   };
 
-  $scope.gotoDetail = function (tab) {
-    $scope.changTab(tab);
-
-  }
-
   $scope.onCreateFestival = function(){
     var festival = {};
     festival.title = $scope.title;
@@ -62,8 +46,8 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     festival.emailAddress = $scope.emailAddress;
     festival.phoneNumber = $scope.phoneNumber;
     festival.typeEvent = $scope.typeEvent;
-    festival.mainAddress = $scope.nameAddress;
-    festival.city = $scope.province;
+    festival.mainAddress = $scope.mainAddress;
+    festival.city = $scope.city;
     festival.district = $scope.district;
     festival.priceTicket = $scope.priceTicket;
 
@@ -88,18 +72,19 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $scope.isUploading = false;
   };
 
-  $scope.createEventFestival = function(){
-    $('.box-event').toggleClass('hide');
-  };
-
   $scope.onSave = function() {
-    console.log("Save");
     var festival = {};
-    festival.title = $scope.title;
 
-    festivalService.save(festival, function(response) {
+    if ($scope.festival == null || $scope.festival == undefined) {
+      return;
+    }
+
+    festival = $scope.festival;
+    
+    festivalService.save(festival, $scope.festival.id, function(response) {
       if (response.status == 200) {
-        console.log("Completed Save");
+        $scope.festival.id = response.data.data._id;
+        console.log($scope.festival.id);
       }
     });
   };

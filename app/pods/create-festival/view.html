@@ -38,17 +38,14 @@
                     </div>
                 </div>
               </div>
-              <div class="box-notify alert alert-danger">
-                  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
-              </div>
+
                 <div class="infomation-box">
                   <form name="info">
                     <div class="infomation-content">
                         <div class="box-info-normal row">
                             <div class="lable col-sm-3 col-xs-12">Tên lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="title" type="text" name="title" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
+                                <input ng-model="festival.title" type="text" name="title" spellcheck="false" placeholder="Bạn phải nhập ít nhất 10 kí tự" ng-minlength='10'/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.title.$dirty && info.title.$invalid">
@@ -61,7 +58,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="typeEvent">
+                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="festival.typeEvent">
                                     <option value="" ng-disabled="true">Chọn Loại Lễ Hội</option>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                                 </select>
@@ -77,11 +74,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Tên địa điểm</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input type="text" ng-model="nameAddress" name='nameAddress' spellcheck="false"/>
+                                <input type="text" ng-model="festival.mainAddress" name='mainAddress' spellcheck="false"/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="info.nameAddress.$dirty && info.nameAddress.$invalid">
-                                    <span ng-show="info.nameAddress.$error.required">Tên địa điểm là bắt buộc</span>
+                                <span class="text-error" ng-show="info.mainAddress.$dirty && info.mainAddress.$invalid">
+                                    <span ng-show="info.mainAddress.$error.required">Tên địa điểm là bắt buộc</span>
                                 </span>
                             </div>
                         </div>
@@ -90,11 +87,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
-                                <select class="col-sm-4 col-xs-5" ng-model="province">
+                                <select class="col-sm-4 col-xs-5" ng-model="festival.city">
                                     <option value="" ng-disabled="true">Chọn Tỉnh / Thành Phố</option>
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
                                 </select>
-                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="district">
+                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district">
                                     <option value="" ng-disabled="true">Chọn Huyện / Phường</option>
                                     <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
                                 </select>
@@ -105,7 +102,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                                <input ng-model="festival.timeBegin" type="text" name="timeBegin" spellcheck="false" />
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
@@ -131,7 +128,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input name="priceTicket" ng-model="priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
+                                <input name="priceTicket" ng-model="festival.priceTicket" type="text" onkeypress="return isNumberKey(event)" spellcheck="false" />
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
@@ -142,7 +139,7 @@
                     </div>
                     <div style="text-align: center">
                       <button type="button" class="btn-blue" ng-click="onSave()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại</button>
-                      <button class="btn-blue" ng-click="gotoDetail('detailPost')">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                      <button class="btn-blue" ng-click="saveInfoEvent()">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
                   </form>
                 </div>
@@ -154,7 +151,7 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
                       <div class="details col-sm-9 col-xs-12">
-                          <input ng-model="description" type="text" spellcheck="false" />
+                          <input ng-model="festival.description" type="text" spellcheck="false" />
                       </div>
                   </div>
               </div>
@@ -162,7 +159,7 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
-                          <textarea rows="5" ng-model="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" />
+                          <textarea rows="5" ng-model="festival.content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" />
                       </div>
                   </div>
               </div>
@@ -184,7 +181,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="nameEvent" type="text" spellcheck="false" />
+                            <input ng-model="festival.nameEvent" type="text" spellcheck="false" />
                         </div>
                     </div>
                 </div>
@@ -192,7 +189,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Từ</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="timeBeginEvent" type="text" name="timeBeginEvent" spellcheck="false" />
+                            <input ng-model="festival.timeBeginEvent" type="text" name="timeBeginEvent" spellcheck="false" />
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                             <span class="text-error" ng-show="info.timeBeginEvent.$dirty && info.timeBeginEvent.$invalid">
@@ -205,7 +202,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Đến</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="timeEndEvent" type="text" name="timeEndEvent" spellcheck="false" />
+                            <input ng-model="festival.timeEndEvent" type="text" name="timeEndEvent" spellcheck="false" />
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                             <span class="text-error" ng-show="info.timeEndEvent.$dirty && info.timeEndEvent.$invalid">
@@ -230,7 +227,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="phoneNumber" type="text" onkeypress="return isNumberKey(event)" />
+                            <input ng-model="festival.phoneNumber" type="text" onkeypress="return isNumberKey(event)" />
                         </div>
                     </div>
                 </div>
@@ -238,7 +235,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Email</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input type="email" ng-model="emailAddress" name='emailAddress' spellcheck="false" />
+                            <input type="email" ng-model="festival.emailAddress" name='emailAddress' spellcheck="false" />
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                             <span ng-show="createPostForm.emailAddress.$error.email">Email không hợp lệ</span>
@@ -249,7 +246,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Website</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="website" type="text" spellcheck="false" />
+                            <input ng-model="festival.website" type="text" spellcheck="false" />
                         </div>
                     </div>
                 </div>
