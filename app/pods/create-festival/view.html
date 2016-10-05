@@ -141,14 +141,14 @@
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: center">
-                      <button type="button" class="btn-blue" ng-click="onSave()">
+                    <div style="text-align: center;">
+                      <button type="button" class=" btn-blue" ng-click="onSave()" >
                         <div ng-show="!isSaving">
                           <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
                         </div>
-                        <div class="img-loading" ng-show="isSaving">
-                            <span class="loading"></span>
-                        </div>
+                          <div ng-show="isSaving">
+                              <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1s infinite linear;font-size: 20px;"></i>
+                          </div>
                       </button>
                       <button type="submit" class="btn-blue" ng-click="saveInfoEvent()" ng-disabled="info.$invalid">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
