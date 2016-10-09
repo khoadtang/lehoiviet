@@ -93,6 +93,6 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
 
   validate = function() {
-    
+
   }
 });
