@@ -501,6 +501,20 @@ li {
 #top-member li {
   padding-top: 5px;
 }
+#top-member .icon-user {
+  width: 65px;
+  border-radius: 50%;
+  position: relative;
+}
+#top-member .icon-user i {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #42E40A;
+}
 #top-member img {
   width: 65px;
   border-radius: 50%;
