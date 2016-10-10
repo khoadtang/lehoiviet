@@ -63,7 +63,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         }]);
 
 app.constant("ENV", {
-  apiUrl: "https://lehoiviet.herokuapp.com/api"
+  apiUrl: "https://lehoiviet.herokuapp.com/api",
+  gateWay: "http://127.0.0.1:5000"
 });
 
 app.controller("appController", function($scope, $rootScope, userService) {

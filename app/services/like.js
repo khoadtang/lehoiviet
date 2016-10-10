@@ -6,6 +6,6 @@ app.service("likeService", function(net) {
     likeService.create = function(data, eventHandler){
         net.post('/like/createLike/', data, eventHandler);
     };
-    
+
     return likeService;
 });
