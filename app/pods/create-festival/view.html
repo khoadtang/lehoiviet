@@ -21,6 +21,11 @@
       </div>
       <!-- edit form column -->
       <div class="infoTab">
+          <!--<div class="thumbLoading">-->
+              <!--<div class="content">-->
+                  <!--<i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>-->
+              <!--</div>-->
+          <!--</div>-->
           <section class="eventPostTab feedback-form infoUserTab">
               <div class="imageHeader">
                 <img ng-src="http://lehoiviet.herokuapp.com{{backgroundFestival}}" alt="" class="img-responsive" imageonload="onImageUploaded()"/>
@@ -142,7 +147,7 @@
                         </div>
                     </div>
                     <div style="text-align: center">
-                      <button type="button" class="btn-blue" ng-click="onSave()">
+                      <button type="button" class="btn-blue btn-fix" ng-click="onSave()">
                         <div ng-show="!isSaving">
                           <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
                         </div>
@@ -150,7 +155,7 @@
                           <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
                         </div>
                       </button>
-                      <button type="submit" class="btn-blue" ng-click="saveInfoEvent()" ng-disabled="info.$invalid">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                      <button type="submit" class="btn-blue btn-fix" ng-click="saveInfoEvent()" ng-disabled="info.$invalid">Tiếp tục<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
                   </form>
                 </div>
@@ -292,54 +297,7 @@
 <script>
 $(function() {
 
-    $('input[name="timeBegin"]').daterangepicker({
-        "singleDatePicker": true,
-        "timePicker": true,
-        "timePicker24Hour": true,
-        "timePickerIncrement": 5,
-        "autoApply": true,
-        "locale": {
-            "format": "MM/DD/YYYY HH:mm",
-            "separator": " - ",
-            "applyLabel": "Chọn",
-            "cancelLabel": "Cancel",
-            "fromLabel": "From",
-            "toLabel": "To",
-            "customRangeLabel": "Custom",
-            "daysOfWeek": [
-                "CN",
-                "Hai",
-                "Ba",
-                "Tư",
-                "Năm",
-                "Sáu",
-                "Bảy"
-            ],
-            "monthNames": [
-                "Tháng 1",
-                "Tháng 2",
-                "Tháng 3",
-                "Tháng 4",
-                "Tháng 5",
-                "Tháng 6",
-                "Tháng 7",
-                "Tháng 8",
-                "Tháng 9",
-                "Tháng 10",
-                "Tháng 11",
-                "Tháng 12"
-            ],
-            "firstDay": 1
-        },
-        "alwaysShowCalendars": true,
-        "parentEl": "test",
-        "startDate": new Date(),
-        "drops": "up",
-        "applyClass": "btn-blue",
-        "minDate": new Date()
-    });
-
-    $('input[name="timeEnd"]').daterangepicker({
+    $('input[name="timeBegin"],input[name="timeEnd"],input[name="timeBeginEvent"],input[name="timeEndEvent"]').daterangepicker({
         "singleDatePicker": true,
         "timePicker": true,
         "timePicker24Hour": true,
