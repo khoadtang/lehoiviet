@@ -5,7 +5,6 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   $scope.initData = function() {
     getCategories();
     getProvincies();
-    validate();
   };
 
   getCategories = function() {
@@ -92,7 +91,8 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     });
   };
 
-  validate = function() {
-
+  $scope.onAddEvent = function() {
+    console.log("Add Event");
+    $('.box-event').removeClass('hide');
   }
 });
