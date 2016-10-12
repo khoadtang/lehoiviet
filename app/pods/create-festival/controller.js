@@ -1,7 +1,9 @@
 var createFestival = angular.module("lehoiviet");
 
 createFestival.controller("createFestivalController", function($scope, festivalService,
-  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce) {
+  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService) {
+  var festivalId = {};
+
   $scope.initData = function() {
     getCategories();
     getProvincies();
@@ -30,6 +32,19 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $('.' + info + 'Tab').removeClass('hide')
     // $window.scrollTo(0, 0); // scroll top
     $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
+
+    if(info === 'detailPost' && festivalId != null && festivalId != undefined) {
+      getEvents();
+    }
+  };
+
+  getEvents = function(){
+    eventService.getAll(festivalId, function(response) {
+      if (response.status == 200) {
+        $scope.events = response.data.data;
+        console.log($scope.events);
+      }
+    })
   };
 
   $scope.onProvinceSelected = function(province) {
@@ -88,12 +103,68 @@ createFestival.controller("createFestivalController", function($scope, festivalS
       if (response.status == 200) {
         $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
         $scope.isSaving = false;
+
+        festivalId = $scope.festival.id;
       }
     });
   };
 
   $scope.onAddEvent = function() {
-    console.log("Add Event");
+    $scope.event = {};
     $('.box-event').removeClass('hide');
+    $('.btn-create-event').addClass('hide');
+    // $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
+  }
+
+  $scope.onUpdateOrCreateEvent = function() {
+    var event = {};
+
+    if ($scope.event == null || $scope.event == undefined) {
+      return;
+    }
+
+    event = $scope.event;
+
+    $scope.isSaving = true;
+
+    if (event._id == null || event._id == undefined) {
+      eventService.create(festivalId, event, function(response) {
+        if (response.status == 200) {
+          $scope.isSaving = false;
+          console.log("Create Successfully");
+          getEvents();
+
+          $('.box-event').addClass('hide');
+          $('.btn-create-event').removeClass('hide');
+        }
+      });
+    } else {
+      eventService.updateById(event._id, event, function(response) {
+        if (response.status == 200) {
+          $scope.isSaving = false;
+          console.log("Create Successfully");
+          getEvents();
+
+          $('.box-event').addClass('hide');
+          $('.btn-create-event').removeClass('hide');
+        }
+      });
+    }
+
+  };
+
+  $scope.onUpdateEvent = function(eventId){
+    if (eventId == null || eventId == undefined) {
+      return;
+    }
+
+    eventService.getById(eventId, function(response) {
+      if (response.status == 200) {
+        $scope.event = response.data.data;
+
+        $('.box-event').removeClass('hide');
+        $('.btn-create-event').addClass('hide');
+      }
+    });
   }
 });
