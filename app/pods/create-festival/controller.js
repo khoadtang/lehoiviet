@@ -28,7 +28,8 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $('.infoList #' + info).addClass('action');
     $('.infoTab section').addClass('hide');
     $('.' + info + 'Tab').removeClass('hide')
-    $window.scrollTo(0, 0); // scroll top
+    // $window.scrollTo(0, 0); // scroll top
+    $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
   };
 
   $scope.onProvinceSelected = function(province) {
