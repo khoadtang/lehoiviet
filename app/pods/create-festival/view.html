@@ -158,15 +158,17 @@
           <!--end:lastReview-->
           <section class="hide detailPostTab feedback-form infoUserTab">
             <div class="infomation-box">
-              <div class="infomation-content row">
-                  <div class="box-info-normal">
-                      <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
-                      <div class="details col-sm-9 col-xs-12">
-                          <input ng-model="festival.description" type="text" spellcheck="false" />
-                      </div>
-                  </div>
-              </div>
-              <div class="infomation-content row">
+              <form name='detailPost'>
+                <div class="infomation-content row">
+                    <div class="box-info-normal">
+                        <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
+                        <div class="details col-sm-9 col-xs-12">
+                            <input ng-model="festival.description" type="text" spellcheck="false" />
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="infomation-content row">
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
@@ -174,6 +176,7 @@
                       </div>
                   </div>
               </div>
+              </form>
               <div class="listEvent">
                 <h3>Sự kiện đã tạo:</h3>
                 <table class="table">
@@ -234,6 +237,7 @@
           <!--end:lastReview-->
           <section class="hide lastTab feedback-form infoUserTab">
               <div class="infomation-box">
+                <form name='lastPost'>
                 <div class="infomation-content row">
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
@@ -261,6 +265,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
               </div>
               <div style="text-align:center">
                   <button ng-click="onCreateFestival()" class="create-festival btn-blue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
