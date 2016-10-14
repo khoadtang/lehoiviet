@@ -11,7 +11,7 @@ date.directive("date",["dateHelper", function(dateHelper){
           var NameDay = {
             "Monday": "Thứ 2",
             "Tuesday": "Thứ 3",
-            "Wendesday": "Thứ 4",
+            "Wednesday": "Thứ 4",
             "Thursday": "Thứ 5",
             "Friday": "Thứ 6",
             "Saturday": "Thứ 7",
@@ -25,9 +25,15 @@ date.directive("date",["dateHelper", function(dateHelper){
           var data = dateHelper.parse(scope.date);
           var date = moment(data, "DD-MM-YYYY HH:mm");
 
-          scope.date.day = NameDay[date.format("dddd")];
-          scope.date.month = date.format("MM");
-          scope.date.year = date.format("YYYY");
+          var objectData = {};
+          objectData.date = NameDay[date.format("dddd")];
+          objectData.month = date.format("MM");
+          objectData.year = date.format("YYYY");
+          objectData.day = date.format("DD");
+
+          scope.date = objectData;
+
+          console.log(scope.date.day);
         }
     };
 }]);
