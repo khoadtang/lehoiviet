@@ -95,27 +95,45 @@ h2 {
 }
 
 #slideImage {
+    .modal-dialog{
+        width: 400px;
+        height: 400px;
+    }
     .modal-body {
         padding: 0px;
+        text-align: center;
         img {
-            height: 550px;
-            width: auto;
+            width: 100%;
+            height: auto;
             margin: 0 auto;
         }
-        .carousel-control {
-            width: 5%;
-            .left,
-            .right {
-                background-image: #fff;
-            }
-        }
     }
-    .carousel-control.right,
-    .carousel-control.left {
-        background-image: none;
-    }
+}
+#watchVideo,#slideImage{
     .modal-content {
         border-radius: 0;
+        background-color: transparent;
+    }
+    button{
+        position: absolute;
+        top:-14px;
+        right: -17px;
+        border: 0;
+        background-color: transparent;
+        opacity: 0.8;
+        i{
+            color: #fff;
+            font-size: 30px;
+        }
+    }
+}
+#watchVideo{
+    iframe{
+        height: 500px;
+    }
+    button{
+        top: -5px;
+        right: -18px;
     }
 }
 .list-info{
@@ -136,12 +154,22 @@ h2 {
             margin-right: 20px;
         }
     }
+    h4{
+        font-size: 16px;
+        margin: 20px 5px;
+    }
     .focus{
         background-color: #f80;
         color: #fff;
     }
 }
-
+.list-img-article{
+    img{
+        height: auto;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+}
 .actionUser {
     margin-top: 20px;
     a {

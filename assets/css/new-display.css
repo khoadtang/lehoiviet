@@ -96,27 +96,43 @@ h2 {
   color: #333;
 }
 
+#slideImage .modal-dialog {
+  width: 400px;
+  height: 400px;
+}
 #slideImage .modal-body {
   padding: 0px;
+  text-align: center;
 }
 #slideImage .modal-body img {
-  height: 550px;
-  width: auto;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
 }
-#slideImage .modal-body .carousel-control {
-  width: 5%;
-}
-#slideImage .modal-body .carousel-control .left,
-#slideImage .modal-body .carousel-control .right {
-  background-image: #fff;
-}
-#slideImage .carousel-control.right,
-#slideImage .carousel-control.left {
-  background-image: none;
-}
-#slideImage .modal-content {
+
+#watchVideo .modal-content, #slideImage .modal-content {
   border-radius: 0;
+  background-color: transparent;
+}
+#watchVideo button, #slideImage button {
+  position: absolute;
+  top: -14px;
+  right: -17px;
+  border: 0;
+  background-color: transparent;
+  opacity: 0.8;
+}
+#watchVideo button i, #slideImage button i {
+  color: #fff;
+  font-size: 30px;
+}
+
+#watchVideo iframe {
+  height: 500px;
+}
+#watchVideo button {
+  top: -5px;
+  right: -18px;
 }
 
 .list-info h3 {
@@ -136,9 +152,19 @@ h2 {
   line-height: 50px;
   margin-right: 20px;
 }
+.list-info h4 {
+  font-size: 16px;
+  margin: 20px 5px;
+}
 .list-info .focus {
   background-color: #f80;
   color: #fff;
+}
+
+.list-img-article img {
+  height: auto;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .actionUser {
