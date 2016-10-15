@@ -1,4 +1,4 @@
-var app = angular.module("lehoiviet", ["ngRoute", "component", "ngCookies", "ngSanitize"]);
+var app = angular.module("lehoiviet", ["ngRoute", "component", "ngCookies", "ngSanitize", "ng.ckeditor"]);
 
 app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider

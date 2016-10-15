@@ -179,7 +179,9 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
-                          <textarea rows="5" ng-model="festival.content" name="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" required/>
+                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley" msn-count="
+Number of typed characters:" required></ng-ckeditor>
+                          <!-- <textarea rows="5" ng-model="festival.content" name="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" required/> -->
                           <span class="text-error" ng-show="detailPost.content.$dirty && detailPost.content.$invalid">
                               <span ng-show="detailPost.content.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                           </span>
