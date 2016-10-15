@@ -9,21 +9,24 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     "last" : 3
   };
   var maxAccessablePriority = 1;
+  var selectedTabPriority = 1;
 
   $scope.initData = function() {
     getCategories();
     getProvincies();
-    enableTab();
+    enableOrDisableTab();
   };
 
-  enableTab = function() {
+  enableOrDisableTab = function() {
     for (var tabName in tabPriority){
       if (getTabPriorityByEventName(tabName) <= maxAccessablePriority) {
         console.log("enable: " + tabName);
         $('#' + tabName).removeClass('disable');
+        $('#' + tabName).addClass('onhover');
       } else {
         console.log("disable: " + tabName);
         $('#' + tabName).addClass('disable');
+        $('#' + tabName).removeClass('onhover');
       }
     }
   };
@@ -45,14 +48,33 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
 
   $scope.onChangeTab = function(info){
-    var selectedTabPriority = getTabPriorityByEventName(info);
-    console.log("Selected Tab Priority: " + selectedTabPriority);
-    if (selectedTabPriority > maxAccessablePriority) {
-      return;
+    if (info == null || info == undefined) {
+      if (selectedTabPriority == maxAccessablePriority) {
+        ++maxAccessablePriority;
+      }
+
+      for (var tabName in tabPriority) {
+        if (tabPriority[tabName] == maxAccessablePriority) {
+          info = tabName;
+        }
+      }
+      this.onSave(info);
+    } else {
+      selectedTabPriority = getTabPriorityByEventName(info);
+      if (selectedTabPriority > maxAccessablePriority) {
+        return;
+      }
+
+      maxAccessablePriority = selectedTabPriority > maxAccessablePriority ? selectedTabPriority : maxAccessablePriority;
+      console.log("MaxAccessablePriority: " + maxAccessablePriority);
+      updateContentOfTab(info);
+      enableOrDisableTab();
     }
 
-    maxAccessablePriority = selectedTabPriority;
-    console.log("MaxAccessablePriority: " + maxAccessablePriority);
+
+  };
+
+  updateContentOfTab = function(info){
     $('.infoList li').removeClass('action');
     $('.infoList #' + info).addClass('action');
     $('.infoTab section').addClass('hide');
@@ -62,6 +84,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
     if(info === 'detailPost' && festivalId != null && festivalId != undefined) {
       getEvents();
+      console.log("Get All Events");
     }
   };
 
@@ -126,7 +149,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     $scope.isUploading = false;
   };
 
-  $scope.onSave = function() {
+  $scope.onSave = function(tabNeedUpdate) {
     var festival = {};
 
     if ($scope.festival == null || $scope.festival == undefined) {
@@ -135,13 +158,22 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
     festival = $scope.festival;
 
-    $scope.isSaving = true;
+    if (!tabNeedUpdate) {
+      $scope.isSaving = true;
+    }
+
     festivalService.save(festival, $scope.festival.id, function(response) {
       if (response.status == 200) {
         $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
         $scope.isSaving = false;
 
         festivalId = $scope.festival.id;
+
+        if (tabNeedUpdate != null && tabNeedUpdate != undefined) {
+          $scope.isSaving = false;
+          updateContentOfTab(tabNeedUpdate);
+          enableOrDisableTab();
+        }
       }
     });
   };
