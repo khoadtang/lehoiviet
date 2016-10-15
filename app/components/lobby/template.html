@@ -14,15 +14,14 @@
                 <div class="col-xs-12 festival-info">
                     <div class="header row">
                         <div class="">
-                            <div class="title"><a href="/article/detail/{{event._id}}">{{event.title}}</a></div>
+                            <div class="title"><a href="#/festival/{{event._id}}">{{event.title}}</a></div>
                             <span class="price" ng-if="event.priceTicket!=0">
-                                    <span class="glyphicon glyphicon-usd"></span><lable>Từ</lable> {{event.priceTicket}} VNĐ
+                                Giá: <lable>Từ</lable> {{event.priceTicket}} VNĐ
                             </span>
                             <span class="price" ng-if="event.priceTicket===0">
-                              <span class="glyphicon glyphicon-usd"></span>Miễn phí
+                              Giá: Miễn phí
                             </span>
                             <div><span class="address">{{event.address.city}}</span></div>
-                            <!-- <div><span class="glyphicon glyphicon-calendar"></span> {{event.timeBegin.fomatDate()}} - {{event.timeBegin.fomatDate()}}</div> -->
                         </div>
                         <date data="event.timeBegin"></date>
                     </div>

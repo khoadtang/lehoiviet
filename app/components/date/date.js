@@ -32,8 +32,6 @@ date.directive("date",["dateHelper", function(dateHelper){
           objectData.day = date.format("DD");
 
           scope.date = objectData;
-
-          console.log(scope.date.day);
         }
     };
 }]);

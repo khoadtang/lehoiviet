@@ -1,14 +1,14 @@
-<div id="upcomingFestivalLoader" class="col-xs-12" style="text-align: center;">
-    <img ng-show="!isLoaded" src="assets/img/fbloader.gif" />
-</div>
+<!--<div id="upcomingFestivalLoader" class="col-xs-12" style="text-align: center;">-->
+    <!--<img ng-show="!isLoaded" src="assets/img/fbloader.gif" />-->
+<!--</div>-->
 
 <div id="article" ng-init="initData()">
-    <div class="info-festival bg-grey">
+    <div class="info-festival bg-white">
         <div class="container" data-ng-init="getReview()">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
                     <a href="#">
-                        <img class="img-responsive" ng-src="{{festival.thumbnail.imgName}}" />
+                        <img class="img-responsive" ng-src="http://lehoiviet.herokuapp.com/{{festival.thumbnail.resize}}" />
                     </a>
                 </div>
 
@@ -44,9 +44,9 @@
                                 <div class="sumary-function">Bình luận</div>
                             </div>
                         </div>
-                        <ul class="fontWeitgh600 font15">
+                        <ul class="font15">
                             <li>
-                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.timeBegin.fomatDate()}} <span style="margin: 0 3px">-</span> {{festival.timeEnd.fomatDate()}}
+                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.timeBegin}} <span style="margin: 0 3px">-</span> {{festival.timeEnd}}
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> Giá: {{festival.priceTicket}} đ
@@ -72,7 +72,29 @@
             </div>
         </div>
     </div>
-    <div class="introduce boderTop bg-white">
+    <div class="introduce bg-white">
+        <div class="container">
+            <section class="list-info">
+                <div class="item description">
+                    <h3><i class="fa fa-info-circle" aria-hidden="true"></i>Thông tin sự kiện</h3>
+                    <div class="content">
+                        <p>La Vie Color Me Run đã trải qua hai mùa sự kiện và đã nhận được rất nhiều sự ủng hộ của các bạn tham gia. Với sự thành công mang lại cho Color Me Run 2015, thì ban tổ chức đã có một ấn tượng sâu sắc với thành phố Đà Nẵng.</p>
+                        <p>Đến TP. Đà Nẵng lần đầu tiên vào tháng 6/2015, La Vie Color Me Run đã nhận được sự ủng hộ nhiệt tình từ các bạn trẻ. Không dừng lại ở đó, La Vie Color Me Run cũng vô cùng ấn tượng với những hành động đẹp mang ý thức bảo vệ môi trường cao của người tham gia La Vie Color Me Run Đà Nẵng.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <h3><i class="fa fa-info-circle" aria-hidden="true"></i></h3>
+                    <div class="content"></div>
+                </div>
+                <div class="item">
+                    <h3><i class="fa fa-info-circle" aria-hidden="true"></i>Vị trí</h3>
+                    <div class="content"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!--<div class="introduce boderTop">
         <div class="container">
             <h2 class="colorWord">GIỚI THIỆU</h2>
             <div ng-bind-html="arrayContent" class="arrayContent">
@@ -98,7 +120,7 @@
                             <div ng-repeat="item in getVideoId">
                                 <div class="col-sm-3 col-xs-6 img-youtube" ng-click="watchVideoID(item.link)">
                                     <div class="image ex1">
-                                        <img class="img-responsive" src="//img.youtube.com/vi/{{item.link}}/0.jpg">
+                                        <img class="img-responsive" src="//img.youtube.com/vi/{{item.link}}/0.jpg"/>
                                         <span class="play">
                                  <span></span>
                                         </span>
@@ -117,7 +139,7 @@
                         <h2 class="colorWord">BÌNH LUẬN</h2>
                         <div id="post-common">
                             <div>
-                                <!--begin:microsite-sumary-new-->
+                                &lt;!&ndash;begin:microsite-sumary-new&ndash;&gt;
                                 <div class="box-cmt-main row">
                                     <div class="item-avatar col-md-1 col-sm-1 col-xs-2">
                                         <a href="">
@@ -130,21 +152,21 @@
                                                 <textarea class="form-control" ng-model="content" placeholder="Nhập nội dung bình luận"></textarea>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-xs-12 upload-image">
+                                        &lt;!&ndash; <div class="col-xs-12 upload-image">
                                             <ul id="listImage" class="row"></ul>
-                                        </div> -->
+                                        </div> &ndash;&gt;
                                         <div class="col-xs-12" style="text-align: right; margin-top: 10px;">
-                                            <!--  <span class="file-input btn btn-primary btn-file">
+                                            &lt;!&ndash;  <span class="file-input btn btn-primary btn-file">
                         Đăng hình&hellip; <input type="file" name="file" ng-files="imgComment($files)" />
-                    </span> -->
+                    </span> &ndash;&gt;
                                             <button class="btn-blue" ng-click="postComment()">Bình luận</button>
                                         </div>
                                     </div>
                                 </div>
-                                <!--box-item-comment-->
-                                <!--end:microsite-sumary-new-->
-                                <!--begin:microsite-box-->
-                                <!--begin:microsite-box-->
+                                &lt;!&ndash;box-item-comment&ndash;&gt;
+                                &lt;!&ndash;end:microsite-sumary-new&ndash;&gt;
+                                &lt;!&ndash;begin:microsite-box&ndash;&gt;
+                                &lt;!&ndash;begin:microsite-box&ndash;&gt;
                                 <div class="microsite-box2">
                                     <div>
                                         <div id="resreviews">
@@ -177,7 +199,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <!--end:user-->
+                                                                    &lt;!&ndash;end:user&ndash;&gt;
                                                                     <div class="panel-body">
                                                                         <div class="title-desc"></div>
                                                                         <div class="desc">{{item.content}}</div>
@@ -189,16 +211,16 @@
                                                         </article>
                                                     </div>
                                                 </div>
-                                                <!--end:album-->
+                                                &lt;!&ndash;end:album&ndash;&gt;
                                             </div>
-                                            <!--end:micro-review-filter-->
+                                            &lt;!&ndash;end:micro-review-filter&ndash;&gt;
                                         </div>
-                                        <!--end:resreviews-->
+                                        &lt;!&ndash;end:resreviews&ndash;&gt;
                                     </div>
                                 </div>
-                                <!--end:microsite-box2-->
-                                <!--end:microsite-box-->
-                                <!--review-->
+                                &lt;!&ndash;end:microsite-box2&ndash;&gt;
+                                &lt;!&ndash;end:microsite-box&ndash;&gt;
+                                &lt;!&ndash;review&ndash;&gt;
                                 <div id="review-comment" class="modal fade" tabindex="-1" role="dialog">
                                     <form>
                                         <div class="modal-dialog">
@@ -231,12 +253,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-xs-12 upload-image">
+                                                    &lt;!&ndash; <div class="col-xs-12 upload-image">
                                                         <ul id="listImage" class="row"></ul>
-                                                    </div> -->
+                                                    </div> &ndash;&gt;
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <!-- input type="file" name="file" ng-files="imgComment($files)" /> -->
+                                                    &lt;!&ndash; input type="file" name="file" ng-files="imgComment($files)" /> &ndash;&gt;
                                                     <button type="button" class="btn-close" data-dismiss="modal">Đóng lại</button>
                                                     <button type="button" class="btn-blue" ng-click="ratingPost()">Hoàn tất</button>
                                                 </div>
@@ -255,13 +277,13 @@
                                                         </div>
                                                         <a href="" type="button" class="btn-blue" data-dismiss="modal">Đồng ý</a>
                                                     </div>
-                                                    <!-- /.form group -->
+                                                    &lt;!&ndash; /.form group &ndash;&gt;
                                                 </div>
                                             </div>
-                                            <!-- /.modal-content -->
+                                            &lt;!&ndash; /.modal-content &ndash;&gt;
                                         </form>
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    &lt;!&ndash; /.modal-dialog &ndash;&gt;
                                 </div>
                                 <div id="edit-comment" class="modal fade" tabindex="-1" role="dialog">
                                     <div class="modal-dialog">
@@ -280,38 +302,19 @@
                                                 <button type="button" class="btn-blue" ng-click="updateComment(idEdit)">Bình luận</button>
                                             </div>
                                         </div>
-                                        <!-- /.modal-content -->
+                                        &lt;!&ndash; /.modal-content &ndash;&gt;
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    &lt;!&ndash; /.modal-dialog &ndash;&gt;
                                 </div>
-                                <!-- /.modal -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 related-box">
-                    <div class="bg-white boxContent">
-                        <h3 class="colorWord">CÓ THỂ BẠN QUAN TÂM</h3>
-                        <div class="box">
-                            <a href=""><img class="img-responsive" src="/images/cho-nga-diem-den-khong-the-bo-qua-khi-du-lich-Phnom-Penh-ivivu-3-370x215.jpg"></a>
-                            <div class="info">
-                                <a href="">Lễ hội trái cây</a>
-                                <span>Xa lộ Hà Nội, Suối Tiên</span>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <a href=""><img class="img-responsive" src="/images/cho-nga-diem-den-khong-the-bo-qua-khi-du-lich-Phnom-Penh-ivivu-3-370x215.jpg"></a>
-                            <div class="info">
-                                <a href="">Lễ hội trái cây</a>
-                                <span>Xa lộ Hà Nội, Suối Tiên</span>
+                                &lt;!&ndash; /.modal &ndash;&gt;
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Comment-->
-        <!--slideImage-->
+        &lt;!&ndash;Comment&ndash;&gt;
+        &lt;!&ndash;slideImage&ndash;&gt;
         <div id="slideImage" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -344,13 +347,13 @@
                 </div>
             </div>
         </div>
-        <!--Box insert video -->
+        &lt;!&ndash;Box insert video &ndash;&gt;
         <div id="postVideo" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Nhập link video</h4>
+                        <h4 class="modal-title">Nhập link video</h4>
                     </div>
                     <div class="modal-body">
                         <h5 class="checkErroLink" style="color: #c00">Link nhập chưa chính xác</h5>
@@ -362,13 +365,13 @@
                 </div>
             </div>
         </div>
-        <!--box insert image-->
+        &lt;!&ndash;box insert image&ndash;&gt;
         <div id="upImage" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Đăng hình</h4>
+                        <h4 class="modal-title">Đăng hình</h4>
                     </div>
                     <div class="modal-body">
                         <div class="upload-image">
@@ -387,7 +390,9 @@
         </div>
     </div>
     <div class="schedule"></div>
-    <div class="comment"></div>
+    <div class="comment"></div>-->
+
+
 </div>
 <script type="text/javascript">
 $(function() {
