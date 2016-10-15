@@ -14,7 +14,7 @@
   }
 }
 .disable{
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   opacity: 0.5;
 }
 #post-create{
@@ -60,9 +60,11 @@
   .infoList{
     li{
       padding: 20px ;
-      cursor: pointer;
       margin: 2px 0;
       transition: 0.3s;
+    }
+    .onhover{
+      cursor: pointer;
       &:hover{
         background-color: #ffffff;
         color: #247ba0;
