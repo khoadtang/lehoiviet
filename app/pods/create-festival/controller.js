@@ -3,10 +3,29 @@ var createFestival = angular.module("lehoiviet");
 createFestival.controller("createFestivalController", function($scope, festivalService,
   categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService) {
   var festivalId = {};
+  var tabPriority = {
+    "eventPost" : 1,
+    "detailPost" : 2,
+    "last" : 3
+  };
+  var maxAccessablePriority = 1;
 
   $scope.initData = function() {
     getCategories();
     getProvincies();
+    enableTab();
+  };
+
+  enableTab = function() {
+    for (var tabName in tabPriority){
+      if (getTabPriorityByEventName(tabName) <= maxAccessablePriority) {
+        console.log("enable: " + tabName);
+        $('#' + tabName).removeClass('disable');
+      } else {
+        console.log("disable: " + tabName);
+        $('#' + tabName).addClass('disable');
+      }
+    }
   };
 
   getCategories = function() {
@@ -26,6 +45,14 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
 
   $scope.onChangeTab = function(info){
+    var selectedTabPriority = getTabPriorityByEventName(info);
+    console.log("Selected Tab Priority: " + selectedTabPriority);
+    if (selectedTabPriority > maxAccessablePriority) {
+      return;
+    }
+
+    maxAccessablePriority = selectedTabPriority;
+    console.log("MaxAccessablePriority: " + maxAccessablePriority);
     $('.infoList li').removeClass('action');
     $('.infoList #' + info).addClass('action');
     $('.infoTab section').addClass('hide');
@@ -45,6 +72,16 @@ createFestival.controller("createFestivalController", function($scope, festivalS
         console.log($scope.events);
       }
     })
+  };
+
+  getTabPriorityByEventName = function(name) {
+    var priority = tabPriority[name];
+
+    if (priority < 0 || priority > 3) {
+      return 1;
+    }
+
+    return priority;
   };
 
   $scope.onProvinceSelected = function(province) {
