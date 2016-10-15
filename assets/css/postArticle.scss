@@ -13,6 +13,10 @@
     width: 100%;
   }
 }
+.disable{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 #post-create{
   background-color: #ffffff;
   .box-notify{
@@ -23,10 +27,6 @@
     i{
       margin: 0 5px;
     }
-  }
-  .disable{
-    cursor: not-allowed;
-    opacity: 0.5;
   }
   .btn-fix{
     width: 120px;

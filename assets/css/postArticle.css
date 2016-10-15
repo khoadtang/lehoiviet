@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+.disable {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #post-create {
   background-color: #ffffff;
 }
@@ -23,10 +28,6 @@
 }
 #post-create .btn-blue i {
   margin: 0 5px;
-}
-#post-create .disable {
-  cursor: not-allowed;
-  opacity: 0.5;
 }
 #post-create .btn-fix {
   width: 120px;
