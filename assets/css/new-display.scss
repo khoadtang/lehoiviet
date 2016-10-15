@@ -118,29 +118,27 @@ h2 {
         border-radius: 0;
     }
 }
-
-.introduce {
-    padding-bottom: 20px;
-    li {
-        margin-top: 10px;
-        margin-left: 25px;
-        list-style-type: disc;
-    }
-}
-
-.imageFestival {
-    .imgContent {
-        img {
-            height: 155px;
-            width: auto;
+.list-info{
+    h3{
+        font-size: 16px;
+        text-transform: uppercase;
+        background-color: #f9f9f9;
+        &:hover{
+            cursor: pointer;
         }
-        .col-sm-3,
-        .col-xs-2 {
-            margin: 10px 0;
+        i{
+            width: 50px;
+            height: 50px;
+            background: #efefef none repeat scroll 0 0;
+            padding-left: 14px;
+            font-size: 25px;
+            line-height: 50px;
+            margin-right: 20px;
         }
     }
-    .btn-custom {
-        margin-top: 10px;
+    .focus{
+        background-color: #f80;
+        color: #fff;
     }
 }
 
