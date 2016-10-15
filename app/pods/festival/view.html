@@ -81,7 +81,7 @@
                         <p>La Vie Color Me Run đã trải qua hai mùa sự kiện và đã nhận được rất nhiều sự ủng hộ của các bạn tham gia. Với sự thành công mang lại cho Color Me Run 2015, thì ban tổ chức đã có một ấn tượng sâu sắc với thành phố Đà Nẵng.</p>
                         <p>Đến TP. Đà Nẵng lần đầu tiên vào tháng 6/2015, La Vie Color Me Run đã nhận được sự ủng hộ nhiệt tình từ các bạn trẻ. Không dừng lại ở đó, La Vie Color Me Run cũng vô cùng ấn tượng với những hành động đẹp mang ý thức bảo vệ môi trường cao của người tham gia La Vie Color Me Run Đà Nẵng.</p>
                         <div class="event">
-                            <p>Sự kiện diễn ra</p>
+                            <h4 class="text-center">Sự kiện diễn ra</h4>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -92,9 +92,14 @@
                                 </thead>
                                 <tboody>
                                     <tr>
-                                        <th>12/10/2016</th>
-                                        <th>16/10/2016</th>
-                                        <th>test demo test demo test demo test demo test demo</th>
+                                        <td>12/10/2016</td>
+                                        <td>16/10/2016</td>
+                                        <td>test demo test demo test demo test demo test demo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/10/2016</td>
+                                        <td>16/10/2016</td>
+                                        <td>test demo test demo test demo test demo test demo</td>
                                     </tr>
                                 </tboody>
                             </table>
@@ -104,13 +109,30 @@
                 <div class="item">
                     <h3><i class="fa fa-picture-o" aria-hidden="true"></i></i>Hình ảnh và Video</h3>
                     <div class="content">
-
+                        <h4>Hình ảnh</h4>
+                        <div class="row list-img-article">
+                            <img ng-click="watchSlide()"class="col-xs-3" src="./assets/img/img1.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img2.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img3.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img4.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img5.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img1.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img2.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img3.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img4.png" alt=""/>
+                            <img class="col-xs-3" src="./assets/img/img5.png" alt=""/>
+                        </div>
+                        <h4>Video</h4>
+                        <div class="row list-img-article">
+                            <img ng-click="watchVideo()" class="col-xs-3" src="//img.youtube.com/vi/nfwm4uesyFY/0.jpg" alt=""/>
+                            <img class="col-xs-3" src="//img.youtube.com/vi/nfwm4uesyFY/0.jpg" alt=""/>
+                            <img class="col-xs-3" src="//img.youtube.com/vi/nfwm4uesyFY/0.jpg" alt=""/>
+                        </div>
                     </div>
                 </div>
                 <div class="item">
                     <h3><i class="fa fa-thumb-tack" aria-hidden="true" style="padding-left: 16px;"></i></i>Vị trí</h3>
                     <div class="content">
-
                     </div>
                 </div>
                 <div class="item">
@@ -122,7 +144,27 @@
             </section>
         </div>
     </div>
-
+    <div id="slideImage" class="modal fade " tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                    <img src="./assets/img/img2.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="watchVideo" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="body-player">
+                    <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                    <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="https://www.youtube.com/embed/nfwm4uesyFY" frameborder="0" allowFullScreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--<div class="introduce boderTop">
         <div class="container">
             <h2 class="colorWord">GIỚI THIỆU</h2>

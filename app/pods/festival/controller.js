@@ -15,4 +15,11 @@ festival.controller("festivalController", function($scope, festivalService, date
       }
     });
   };
+  
+  $scope.watchSlide = function () {
+    $('#slideImage').modal('show')
+  }
+  $scope.watchVideo = function () {
+    $('#watchVideo').modal('show')
+  }
 });

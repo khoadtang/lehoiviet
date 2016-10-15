@@ -1,5 +1,5 @@
 /*tap tin chua CSS cho thanh phan toan cuc tren website nhu html, body, a*/
-a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visited, button:focus{
+a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visited, button:focus, select:active, select:focus{
     outline: 0 !important;
 }
 select:focus, select:active, select:visited{
@@ -285,7 +285,7 @@ nav{
             padding: 0;
             border-radius: 0;
             box-shadow: none;
-            font-weight: none;
+            font-weight: normal;
             li {
                 padding-left: 0px;
                 padding-right: 0px;
