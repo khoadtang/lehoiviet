@@ -134,7 +134,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000"/>
+                                <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000" required/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
@@ -155,7 +155,7 @@
                           <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
                         </div>
                       </button>
-                      <button type="submit" class="btn-fix disable" ng-click="saveInfoEvent()" ng-disabled="info.$invalid">Tiếp tục <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                      <button type="submit" class="btn-fix btn-blue" ng-click="saveInfoEvent()" ng-class="{'disable' : info.$invalid, 'btn-blue': ! info.$invalid}" ng-disabled="info.$invalid">Tiếp tục <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                     </div>
                   </form>
                 </div>
