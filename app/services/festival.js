@@ -33,5 +33,9 @@ app.service("festivalService", function($http, net, $rootScope) {
         net.get('/festival/show/'.concat(id), eventHandler);
     };
 
+    festivalService.submit = function(id, eventHandler) {
+      net.post('/festival/submit/'.concat(id), null, eventHandler);
+    };
+
     return festivalService;
 });

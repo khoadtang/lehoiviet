@@ -28,7 +28,7 @@
           <!--</div>-->
           <section class="eventPostTab feedback-form infoUserTab">
               <div class="imageHeader">
-                <img ng-src="http://lehoiviet.herokuapp.com{{backgroundFestival}}" alt="" class="img-responsive" imageonload="onImageUploaded()"/>
+                <img ng-src="http://lehoiviet.herokuapp.com{{backgroundImage}}" alt="" class="img-responsive" imageonload="onImageUploaded()"/>
                 <div class="bg-tran"></div>
                 <div class="btn-position-upload" ng-show="!isUploading">
                   <div class="file-input btn-load-image btn-file">
@@ -161,14 +161,14 @@
                 </div>
           </section>
           <!--end:lastReview-->
-          <section class="hide detailPostTab feedback-form infoUserTab">
+          <section class="hide detailPostTab feedback-form infoUserTab" style="padding-bottom: 30px;">
             <div class="infomation-box">
               <form name='detailPost' novalidate="true">
                 <div class="infomation-content row">
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="festival.description" name="description" type="text" spellcheck="false" required/>
+                            <input ng-model="festival.description" name="description" type="text" spellcheck="false"/>
                             <span class="text-error" ng-show="detailPost.description.$dirty && detailPost.description.$invalid">
                                 <span ng-show="detailPost.description.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                             </span>
@@ -179,94 +179,110 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
-                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley" msn-count="
-Number of typed characters:" required></ng-ckeditor>
+                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley"></ng-ckeditor>
                           <!-- <textarea rows="5" ng-model="festival.content" name="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" required/> -->
                           <span class="text-error" ng-show="detailPost.content.$dirty && detailPost.content.$invalid">
                               <span ng-show="detailPost.content.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                           </span>
                       </div>
                   </div>
-              </div>
-              </form>
-              <div class="listEvent">
-                <h3>Sự kiện đã tạo:</h3>
-                <table class="table">
-                  <tbody>
-                    <tr ng-repeat="event in events">
-                      <td>{{event.name}}</td>
-                      <td class="center" width="30" style="cursor: pointer; color: green">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="box-event hide">
-                <form name="addEvent" novalidate="true">
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="event.name" name="nameEvent" type="text" spellcheck="false" required/>
-                            <span class="text-error" ng-show="addEvent.name.$dirty && addEvent.nameEvent.$invalid">
-                                <span ng-show="addEvent.nameEvent.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
-                            </span>
+                </div>
+                <div class="listEvent">
+                  <h3>Sự kiện đã tạo:</h3>
+                  <table class="table">
+                    <tbody>
+                      <tr ng-repeat="event in events">
+                        <td>{{event.name}}</td>
+                        <td class="center" width="30" style="cursor: pointer; color: green">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="box-event hide">
+                  <form name="addEvent" novalidate="true">
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="event.name" name="nameEvent" type="text" spellcheck="false" required/>
+                                <span class="text-error" ng-show="addEvent.name.$dirty && addEvent.nameEvent.$invalid">
+                                    <span ng-show="addEvent.nameEvent.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Từ</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="event.timeBegin" type="text" name="timeBeginEvent" spellcheck="false" />
-                        </div>
-                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span class="text-error" ng-show="addEvent.timeBeginEvent.$dirty && addEvent.timeBeginEvent.$invalid">
-                                <span ng-show="addEvent.timeBeginEvent.$error.required">thời gian là bắt buộc</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Đến</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="event.timeEnd" type="text" name="timeEndEvent" spellcheck="false" />
-                        </div>
-                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span class="text-error" ng-show="addEvent.timeEndEvent.$dirty && addEvent.timeEndEvent.$invalid">
-                                <span ng-show="addEvent.timeEndEvent.$error.required">Thời gian là bắt buộc</span>
-                            </span>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Từ</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="event.timeBegin" type="text" name="timeBeginEvent" spellcheck="false" />
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="addEvent.timeBeginEvent.$dirty && addEvent.timeBeginEvent.$invalid">
+                                    <span ng-show="addEvent.timeBeginEvent.$error.required">thời gian là bắt buộc</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Đến</div>
+                            <div class="details col-sm-9 col-xs-12">
+                                <input ng-model="event.timeEnd" type="text" name="timeEndEvent" spellcheck="false" />
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                                <span class="text-error" ng-show="addEvent.timeEndEvent.$dirty && addEvent.timeEndEvent.$invalid">
+                                    <span ng-show="addEvent.timeEndEvent.$error.required">Thời gian là bắt buộc</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                  </form>
+                  <div style="text-align:center">
+                    <button type="button" name="button" class="btn-blue btn-fix" ng-click="onUpdateOrCreateEvent()">
+                      <div ng-show="!event.isSaving">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>Hoàn Tất
+                      </div>
+                      <div ng-show="event.isSaving">
+                        <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
+                      </div>
+                    </button>
+                  </div>
                 </div>
-              </form>
-                <div style="text-align:center">
-                  <button type="button" name="button" class="btn-blue btn-fix" ng-click="onUpdateOrCreateEvent()">
+                <div class="event">
+                    <button type="button" name="button" class="btn-create-event" ng-click="onAddEvent()"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
+                </div>
+                <div style="text-align: center; margin: 30px 0">
+                  <button type="button" class="btn-blue btn-fix" ng-click="onSave()">
+
                     <div ng-show="!isSaving">
-                      <i class="fa fa-floppy-o" aria-hidden="true"></i>Hoàn Tất
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
                     </div>
                     <div ng-show="isSaving">
                       <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
                     </div>
                   </button>
+                  <button type="submit" class="btn-fix btn-blue" ng-click="onChangeTab()" ng-class="{'disable' : detailPost.$invalid, 'btn-blue': !detailPost.$invalid}" ng-disabled="detailPost.$invalid">Tiếp tục <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                 </div>
-              </div>
+              </form>
             </div>
-              <div class="event">
-                  <button type="button" name="button" class="btn-create-event" ng-click="onAddEvent()"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
-              </div>
           </section>
           <!--end:lastReview-->
           <section class="hide lastTab feedback-form infoUserTab">
               <div class="infomation-box">
-                <form name='lastPost'>
+                <form name='lastPost' novalidate="true">
                 <div class="infomation-content row">
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="festival.phoneNumber" type="text" onkeypress="return isNumberKey(event)" />
+                            <input type="number" ng-model="festival.phoneNumber" name="phoneNumber" type="text" onkeypress="return isNumberKey(event)" required/>
+                        </div>
+                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                            <span class="text-error" ng-show="lastPost.phoneNumber.$dirty && lastPost.phoneNumber.$invalid">
+                                <span ng-show="lastPost.phoneNumber.$error.required">số điện thoại là là bắt buộc</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -274,10 +290,13 @@ Number of typed characters:" required></ng-ckeditor>
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Email</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input type="email" ng-model="festival.emailAddress" name='emailAddress' spellcheck="false" />
+                            <input type="email" ng-model="festival.emailAddress" name='emailAddress' spellcheck="false" required/>
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span ng-show="createPostForm.emailAddress.$error.email">Email không hợp lệ</span>
+                          <span class="text-error" ng-show="lastPost.emailAddress.$dirty && lastPost.emailAddress.$invalid">
+                            <span ng-show="lastPost.emailAddress.$error.email">email không hợp lệ</span>
+                            <span ng-show="lastPost.emailAddress.$error.required">email là là bắt buộc</span>
+                          </span>
                         </div>
                     </div>
                 </div>
@@ -292,7 +311,7 @@ Number of typed characters:" required></ng-ckeditor>
                 </form>
               </div>
               <div style="text-align:center">
-                  <button ng-click="onCreateFestival()" class="create-festival btn-blue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
+                  <button ng-click="onSubmit()" class="create-festival btn-blue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
               </div>
           </section>
 

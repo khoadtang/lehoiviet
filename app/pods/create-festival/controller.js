@@ -1,7 +1,7 @@
 var createFestival = angular.module("lehoiviet");
 
 createFestival.controller("createFestivalController", function($scope, festivalService,
-  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService) {
+  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper) {
   var festivalId = {};
   var tabPriority = {
     "eventPost" : 1,
@@ -10,6 +10,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   };
   var maxAccessablePriority = 1;
   var selectedTabPriority = 1;
+  var backgroundImage = null;
 
   $scope.initData = function() {
     getCategories();
@@ -49,8 +50,10 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
   $scope.onChangeTab = function(info){
     if (info == null || info == undefined) {
+      console.log(selectedTabPriority);
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
+        selectedTabPriority = maxAccessablePriority;
       }
 
       for (var tabName in tabPriority) {
@@ -138,7 +141,8 @@ createFestival.controller("createFestivalController", function($scope, festivalS
           formData.append("file", element.files[0]);
           imageService.uploadBackgroundFestival(formData, function(response){
             if(response.status == 200) {
-               $scope.backgroundFestival = response.data.data.imgName;
+              backgroundImage = response.data.data.imgName;
+              $scope.backgroundImage = backgroundImage;
             }
            });
        });
@@ -155,7 +159,8 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     if ($scope.festival == null || $scope.festival == undefined) {
       return;
     }
-
+    $scope.festival.thumbnailFull = backgroundImage;
+    $scope.festival.thumbnailResize = backgroundImage;
     festival = $scope.festival;
 
     if (!tabNeedUpdate) {
@@ -164,6 +169,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
     festivalService.save(festival, $scope.festival.id, function(response) {
       if (response.status == 200) {
+        showSavingNotification("Lưu Thành Công");
         $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
         $scope.isSaving = false;
 
@@ -186,6 +192,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   }
 
   $scope.onUpdateOrCreateEvent = function() {
+
     var event = {};
 
     if ($scope.event == null || $scope.event == undefined) {
@@ -194,12 +201,12 @@ createFestival.controller("createFestivalController", function($scope, festivalS
 
     event = $scope.event;
 
-    $scope.isSaving = true;
+    $scope.event.isSaving = true;
 
     if (event._id == null || event._id == undefined) {
       eventService.create(festivalId, event, function(response) {
         if (response.status == 200) {
-          $scope.isSaving = false;
+          $scope.event.isSaving = false;
           console.log("Create Successfully");
           getEvents();
 
@@ -230,10 +237,47 @@ createFestival.controller("createFestivalController", function($scope, festivalS
     eventService.getById(eventId, function(response) {
       if (response.status == 200) {
         $scope.event = response.data.data;
+        $scope.event.timeBegin = dateHelper.parse($scope.event.timeBegin);
+        $scope.event.timeEnd = dateHelper.parse($scope.event.timeEnd  );
 
         $('.box-event').removeClass('hide');
         $('.btn-create-event').addClass('hide');
       }
+    });
+  }
+
+  $scope.onSubmit = function() {
+    festivalService.submit(festivalId, function(response) {
+      showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
+    })
+  };
+
+  showSavingNotification = function(message){
+    $.notify({
+      icon: 'fa fa-check',
+      message: message,
+    },{
+      type: 'saving',
+      allow_dismiss: false,
+      offset: {
+    		x: 50,
+    		y: 55
+      },
+      delay: 500
+    });
+  }
+
+  showSubmittingNotification = function(message) {
+    $.notify({
+      icon: 'fa fa-check',
+      message: message,
+    },{
+      type: 'submitting',
+      allow_dismiss: false,
+      offset: {
+    		x: 50,
+    		y: 55
+	     }
     });
   }
 });
