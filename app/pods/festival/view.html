@@ -605,6 +605,8 @@
 </div>
 <script type="text/javascript">
 $(function() {
+    $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
+
     $('#rating-address').barrating('show', {
         theme: 'bars-1to10'
     });
