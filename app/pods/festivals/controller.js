@@ -1,7 +1,8 @@
 var festivals = angular.module("lehoiviet");
 
-festivals.controller("festivalsController", function($scope, festivalService, dateHelper) {
+festivals.controller("festivalsController", function($scope, $rootScope, festivalService, dateHelper) {
   $scope.initData = function() {
+    $rootScope.currentPage = "festivals";
     getFestival();
   };
 

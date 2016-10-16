@@ -1,8 +1,9 @@
 var home = angular.module("lehoiviet");
 
-home.controller("homeController", function($scope, festivalService) {
+home.controller("homeController", function($scope, $rootScope, festivalService) {
 
   $scope.initData = function() {
+    $rootScope.currentPage = "home";
     getCommingSoonFestival();
     getFeaturedFestival();
   };

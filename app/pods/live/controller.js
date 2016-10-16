@@ -1,7 +1,8 @@
 var live = angular.module("lehoiviet");
 
-live.controller("liveController", function($scope, videoService, dateHelper) {
+live.controller("liveController", function($scope, $rootScope, videoService, dateHelper) {
   $scope.initData = function() {
+    $rootScope.currentPage = "live";
     getVideo();
   };
 

@@ -2,6 +2,7 @@ var account = angular.module("lehoiviet");
 
 account.controller("accountController", function($rootScope, $scope, $rootScope, userService) {
   $scope.initData = function() {
+    $rootScope.currentPage = "account-setting";
     getProfile();
   };
 

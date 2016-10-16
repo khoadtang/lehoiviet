@@ -14,9 +14,7 @@ app.service("gatewayService", function($rootScope, ENV) {
   }
 
   gatewayService.close = function() {
-    socket.on('connect', function(){
-      socket.emit('offline', null);
-    })
+    socket.emit('offline', null);
   }
 
   return gatewayService;

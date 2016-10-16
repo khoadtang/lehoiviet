@@ -67,7 +67,7 @@ app.constant("ENV", {
   gateWay: "http://127.0.0.1:5000"
 });
 
-app.controller("appController", function($scope, $rootScope, userService, gatewayService) {
+app.controller("appController", function($scope, $rootScope, userService) {
   $scope.init = function() {
     $rootScope.token = null;
 
@@ -79,8 +79,6 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
         $rootScope.avatar = data.user.avatar;
         $rootScope.firstName = data.user.firstName;
         $rootScope.uid = data.user._id;
-
-        gatewayService.open();
       }
     });
   };

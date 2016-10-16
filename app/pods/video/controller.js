@@ -1,7 +1,8 @@
 var video = angular.module("lehoiviet");
 
-video.controller("videoController", function($scope, videoService, dateHelper) {
+video.controller("videoController", function($rootScope, $scope, videoService, dateHelper) {
   $scope.initData = function() {
+    $rootScope.currentPage = "video";
     getVideo();
   };
 
