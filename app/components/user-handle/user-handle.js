@@ -12,7 +12,7 @@ login.directive("userHandler", function(){
     };
 });
 
-login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService) {
+login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, $route) {
   $scope.init = function() {
     $scope.message = null;
   };
@@ -58,7 +58,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
               cookiesManager.set("email", userInfo.email);
               cookiesManager.set("password", userInfo.password);
 
-              gatewayService.open();
+              gatewayService.online();
             } else {
               $scope.errorMessage = "Đăng Nhập Không Thành Công";
             }

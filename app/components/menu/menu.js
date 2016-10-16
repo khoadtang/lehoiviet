@@ -33,7 +33,7 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
         $rootScope.token = null;
         cookiesManager.removeUser();
         window.location = "#/";
-        gatewayService.close();
+        gatewayService.offline();
       }
     });
   };
