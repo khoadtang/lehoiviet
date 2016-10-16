@@ -11,7 +11,7 @@ menu.directive("topMenu", function(){
     };
 });
 
-menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService) {
+menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService) {
   $scope.loginView = function(){
       $('#userLogin').modal('show');
   };
@@ -27,9 +27,13 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
   };
   $scope.logout = function() {
     userService.logout(function(response){
+      console.log(response.status);
       if(response.status == 200) {
+        console.log("Log out");
         $rootScope.token = null;
         cookiesManager.removeUser();
+        window.location = "#/";
+        gatewayService.close();
       }
     });
   };

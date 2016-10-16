@@ -2,6 +2,7 @@ var user = angular.module("lehoiviet");
 
 user.controller("userController", function($rootScope, $scope, userService) {
   $scope.initData = function() {
+    $rootScope.currentPage = "profile";
     getProfile();
   };
 

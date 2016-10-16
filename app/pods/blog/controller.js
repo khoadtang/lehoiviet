@@ -1,7 +1,8 @@
 var blog = angular.module("lehoiviet");
 
-blog.controller("blogController", function($scope, blogService) {
+blog.controller("blogController", function($scope, $rootScope, blogService) {
   $scope.initData = function() {
+    $rootScope.currentPage = "blog";
     getBlogs();
   };
 

@@ -1,6 +1,6 @@
 var createFestival = angular.module("lehoiviet");
 
-createFestival.controller("createFestivalController", function($scope, festivalService,
+createFestival.controller("createFestivalController", function($scope, $rootScope, festivalService,
   categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper) {
   var festivalId = {};
   var tabPriority = {
@@ -13,6 +13,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   var backgroundImage = null;
 
   $scope.initData = function() {
+    $rootScope.currentPage = "creating-festival";
     getCategories();
     getProvincies();
     enableOrDisableTab();
@@ -53,7 +54,7 @@ createFestival.controller("createFestivalController", function($scope, festivalS
       console.log(selectedTabPriority);
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
-        selectedTabPriority = maxAccessablePriority;
+        ++selectedTabPriority;
       }
 
       for (var tabName in tabPriority) {
@@ -247,9 +248,25 @@ createFestival.controller("createFestivalController", function($scope, festivalS
   }
 
   $scope.onSubmit = function() {
-    festivalService.submit(festivalId, function(response) {
-      showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
-    })
+    var festival = {};
+
+    if ($scope.festival == null || $scope.festival == undefined) {
+      return;
+    }
+
+    festival = $scope.festival;
+
+    festivalService.save(festival, $scope.festival.id, function(response) {
+      if (response.status == 200) {
+        $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
+
+        festivalId = $scope.festival.id;
+
+        festivalService.submit(festivalId, function(response) {
+          showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
+        })
+      }
+    });
   };
 
   showSavingNotification = function(message){
