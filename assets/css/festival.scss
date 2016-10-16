@@ -73,7 +73,10 @@
 	.title{
 		font-size: 18px;
 		font-weight: 600;
+		height: 24px;
+		overflow: hidden;
 		color: #247ba0;
+		margin-bottom: 7px;
 		&:hover{
 			text-decoration: none;
 		}
@@ -105,6 +108,9 @@
 		}
 		li{
 			list-style: none;
+		}
+		.price{
+			font-size: 12px;
 		}
 		padding: 10px;
 		.header{

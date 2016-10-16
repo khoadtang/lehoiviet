@@ -74,7 +74,10 @@
 .festival-item-base .title {
   font-size: 18px;
   font-weight: 600;
+  height: 24px;
+  overflow: hidden;
   color: #247ba0;
+  margin-bottom: 7px;
 }
 .festival-item-base .title:hover {
   text-decoration: none;
@@ -103,6 +106,9 @@
 }
 .festival-item-base .festival-info li {
   list-style: none;
+}
+.festival-item-base .festival-info .price {
+  font-size: 12px;
 }
 .festival-item-base .festival-info .header {
   margin-bottom: 5px;
