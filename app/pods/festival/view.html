@@ -61,10 +61,10 @@
                         </ul>
                         <div class="actionUser">
                             <div class="row">
-                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('1')"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like bài viết</a>
-                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('2')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Đánh giá</a>
-                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('3')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm video</a>
-                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="checkLoginCreate('4')"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Thêm hình ảnh</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like bài viết</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="rating()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Đánh giá</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="postVideo()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm video</a>
+                                <a href="" class="col-xs-6 col-sm-6 col-md-3" ng-click="uploadImage()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Thêm hình ảnh</a>
                             </div>
                         </div>
                     </div>
@@ -161,6 +161,74 @@
                 <div class="modal-body" id="body-player">
                     <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                     <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="https://www.youtube.com/embed/nfwm4uesyFY" frameborder="0" allowFullScreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="postVideo" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Nhập link video</h4>
+                </div>
+                <div class="modal-body">
+                    <h5 class="checkErroLink" style="color: #c00">Link nhập chưa chính xác</h5>
+                    <input type="text" name="linkYoutube" class="form-control" ng-model="urlVideo">
+                </div>
+                <div class="modal-footer" style="text-align: right">
+                    <button type="Submit" class="btn-blue" ng-click="postVideoYT()">Gửi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="upImage" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Đăng hình</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="upload-image">
+                        <ul id="listImage" class="row"></ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="file-input btn-blue btn-file">
+                            Đăng hình&hellip; <input type="file" name="file" ng-files="imgComment($files)"/></button></div>
+                    </span>
+                </div>
+                <div class="modal-footer" style="text-align: right">
+                    <button type="Submit" class="btn-blue" data-dismiss="modal">Hoàn tất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rating" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Nhập link video</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <select id="rating-address" name="rating" ng-model="ratingUser">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected="selected">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align: right">
+                    <button type="Submit" class="btn-blue" ng-click="postVideoYT()">Gửi</button>
                 </div>
             </div>
         </div>
