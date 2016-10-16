@@ -33,7 +33,7 @@
                             </div>
                             <div class="sumary col-sm-3 col-xs-6">
                                 <div class="sumary-point">
-                                    <span>{{calculatePoint(festival.statistic.rating.isRating, festival.statistic.rating.peopleRating) | number:1}}</span>
+                                    <span>{{festival.statistic.rating.isRating}}</span>
                                 </div>
                                 <div class="sumary-function">Đánh giá</div>
                             </div>
@@ -78,8 +78,7 @@
                 <div class="item description">
                     <h3><i class="fa fa-info-circle focus" aria-hidden="true"></i>Thông tin sự kiện</h3>
                     <div class="content">
-                        <p>La Vie Color Me Run đã trải qua hai mùa sự kiện và đã nhận được rất nhiều sự ủng hộ của các bạn tham gia. Với sự thành công mang lại cho Color Me Run 2015, thì ban tổ chức đã có một ấn tượng sâu sắc với thành phố Đà Nẵng.</p>
-                        <p>Đến TP. Đà Nẵng lần đầu tiên vào tháng 6/2015, La Vie Color Me Run đã nhận được sự ủng hộ nhiệt tình từ các bạn trẻ. Không dừng lại ở đó, La Vie Color Me Run cũng vô cùng ấn tượng với những hành động đẹp mang ý thức bảo vệ môi trường cao của người tham gia La Vie Color Me Run Đà Nẵng.</p>
+                        {{festival.content}}
                         <div class="event">
                             <h4 class="text-center">Sự kiện diễn ra</h4>
                             <table class="table table-hover">
