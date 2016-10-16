@@ -6,7 +6,7 @@
                   <a href="" ng-click="checkLoginSeeUser(member._id)">
                       <div class="icon-user">
                           <img class="img-responsive img-circle" src="http://lehoiviet.herokuapp.com{{member.avatar}}"/>
-                          <i class="fa fa-check-circle" aria-hidden="true"></i>
+                          <i class="fa fa-check-circle" aria-hidden="true" ng-show="member.status"></i>
                       </div>
                       {{member.firstName}}
                   </a>

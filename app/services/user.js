@@ -29,7 +29,7 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
     };
 
     userService.logout = function(eventHandler) {
-        net.get("/user/logout", eventHandler);
+        net.post("/user/logout", null, eventHandler);
     };
 
     userService.postAvatar = function(post, eventHandler){

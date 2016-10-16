@@ -20,6 +20,7 @@ app.service("cookiesManager", function($cookieStore){
   };
 
   cookiesManager.removeUser = function(key) {
+      console.log("Remove Cookie");
       $cookieStore.remove("email");
       $cookieStore.remove("password");
   };
