@@ -173,11 +173,13 @@ h2 {
 .actionUser a {
   text-align: center;
   display: inline-block;
-  padding: 5px;
   color: #fff;
   background-color: #f80;
   border: 1px solid #fff;
   transition: 0.4s;
+  width: 40px;
+  height: 40px;
+  padding: 8px 0;
 }
 .actionUser a:hover {
   text-decoration: none;

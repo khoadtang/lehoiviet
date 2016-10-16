@@ -25,4 +25,13 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.watchVideo = function () {
     $('#watchVideo').modal('show')
   }
+  $scope.uploadImage = function () {
+    $('#upImage').modal('show')
+  }
+  $scope.postVideo = function () {
+    $('#postVideo').modal('show')
+  }
+  $scope.rating = function () {
+    $('#rating').modal('show')
+  }
 });
