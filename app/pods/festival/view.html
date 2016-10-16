@@ -16,7 +16,7 @@
                     <div class="content">
                           <span>DANH MỤC: {{festival.typeEvent.name}}</span>
                         <h3>{{festival.title}}</h3>
-                        <p class="address"><i class="fa fa-location-arrow" aria-hidden="true" style="margin-right: 5px"></i> {{festival.address.mainAddress}} , {{festival.address.district}}, {{festival.address.city}}</p>
+                        <p class="address"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px"></i> {{festival.address.mainAddress}} , {{festival.address.district}}, {{festival.address.city}}</p>
                         <!-- <div class="boderTop"></div> -->
                         <div class="res-summary-point row padd-top-bottom">
                             <div class="sumary col-sm-3 col-xs-6">
@@ -88,8 +88,7 @@
             <section class="list-info">
                 <div class="item description">
                     <h3><i class="fa fa-info-circle focus" aria-hidden="true"></i>Thông tin sự kiện</h3>
-                    <div class="content">
-                        {{festival.content}}
+                    <div class="content" ng-bind-html="festival.content">
                         <div class="event">
                             <h4 class="text-center">Sự kiện diễn ra</h4>
                             <table class="table table-hover">
