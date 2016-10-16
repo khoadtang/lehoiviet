@@ -190,198 +190,55 @@ h2 {
   text-decoration: none;
 }
 
-#post-common {
-  color: #333;
-  padding: 20px 0;
-  /*#microsite-box*/
+.comment-box {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #ddd;
 }
-#post-common .microsite-box-heading {
-  cursor: pointer;
-  font-size: 18px;
+.comment-box .form-control {
+  border-radius: 0;
 }
-#post-common .panel-heading {
-  padding: 5px 10px;
-  font-size: 13px;
+.comment-box .text-right {
+  margin-top: 10px;
 }
-#post-common .panel-body {
-  padding: 10px;
-  font-size: 13px;
+
+.comment-box img {
+  width: 70px;
 }
-#post-common .box-cmt-main {
+
+.thumb-48 {
+  width: 48px;
+}
+
+.comment-render {
+  font-size: 14px;
+}
+.comment-render .item {
   margin-bottom: 10px;
 }
-#post-common .microsite-box #resreviews #micro-review-filter {
-  background-color: #cce1f3;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+.comment-author-thumnail img {
+  width: 48px;
+  margin: 0 auto;
 }
-#post-common .microsite-box #resreviews #micro-review-filter .btn,
-#post-common .microsite-box #resreviews #micro-review-filter .dropdown-menu {
-  font-size: 12px;
+
+.comment-render-content {
+  min-height: 48px;
 }
-#post-common .microsite-box #resreviews #review-list {
-  margin-top: 20px;
+.comment-render-content .close {
+  font-size: 14px;
+  margin-left: 10px;
 }
-#post-common .microsite-box #resreviews #review-list ul,
-#post-common .microsite-box #resreviews #review-list li {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
+.comment-render-content .comment-render-text {
+  height: 48px;
+  overflow: hidden;
 }
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review {
-  margin-top: 5px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .col-sm-2,
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .col-sm-10,
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .col-xs-2,
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .col-xs-10 {
-  padding: 0px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .panel {
-  margin-top: 10px;
-  position: relative;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .panel > .panel-heading:after,
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .panel > .panel-heading:before {
-  position: absolute;
-  top: 10px;
-  left: -16px;
-  right: 100%;
-  width: 0;
-  height: 0;
-  display: block;
-  content: " ";
-  border-color: transparent;
-  border-style: solid solid outset;
-  pointer-events: none;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .panel > .panel-heading:after {
-  border-width: 7px;
-  border-right-color: #f7f7f7;
-  margin-top: 1px;
-  margin-left: 2px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .panel > .panel-heading:before {
-  border-right-color: #ddd;
-  border-width: 8px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .leftimage {
-  text-align: center;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .leftimage .microsite-review-new-avatar {
-  margin-top: 10px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .leftimage .microsite-review-new-avatar img {
-  width: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .photos {
-  padding-bottom: 10px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc img {
-  width: 100%;
-  border: 1px solid #fff;
-  border-radius: 3px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .picturecounts {
-  background-color: #ddd;
-  padding: 5px 10px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .picturecounts a {
-  color: #333;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .picturecounts a:hover {
-  text-decoration: underline;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .share {
-  margin-top: 10px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .share a {
-  color: #aaa;
-  background-color: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 3px;
-  padding: 4px 10px;
+
+.commen-render-header a {
+  color: #247ba0;
+  font-weight: 600;
   margin-right: 5px;
 }
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .share a:hover {
-  color: #333;
-  background-color: #ddd;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .desc {
-  margin-bottom: 10px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-all-comment {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-all-comment a:hover {
-  text-decoration: underline;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item {
-  padding-bottom: 5px;
-  padding-top: 5px;
-  background: #f0f0f0 none repeat scroll 0 0;
-  border-bottom: 1px solid #fff;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .col-xs-11 {
-  padding-left: 0px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-avatar {
-  padding-top: 5px;
-  padding-left: 10px;
-  text-align: center;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content .user-link {
-  padding-right: 5px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content a {
-  color: #000;
-  text-transform: capitalize;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content a:hover {
-  text-decoration: underline;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content .address {
+.commen-render-header span {
   font-size: 11px;
-  padding-right: 5px;
-}
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content .userlike,
-#post-common .microsite-box #resreviews #review-list .micro-home-recent-review .rightdesc .review-reply .review-reply-item .review-reply-item-content .glyphicon {
-  color: #2fb8da;
-}
-#post-common .microsite-box .title-desc {
-  font-size: 14px;
-  color: #444;
-  font-weight: 600;
-}
-#post-common .micro-whiterow {
-  margin: 20px 0px 20px 0px;
-}
-#post-common .micro-whiterow .microsite-box-album {
-  margin: 10px 0px 10px 0px;
-}
-#post-common .micro-whiterow .microsite-box-album .col-sm-3 {
-  padding: 0px;
-}
-#post-common .micro-whiterow .microsite-box-album .micro-home-album {
-  border: 3px solid #fff;
-}
-#post-common .micro-whiterow .microsite-box-album .micro-home-album img {
-  width: 100%;
-  border-radius: 3px;
-}
-#post-common .micro-whiterow .microsite-box-album .micro-home-album a {
-  padding-top: 10px;
-  color: #333;
-  font-size: 18px;
-}
-#post-common .micro-greyrow {
-  margin-top: 20px;
 }
