@@ -65,17 +65,12 @@
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
                                 <div class="clearfix">
-                                    <select id="rating-address" name="rating" ng-model="ratingUser">
+                                    <select id="rating-bar" name="rating" autocomplete="off">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-                                        <option value="5" selected="selected">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                             </li>
@@ -282,35 +277,6 @@
                 </div>
                 <div class="modal-footer" style="text-align: right">
                     <button type="Submit" class="btn-blue" data-dismiss="modal">Hoàn tất</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="rating" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Nhập link video</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <select  name="rating" ng-model="ratingUser">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected="selected">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer" style="text-align: right">
-                    <button type="Submit" class="btn-blue" ng-click="postVideoYT()">Gửi</button>
                 </div>
             </div>
         </div>
@@ -615,58 +581,18 @@
 
 
 </div>
+
 <script type="text/javascript">
 $(function() {
     $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
-
-    $('#rating-address').barrating('show', {
-        theme: 'bars-1to10'
-    });
-
-    $('#rating-price').barrating('show', {
-        theme: 'bars-1to10'
-    });
-
-    $('#rating-quality').barrating('show', {
-        theme: 'bars-1to10'
-    });
-
-    $('#rating-serve').barrating('show', {
-        theme: 'bars-1to10'
-    });
-    $('#rating-place').barrating('show', {
-        theme: 'bars-1to10'
-    });
-
 
     $("#imageCarousel").carousel({
         interval: false
     });
 
-});
-
-$(function() {
-    $(":file").change(function() {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
+    $('#rating-bar').barrating({
+        theme: 'bootstrap-stars',
+        showSelectedRating: false
     });
 });
-
-var countImage = 0;
-
-function imageIsLoaded(e) {
-    var id = "img_" + countImage;
-    var idLi = "li_" + countImage;
-    alert('check');
-    $("#listImage").append("<li id='" + idLi + "' class='col-xs-2'><img id='" + id + "' class='imgsize' src='#'/><div class='delete' onclick='removeImgPost(this.parentNode.id)'><span>x</span></div><div class='bgLoader'><img class='imgLoader' src='/images/fbloader.gif'></div></li>");
-    $('#' + id).attr('src', e.target.result);
-    countImage++;
-};
-
-function removeImgPost(idImage) {
-    $('#' + idImage).remove();
-};
 </script>
