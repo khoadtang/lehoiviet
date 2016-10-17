@@ -1,7 +1,14 @@
 <!--<div id="upcomingFestivalLoader" class="col-xs-12" style="text-align: center;">-->
     <!--<img ng-show="!isLoaded" src="assets/img/fbloader.gif" />-->
 <!--</div>-->
-
+<style>
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:500;
+  height: 200px;
+}
+</style>
 <div id="article" ng-init="initData()">
     <div class="info-festival bg-white">
         <div class="container" data-ng-init="getReview()">
@@ -74,9 +81,9 @@
                             </li>
                         </ul>
                         <div class="actionUser">
-                            <a href=""><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-                            <a href=""  ng-click="postVideo()" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                            <a href="" ng-click="uploadImage()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></a>
+                            <a href="" ng-click="onLike()"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                            <a href="" ng-click="onUploadVideo" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                            <a href="" ng-click="onUploadImage()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></a>
                         </div>
                     </div>
                 </div>
@@ -259,13 +266,19 @@
                     <h4 class="modal-title">Đăng hình</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="upload-image">
-                        <ul id="listImage" class="row"></ul>
-                    </div>
-                    <div style="text-align: center; margin-top: 10px;">
-                        <button class="file-input btn-blue btn-file">
-                            Đăng hình&hellip; <input type="file" name="file" ng-files="imgComment($files)"/></button></div>
-                    </span>
+                  <div class="upload-image">
+                      <ul id="listImage" class="row"></ul>
+                  </div>
+                  <div style="text-align: center; margin-top: 10px;">
+                      <span class="file-input btn-blue btn-file">
+                          Đăng hình&hellip; <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
+                      </span>
+                      <div class="cropArea">
+                        <img-crop area-type="square"image="image" result-image="myCroppedImage"></img-crop>
+                      </div>
+                      <div>Cropped Image:</div>
+                      <div><img ng-src="{{myCroppedImage}}"/></div>
+                  </div>
                 </div>
                 <div class="modal-footer" style="text-align: right">
                     <button type="Submit" class="btn-blue" data-dismiss="modal">Hoàn tất</button>

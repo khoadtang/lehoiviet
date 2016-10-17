@@ -22,16 +22,48 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.watchSlide = function () {
     $('#slideImage').modal('show')
   }
+
   $scope.watchVideo = function () {
     $('#watchVideo').modal('show')
   }
-  $scope.uploadImage = function () {
-    $('#upImage').modal('show')
-  }
-  $scope.postVideo = function () {
-    $('#postVideo').modal('show')
-  }
+
   $scope.rating = function () {
     $('#rating').modal('show')
+  }
+
+  $scope.onLike = function() {
+    if ($rootScope.token == null) {
+      $('#not-signed').modal('show');
+      return;
+    }
+  }
+
+  $scope.onUploadImage = function() {
+    if ($rootScope.token == null) {
+      $('#not-signed').modal('show');
+      return;
+    }
+
+    $('#upImage').modal('show');
+  }
+
+  $scope.onUploadVideo = function() {
+    if ($rootScope.token == null) {
+      $('#not-signed').modal('show');
+      return;
+    }
+  }
+
+  $scope.onImageSelected = function(element) {
+    $scope.myCroppedImage='';
+    var selectedFile = element.files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+      $scope.$apply(function($scope){
+        $scope.image=reader.result;
+      });
+    }, false);
+
+    reader.readAsDataURL(selectedFile);
   }
 });
