@@ -39,6 +39,10 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.onUploadImage = function() {
+    $('#upImage').on('hidden.bs.modal', function(){
+      resetImageSelector();
+    });
+
     if ($rootScope.token == null) {
       $('#not-signed').modal('show');
       return;
@@ -55,6 +59,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.onImageSelected = function(element) {
+
+
     $scope.myCroppedImage='';
     var selectedFile = element.files[0];
     var reader = new FileReader();
@@ -65,5 +71,10 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     }, false);
 
     reader.readAsDataURL(selectedFile);
+  }
+
+  resetImageSelector = function() {
+    $scope.image = null;
+    $scope.myCroppedImage = null;
   }
 });

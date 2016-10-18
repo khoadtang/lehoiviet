@@ -3,10 +3,10 @@
 <!--</div>-->
 <style>
 .cropArea {
-  background: #E4E4E4;
+  background: transparent;
   overflow: hidden;
-  width:500;
-  height: 200px;
+  width:100%;
+  height: 300px;
 }
 </style>
 <div id="article" ng-init="initData()">
@@ -76,9 +76,9 @@
                             </li>
                         </ul>
                         <div class="actionUser">
-                            <a href="" ng-click="onLike()"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-                            <a href="" ng-click="onUploadVideo" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                            <a href="" ng-click="onUploadImage()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></a>
+                            <a href="" ng-click="onLike()" data-toggle="tooltip" data-placement="top" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onUploadVideo" data-toggle="tooltip" data-placement="top" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onUploadImage()" data-toggle="tooltip" data-placement="top" title="Upload hình ảnh"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -256,27 +256,20 @@
     <div id="upImage" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Đăng hình</h4>
-                </div>
                 <div class="modal-body">
-                  <div class="upload-image">
-                      <ul id="listImage" class="row"></ul>
-                  </div>
-                  <div style="text-align: center; margin-top: 10px;">
-                      <span class="file-input btn-blue btn-file">
-                          Đăng hình&hellip; <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
+                    <div class="margin-upload">
+                        <span class="file-input btn-file btn-upload-custom">
+                          <i class="fa fa-plus" aria-hidden="true"></i> Tải ảnh lên <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
                       </span>
-                      <div class="cropArea">
+                    </div>
+
+                    <div class="cropArea">
                         <img-crop area-type="square"image="image" result-image="myCroppedImage"></img-crop>
-                      </div>
-                      <div>Cropped Image:</div>
-                      <div><img ng-src="{{myCroppedImage}}"/></div>
-                  </div>
+                    </div>
                 </div>
-                <div class="modal-footer" style="text-align: right">
-                    <button type="Submit" class="btn-blue" data-dismiss="modal">Hoàn tất</button>
+                <div class="text-right">
+                    <button type="Submit" data-dismiss="modal">Hủy</button>
+                    <button type="Submit" data-dismiss="modal">Hoàn tất</button>
                 </div>
             </div>
         </div>
@@ -594,5 +587,8 @@ $(function() {
         theme: 'bootstrap-stars',
         showSelectedRating: false
     });
+});
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>

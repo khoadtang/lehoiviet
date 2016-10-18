@@ -421,20 +421,6 @@ body {
   padding-top: 45px !important;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px transparent;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
-}
-
 ul,
 li {
   padding: 0;
@@ -531,61 +517,6 @@ li {
 }
 #top-member .col-md-1 {
   padding: 0px;
-}
-
-.upload-image {
-  margin-top: 10px;
-  padding: 0px;
-}
-.upload-image .col-xs-2 {
-  margin: 10px;
-}
-.upload-image ul {
-  padding: 0px;
-}
-.upload-image li {
-  list-style: none;
-  display: inline;
-  text-align: center;
-  background-color: #fff;
-  padding: 0px;
-}
-.upload-image .imgsize {
-  width: 100%;
-  height: 120px;
-}
-.upload-image .bgLoader {
-  position: absolute;
-  z-index: 2000;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  left: 0px;
-  top: 0px;
-  text-align: center;
-  opacity: 0.7;
-}
-.upload-image .imgLoader {
-  position: absolute;
-  z-index: 3000;
-  width: 20px;
-  top: 50px;
-  left: 60px;
-}
-.upload-image .delete {
-  position: absolute;
-  z-index: 1000;
-  top: 0px;
-  right: 0px;
-  background-color: #c00;
-  border-color: #bd362f #bd362f #802420;
-  padding: 0px 5px 0px 5px;
-  cursor: pointer;
-}
-.upload-image .delete span {
-  color: #fff !important;
-  font-size: 11px;
-  line-height: 5px;
 }
 
 nav {
