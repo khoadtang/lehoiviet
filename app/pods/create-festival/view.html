@@ -339,6 +339,7 @@
 </div>
 <script>
 $(function() {
+    $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
 
     $('input[name="timeBegin"],input[name="timeEnd"],input[name="timeBeginEvent"],input[name="timeEndEvent"]').daterangepicker({
         "singleDatePicker": true,

@@ -457,15 +457,12 @@ li {
   font-size: 11px;
   background-color: #fff;
   margin-bottom: 0px;
-  padding: 10px 0;
+  padding: 20px 0;
   text-align: center;
   margin-top: 20px;
 }
 #top-member p {
   color: #c00;
-  font-size: 18px;
-}
-#top-member .member {
   font-size: 18px;
 }
 #top-member ul,
@@ -479,8 +476,10 @@ li {
 }
 #top-member .icon-user {
   width: 65px;
+  height: 65px;
   border-radius: 50%;
   position: relative;
+  margin: 0 auto;
 }
 #top-member .icon-user i {
   position: absolute;
@@ -491,6 +490,10 @@ li {
   border-radius: 50%;
   color: #42E40A;
 }
+#top-member .view-more {
+  background-color: #ddd;
+  padding: 18px 0;
+}
 #top-member img {
   width: 65px;
   border-radius: 50%;
@@ -500,6 +503,9 @@ li {
 }
 #top-member .item a {
   color: #333;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
 }
 #top-member .item a:hover {
   text-decoration: none;
@@ -643,46 +649,6 @@ nav {
   color: #fff;
 }
 
-.videoYoutube {
-  margin-top: 10px;
-}
-.videoYoutube .img-youtube {
-  cursor: pointer;
-  /* Gets rid of the extra white space that follows an inline element*/
-}
-.videoYoutube .img-youtube .ex1.image {
-  position: relative;
-  display: inline-block;
-}
-.videoYoutube .img-youtube .image img {
-  vertical-align: bottom;
-  border-radius: 5px;
-}
-.videoYoutube .img-youtube .image .play {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #fff;
-  top: 50%;
-  right: 50%;
-  margin: -20px;
-  border-radius: 30px;
-}
-.videoYoutube .img-youtube .image .play span {
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  border-top: 10px solid transparent;
-  height: 0;
-  left: 15px;
-  position: absolute;
-  top: 8px;
-  width: 0;
-}
-
-#watchVideo .modal-body {
-  padding: 0px;
-}
-
 #search {
   position: relative;
   margin-top: 5px;
@@ -823,64 +789,6 @@ nav {
   color: #fff !important;
   background-color: #247ba0 !important;
   width: 100%;
-}
-
-/* Shutter Out Horizontal */
-.hvr-shutter-out-horizontal {
-  border-style: none;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  background: #337ab7;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  color: #fff;
-  padding: 5px 10px;
-  margin-top: 10px;
-}
-
-.hvr-shutter-out-horizontal:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #f80;
-  border-color: #f80;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 50%;
-  transform-origin: 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.hvr-shutter-out-horizontal:hover,
-.hvr-shutter-out-horizontal:focus,
-.hvr-shutter-out-horizontal:active {
-  color: white;
-  text-decoration: none;
-}
-
-.hvr-shutter-out-horizontal:hover:before,
-.hvr-shutter-out-horizontal:focus:before,
-.hvr-shutter-out-horizontal:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
 }
 
 .btn-festival {
