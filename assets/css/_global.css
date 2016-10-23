@@ -1,0 +1,704 @@
+/*tap tin chua CSS cho thanh phan toan cuc tren website nhu html, body, a*/
+a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visited, button:focus, select:active, select:focus {
+  outline: 0 !important;
+}
+
+select:focus, select:active, select:visited {
+  outline: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  padding-top: 45px !important;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.btn-blue {
+  background-color: #228aa9;
+  transition: 0.4s;
+  padding: 5px 10px;
+  color: #fff;
+  border: 0;
+  outline: 0;
+}
+
+.btn-blue:hover {
+  background-color: #f80;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-close {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  outline: 0;
+  transition: 0.4s;
+  padding: 5px 10px;
+}
+
+.btn-close:hover {
+  background-color: #ccc;
+}
+
+.boxShadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-open {
+  overflow-y: scroll;
+  padding-right: 0 !important;
+}
+
+#top-member {
+  font-size: 11px;
+  background-color: #fff;
+  margin-bottom: 0px;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#top-member p {
+  color: #c00;
+  font-size: 18px;
+}
+
+#top-member .member {
+  font-size: 18px;
+}
+
+#top-member ul,
+#top-member li {
+  list-style: none;
+  text-align: center;
+  padding: 0px;
+}
+
+#top-member li {
+  padding-top: 5px;
+}
+
+#top-member .icon-user {
+  width: 65px;
+  border-radius: 50%;
+  position: relative;
+}
+
+#top-member .icon-user i {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #42E40A;
+}
+
+#top-member img {
+  width: 65px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#top-member .item a {
+  color: #333;
+}
+
+#top-member .item a:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+#top-member .col-md-1 {
+  padding: 0px;
+}
+
+nav {
+  border: 1px solid #ddd !important;
+}
+
+#menu {
+  background-color: #fff;
+  font-size: 14px;
+}
+
+#menu .navbar-toggle {
+  background-color: #247ba0;
+}
+
+#menu .navbar-toggle span {
+  color: #fff;
+  background-color: #fff;
+}
+
+#menu .navbar-toggle:hover {
+  background-color: #2466a0;
+}
+
+#menu .navbar-brand img {
+  width: 180px;
+  height: auto;
+}
+
+#menu .live-now {
+  color: #c00;
+  display: inline-block;
+  border: 1px solid #c00;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  margin-top: 7px;
+}
+
+#menu .navbar {
+  margin-bottom: 0px;
+  background-color: #fff;
+}
+
+#menu .navbar-brand {
+  margin-top: 0px;
+  padding-top: 3px;
+}
+
+#menu .navbar-fixed-top {
+  border: none;
+}
+
+#menu .nav li a {
+  color: #66757f;
+  font-weight: 600;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+#menu .nav li a:hover, #menu .nav li a:focus {
+  background-color: transparent;
+  color: #247ba0;
+}
+
+#menu .menu-left li a {
+  transition: all 0.15s ease-in-out 0s;
+  border-bottom-color: #247ba0;
+}
+
+#menu .menu-left li a:hover, #menu .menu-left li a:focus {
+  border-bottom: 5px solid #247ba0;
+}
+
+#menu .menu-right {
+  margin-top: 5px;
+}
+
+#menu .menu-right li {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+#menu .menu-right li a {
+  padding: 10px;
+}
+
+#menu .menu-right .login a {
+  transition: all 0.15s ease-in-out 0s;
+  border-bottom-color: #247ba0;
+}
+
+#menu .menu-right .login a:hover, #menu .menu-right .login a:focus {
+  border-bottom: 5px solid #247ba0;
+  cursor: pointer;
+}
+
+#menu .menu-right .createPost {
+  background-color: #247ba0;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 5px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50% !important;
+}
+
+#menu .menu-right .createPost:hover {
+  background-color: #2466a0;
+  color: #fff;
+}
+
+#menu .menu-right .dropdown-toggle {
+  padding: 5px;
+}
+
+#menu .menu-right .dropdown-menu {
+  font-size: 13px;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: normal;
+}
+
+#menu .menu-right .dropdown-menu li {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#menu .menu-right .dropdown-menu li a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: 0.2s;
+  font-weight: 500;
+  text-align: left !important;
+}
+
+#menu .menu-right .dropdown-menu li a:hover {
+  background-color: #247ba0;
+  color: #fff;
+}
+
+#footer .infoLogo {
+  padding: 40px 0px 40px 0px;
+}
+
+#footer .infoWeb {
+  color: #fff;
+  padding: 10px;
+  height: 100%;
+}
+
+#footer .infoWeb h4 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#footer .infoWeb a {
+  color: #fff;
+}
+
+#footer .infoWeb a:hover {
+  color: #fff;
+}
+
+.videoYoutube {
+  margin-top: 10px;
+}
+
+.videoYoutube .img-youtube {
+  cursor: pointer;
+  /* Gets rid of the extra white space that follows an inline element*/
+}
+
+.videoYoutube .img-youtube .ex1.image {
+  position: relative;
+  display: inline-block;
+}
+
+.videoYoutube .img-youtube .image img {
+  vertical-align: bottom;
+  border-radius: 5px;
+}
+
+.videoYoutube .img-youtube .image .play {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  top: 50%;
+  right: 50%;
+  margin: -20px;
+  border-radius: 30px;
+}
+
+.videoYoutube .img-youtube .image .play span {
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  border-top: 10px solid transparent;
+  height: 0;
+  left: 15px;
+  position: absolute;
+  top: 8px;
+  width: 0;
+}
+
+#watchVideo .modal-body {
+  padding: 0px;
+}
+
+#search {
+  position: relative;
+  margin-top: 5px;
+  /* input:focus + .results {
+                display: block
+            } */
+}
+
+#search .dropdown-menu > li > a {
+  white-space: normal;
+}
+
+#search input {
+  background-color: #f5f8fa;
+  border: 1px solid #e1e8ed;
+  border-radius: 21px;
+  box-sizing: border-box;
+  color: #292f33;
+  display: block;
+  font-size: 12px;
+  height: 32px;
+  line-height: 1;
+  padding: 5px 27px 6px 12px;
+  transition: all 0.2s ease-in-out 0s;
+  width: 100%;
+  min-width: 200px;
+  content: '';
+}
+
+#search input:focus {
+  background-color: #fff;
+  border: 1px solid #66b1ee;
+}
+
+#search .search-icon {
+  cursor: pointer;
+  display: block;
+  height: 26px;
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  width: 26px;
+}
+
+#search .search-icon button {
+  background-color: transparent;
+  border: none;
+}
+
+#search .results {
+  /*  display: none; */
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  padding: 0;
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbcfe2 #c8cee7 #c4c7d7;
+  border-radius: 3px;
+  background-color: #fdfdfd;
+}
+
+#search .results li {
+  display: block;
+  padding: 0px !important;
+  border-bottom: 1px solid #eee;
+}
+
+#search .results li:first-child {
+  margin-top: -1px;
+}
+
+#search .results li:first-child:before,
+#search .results li:first-child:after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px outset transparent;
+}
+
+#search .results li:first-child:before {
+  border-bottom: 5px solid #c4c7d7;
+  top: -11px;
+}
+
+#search .results li:first-child:after {
+  border-bottom: 5px solid #fdfdfd;
+  top: -10px;
+}
+
+#search .results li:first-child:hover:before,
+#search .results li:first-child:hover:after {
+  display: none;
+}
+
+#search .results li:last-child {
+  margin-bottom: -1px;
+}
+
+#search .results a {
+  display: block;
+  position: relative;
+  margin: 0 -1px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+#search .results a span {
+  font-weight: 200;
+}
+
+#search .results a:before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -9px;
+  /* background: url("/images/iconsearch.png") 0 0 no-repeat; */
+}
+
+#search .results a:hover {
+  text-decoration: none;
+  color: #fff !important;
+  background-color: #247ba0 !important;
+}
+
+#search ul {
+  padding: 0px;
+}
+
+#search .showSearch {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#search .showSearch li {
+  margin: 0px;
+  list-style: none;
+}
+
+#search .showSearch li a {
+  display: block;
+  width: 100%;
+  color: #333;
+  border: 1px solid #eee;
+  padding: 10px 5px;
+}
+
+#search .showSearch li a:hover {
+  text-decoration: none;
+  color: #fff !important;
+  background-color: #247ba0 !important;
+  width: 100%;
+}
+
+/* Shutter Out Horizontal */
+.hvr-shutter-out-horizontal {
+  border-style: none;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background: #337ab7;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.hvr-shutter-out-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f80;
+  border-color: #f80;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-shutter-out-horizontal:hover,
+.hvr-shutter-out-horizontal:focus,
+.hvr-shutter-out-horizontal:active {
+  color: white;
+  text-decoration: none;
+}
+
+.hvr-shutter-out-horizontal:hover:before,
+.hvr-shutter-out-horizontal:focus:before,
+.hvr-shutter-out-horizontal:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.btn-festival {
+  padding: 5px 10px;
+  background-color: #337ab7;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-festival:hover {
+  background-color: #f80;
+}
+
+.btn-edit, .btn-remove {
+  color: #fff;
+  background-color: #337ab7;
+  cursor: pointer;
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border-radius: 100%;
+  font-size: 12px !important;
+  text-align: center;
+  padding-top: 5px;
+  transition: 0.3s;
+}
+
+.btn-edit:hover, .btn-remove:hover {
+  background-color: #f80;
+}
+
+.feedback-form .infomation-box span {
+  color: #c00;
+}
+
+.feedback-form .infomation-box .infomation-content {
+  margin-bottom: 5px;
+}
+
+.feedback-form .infomation-box .box-info-normal {
+  padding: 5px 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.feedback-form .infomation-box .box-info-normal .lable {
+  padding-top: 10px;
+}
+
+.feedback-form .infomation-box .details textarea {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border: 1px solid #a0a0a0;
+  width: 100%;
+}
+
+.feedback-form .infomation-box .details textarea:focus {
+  border: 1px solid #f80;
+}
+
+.feedback-form .infomation-box .details input {
+  padding: 10px 6px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+  width: 100%;
+}
+
+.feedback-form .infomation-box .details input:focus {
+  border-bottom: 1px solid #f80;
+}
+
+.feedback-form .infomation-box .details select {
+  padding: 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.feedback-form .infomation-box .details select:focus {
+  border-bottom: 1px solid #f80;
+}
+
+.pageNotFound {
+  background-color: #F8F8F8;
+  text-align: center;
+  padding-bottom: 20px;
+  color: #777777;
+}
+
+.pageNotFound h1 {
+  font-size: 200px !important;
+  margin: 40px 0 20px 0;
+}
+
+.pageNotFound h2 {
+  font-size: 80px !important;
+  margin: 0;
+  line-height: 80px;
+}
+
+.pageNotFound h3 {
+  font-size: 30px;
+}
+
+/*video header*/
+.streamVideo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.streamVideo .videoSource {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.streamVideo .content {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  height: 100vh;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 15%;
+  text-transform: uppercase;
+}
+
+.streamVideo video {
+  width: 100%;
+}
+
+.streamVideo .title {
+  font-size: 36px;
+  margin: 30px 0 15px;
+}
+
+.streamVideo .btn-blue {
+  text-transform: uppercase;
+  margin-top: 15px;
+}

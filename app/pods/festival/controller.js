@@ -27,8 +27,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $('#watchVideo').modal('show')
   }
 
-  $scope.rating = function () {
-    $('#rating').modal('show')
+  $scope.postVideo = function () {
+    $('#postVideo').modal('show');
   }
 
   $scope.onLike = function() {

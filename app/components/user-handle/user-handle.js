@@ -17,7 +17,12 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     $scope.message = null;
   };
   $scope.showModal = function(id){
-    $('#' + id).modal('show');
+    // $('#' + id).modal('show');
+    if(id==0){
+      $('.carousel').carousel('prev');
+    }
+    else $('.carousel').carousel('next');
+
   }
 
   $scope.signup = function() {

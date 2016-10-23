@@ -5,13 +5,6 @@ a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visit
 select:focus, select:active, select:visited{
   outline: 0;
 }
-.modal-open {
-  overflow-y: scroll;
-  padding-right: 0 !important;
-}
-.modal-dialog{
-  padding-right: 0 !important;
-}
 a:hover{
   text-decoration: none;
 }

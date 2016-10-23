@@ -249,6 +249,10 @@
     .modal-footer{
       text-transform: uppercase;
     }
+    .modal-body {
+      height: 300px;
+      overflow-y: auto;
+    }
     .btn-blue{
       font-size: 16px;
       text-transform: uppercase;
@@ -292,33 +296,17 @@
             font-size: 24px;
         }
     }
-    .forgot-password-link,
-    .user-signup-link,
-    .user-back-link {
-        color: #fff;
-    }
-    .btn-login,
-    .btn-forgot {
-        background-color: #228aa9;
-        color: #fff;
-    }
-    .center {
-        text-align: center;
-    }
     .toolbar {
         background-color: #228aa9;
         padding: 10px 5px 10px 5px;
         margin-top: 10px;
-    }
-    #register {
-        .form-group {
-            padding: 5px;
-            margin-bottom: 0px;
+      a{
+        cursor: pointer;
+        color: #fff;
+        &:hover{
+          color:#fff;
         }
-        .modal-body {
-            max-height: 450px;
-            overflow-y: auto;
-        }
+      }
     }
 }
 

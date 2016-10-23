@@ -1,4 +1,3 @@
-/*Tap tin chua cac bien hay dung trong CSS*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /*Tap tin reset CSS*/
 /**
@@ -402,15 +401,6 @@ a:active, a:hover, a:visited, a:focus, button:active, button:hover, button:visit
 
 select:focus, select:active, select:visited {
   outline: 0;
-}
-
-.modal-open {
-  overflow-y: scroll;
-  padding-right: 0 !important;
-}
-
-.modal-dialog {
-  padding-right: 0 !important;
 }
 
 a:hover {
@@ -1260,6 +1250,10 @@ nav {
 #login .modal-footer {
   text-transform: uppercase;
 }
+#login .modal-body {
+  height: 300px;
+  overflow-y: auto;
+}
 #login .btn-blue {
   font-size: 16px;
   text-transform: uppercase;
@@ -1301,31 +1295,17 @@ nav {
   border-width: 0;
   font-size: 24px;
 }
-#login .forgot-password-link,
-#login .user-signup-link,
-#login .user-back-link {
-  color: #fff;
-}
-#login .btn-login,
-#login .btn-forgot {
-  background-color: #228aa9;
-  color: #fff;
-}
-#login .center {
-  text-align: center;
-}
 #login .toolbar {
   background-color: #228aa9;
   padding: 10px 5px 10px 5px;
   margin-top: 10px;
 }
-#login #register .form-group {
-  padding: 5px;
-  margin-bottom: 0px;
+#login .toolbar a {
+  cursor: pointer;
+  color: #fff;
 }
-#login #register .modal-body {
-  max-height: 450px;
-  overflow-y: auto;
+#login .toolbar a:hover {
+  color: #fff;
 }
 
 /*#login*/
