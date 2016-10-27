@@ -10,6 +10,7 @@ app.service("net", function($http, ENV, $rootScope) {
 
   netService.post = function(url, param, eventHandler) {
     $http.defaults.headers.common['Authorization'] = $rootScope.token;
+    console.log($rootScope.token);
     $http.post(ENV.apiUrl + url, param).then(eventHandler);
   };
 

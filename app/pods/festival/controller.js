@@ -1,9 +1,11 @@
 var festival = angular.module("lehoiviet");
 
-festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams) {
+festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService) {
   $scope.initData = function() {
     $rootScope.currentPage = "festival";
     getFestivalById();
+
+    // if ($scope.festival.)
   };
 
   getFestivalById = function() {
@@ -33,9 +35,21 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.onLike = function() {
     if ($rootScope.token == null) {
-      $('#not-signed').modal('show');
+      $('#userLogin').modal('show');
       return;
     }
+
+    festivalService.like($scope.festival._id, function(response) {
+      if (!response.data.isFalse) {
+        var classOfLikeButton = $('.fa-thumbs-o-up');
+        classOfLikeButton.addClass('fa-thumbs-o-down');
+        classOfLikeButton.remove('fa-thumbs-o-up');
+      } else {
+        var classOfLikeButton = $('.fa-thumbs-o-down');
+        classOfLikeButton.addClass('fa-thumbs-o-up');
+        classOfLikeButton.remove('fa-thumbs-o-down');
+      }
+    })
   }
 
   $scope.onUploadImage = function() {
@@ -44,7 +58,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     });
 
     if ($rootScope.token == null) {
-      $('#not-signed').modal('show');
+      $('#userLogin').modal('show');
       return;
     }
 
@@ -59,8 +73,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.onImageSelected = function(element) {
-
-
     $scope.myCroppedImage='';
     var selectedFile = element.files[0];
     var reader = new FileReader();
@@ -76,5 +88,16 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   resetImageSelector = function() {
     $scope.image = null;
     $scope.myCroppedImage = null;
+  }
+
+  $scope.onSubmitImage = function() {
+    console.log($scope.myCroppedImage)
+    var formData = new FormData();
+    formData.append("file", $scope.myCroppedImage);
+    imageService.uploadImagePost($scope.festival._id, formData, function(response){
+      if(response.status == 200) {
+        console.log("Upload Successfully");
+      }
+    });
   }
 });
