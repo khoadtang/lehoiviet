@@ -37,5 +37,9 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.post('/festival/submit/'.concat(id), null, eventHandler);
     };
 
+    festivalService.like = function(id, eventHandler) {
+      net.post('/festival/like/'.concat(id), null, eventHandler);
+    };
+
     return festivalService;
 });
