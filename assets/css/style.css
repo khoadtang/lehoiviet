@@ -480,6 +480,7 @@ li {
   border-radius: 50%;
   position: relative;
   margin: 0 auto;
+  background-color: #ddd;
 }
 #top-member .icon-user i {
   position: absolute;
