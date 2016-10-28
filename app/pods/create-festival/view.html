@@ -106,35 +106,9 @@
                     </div>
                     <div class="infomation-content row">
                         <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="festival.timeBegin" type="text" name="timeBegin" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="info.timeBegin.$dirty && info.timeBegin.$invalid">
-                                    <span ng-show="info.timeBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="festival.timeEnd" type="text" name="timeEnd" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="info.timeEnd.$dirty && info.timeEnd.$invalid">
-                                    <span ng-show="info.timeEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000" required/>
+                              <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000" required/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
@@ -146,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: center">
+                    <div class="box-save">
                       <button type="button" class="btn-blue btn-fix" ng-click="onSave()">
                         <div ng-show="!isSaving">
                           <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
@@ -213,34 +187,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Từ</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="event.timeBegin" type="text" name="timeBeginEvent" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="addEvent.timeBeginEvent.$dirty && addEvent.timeBeginEvent.$invalid">
-                                    <span ng-show="addEvent.timeBeginEvent.$error.required">thời gian là bắt buộc</span>
+                      <div class="infomation-content row">
+                          <div class="box-info-normal">
+                              <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
+                              <div class="details col-sm-2 col-xs-12">
+                                  <input ng-model="festival.dateBegin" type="text" name="dateBegin" spellcheck="false" />
+                                  <div>
+                                    <span class="text-error" ng-show="info.dateBegin.$dirty && info.dateBegin.$invalid">
+                                    <span ng-show="info.dateBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="infomation-content row">
-                        <div class="box-info-normal">
-                            <div class="lable col-sm-3 col-xs-12">Đến</div>
-                            <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="event.timeEnd" type="text" name="timeEndEvent" spellcheck="false" />
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                                <span class="text-error" ng-show="addEvent.timeEndEvent.$dirty && addEvent.timeEndEvent.$invalid">
-                                    <span ng-show="addEvent.timeEndEvent.$error.required">Thời gian là bắt buộc</span>
+                                  </div>
+                              </div>
+                              <div class="lable col-sm-3 col-sm-push-2 col-xs-12">Giờ</div>
+                              <div class="details col-sm-2 col-xs-12">
+                                  <input ng-model="festival.timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="infomation-content row">
+                          <div class="box-info-normal">
+                              <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
+                              <div class="details col-sm-2 col-xs-12">
+                                  <input ng-model="festival.dateEnd" type="text" name="dateEnd" spellcheck="false" />
+                                  <div>
+                                <span class="text-error" ng-show="info.dateEnd.$dirty && info.dateEnd.$invalid">
+                                    <span ng-show="info.dateEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
-                            </div>
-                        </div>
-                    </div>
+                                  </div>
+                              </div>
+                              <div class="lable col-sm-3 col-sm-push-2 col-xs-12">Giờ</div>
+                              <div class="details col-sm-2 col-xs-12">
+                                  <input ng-model="festival.timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                              </div>
+                          </div>
+                      </div>
                   </form>
-                  <div style="text-align:center">
+                  <div class="text-center">
                     <button type="button" name="button" class="btn-blue btn-fix" ng-click="onUpdateOrCreateEvent()">
                       <div ng-show="!event.isSaving">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>Hoàn Tất
@@ -254,9 +236,8 @@
                 <div class="event">
                     <button type="button" name="button" class="btn-create-event" ng-click="onAddEvent()"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Thêm sự kiện</button>
                 </div>
-                <div style="text-align: center; margin: 30px 0">
+                <div class="box-save box-save2">
                   <button type="button" class="btn-blue btn-fix" ng-click="onSave()">
-
                     <div ng-show="!isSaving">
                       <i class="fa fa-floppy-o" aria-hidden="true"></i>Lưu lại
                     </div>
@@ -341,52 +322,67 @@
 $(function() {
     $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
 
-    $('input[name="timeBegin"],input[name="timeEnd"],input[name="timeBeginEvent"],input[name="timeEndEvent"]').daterangepicker({
-        "singleDatePicker": true,
-        "timePicker": true,
-        "timePicker24Hour": true,
-        "timePickerIncrement": 5,
-        "autoApply": true,
-        "locale": {
-            "format": "MM/DD/YYYY HH:mm",
-            "separator": " - ",
-            "applyLabel": "Chọn",
-            "cancelLabel": "Cancel",
-            "fromLabel": "From",
-            "toLabel": "To",
-            "customRangeLabel": "Custom",
-            "daysOfWeek": [
-                "CN",
-                "Hai",
-                "Ba",
-                "Tư",
-                "Năm",
-                "Sáu",
-                "Bảy"
-            ],
-            "monthNames": [
-                "Tháng 1",
-                "Tháng 2",
-                "Tháng 3",
-                "Tháng 4",
-                "Tháng 5",
-                "Tháng 6",
-                "Tháng 7",
-                "Tháng 8",
-                "Tháng 9",
-                "Tháng 10",
-                "Tháng 11",
-                "Tháng 12"
-            ],
-            "firstDay": 1
-        },
-        "alwaysShowCalendars": true,
-        "parentEl": "test",
-        "startDate": new Date(),
-        "drops": "up",
-        "applyClass": "btn-blue",
-        "minDate": new Date()
+    /*$('input[name="timeBegin"],input[name="timeEnd"],input[name="timeBeginEvent"],input[name="timeEndEvent"]').daterangepicker({
+     "singleDatePicker": true,
+     "timePicker": true,
+     "timePicker24Hour": true,
+     "timePickerIncrement": 5,
+     "autoApply": true,
+     "locale": {
+     "format": "MM/DD/YYYY HH:mm",
+     "separator": " - ",
+     "applyLabel": "Chọn",
+     "cancelLabel": "Cancel",
+     "fromLabel": "From",
+     "toLabel": "To",
+     "customRangeLabel": "Custom",
+     "daysOfWeek": [
+     "CN",
+     "Hai",
+     "Ba",
+     "Tư",
+     "Năm",
+     "Sáu",
+     "Bảy"
+     ],
+     "monthNames": [
+     "Tháng 1",
+     "Tháng 2",
+     "Tháng 3",
+     "Tháng 4",
+     "Tháng 5",
+     "Tháng 6",
+     "Tháng 7",
+     "Tháng 8",
+     "Tháng 9",
+     "Tháng 10",
+     "Tháng 11",
+     "Tháng 12"
+     ],
+     "firstDay": 1
+     },
+     "alwaysShowCalendars": true,
+     "parentEl": "test",
+     "startDate": new Date(),
+     "drops": "up",
+     "applyClass": "btn-blue",
+     "minDate": new Date()
+     });*/
+    $('input[name="dateBegin"],input[name="dateEnd"]').datetimepicker({
+        format: 'DD/MM/YYYY',
+        minDate : new Date()
     });
+    $('input[name="timeBegin"],input[name="timeEnd"]').datetimepicker({
+        format: 'HH:mm'
+    });
+    $('input[name="dateBegin"]').on("dp.change", function (e) {
+        $('input[name="dateEnd"]').data("DateTimePicker").minDate(e.date);
+        $('input[name="dateEnd"]').data("DateTimePicker").date(e.date);
+    });
+    $('input[name="dateEnd"]').on("dp.change", function (e) {
+            $('input[name="dateBegin"]').data("DateTimePicker").maxDate(e.date);
+    });
+
 });
 //upload and display image
 $(function() {

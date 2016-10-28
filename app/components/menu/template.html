@@ -31,6 +31,19 @@
                         <button type="button" class="btn createPost" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                     </li>
+                    <li class="dropdown notify">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
+                            <span>4</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown actionUserPanel" ng-show="$root.token != null">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()"> <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" style="width:30px;" class="img-circle" /></a>
                         <ul class="dropdown-menu">

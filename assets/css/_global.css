@@ -90,6 +90,7 @@ li {
   border-radius: 50%;
   position: relative;
   margin: 0 auto;
+  background-color: #ddd;
 }
 
 #top-member .icon-user i {
@@ -268,6 +269,27 @@ nav {
 #menu .menu-right .dropdown-menu li a:hover {
   background-color: #247ba0;
   color: #fff;
+}
+
+#menu .notify > a {
+  font-size: 25px;
+  line-height: 0;
+  position: relative;
+  color: #247ba0 !important;
+}
+
+#menu .notify > a span {
+  background-color: red;
+  border-radius: 50%;
+  color: #ffffff;
+  display: block;
+  font-size: 9px;
+  height: 18px;
+  width: 18px;
+  padding: 9px 1px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 #footer .infoLogo {

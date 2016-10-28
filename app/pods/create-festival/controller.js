@@ -189,6 +189,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     $scope.event = {};
     $('.box-event').removeClass('hide');
     $('.btn-create-event').addClass('hide');
+    $('.box-save2').addClass('hide')
     // $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
   }
 
@@ -224,10 +225,10 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
           $('.box-event').addClass('hide');
           $('.btn-create-event').removeClass('hide');
+          $('.box-save2').removeClass('hide');
         }
       });
     }
-
   };
 
   $scope.onUpdateEvent = function(eventId){
