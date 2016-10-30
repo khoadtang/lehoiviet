@@ -14,5 +14,15 @@ app.service("gatewayService", function($rootScope, ENV) {
     socket.emit('online', data);
   }
 
+  gatewayService.listen = function() {
+    socket.on('notification', function(data) {
+      if ($rootScope.notification == null) {
+        $rootScope.notification = [];
+      }
+      $rootScope.$apply(function() {
+        $rootScope.notification.push(data)
+      });
+    })
+  }
   return gatewayService;
 });

@@ -64,6 +64,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
               cookiesManager.set("password", userInfo.password);
 
               gatewayService.online();
+              gatewayService.listen();
             } else {
               $scope.errorMessage = "Đăng Nhập Không Thành Công";
             }

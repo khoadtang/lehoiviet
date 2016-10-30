@@ -63,7 +63,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         }]);
 
 app.constant("ENV", {
-  apiUrl: "http://api.lehoiviet.vn",
+  apiUrl: "http://127.0.0.1:3000",
   gateWay: "http://127.0.0.1:5000"
 });
 
@@ -81,6 +81,7 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
         $rootScope.uid = data.user._id;
 
         gatewayService.online();
+        gatewayService.listen();
       }
     });
   };

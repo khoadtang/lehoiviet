@@ -53,7 +53,17 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.get('/festival/like/count/'.concat(id), eventHandler);
     };
 
+    festivalService.subscribe = function(id, eventHandler) {
+      net.post('/subscribe/create/'.concat(id), null, eventHandler);
+    };
 
+    festivalService.unsubscribe = function(id, eventHandler) {
+      net.post('/subscribe/cancel/'.concat(id), null, eventHandler);
+    };
+
+    festivalService.isSubscribed = function(id, eventHandler) {
+      net.post('/subscribe/check/user/'.concat(id), null, eventHandler);
+    };
 
     return festivalService;
 });

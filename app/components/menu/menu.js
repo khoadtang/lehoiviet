@@ -14,12 +14,7 @@ menu.directive("topMenu", function(){
 menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService) {
   $scope.loginView = function(){
       $('#userLogin').modal('show');
-      // $('#userLogin').modal('show');
   };
-    /*$scope.testView = function(){
-        $('#modalBudget').modal('show');
-        console.log('davo')
-    };*/
   $scope.actionUserPanel = function(){
       $('.actionUserPanel .dropdown-menu').toggle();
   };

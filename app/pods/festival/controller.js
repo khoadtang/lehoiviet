@@ -15,6 +15,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.festival.timeEnd = dateHelper.parse($scope.festival.timeEnd);
 
         updateLikeElementState();
+        updateSubscribeElementState();
       } else {
 
       }
@@ -48,6 +49,14 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
     }
   };
+
+  updateSubscribeElementState = function() {
+    if ($scope.festival != null || $scope.festival != undefined) {
+      festivalService.isSubscribed($scope.festival._id, function(response) {
+        console.log(response);
+      });
+    }
+  }
 
   $scope.watchSlide = function () {
     $('#slideImage').modal('show')
@@ -133,7 +142,28 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       }
     });
   }
+
+  $scope.onSubscribe = function() {
+    if ($scope.festival == null || $scope.festival == undefined) {
+      return;
+    }
+
+    festivalService.subscribe($scope.festival._id, function(response){
+      updateSubscribeElementState();
+    });
+  }
+
+  $scope.onUnsubscribe = function() {
+    if ($scope.festival == null || $scope.festival == undefined) {
+      return;
+    }
+
+    festivalService.unsubscribe($scope.festival._id, function(response){
+      updateSubscribeElementState();
+    });
+  }
 });
+
 
 function dataURItoBlob(dataURI) {
     // convert base64/URLEncoded data component to raw binary data held in a string
