@@ -22,7 +22,7 @@ app.service("festivalService", function($http, net, $rootScope) {
     };
 
     festivalService.delete = function(festival, eventHandler){
-        net.post('/festival/delete/', festival, eventHandler);
+        net.upload('/festival/delete/', festival, eventHandler);
     };
 
     festivalService.getAll = function(eventHandler) {
@@ -40,6 +40,20 @@ app.service("festivalService", function($http, net, $rootScope) {
     festivalService.like = function(id, eventHandler) {
       net.post('/festival/like/'.concat(id), null, eventHandler);
     };
+
+    festivalService.checkUserLike = function(id, eventHandler) {
+      net.post('/festival/islike/'.concat(id), null, eventHandler);
+    };
+
+    festivalService.rate = function(id, data, eventHandler) {
+      net.post('/rating/festival/'.concat(id), data, eventHandler);
+    };
+
+    festivalService.getNumberOfLikes = function(id, eventHandler) {
+      net.get('/festival/like/count/'.concat(id), eventHandler);
+    };
+
+
 
     return festivalService;
 });

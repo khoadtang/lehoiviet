@@ -65,7 +65,7 @@
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
                                 <div class="clearfix">
-                                    <select id="rating-bar" name="rating" autocomplete="off">
+                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -76,9 +76,9 @@
                             </li>
                         </ul>
                         <div class="actionUser">
-                            <a href="" ng-click="onLike()" data-toggle="tooltip" data-placement="top" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                            <a href="" ng-click="postVideo()" data-toggle="tooltip" data-placement="top" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                            <a href="" ng-click="onUploadImage()" data-toggle="tooltip" data-placement="top" title="Upload hình ảnh"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                            <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onUploadImage()" title="Upload hình ảnh"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
