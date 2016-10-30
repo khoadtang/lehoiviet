@@ -241,6 +241,11 @@ nav {
   color: #fff;
 }
 
+#menu .menu-right .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
 #menu .menu-right .dropdown-toggle {
   padding: 5px;
 }
@@ -290,6 +295,49 @@ nav {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+#menu .notify .dropdown-menu {
+  width: 350px;
+}
+
+.notification-message-item a {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-message-item a div {
+  float: left;
+}
+
+.notification-message-item .thumnail {
+  width: 80px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.notification-message-item .thumnail img {
+  width: 80px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.notification-message-item .message {
+  width: calc(100% -  80px);
+  height: 40px;
+  padding: 0 5px;
+}
+
+.notification-message-item .message p {
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.notification-message-item .message span {
+  font-size: 10px;
+  font-weight: 300;
 }
 
 #footer .infoLogo {
