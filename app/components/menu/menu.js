@@ -29,7 +29,6 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     userService.logout(function(response){
       console.log(response.status);
       if(response.status == 200) {
-        console.log("Log out");
         $rootScope.token = null;
         cookiesManager.removeUser();
         window.location = "#/";

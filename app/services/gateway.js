@@ -22,7 +22,19 @@ app.service("gatewayService", function($rootScope, ENV) {
       $rootScope.$apply(function() {
         $rootScope.notification.push(data)
       });
-    })
+    });
+
+    socket.on('users', function(data) {
+      console.log(data);
+      if ($rootScope.users == null) {
+        $rootScope.users = [];
+      }
+
+      $rootScope.$apply(function() {
+        $rootScope.users = data;
+        console.log(data);
+      });
+    });
   }
   return gatewayService;
 });
