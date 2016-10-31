@@ -65,5 +65,9 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.post('/subscribe/check/user/'.concat(id), null, eventHandler);
     };
 
+    festivalService.getNotifiedFestival = function(eventHandler) {
+      net.post('/subscribe/notified/', null, eventHandler);
+    };
+
     return festivalService;
 });

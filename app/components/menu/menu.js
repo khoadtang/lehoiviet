@@ -11,7 +11,10 @@ menu.directive("topMenu", function(){
     };
 });
 
-menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService) {
+menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService, festivalService) {
+  $scope.init = function() {
+
+  };
   $scope.loginView = function(){
       $('#userLogin').modal('show');
   };
@@ -35,5 +38,11 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
         gatewayService.offline();
       }
     });
+  };
+  $scope.onClickNotification = function() {
+    if ($rootScope.notification.unseen == null) {
+      $rootScope.notification.unseen = 0;
+    }
+    $rootScope.notification.unseen = 0;
   };
 });

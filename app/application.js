@@ -67,7 +67,7 @@ app.constant("ENV", {
   gateWay: "http://127.0.0.1:5000"
 });
 
-app.controller("appController", function($scope, $rootScope, userService, gatewayService, $route) {
+app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route) {
   $scope.init = function() {
     $rootScope.token = null;
 
@@ -79,6 +79,18 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
         $rootScope.avatar = data.user.avatar;
         $rootScope.firstName = data.user.firstName;
         $rootScope.uid = data.user._id;
+
+        festivalService.getNotifiedFestival(function(response){
+          $rootScope.notification = response.data.data;
+          angular.forEach($rootScope.notification, function(value, key){
+            if(!value.data.notifyStatus) {
+              if ($rootScope.notification.unseen == null) {
+                $rootScope.notification.unseen = 0;
+              }
+              $rootScope.notification.unseen++;
+            }
+          });
+        });
 
         gatewayService.online();
         gatewayService.listen();
