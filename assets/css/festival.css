@@ -1,66 +1,3 @@
-#getAllFestival .search-box .input-group-addon {
-  background-color: #fff;
-  border-radius: none;
-}
-#getAllFestival .col-md-6 {
-  padding: 10px;
-}
-#getAllFestival .search-box {
-  background: #fff;
-  padding: 10px;
-}
-#getAllFestival .loadMore {
-  margin-top: 40px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-#getAllFestival .loadMore button {
-  height: 50px;
-  width: 250px;
-  font-size: 20px;
-  text-align: center;
-  display: table;
-  margin: 0 auto;
-}
-#getAllFestival .loadMore button span {
-  border-right: 1px solid #ccc;
-  margin-right: 5px;
-  padding: 10px;
-  float: left;
-}
-#getAllFestival .create-festival {
-  text-align: center;
-  padding: 10px;
-}
-#getAllFestival .create-festival button {
-  height: 50px;
-  width: 250px;
-  font-size: 20px;
-  text-align: center;
-}
-#getAllFestival .create-festival button span {
-  border-right: 1px solid #ccc;
-  margin-right: 5px;
-  padding: 10px;
-  float: left;
-}
-#getAllFestival .guide-helper {
-  margin: 40px 0;
-  background: #fff;
-  padding: 10px 0;
-}
-#getAllFestival .guide-helper h4 {
-  margin-bottom: 5px;
-}
-#getAllFestival .advert-festival {
-  background: #fff;
-  text-align: center;
-  padding: 10px;
-}
-#getAllFestival #btnLoadMore {
-  cursor: pointer;
-}
-
 .festival-item-base {
   margin-top: 10px;
   background-color: #fff;
@@ -106,6 +43,14 @@
 }
 .festival-item-base .festival-info li {
   list-style: none;
+}
+.festival-item-base .festival-info .title a {
+  padding-right: 10px;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 .festival-item-base .festival-info .price {
   font-size: 12px;
@@ -156,4 +101,57 @@
 }
 .festival-item-base .event-date .date-detail {
   border: 1px solid #ccc;
+}
+
+.festivals .col-sm-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+}
+
+.box-input-search-festivals {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+.box-input-search-festivals img {
+  width: 100%;
+  height: auto;
+}
+
+.input-search-festival {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-top: 50px;
+}
+.input-search-festival h2 {
+  color: #ffffff;
+}
+.input-search-festival > div {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 15px 5px 15px 15px;
+  background-color: #ffffff;
+  text-align: left;
+}
+.input-search-festival input {
+  width: calc(100% - 50px);
+  border: 0;
+  font-size: 16px;
+}
+.input-search-festival button {
+  font-size: 20px;
+  color: #ccc;
+  width: 40px;
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  border: 0;
 }
