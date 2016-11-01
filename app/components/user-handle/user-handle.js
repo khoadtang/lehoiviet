@@ -12,7 +12,7 @@ login.directive("userHandler", function(){
     };
 });
 
-login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, $route) {
+login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route) {
   $scope.init = function() {
     $scope.message = null;
   };
@@ -62,6 +62,15 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
 
               cookiesManager.set("email", userInfo.email);
               cookiesManager.set("password", userInfo.password);
+
+              festivalService.getNotifiedFestival(function(response){
+                $rootScope.notification = response.data.data;
+                angular.forEach($rootScope.notification, function(value, key){
+                  if(!value.notifyStatus) {
+                    $rootScope.notification.unseen.length++;
+                  }
+                });
+              });
 
               gatewayService.online();
               gatewayService.listen();

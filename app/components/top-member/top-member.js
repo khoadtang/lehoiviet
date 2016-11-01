@@ -8,7 +8,7 @@ topMember.directive("topMember", function(){
     };
 });
 
-topMember.controller("topMemberController", function($scope, userService) {
+topMember.controller("topMemberController", function($scope, userService, $rootScope) {
   $scope.initData = function(){
     getTopMembers();
   };
@@ -16,7 +16,7 @@ topMember.controller("topMemberController", function($scope, userService) {
   getTopMembers = function() {
     userService.getAll(function(response) {
       if(response.status == 200) {
-        $scope.members = response.data.data;
+        $rootScope.users = response.data.data;
       } else {
 
       }

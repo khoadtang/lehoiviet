@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="assets/img/logo150x40.png" alt="" /></a>
+        <a class="navbar-brand" href="#/"><img src="assets/img/logo150x40.png" alt="" /></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav menu-left">
@@ -21,66 +21,22 @@
           <li><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
           <li class="dropdown notify">
               <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
-                  <span>14</span></a>
+                  <span ng-show="$root.notification.unseen > 0">{{$root.notification.unseen}}</span></a>
               <ul class="dropdown-menu">
-                  <li class="notification-message-item">
-                    <a class="clearfix">
+                  <li class="notification-message-item" ng-repeat="festival in $root.notification">
+                    <a class="clearfix" href="#/festival/{{festival.data._id}}" ng-click="onClickNotification()">
                       <div class="thumnail">
                         <img src="./assets/img/img2.png" alt="" />
                       </div>
                       <div class="message">
-                        <p>Lễ hội trái cây</p>
-                        <span>Trực tiếp</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="notification-message-item">
-                    <a class="clearfix">
-                      <div class="thumnail">
-                        <img src="./assets/img/img1.png" alt="" />
-                      </div>
-                      <div class="message">
-                        <p>Lễ hội văn hóa</p>
-                        <span>Sắp diễn ra</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="notification-message-item">
-                    <a class="clearfix">
-                      <div class="thumnail">
-                        <img src="./assets/img/img1.png" alt="" />
-                      </div>
-                      <div class="message">
-                        <p>Lễ hội văn hóa</p>
-                        <span>Sắp diễn ra</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="notification-message-item">
-                    <a class="clearfix">
-                      <div class="thumnail">
-                        <img src="./assets/img/img1.png" alt="" />
-                      </div>
-                      <div class="message">
-                        <p>Lễ hội văn hóa</p>
-                        <span>Sắp diễn ra</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="notification-message-item">
-                    <a class="clearfix">
-                      <div class="thumnail">
-                        <img src="./assets/img/img1.png" alt="" />
-                      </div>
-                      <div class="message">
-                        <p>Lễ hội văn hóa</p>
-                        <span>Sắp diễn ra</span>
+                        <p>{{festival.data.title}}</p>
+                        <span color='red'>SẮP DIỄN RA</span>
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="#" style="display:block; text-align:center; padding: 5px">Xem thêm</a>
-                </li>
+                    <a href="#" style="display:block; text-align:center; padding: 5px" ng-show="$root.notification.length > 10">Xem thêm</a>
+                  </li>
               </ul>
           </li>
           <li class="dropdown" ng-show="$root.token != null">

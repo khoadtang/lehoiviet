@@ -20,9 +20,29 @@ app.service("gatewayService", function($rootScope, ENV) {
         $rootScope.notification = [];
       }
       $rootScope.$apply(function() {
-        $rootScope.notification.push(data)
+        var audio = new Audio('./assets/enough.mp3');
+        audio.play();
+        if($rootScope.notification.unseen == null) {
+          $rootScope.notification.unseen = 0;
+        }
+        $rootScope.notification.unseen++;
+        console.log($rootScope.notification.unseen);
+        $rootScope.notification.push(data);
+        console.log($rootScope.notification);
       });
-    })
+    });
+
+    socket.on('users', function(data) {
+      console.log(data);
+      if ($rootScope.users == null) {
+        $rootScope.users = [];
+      }
+
+      $rootScope.$apply(function() {
+        $rootScope.users = data;
+        console.log(data);
+      });
+    });
   }
   return gatewayService;
 });
