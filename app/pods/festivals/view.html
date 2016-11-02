@@ -1,8 +1,8 @@
 <div class="festivals">
   <div class="box-input-search-festivals">
-    <img src="./assets/img/RockIslandsPalau_1920x1200.jpg" alt="" />
+    <img src="./assets/img/bg-festival.jpg" alt="" />
     <div class="input-search-festival">
-      <h2>Thế giới sự kiện đặc sắc</h2>
+      <h2>Thế giới lễ hội đặc sắc</h2>
       <div>
         <input type="text" name="name" value="" placeholder="Tìm sự kiện, khóa học, khu vui chơi, ..."/>
         <button type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -10,8 +10,73 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
+  <div class="bg-white">
+    <div class="container reset-grid">
+      <div class="festival-filter">
+        <div class="row">
+          <div class="col-sm-3 filter-selector">
+            <div class="custom-select w-100">
+              <i class="fa fa-map-marker before-icon" aria-hidden="true"></i>
+              <select>
+                <option value="option">Tất cả địa điểm</option>
+                <option value="">TP.Hồ Chí Minh</option>
+                <option value="">Hà Nội</option>
+                <option value="">Địa điểm khác</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-9 filter-collapse">
+            <div class="row">
+              <!--kind of event-->
+              <div class="col-sm-5 filter-selector">
+                  <div class="select-group w-100">
+                  <i class="fa fa-tasks before-icon" aria-hidden="true"></i>
+                  <i class="fa fa-caret-down after-icon" aria-hidden="true"></i>
+                  <div class="select-dropdown">
+                    <select class="select-skill" multiple="true">
+                         <option value="1">Monday</option>
+                         <option value="2">Tuesday</option>
+                         <option value="3">Wednesday</option>
+                         <option value="4">Thursday</option>
+                         <option value="5">Friday</option>
+                         <option value="6">Saturday</option>
+                         <option value="6">Sunday</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!--date range-->
+              <div class="col-sm-4 filter-selector">
+                <div class="custom-select w-100">
+                  <i class="fa fa-calendar before-icon" aria-hidden="true"></i>
+                  <select>
+                    <option value="option">Tất cả các ngày sắp tới</option>
+                    <option value="">Hôm nay</option>
+                    <option value="">Ngày mai</option>
+                    <option value="">Tuần này</option>
+                  </select>
+                </div>
+              </div>
+              <!--price-->
+              <div class="col-sm-3 filter-selector">
+                <div class="custom-select w-100">
+                  <i class="fa fa-usd before-icon" aria-hidden="true"></i>
+                  <select>
+                    <option value="option">Tất cả giá vé</option>
+                    <option value="">Miễn phí</option>
+                    <option value="">có phí</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container clearfix">
+    <div class="row item-filter-festivals">
       <div class="col-sm-4 col-xs-12">
         <div class="festival-item-base">
             <div class="festival-img">
@@ -211,3 +276,12 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+      $(".select-skill").select2({
+          placeholder: "Chọn loại sự kiện",
+          maximumSelectionLength: 2,
+          minimumResultsForSearch: 2
+      });
+});
+</script>

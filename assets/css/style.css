@@ -411,6 +411,19 @@ body {
   padding-top: 45px !important;
 }
 
+.reset-grid .col-xs-1, .reset-grid .col-sm-1, .reset-grid .col-md-1, .reset-grid .col-lg-1, .reset-grid .col-xs-2, .reset-grid .col-sm-2, .reset-grid .col-md-2, .reset-grid .col-lg-2, .reset-grid .col-xs-3, .reset-grid .col-sm-3, .reset-grid .col-md-3, .reset-grid .col-lg-3, .reset-grid .col-xs-4, .reset-grid .col-sm-4, .reset-grid .col-md-4, .reset-grid .col-lg-4, .reset-grid .col-xs-5, .reset-grid .col-sm-5, .reset-grid .col-md-5, .reset-grid .col-lg-5, .reset-grid .col-xs-6, .reset-grid .col-sm-6, .reset-grid .col-md-6, .reset-grid .col-lg-6, .reset-grid .col-xs-7, .reset-grid .col-sm-7, .reset-grid .col-md-7, .reset-grid .col-lg-7, .reset-grid .col-xs-8, .reset-grid .col-sm-8, .reset-grid .col-md-8, .reset-grid .col-lg-8, .reset-grid .col-xs-9, .reset-grid .col-sm-9, .reset-grid .col-md-9, .reset-grid .col-lg-9, .reset-grid .col-xs-10, .reset-grid .col-sm-10, .reset-grid .col-md-10, .reset-grid .col-lg-10, .reset-grid .col-xs-11, .reset-grid .col-sm-11, .reset-grid .col-md-11, .reset-grid .col-lg-11, .reset-grid .col-xs-12, .reset-grid .col-sm-12, .reset-grid .col-md-12, .reset-grid .col-lg-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.reset-grid .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 ul,
 li {
   padding: 0;
