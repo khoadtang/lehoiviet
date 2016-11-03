@@ -53,7 +53,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
     }
 
     festivalService.filterByPrice($scope.price, function(response){
-      $scpoe.festivals = response.data.rows;
+      $scope.festivals = response.data.rows;
     });
   };
 });
