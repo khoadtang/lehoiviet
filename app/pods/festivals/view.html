@@ -1,280 +1,287 @@
-<style type="text/css">
-  .search-box {
-      background: #fff;
-      padding: 10px;
-  }
-
-  .festival-item {
-      margin-top: 20px;
-      background: #FFF;
-      border-radius: 2px;
-      height: 270px;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  }
-
-  .img-festival {
-      width: 100%;
-      height: 150px;
-  }
-
-  .festival-item a {
-      margin-left: 10px;
-      white-space: initial;
-      color: #333;
-      text-decoration: none;
-      cursor: pointer;
-      font-size: 16px;
-  }
-
-  .festival-info {
-      margin-left: 10px;
-  }
-
-  .price {
-      font-weight: 600;
-  }
-
-  .adrress {}
-
-  .adrress p {
-      width: auto;
-      font-size: 13px;
-  }
-
-  .datetime p {}
-
-  .loadMore {
-      margin-top: 40px;
-      text-align: center;
-      margin-bottom: 40px;
-  }
-
-  .loadMore button {
-      height: 50px;
-      width: 250px;
-      font-size: 20px;
-      text-align: center;
-      display: table;
-      margin: 0 auto;
-  }
-
-  .loadMore button span {
-      border-right: 1px solid #ccc;
-      margin-right: 5px;
-      padding: 10px;
-      float: left;
-  }
-
-  .create-festival {
-      margin-bottom: 20px;
-      text-align: center;
-      padding: 10px;
-  }
-
-  .create-festival button {
-      margin-bottom: 40px;
-      height: 50px;
-      width: 250px;
-      font-size: 20px;
-      text-align: center;
-  }
-
-  .create-festival button span {
-      border-right: 1px solid #ccc;
-      margin-right: 5px;
-      padding: 10px;
-      float: left;
-  }
-
-  .guide-helper {
-      margin-top: 40px;
-      margin-bottom: 40px;
-      border: 1px solid #ccc;
-      height: 70px;
-      background: #fff;
-  }
-
-  .icon-helper {}
-
-  .advert-festival {
-      background: #fff;
-      text-align: center;
-  }
-</style>
-
-<section id="header" style="background-image: url(assets/img/RockIslandsPalau_1920x1200.jpg);">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <blockquote>
-                <p>Tham quan những lễ hội truyền thống với những văn hóa độc đáo trên mọi miền tổ quốc</p>
-            </blockquote>
-        </div>
+<div class="festivals">
+  <div class="box-input-search-festivals">
+    <img src="./assets/img/bg-festival.jpg" alt="" />
+    <div class="input-search-festival">
+      <h2>Thế giới lễ hội đặc sắc</h2>
+      <div>
+        <input type="text" name="name" value="" placeholder="Tìm sự kiện, khóa học, khu vui chơi, ..."/>
+        <button type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
     </div>
-    <div class="overlay"></div>
-</section>
+  </div>
 
-<div id="" ng-init="initData()">
-        <div class="row search-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <span class="fa fa-map-marker"></span>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="cityName" ng-model="cityName">
-                                        <option value="">Tất cả địa điểm</option>
-                                        <option>Hồ Chí Minh</option>
-                                        <option>Hà Nội</option>
-                                        <option>Các địa điểm khác</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <span class="fa fa-th"></span>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="cityName" ng-model="cityName">
-                                        <option value="">Tất cả loại sự kiện</option>
-                                        <option>Nhạc sống</option>
-                                        <option>Văn hóa nghệ thuật</option>
-                                        <option>Sân khấu</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <span class="fa fa-calendar"></span>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="cityName" ng-model="cityName">
-                                        <option value="">Tất cả các ngày sắp tới</option>
-                                        <option>Hôm nay</option>
-                                        <option>Ngày mai</option>
-                                        <option>Tuần này</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <span class="fa fa-usd"></span>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="cityName" ng-model="cityName">
-                                        <option value="">Tất cả giá vé</option>
-                                        <option>Miễn phí</option>
-                                        <option>Có phí</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="bg-white">
+    <div class="container reset-grid">
+      <div class="festival-filter">
         <div class="row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4" ng-repeat="festival in festivals">
-                        <div class="festival-item">
-                            <img class="img-festival img-responsive" src="http://lehoiviet.herokuapp.com/{{festival.thumbnail.imgResize}}" width="100%" height="150" alt="{{festival.title}}"/>
-                            <div class="festival-title">
-                                <a ng-click="testClick(festival._id)">{{festival.title.trunc(50)}}</a>
-                            </div>
-                            <div class="festival-info">
-                                <div class="price">
-                                    <p>{{festival.price}}</p>
-                                </div>
-                                <div class="adrress">
-                                    <p>{{festival.address.mainAdress}}</p>
-                                </div>
-                                <div class="datetime">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <i class="fa fa-calendar-check-o fa-3x"></i>
-                                        </div>
-                                        <div class="col-md-10">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cssload-loader col-md-12" ng-show="!stopped && busy">
-                </div>
-                <div class="row">
-                    <div class="loadMore">
-                        <button id="btnLoadMore" class="btn btn-success" type="button" ng-click="loadMorePost()"><span class="fa fa-location-arrow fa-1x"></span>Xem Thêm</button>
-                    </div>
-                </div>
-                <div class="row col-md-12">
-                    <div class="guide-helper">
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <i class="fa fa-check fa-3x icon-helper"></i>
-                                </div>
-                                <div class="col-md-10">
-                                    <h4>Chọn sự kiện</h4>
-                                    <p>chỉ trong vài click</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <i class="fa fa-battery-full fa-3x"></i>
-                                </div>
-                                <div class="col-md-10">
-                                    <h4>Xem thông tin Lễ Hội</h4>
-                                    <p>Thông tin địa điểm và thời gian</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <i class="fa fa-bullhorn fa-3x"></i>
-                                </div>
-                                <div class="col-md-10">
-                                    <h4>Viết cảm nghĩ về lễ hội</h4>
-                                    <p>Chia sẻ cảm xúc, hình ảnh của lê hội</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="col-sm-3 filter-selector">
+            <div class="custom-select w-100">
+              <i class="fa fa-map-marker before-icon" aria-hidden="true"></i>
+              <select>
+                <option value="option">Tất cả địa điểm</option>
+                <option value="">TP.Hồ Chí Minh</option>
+                <option value="">Hà Nội</option>
+                <option value="">Địa điểm khác</option>
+              </select>
             </div>
-        </div>
-        <div class="row">
-            <div class="advert-festival">
-                <div class="row">
-                    <h3>Hãy tham gia những lễ hội trên mọi miền đất nước với lehoiviet.vn</h3>
-                    <p>Gửi email cho chúng tôi nếu bạn có thắc mắc admin@lehoiviet.vn
-                    </p>
+          </div>
+          <div class="col-sm-9 filter-collapse">
+            <div class="row">
+              <!--kind of event-->
+              <div class="col-sm-5 filter-selector">
+                  <div class="select-group w-100">
+                  <i class="fa fa-tasks before-icon" aria-hidden="true"></i>
+                  <i class="fa fa-caret-down after-icon" aria-hidden="true"></i>
+                  <div class="select-dropdown">
+                    <select class="select-skill" multiple="true">
+                         <option value="1">Monday</option>
+                         <option value="2">Tuesday</option>
+                         <option value="3">Wednesday</option>
+                         <option value="4">Thursday</option>
+                         <option value="5">Friday</option>
+                         <option value="6">Saturday</option>
+                         <option value="6">Sunday</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="create-festival">
-                        <button class="btn btn-success" type="button" ng-click="loadMorePost()"><span class="fa fa-plus fa-1x"></span>Tạo Lễ Hội</button>
-                    </div>
+              </div>
+              <!--date range-->
+              <div class="col-sm-4 filter-selector">
+                <div class="custom-select w-100">
+                  <i class="fa fa-calendar before-icon" aria-hidden="true"></i>
+                  <select>
+                    <option value="option">Tất cả các ngày sắp tới</option>
+                    <option value="">Hôm nay</option>
+                    <option value="">Ngày mai</option>
+                    <option value="">Tuần này</option>
+                  </select>
                 </div>
+              </div>
+              <!--price-->
+              <div class="col-sm-3 filter-selector">
+                <div class="custom-select w-100">
+                  <i class="fa fa-usd before-icon" aria-hidden="true"></i>
+                  <select>
+                    <option value="option">Tất cả giá vé</option>
+                    <option value="">Miễn phí</option>
+                    <option value="">có phí</option>
+                  </select>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="container clearfix">
+    <div class="row item-filter-festivals">
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img1.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img2.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img3.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img2.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img3.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img4.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+      <div class="col-sm-4 col-xs-12">
+        <div class="festival-item-base">
+            <div class="festival-img">
+                <a href=""><img class="img-responsive" src="./assets/img/img5.png" /></a>
+            </div>
+            <div class="festival-info">
+                <div class="header row">
+                    <div class="">
+                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
+                        <span class="price">
+                            Giá: <lable>Từ</lable> 500000 VNĐ
+                        </span>
+                        <!-- <span class="price" ng-if="event.priceTicket===0">
+                          Giá: Miễn phí
+                        </span> -->
+                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                    </div>
+                    <div class="event-date">
+                      <div class="date-month">Tháng 11</div>
+                      <div class="date-detail">
+                        <div class="date-num">30</div>
+                        <div class="date-day">Thứ hai</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--End: festival-item-base-->
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+      $(".select-skill").select2({
+          placeholder: "Chọn loại sự kiện",
+          maximumSelectionLength: 2,
+          minimumResultsForSearch: 2
+      });
+});
+</script>

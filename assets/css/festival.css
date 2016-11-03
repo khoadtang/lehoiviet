@@ -1,67 +1,5 @@
-#getAllFestival .search-box .input-group-addon {
-  background-color: #fff;
-  border-radius: none;
-}
-#getAllFestival .col-md-6 {
-  padding: 10px;
-}
-#getAllFestival .search-box {
-  background: #fff;
-  padding: 10px;
-}
-#getAllFestival .loadMore {
-  margin-top: 40px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-#getAllFestival .loadMore button {
-  height: 50px;
-  width: 250px;
-  font-size: 20px;
-  text-align: center;
-  display: table;
-  margin: 0 auto;
-}
-#getAllFestival .loadMore button span {
-  border-right: 1px solid #ccc;
-  margin-right: 5px;
-  padding: 10px;
-  float: left;
-}
-#getAllFestival .create-festival {
-  text-align: center;
-  padding: 10px;
-}
-#getAllFestival .create-festival button {
-  height: 50px;
-  width: 250px;
-  font-size: 20px;
-  text-align: center;
-}
-#getAllFestival .create-festival button span {
-  border-right: 1px solid #ccc;
-  margin-right: 5px;
-  padding: 10px;
-  float: left;
-}
-#getAllFestival .guide-helper {
-  margin: 40px 0;
-  background: #fff;
-  padding: 10px 0;
-}
-#getAllFestival .guide-helper h4 {
-  margin-bottom: 5px;
-}
-#getAllFestival .advert-festival {
-  background: #fff;
-  text-align: center;
-  padding: 10px;
-}
-#getAllFestival #btnLoadMore {
-  cursor: pointer;
-}
-
 .festival-item-base {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   margin-top: 10px;
   background-color: #fff;
   color: #555;
@@ -82,7 +20,7 @@
   text-decoration: none;
 }
 .festival-item-base .festival-img a {
-  height: 250px;
+  height: 220px;
   width: 100%;
   overflow: hidden;
   display: block;
@@ -106,6 +44,14 @@
 }
 .festival-item-base .festival-info li {
   list-style: none;
+}
+.festival-item-base .festival-info .title a {
+  padding-right: 10px;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 .festival-item-base .festival-info .price {
   font-size: 12px;
@@ -156,4 +102,219 @@
 }
 .festival-item-base .event-date .date-detail {
   border: 1px solid #ccc;
+}
+
+.festivals .item-filter-festivals {
+  padding-bottom: 40px;
+}
+.festivals .item-filter-festivals > .col-sm-4 {
+  margin-top: 15px;
+}
+.festivals select {
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding-left: 34px;
+}
+.festivals select option {
+  padding: 6px;
+}
+.festivals .col-sm-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.festivals .festival-item-base .festival-img a {
+  height: 130px;
+}
+.festivals .before-icon {
+  height: 20px;
+  margin-top: -10px;
+  width: 20px;
+  line-height: 20px;
+  left: 8px;
+  text-align: center;
+  color: #ccc;
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  background-color: #fff;
+}
+.festivals .after-icon {
+  height: 38px;
+  margin-top: -19px;
+  line-height: 38px;
+  right: 0;
+  width: 24px;
+  text-align: center;
+  color: #ccc;
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  background-color: #fff;
+}
+
+.box-input-search-festivals {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+.box-input-search-festivals img {
+  width: 100%;
+  height: auto;
+}
+
+.input-search-festival {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-top: 50px;
+}
+.input-search-festival h2 {
+  color: #ffffff;
+}
+.input-search-festival > div {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 15px 5px 15px 15px;
+  background-color: #ffffff;
+  text-align: left;
+}
+.input-search-festival input {
+  width: calc(100% - 50px);
+  border: 0;
+  font-size: 16px;
+}
+.input-search-festival button {
+  font-size: 20px;
+  color: #ccc;
+  width: 40px;
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.festival-filter {
+  margin: 15px 0;
+  border: 3px solid #eee;
+  border-radius: 3px;
+}
+
+.filter-selector {
+  border-left: 1px solid #eee;
+  border-bottom: 0;
+  position: relative;
+}
+
+.filter-collapse {
+  height: auto !important;
+  display: initial;
+  visibility: visible;
+}
+.filter-collapse span.select2-selection.select2-selection--single {
+  outline: none;
+}
+.filter-collapse [class^='select2'] {
+  border-radius: 0px !important;
+  border: none;
+}
+.filter-collapse .select2-container--default .select2-selection--multiple {
+  border: none;
+}
+.filter-collapse .select2-selection__rendered {
+  padding-left: 34px !important;
+  padding-top: 5px !important;
+}
+.filter-collapse .select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 0;
+}
+.filter-collapse .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  padding: 0 5px;
+}
+.filter-collapse .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #F4F4F4;
+  border: 1px solid #ddd;
+  border-radius: 4px !important;
+  margin-top: 0;
+  padding: 0 5px;
+  height: 30px;
+  line-height: 30px;
+}
+.filter-collapse .multiple-select + .select2-container {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 0 #aaa;
+  background-color: transparent;
+  max-width: 100%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.filter-collapse .select2-container .select2-selection--multiple {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  min-height: 32px;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: #ffffff;
+}
+
+.custom-select {
+  position: relative;
+}
+.custom-select:before {
+  height: 40px;
+  margin-top: -20px;
+  line-height: 38px;
+  right: 0;
+  width: 24px;
+  text-align: center;
+  color: #ccc;
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  background-color: #fff;
+  content: "\f0d7";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  padding-top: 12px;
+}
+
+.select-group {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.select-dropdown {
+  text-align: left;
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
 }

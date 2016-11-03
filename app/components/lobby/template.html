@@ -7,11 +7,11 @@
           <img ng-show="!isLoaded" src="assets/img/fbloader.gif" />
       </div>
         <div class="col-sm-6 col-xs-12 " ng-repeat="event in events" >
-            <div class="festival-item-base row">
-                <div class="col-xs-12 festival-img">
+            <div class="festival-item-base">
+                <div class="festival-img">
                     <a href="#/festival/{{event._id}}"><img class="img-responsive" src="https://lehoiviet.herokuapp.com/{{event.thumbnail.resize}}" /></a>
                 </div>
-                <div class="col-xs-12 festival-info">
+                <div class="festival-info">
                     <div class="header row">
                         <div class="">
                             <div class="title"><a href="#/festival/{{event._id}}">{{event.title}}</a></div>

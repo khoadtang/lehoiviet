@@ -1,82 +1,142 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/font-awesome/css/font-awesome.min.css">
+    <link href="assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/menu.css">
+  </head>
 
-    <![endif]-->
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/vi.js"></script>
-    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <input type='text' class="form-control" id='datetimepicker1'/>
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-fixed-top menu-fix-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/img/logo150x40.png" alt="" /></a>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker({
-                    format: 'DD/MM/YYYY',
-                    locale : 'vi'
-                });
-            });
-        </script>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <input type='text' class="form-control" id='datetimepicker3' name="demo"/>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('input[name="demo"]').datetimepicker({
-                    format: 'LT'
-                });
-            });
-        </script>
-    </div>
-</div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav menu-left">
+            <li><a href="#/festivals" class="hover-menu">Lễ hội</a></li>
+            <li><a href="#/blog" class="hover-menu">Blog</a></li>
+            <li><a href="#/video" class="hover-menu">Video</a></li>
+            <li><a href="#contact" class="video-live">Trực tiếp</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+            <li class="dropdown notify">
+                <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
+                    <span>14</span></a>
+                <ul class="dropdown-menu">
+                    <li class="notification-message-item">
+                      <a class="clearfix">
+                        <div class="thumnail">
+                          <img src="./assets/img/img2.png" alt="" />
+                        </div>
+                        <div class="message">
+                          <p>Lễ hội trái cây</p>
+                          <span>Trực tiếp</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="notification-message-item">
+                      <a class="clearfix">
+                        <div class="thumnail">
+                          <img src="./assets/img/img1.png" alt="" />
+                        </div>
+                        <div class="message">
+                          <p>Lễ hội văn hóa</p>
+                          <span>Sắp diễn ra</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="notification-message-item">
+                      <a class="clearfix">
+                        <div class="thumnail">
+                          <img src="./assets/img/img1.png" alt="" />
+                        </div>
+                        <div class="message">
+                          <p>Lễ hội văn hóa</p>
+                          <span>Sắp diễn ra</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="notification-message-item">
+                      <a class="clearfix">
+                        <div class="thumnail">
+                          <img src="./assets/img/img1.png" alt="" />
+                        </div>
+                        <div class="message">
+                          <p>Lễ hội văn hóa</p>
+                          <span>Sắp diễn ra</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="notification-message-item">
+                      <a class="clearfix">
+                        <div class="thumnail">
+                          <img src="./assets/img/img1.png" alt="" />
+                        </div>
+                        <div class="message">
+                          <p>Lễ hội văn hóa</p>
+                          <span>Sắp diễn ra</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="display:block; text-align:center; padding: 5px">Xem thêm</a>
+                  </li>
+                </ul>
+            </li>
+            <li class="dropdown" ng-show="$root.token != null">
+              <a href="#" class="dropdown-toggle menu-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()">
+                <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" alt="" />
+              </a>
+              <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <a href="#/user/profile" ng-click="actionUserPanel()">
+                        <strong>{{$root.firstName}}</strong>
+                    </a>
+                </li>
+                <li><a href="#/account/setting" ng-click="actionUserPanel()">Cập nhật tài khoản</a></li>
+                <li><a href="/postReview.html" ng-click="actionUserPanel()">Viết cảm nghĩ</a></li>
+                <li><a href="#" ng-click="logout()">Đăng xuất</a></li>
+              </ul>
+            </li>
+            <li class="login"><a class=" hover-menu" type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-<div class="container">
-    <div class='col-md-5'>
-        <input type='text' class="form-control" id='datetimepicker6'/>
-    </div>
-    <div class='col-md-5'>
-        <input type='text' class="form-control" id='datetimepicker7'/>
-    </div>
-</div>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker6').datetimepicker({
-            format: 'DD/MM/YYYY',
-            minDate : new Date()
-        });
-        $('#datetimepicker7').datetimepicker({
-            format: 'DD/MM/YYYY',
-            useCurrent: false ,//Important! See issue #1075
-            minDate : new Date()
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            $('#datetimepicker7').data("DateTimePicker").date(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-//            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);date(newDate)
-
-        });
-    });
-</script>
-</body>
+    <!-- <div class="container">
+      <div class="jumbotron">
+        <h1>Navbar example</h1>
+        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+      </div>
+    </div> -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/libs/bootstrap/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+  </body>
 </html>
