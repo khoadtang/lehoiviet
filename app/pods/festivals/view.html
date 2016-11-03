@@ -1,4 +1,4 @@
-<div class="festivals">
+<div class="festivals" ng-controller="festivalsController" ng-init="initData()">
   <div class="box-input-search-festivals">
     <img src="./assets/img/bg-festival.jpg" alt="" />
     <div class="input-search-festival">
@@ -17,11 +17,11 @@
           <div class="col-sm-3 filter-selector">
             <div class="custom-select w-100">
               <i class="fa fa-map-marker before-icon" aria-hidden="true"></i>
-              <select>
-                <option value="option">Tất cả địa điểm</option>
-                <option value="">TP.Hồ Chí Minh</option>
-                <option value="">Hà Nội</option>
-                <option value="">Địa điểm khác</option>
+              <select ng-change="onFilterByLocation()" ng-model="location">
+                <option value="" ng-disabled="true">Chọn Địa Điểm</option>
+                <option value="2" >Thành Phố Hồ Chí Minh</option>
+                <option value="1">Hà Nội</option>
+                <option value="3">Địa điểm khác</option>
               </select>
             </div>
           </div>
@@ -33,14 +33,8 @@
                   <i class="fa fa-tasks before-icon" aria-hidden="true"></i>
                   <i class="fa fa-caret-down after-icon" aria-hidden="true"></i>
                   <div class="select-dropdown">
-                    <select class="select-skill" multiple="true">
-                         <option value="1">Monday</option>
-                         <option value="2">Tuesday</option>
-                         <option value="3">Wednesday</option>
-                         <option value="4">Thursday</option>
-                         <option value="5">Friday</option>
-                         <option value="6">Saturday</option>
-                         <option value="6">Sunday</option>
+                    <select class="select-skill" multiple="true" ng-model="types" ng-change="onFilterByType()">
+                       <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                     </select>
                   </div>
                 </div>
@@ -49,11 +43,12 @@
               <div class="col-sm-4 filter-selector">
                 <div class="custom-select w-100">
                   <i class="fa fa-calendar before-icon" aria-hidden="true"></i>
-                  <select>
-                    <option value="option">Tất cả các ngày sắp tới</option>
-                    <option value="">Hôm nay</option>
-                    <option value="">Ngày mai</option>
-                    <option value="">Tuần này</option>
+                  <select ng-change="onFilterByDate()" ng-model="date">
+                    <option value="" ng-disabled="true">Chọn Thời Gian</option>
+                    <option value="4">Tất cả các ngày sắp tới</option>
+                    <option value="1">Hôm nay</option>
+                    <option value="2">Ngày mai</option>
+                    <option value="3">Tuần này</option>
                   </select>
                 </div>
               </div>
@@ -61,10 +56,11 @@
               <div class="col-sm-3 filter-selector">
                 <div class="custom-select w-100">
                   <i class="fa fa-usd before-icon" aria-hidden="true"></i>
-                  <select>
-                    <option value="option">Tất cả giá vé</option>
-                    <option value="">Miễn phí</option>
-                    <option value="">có phí</option>
+                  <select ng-change="onFilterByPrice()" ng-model="price">
+                    <option value="" ng-disabled="true">Chọn Giá Vé</option>
+                    <option value="3">Tất cả giá vé</option>
+                    <option value="1">Miễn phí</option>
+                    <option value="2">có phí</option>
                   </select>
                 </div>
               </div>
@@ -77,198 +73,24 @@
 
   <div class="container clearfix">
     <div class="row item-filter-festivals">
-      <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-4 col-xs-12"  ng-repeat="festival in festivals">
         <div class="festival-item-base">
             <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img1.png" /></a>
+                <a href=""><img class="img-responsive" src="http://lehoiviet.herokuapp.com{{festival.thumbnail.resize}}" /></a>
             </div>
             <div class="festival-info">
                 <div class="header row">
                     <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền</a></div>
+                        <div class="title"><a href="">{{festival.title}}</a></div>
                         <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
+                            Giá: <lable>Từ</lable> {{festival.priceTicket}} VNĐ
                         </span>
                         <!-- <span class="price" ng-if="event.priceTicket===0">
                           Giá: Miễn phí
                         </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
+                        <div><span class="address">{{festival.address.city}}</span></div>
                     </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img2.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img3.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img2.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img3.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img4.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!--End: festival-item-base-->
-      <div class="col-sm-4 col-xs-12">
-        <div class="festival-item-base">
-            <div class="festival-img">
-                <a href=""><img class="img-responsive" src="./assets/img/img5.png" /></a>
-            </div>
-            <div class="festival-info">
-                <div class="header row">
-                    <div class="">
-                        <div class="title"><a href="">Lễ hội vùng miền trái câymiền trái cây miền trái cây nam bộ</a></div>
-                        <span class="price">
-                            Giá: <lable>Từ</lable> 500000 VNĐ
-                        </span>
-                        <!-- <span class="price" ng-if="event.priceTicket===0">
-                          Giá: Miễn phí
-                        </span> -->
-                        <div><span class="address">TP.Hồ Chí Minh</span></div>
-                    </div>
-                    <div class="event-date">
-                      <div class="date-month">Tháng 11</div>
-                      <div class="date-detail">
-                        <div class="date-num">30</div>
-                        <div class="date-day">Thứ hai</div>
-                      </div>
-                    </div>
+                    <date data="festival.timeBegin"></date>
                 </div>
             </div>
         </div>

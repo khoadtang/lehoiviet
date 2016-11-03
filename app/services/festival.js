@@ -69,5 +69,21 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.post('/subscribe/notified/', null, eventHandler);
     };
 
+    festivalService.filterByLocation = function(location, eventHandler){
+      net.get('/festival/filter/address?name='.concat(location), eventHandler);
+    };
+
+    festivalService.filterByType = function(types, eventHandler){
+        net.get('/festival/filter/typeevent?'.concat(types), eventHandler);
+    };
+
+    festivalService.filterByDate = function(date, eventHandler){
+      net.get('/festival/filter/date?date='.concat(date), eventHandler);
+    };
+
+    festivalService.filterByPrice = function(date, eventHandler){
+      net.get('/festival/filter/price?price='.concat(date), eventHandler);
+    };
+
     return festivalService;
 });
