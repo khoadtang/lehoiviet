@@ -53,7 +53,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   updateSubscribeElementState = function() {
     if ($scope.festival != null || $scope.festival != undefined) {
       festivalService.isSubscribed($scope.festival._id, function(response) {
-        console.log(response);
+
       });
     }
   }

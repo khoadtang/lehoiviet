@@ -26,9 +26,7 @@ app.service("gatewayService", function($rootScope, ENV) {
           $rootScope.notification.unseen = 0;
         }
         $rootScope.notification.unseen++;
-        console.log($rootScope.notification.unseen);
-        $rootScope.notification.push(data);
-        console.log($rootScope.notification);
+        $rootScope.notification.unshift(data);
       });
     });
 

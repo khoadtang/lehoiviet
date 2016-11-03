@@ -12,6 +12,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   var selectedTabPriority = 1;
   var backgroundImage = null;
 
+
   $scope.initData = function() {
     $rootScope.currentPage = "creating-festival";
     getCategories();
@@ -194,7 +195,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   }
 
   $scope.onUpdateOrCreateEvent = function() {
-
     var event = {};
 
     if ($scope.event == null || $scope.event == undefined) {
@@ -204,6 +204,13 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     event = $scope.event;
 
     $scope.event.isSaving = true;
+    console.log($rootScope.dateBegin);
+    event.dateBegin = $('#dateBegin').val();
+    event.timeBegin = $('#timeBegin').val();
+    event.dateEnd = $('#dateEnd').val();
+    event.timeEnd = $('#timeEnd').val();
+
+    console.log(event);
 
     if (event._id == null || event._id == undefined) {
       eventService.create(festivalId, event, function(response) {
@@ -239,8 +246,11 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     eventService.getById(eventId, function(response) {
       if (response.status == 200) {
         $scope.event = response.data.data;
-        $scope.event.timeBegin = dateHelper.parse($scope.event.timeBegin);
-        $scope.event.timeEnd = dateHelper.parse($scope.event.timeEnd  );
+        $('#dateBegin').val(dateHelper.parse($scope.event.dateBegin));
+        $('#timeBegin').val($scope.event.timeBegin);
+        $('#dateEnd').val(dateHelper.parse($scope.event.dateEnd));
+        $('#timeEnd').val($scope.event.timeEnd);
+
 
         $('.box-event').removeClass('hide');
         $('.btn-create-event').addClass('hide');

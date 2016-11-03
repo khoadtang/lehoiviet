@@ -63,7 +63,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         }]);
 
 app.constant("ENV", {
-  apiUrl: "http://127.0.0.1:3000",
+  apiUrl: "http://api.lehoiviet.vn",
   gateWay: "http://127.0.0.1:5000"
 });
 

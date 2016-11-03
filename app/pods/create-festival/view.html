@@ -142,7 +142,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="festival.description" name="description" type="text" spellcheck="false"/>
+                            <input ng-model="festival.description" name="description" type="text" spellcheck="false" required="true"/>
                             <span class="text-error" ng-show="detailPost.description.$dirty && detailPost.description.$invalid">
                                 <span ng-show="detailPost.description.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                             </span>
@@ -153,7 +153,7 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
-                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley"></ng-ckeditor>
+                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley" require="true"></ng-ckeditor>
                           <!-- <textarea rows="5" ng-model="festival.content" name="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" required/> -->
                           <span class="text-error" ng-show="detailPost.content.$dirty && detailPost.content.$invalid">
                               <span ng-show="detailPost.content.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
@@ -174,50 +174,57 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="box-event hide">
-                  <form name="addEvent" novalidate="true">
+                <div class="box-event ">
+                  <ng-form name="addEvent" novalidate="true">
                     <div class="infomation-content row">
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Tên sự kiện</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <input ng-model="event.name" name="nameEvent" type="text" spellcheck="false" required/>
-                                <span class="text-error" ng-show="addEvent.name.$dirty && addEvent.nameEvent.$invalid">
+                                <input ng-model="event.name" name="nameEvent" type="text" spellcheck="false" required="true"/>
+                                <span class="text-error" ng-show="addEvent.nameEvent.$dirty && addEvent.nameEvent.$invalid">
                                     <span ng-show="addEvent.nameEvent.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                             </div>
                         </div>
                     </div>
-                      <div class="infomation-content row">
-                          <div class="box-info-normal">
-                              <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
-                              <div class="details col-sm-2 col-xs-12">
-                                  <input ng-model="festival.dateBegin" type="text" name="dateBegin" spellcheck="false" />
-                                  <div>
-                                    <span class="text-error" ng-show="info.dateBegin.$dirty && info.dateBegin.$invalid">
-                                    <span ng-show="info.dateBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
-                                </span>
-                                  </div>
-                              </div>
-                              <div class="lable col-sm-3 col-sm-push-2 col-xs-12">Giờ</div>
-                              <div class="details col-sm-2 col-xs-12">
-                                  <input ng-model="festival.timeBegin" type="text" name="timeBegin" spellcheck="false" />
-                              </div>
-                          </div>
-                      </div>
+                    <div class="infomation-content row">
+                        <div class="box-info-normal">
+                            <div class="lable col-sm-3 col-xs-12">Ngày bắt đầu</div>
+                            <div class="details col-sm-2 col-xs-12">
+                                <input ng-model="$root.dateBegin" id="dateBegin" type="text" name="dateBegin" spellcheck="false" required="true"/>
+                                <div>
+                                  <span class="text-error" ng-show="addEvent.dateBegin.$dirty && addEvent.dateBegin.$invalid">
+                                    <span ng-show="addEvent.dateBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
+                                  </span>
+                                </div>
+                            </div>
+                            <div class="lable col-sm-3 col-sm-push-2 col-xs-12">Giờ</div>
+                            <div class="details col-sm-2 col-xs-12">
+                                <input ng-model="$root.timeBegin" id="timeBegin" type="text" name="timeBegin" spellcheck="false" />
+                                <div>
+                                  <span class="text-error" ng-show="addEvent.timeBegin.$dirty && addEvent.timeBegin.$invalid"></span>
+                                  <span ng-show="addEvent.timeBegin.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                       <div class="infomation-content row">
                           <div class="box-info-normal">
                               <div class="lable col-sm-3 col-xs-12">Ngày kết thúc</div>
                               <div class="details col-sm-2 col-xs-12">
-                                  <input ng-model="festival.dateEnd" type="text" name="dateEnd" spellcheck="false" />
+                                  <input ng-model="$root.dateEnd" id="dateEnd" type="text" name="dateEnd" spellcheck="false" />
                                   <div>
-                                <span class="text-error" ng-show="info.dateEnd.$dirty && info.dateEnd.$invalid">
-                                    <span ng-show="info.dateEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
+                                <span class="text-error" ng-show="event.dateEnd.$dirty && event.dateEnd.$invalid">
+                                    <span ng-show="event.dateEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                                 </span>
                                   </div>
                               </div>
                               <div class="lable col-sm-3 col-sm-push-2 col-xs-12">Giờ</div>
                               <div class="details col-sm-2 col-xs-12">
-                                  <input ng-model="festival.timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                                  <input ng-model="$root.timeEnd" id="timeEnd" type="text" name="timeEnd" spellcheck="false" />
+                                  <span class="text-error" ng-show="event.timeEnd.$dirty && event.timeEnd.$invalid">
+                                      <span ng-show="event.timeEnd.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
+                                  </span>
                               </div>
                           </div>
                       </div>
