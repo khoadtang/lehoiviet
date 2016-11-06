@@ -54,7 +54,7 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
     };
 
     userService.getAll = function(eventHandler){
-        net.get('/user/lists', eventHandler);
+        net.get('/user/top', eventHandler);
     };
 
     userService.getProfile = function(id, eventHandler){
