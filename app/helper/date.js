@@ -10,10 +10,10 @@ dateHelper.service("dateHelper", function(){
   };
 
   dateHelper.parse = function(date) {
-    var getString = date.split("T");
-    var format = getString[0].split("-");
-    var hour = getString[1].split(":");
-    return format[2] + "/" + format[1] + "/" + format[0] + " " + hour[0] + ":" + hour[1];
+    // var getString = date.split("T");
+    var format = date.split("-");
+    // var hour = getString[1].split(":");
+    return format[2] + "/" + format[1] + "/" + format[0];
   };
 
   return dateHelper;
