@@ -12,11 +12,42 @@ login.directive("userHandler", function(){
     };
 });
 
+login.directive('validPasswordC', function() {
+  return {
+    require: 'ngModel',
+    scope: {
+
+      reference: '=validPasswordC'
+
+    },
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue, $scope) {
+
+        var noMatch = viewValue != scope.reference
+        ctrl.$setValidity('noMatch', !noMatch);
+        return (noMatch)?noMatch:!noMatch;
+      });
+
+      scope.$watch("reference", function(value) {;
+        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
+
+      });
+    }
+  }
+});
+
 login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route) {
   $scope.init = function() {
+    $scope.needAlert = false;
+    $scope.alert = "";
+    $scope.firstName = null;
+    $scope.lastName = null;
+    $scope.password = null;
+    $scope.gender = null;
     $scope.message = null;
   };
   $scope.showModal = function(id){
+
     // $('#' + id).modal('show');
     if(id==0){
       $('.carousel').carousel('prev');
@@ -26,6 +57,9 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   }
 
   $scope.signup = function() {
+    $scope.needAlert = false;
+    $scope.alert = "";
+
     var userInfo = {};
     userInfo.firstName = $scope.firstName;
     userInfo.lastName = $scope.lastName;
@@ -34,9 +68,48 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     userInfo.gender = $scope.gender;
 
     userService.signup(userInfo, function(response) {
-      if(response.status == 200) {
-        $('#register').modal('hide');
-        $('#dangnhap').modal('show');
+      $("#login .modal-body").stop().animate({scrollTop:0}, '1000', 'swing');
+
+
+      if(response.data.success) {
+        cookiesManager.set("email", userInfo.email);
+        cookiesManager.set("password", userInfo.password);
+
+        $('#userLogin').modal('hide');
+
+        userService.autoLogin(function(response){
+          if(response.status == 200) {
+            var data = response.data;
+            $rootScope.token = data.token;
+            $rootScope.email = data.user.email;
+            $rootScope.avatar = data.user.avatar;
+            $rootScope.firstName = data.user.firstName;
+            $rootScope.uid = data.user._id;
+
+            festivalService.getNotifiedFestival(function(response){
+              $rootScope.notification = response.data.data;
+              angular.forEach($rootScope.notification, function(value, key){
+                if(!value.data.notifyStatus) {
+                  if ($rootScope.notification.unseen == null) {
+                    $rootScope.notification.unseen = 0;
+                  }
+                  $rootScope.notification.unseen++;
+                }
+              });
+            });
+
+            gatewayService.online();
+            gatewayService.listen();
+          }
+        });
+      } else {
+        $scope.needAlert = true;
+        var code = response.data.data.code;
+        if (code == 0){
+          $scope.alert = "Vui Lòng Điền Đầy Đủ Thông Tin";
+        } else if (code == 1){
+          $scope.alert = "Tài Khoản Đã Tồn Tại";
+        }
       }
     });
   };

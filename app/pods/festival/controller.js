@@ -3,6 +3,7 @@ var festival = angular.module("lehoiviet");
 festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService) {
   $scope.initData = function() {
     $rootScope.currentPage = "festival";
+    $scope.isUploading = false;
     getFestivalById();
   };
 
@@ -136,9 +137,11 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.onSubmitImage = function() {
     var formData = new FormData();
     formData.append("file", dataURItoBlob($scope.myCroppedImage));
+    $scope.isUploading = true;
     imageService.uploadImagePost($scope.festival._id, formData, function(response){
       if(response.status == 200) {
-        console.log("Upload Successfully");
+        $scope.isUploading = false;
+        $('#upImage').modal('hide');
       }
     });
   }

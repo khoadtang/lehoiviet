@@ -36,7 +36,7 @@
                         </form>
                     </div>
                     <div class="item active">
-                        <form role="form" name="loginForm">
+                        <form role="form" name="loginForm" novalidate="true">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <p class="modal-title">Đăng nhập</p>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <form role="form" name="resgiterFrom">
+                        <form role="form" name="registerForm" novalidate="true">
                             <div class="infomation-box">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -108,35 +108,38 @@
                                 </div>
                                 <div class="modal-body row ">
                                     <div class="details">
+                                      <span class="text-error" id="needAlert" ng-show="needAlert">
+                                          <span>{{alert}}</span>
+                                      </span>
                                         <div class="form-group col-xs-12 row">
                                             <input ng-model="firstName" name="firstName" type="text" placeholder="Tên" required>
-                                            <span class="text-error" ng-show="resgiterFrom.firstname.$dirty && resgiterFrom.firstname.$invalid">
-                                                <span ng-show="resgiterFrom.firstname.$error.required">Tên là bắt buộc.</span>
+                                            <span class="text-error" ng-show="registerForm.firstName.$dirty && registerForm.firstName.$invalid">
+                                                <span ng-show="registerForm.firstName.$error.required">Tên là bắt buộc.</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
                                             <input ng-model="lastName" name="lastName" type="text" placeholder="Họ" required>
-                                            <span class="text-error" ng-show="resgiterFrom.lastname.$dirty && resgiterFrom.lastname.$invalid">
-                                              <span ng-show="resgiterFrom.lastname.$error.required">Họ là bắt buộc.</span>
+                                            <span class="text-error" ng-show="registerForm.lastName.$dirty && registerForm.lastName.$invalid">
+                                              <span ng-show="registerForm.lastName.$error.required">Họ là bắt buộc.</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
                                             <input ng-model="email" name="email" type="email" placeholder="Email" required>
-                                            <span class="text-error" ng-show="resgiterFrom.email.$dirty && resgiterFrom.email.$invalid">
-                                            <span ng-show="resgiterFrom.email.$error.required">Email là bắt buộc</span>
-                                                  <span ng-show="resgiterFrom.email.$error.email">Email không đúng</span>
+                                            <span class="text-error" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+                                            <span ng-show="registerForm.email.$error.required">Email là bắt buộc</span>
+                                                  <span ng-show="registerForm.email.$error.email">Email không đúng</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input ng-model="password" name="password" type="Password" placeholder="Mật khẩu" required>
-                                            <span class="text-error" ng-show="resgiterFrom.password.$dirty && resgiterFrom.password.$invalid">
-                                              <span ng-show="resgiterFrom.password.$error.required">Mật khẩu là bắt buộc</span>
+                                            <input ng-model="password" name="password" type="password" placeholder="Mật khẩu" required>
+                                            <span class="text-error" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                                              <span ng-show="registerForm.password.$error.required">Mật khẩu là bắt buộc</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Nhập lại mật khẩu" valid-password-c required>
-                                            <span class="text-error" ng-show="resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$dirty && resgiterFrom.password.$invalid">Please confirm your password.</span>
-                                            <span class="text-error" ng-show="!resgiterFrom.password_c.$error.required && resgiterFrom.password_c.$error.noMatch && resgiterFrom.password.$dirty">Mật khẩu không khớp</span>
+                                            <input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Nhập lại mật khẩu" valid-password-c="password"  required>
+                                            <span class="text-error" ng-show="registerForm.password_c.$error.required && registerForm.password_c.$dirty && resgiterFrom.password.$invalid">Vui lòng xác thực mật khẩu</span>
+                                            <span class="text-error" ng-show="registerForm.password_c.$error.noMatch">Mật khẩu không khớp</span>
                                         </div>
                                     </div>
                                     <div class="form-group col-xs-12 row">
@@ -150,14 +153,8 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <!-- /.form group -->
-                                    <div class="checkbox form-group col-xs-12">
-                                        <label>
-                                            <input type="checkbox" required> Tôi đồng ý với những <a href="#">điều khoản</a> và <a href="#">nội quy</a> của diễn đàn
-                                        </label>
-                                    </div>
                                     <div style="text-align: right;">
-                                        <button ng-click="signup()" type="Submit" class="btn-blue">Đăng kí</button>
+                                        <button ng-click="signup()" type="Submit" class="btn-fix btn-blue" ng-class="{'disable' : registerForm.$invalid, 'btn-blue': ! registerForm.$invalid}" ng-disabled="registerForm.$invalid">Đăng kí</button>
                                     </div>
                                 </div>
                                 <div class="modal-footer toolbar clearfix">
