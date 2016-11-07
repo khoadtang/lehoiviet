@@ -12,6 +12,30 @@ login.directive("userHandler", function(){
     };
 });
 
+login.directive('validPasswordC', function() {
+  return {
+    require: 'ngModel',
+    scope: {
+
+      reference: '=validPasswordC'
+
+    },
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue, $scope) {
+
+        var noMatch = viewValue != scope.reference
+        ctrl.$setValidity('noMatch', !noMatch);
+        return (noMatch)?noMatch:!noMatch;
+      });
+
+      scope.$watch("reference", function(value) {;
+        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
+
+      });
+    }
+  }
+});
+
 login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route) {
   $scope.init = function() {
     $scope.needAlert = false;
@@ -44,6 +68,8 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     userInfo.gender = $scope.gender;
 
     userService.signup(userInfo, function(response) {
+      $("#login .modal-body").stop().animate({scrollTop:0}, '1000', 'swing');
+
 
       if(response.data.success) {
         cookiesManager.set("email", userInfo.email);
