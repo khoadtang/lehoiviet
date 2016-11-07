@@ -32,8 +32,8 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     userService.logout(function(response){
       if(response.status == 200) {
         $rootScope.token = null;
-        $rootScope.notification = null;
         $rootScope.notification.unseen = 0;
+        $rootScope.notification = null;
         cookiesManager.removeUser();
         window.location = "#/";
         gatewayService.offline();
