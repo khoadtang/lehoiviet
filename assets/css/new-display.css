@@ -239,15 +239,17 @@
 .comment-render-content .comment-render-text p {
   margin: 0;
 }
-.comment-render-content .comment-render-image > a {
+
+.comment-render-image > a {
   display: block;
   width: 60px;
   height: 60px;
   overflow: hidden;
   float: left;
   margin-right: 5px;
+  margin-top: 5px;
 }
-.comment-render-content .comment-render-image img {
+.comment-render-image img {
   width: 100%;
   height: auto;
 }
