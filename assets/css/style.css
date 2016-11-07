@@ -1055,10 +1055,8 @@ nav {
 }
 .notify .dropdown-menu {
   width: 350px;
-}
-.notify .dropdown-menu {
   max-height: 300px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .dropdown-menu > .notification-message-item > a {
@@ -1091,7 +1089,11 @@ nav {
 }
 .notification-message-item .message p {
   margin-bottom: 0px;
-  font-weight: bold;
+  font-weight: 500;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 .notification-message-item .message span {
   font-size: 10px;

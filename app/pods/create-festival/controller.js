@@ -246,9 +246,9 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     eventService.getById(eventId, function(response) {
       if (response.status == 200) {
         $scope.event = response.data.data;
-        $('#dateBegin').val(dateHelper.parse($scope.event.dateBegin));
+        $('#dateBegin').val($scope.event.dateBegin);
         $('#timeBegin').val($scope.event.timeBegin);
-        $('#dateEnd').val(dateHelper.parse($scope.event.dateEnd));
+        $('#dateEnd').val($scope.event.dateEnd);
         $('#timeEnd').val($scope.event.timeEnd);
 
 
