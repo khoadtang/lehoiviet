@@ -14,6 +14,11 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
 
   $scope.initData = function() {
+    if ($rootScope.token == null) {
+      window.location = "#/";
+      return;
+    }
+
     $rootScope.currentPage = "creating-festival";
     getCategories();
     getProvincies();
@@ -23,11 +28,9 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   enableOrDisableTab = function() {
     for (var tabName in tabPriority){
       if (getTabPriorityByEventName(tabName) <= maxAccessablePriority) {
-        console.log("enable: " + tabName);
         $('#' + tabName).removeClass('disable');
         $('#' + tabName).addClass('onhover');
       } else {
-        console.log("disable: " + tabName);
         $('#' + tabName).addClass('disable');
         $('#' + tabName).removeClass('onhover');
       }
@@ -52,7 +55,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
   $scope.onChangeTab = function(info){
     if (info == null || info == undefined) {
-      console.log(selectedTabPriority);
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
         ++selectedTabPriority;
@@ -71,12 +73,9 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       }
 
       maxAccessablePriority = selectedTabPriority > maxAccessablePriority ? selectedTabPriority : maxAccessablePriority;
-      console.log("MaxAccessablePriority: " + maxAccessablePriority);
       updateContentOfTab(info);
       enableOrDisableTab();
     }
-
-
   };
 
   updateContentOfTab = function(info){
@@ -250,7 +249,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
         $('#timeBegin').val($scope.event.timeBegin);
         $('#dateEnd').val(dateHelper.parse($scope.event.dateEnd));
         $('#timeEnd').val($scope.event.timeEnd);
-
 
         $('.box-event').removeClass('hide');
         $('.btn-create-event').addClass('hide');

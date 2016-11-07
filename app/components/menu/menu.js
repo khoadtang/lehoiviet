@@ -25,7 +25,7 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     if ($rootScope.token != null) {
       window.location = "#/festival/create";
     } else {
-      $('#not-signed').modal('show');
+      $('#userLogin').modal('show');
     }
   };
   $scope.logout = function() {
