@@ -101,10 +101,9 @@
     }
     .dropdown-menu{
       width: 350px;
-    }
-    .dropdown-menu{
       max-height: 300px;
-      overflow:auto;
+      // overflow-x: hidden;
+      overflow-y:auto;
     }
 }
 .dropdown-menu > .notification-message-item > a{
@@ -136,7 +135,11 @@
     padding: 0 5px;
     p{
       margin-bottom: 0px;
-      font-weight: bold;
+      font-weight: 500;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
     }
     span{
       font-size: 10px;

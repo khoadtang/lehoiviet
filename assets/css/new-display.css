@@ -226,14 +226,30 @@
 
 .comment-render-content {
   min-height: 48px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 .comment-render-content .close {
   font-size: 14px;
   margin-left: 10px;
 }
 .comment-render-content .comment-render-text {
-  height: 48px;
+  min-height: 48px;
+}
+.comment-render-content .comment-render-text p {
+  margin: 0;
+}
+.comment-render-content .comment-render-image > a {
+  display: block;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
+  float: left;
+  margin-right: 5px;
+}
+.comment-render-content .comment-render-image img {
+  width: 100%;
+  height: auto;
 }
 
 .commen-render-header a {
