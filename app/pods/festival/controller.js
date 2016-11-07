@@ -1,9 +1,23 @@
 var festival = angular.module("lehoiviet");
 
+
+// for youtube
+festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
+    return function(val) {
+        return $sce.trustAsResourceUrl(val);
+    };
+}]);
+
 festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService) {
   $scope.initData = function() {
+    // add listener
+    $('#watchVideo').on('hidden.bs.modal', function () {
+      $('iframe').attr('src', $('iframe').attr('src'));
+    })
+
     $rootScope.currentPage = "festival";
     $scope.isUploading = false;
+    $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
     getFestivalById();
   };
 
