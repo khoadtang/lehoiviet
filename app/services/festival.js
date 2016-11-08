@@ -49,6 +49,10 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.post('/rating/festival/'.concat(id), data, eventHandler);
     };
 
+    festivalService.checkUserRate = function(id, eventHandler) {
+      net.post('/rating/check/'.concat(id), null, eventHandler);
+    };
+
     festivalService.getNumberOfLikes = function(id, eventHandler) {
       net.get('/festival/like/count/'.concat(id), eventHandler);
     };

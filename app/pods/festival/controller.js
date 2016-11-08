@@ -10,6 +10,7 @@ festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
 
 festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService) {
   $scope.initData = function() {
+
     // add listener
     $('#watchVideo').on('hidden.bs.modal', function () {
       $('iframe').attr('src', $('iframe').attr('src'));
@@ -19,6 +20,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.isUploading = false;
     $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
     getFestivalById();
+
+
   };
 
   getFestivalById = function() {
@@ -31,6 +34,19 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
         updateLikeElementState();
         updateSubscribeElementState();
+        festivalService.checkUserRate(festivalId, function(response){
+          if (response.status == 200){
+            var rate = response.data.data.point;
+            if (rate == null || rate == undefined) {
+              return;
+            }
+
+            $scope.point = rate;
+
+            // $('#rating-bar').barrating('set', 5);
+            console.log($scope.point);
+          }
+        });
       } else {
 
       }
@@ -98,6 +114,9 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.onRate = function() {
     console.log("On Rate");
+    if ($scope.point > 0) {
+      return;
+    }
     if ($rootScope.token == null) {
       $('#userLogin').modal('show');
       return;
