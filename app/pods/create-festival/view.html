@@ -64,7 +64,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="festival.typeEvent">
+                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="festival.typeEvent" ng-change="onChangeValidateInfoTab()">
                                     <option value="" ng-disabled="true">Chọn Loại Lễ Hội</option>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                                 </select>
@@ -93,11 +93,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
-                                <select class="col-sm-4 col-xs-5" ng-model="festival.city">
+                                <select class="col-sm-4 col-xs-5" ng-model="festival.city" ng-change="onChangeValidateInfoTab()">
                                     <option value="" ng-disabled="true">Chọn Tỉnh / Thành Phố</option>
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
                                 </select>
-                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district">
+                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district" ng-change="onChangeValidateInfoTab()">
                                     <option value="" ng-disabled="true">Chọn Huyện / Phường</option>
                                     <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
                                 </select>
@@ -108,7 +108,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Giá</div>
                             <div class="details col-sm-9 col-xs-12">
-                              <input name="priceTicket" ng-model="festival.priceTicket" type="number" onkeypress="return isNumberKey(event)" spellcheck="false" min="0" max="100000000" required/>
+                              <input name="priceTicket" ng-change="onChangeValidateInfoTab()" ng-model="festival.priceTicket" type="number" spellcheck="false" min="0" max="100000000" required/>
                             </div>
                             <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                                 <span class="text-error" ng-show="info.priceTicket.$dirty && info.priceTicket.$invalid">
@@ -129,7 +129,15 @@
                           <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
                         </div>
                       </button>
-                      <button type="submit" class="btn-fix btn-blue" ng-click="onChangeTab()" ng-class="{'disable' : info.$invalid, 'btn-blue': ! info.$invalid}" ng-disabled="info.$invalid">Tiếp tục <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                      <button type="submit" class="btn-fix btn-blue" ng-click="onChangeTab()" ng-class="{'disable' : info.$invalid || info.invalid, 'btn-blue': ! info.$invalid && !info.invalid}" ng-disabled="info.$invalid || info.invalid">
+                        <div ng-show="!isSavingBeforeEnter">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i>Tiếp tục
+                        </div>
+                        <div ng-show="isSavingBeforeEnter">
+                          <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
+                        </div>
+
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -142,7 +150,7 @@
                     <div class="box-info-normal">
                         <div class="lable col-sm-3 col-xs-12">Mô tả sơ lược</div>
                         <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="festival.description" name="description" type="text" spellcheck="false" required="true"/>
+                            <input ng-model="festival.description" name="description" type="text" spellcheck="false" required="true" ng-change="onChangeValidateEventTab()"/>
                             <span class="text-error" ng-show="detailPost.description.$dirty && detailPost.description.$invalid">
                                 <span ng-show="detailPost.description.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
                             </span>
@@ -153,7 +161,7 @@
                   <div class="box-info-normal">
                       <div class="lable col-sm-3 col-xs-12">Thông tin chi tiết</div>
                       <div class="details col-sm-9 col-xs-12">
-                        <ng-ckeditor ng-model="festival.content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley" require="true"></ng-ckeditor>
+                        <ng-ckeditor ng-model="festival.content" ng-change="onChangeValidateEventTab()" name="content" skin="moono" remove-buttons="Image" remove-plugins="iframe,flash,smiley" require="true"></ng-ckeditor>
                           <!-- <textarea rows="5" ng-model="festival.content" name="content" spellcheck="false" lhv-editor placeholder="Những thông tin và hoạt động diễn ra trong lễ hội" required/> -->
                           <span class="text-error" ng-show="detailPost.content.$dirty && detailPost.content.$invalid">
                               <span ng-show="detailPost.content.$error.required" class="text-error">vui lòng lưu lại nếu bạn muốn bỏ trống</span>
@@ -252,7 +260,14 @@
                       <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
                     </div>
                   </button>
-                  <button type="submit" class="btn-fix btn-blue" ng-click="onChangeTab()" ng-class="{'disable' : detailPost.$invalid, 'btn-blue': !detailPost.$invalid}" ng-disabled="detailPost.$invalid">Tiếp tục <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                  <button type="submit" class="btn-fix btn-blue" ng-click="onChangeTab()" ng-class="{'disable' : detailPost.invalid, 'btn-blue': !detailPost.invalid}" ng-disabled="detailPost.invalid">
+                    <div ng-show="!isSavingBeforeEnter">
+                      <i class="fa fa-sign-in" aria-hidden="true"></i>Tiếp tục
+                    </div>
+                    <div ng-show="isSavingBeforeEnter">
+                      <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
+                    </div>
+                  </button>
                 </div>
               </form>
             </div>
@@ -270,6 +285,7 @@
                         <div class="col-sm-9 col-sm-offset-3 col-xs-12">
                             <span class="text-error" ng-show="lastPost.phoneNumber.$dirty && lastPost.phoneNumber.$invalid">
                                 <span ng-show="lastPost.phoneNumber.$error.required">số điện thoại là là bắt buộc</span>
+                                <span ng-show="lastPost.phoneNumber.$error.number">phải là một con số</span>
                             </span>
                         </div>
                     </div>
@@ -299,7 +315,14 @@
                 </form>
               </div>
               <div style="text-align:center">
-                  <button ng-click="onSubmit()" class="create-festival btn-blue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội</button>
+                  <button ng-click="onSubmit()" class="btn-fix btn-blue">
+                    <div ng-show="!isCreatingFestival">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm lễ hội
+                    </div>
+                    <div ng-show="isCreatingFestival">
+                      <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i>
+                    </div>
+                    </button>
               </div>
           </section>
 

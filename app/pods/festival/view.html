@@ -65,12 +65,12 @@
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
                                 <div class="clearfix">
-                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off" ng-disabled="true">
+                                        <option value="1" selected="point == 1">1</option>
+                                        <option value="2" selected="point == 2">2</option>
+                                        <option value="3" selected="point == 3">3</option>
+                                        <option value="4" selected="point == 4">4</option>
+                                        <option value="5" selected="point == 5">5</option>
                                     </select>
                                 </div>
                             </li>
@@ -259,11 +259,11 @@
         </div>
     </div>
     <div id="watchVideo" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
+        <div  class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body" id="body-player">
                     <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                    <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="https://www.youtube.com/embed/nfwm4uesyFY" frameborder="0" allowFullScreen></iframe>
+                    <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="{{srcVideo | trustAsResourceUrl}}" frameborder="0" allowFullScreen></iframe>
                 </div>
             </div>
         </div>
@@ -322,7 +322,7 @@ $(function() {
 
     $('#rating-bar').barrating({
         theme: 'bootstrap-stars',
-        showSelectedRating: false
+        showSelectedRating: true
     });
 });
 $(document).ready(function(){
