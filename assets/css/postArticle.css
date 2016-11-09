@@ -29,6 +29,12 @@
 #post-create .btn-blue i {
   margin: 0 5px;
 }
+#post-create .left {
+  float: left;
+}
+#post-create .right {
+  float: right;
+}
 #post-create .btn-fix {
   width: 120px;
   height: 50px;
@@ -60,6 +66,12 @@
   padding: 20px;
   margin: 2px 0;
   transition: 0.3s;
+}
+#post-create .infoList li > i {
+  margin-right: 15px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
 }
 #post-create .infoList .onhover {
   cursor: pointer;
@@ -198,4 +210,178 @@
 #post-create .box-save {
   text-align: center;
   margin: 40px 0 20px;
+}
+
+.box-info-User {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+.box-info-User .w-40 {
+  width: 40%;
+}
+.box-info-User .w-85 {
+  width: 85%;
+}
+.box-info-User .left {
+  float: left;
+}
+.box-info-User .right {
+  float: right;
+}
+.box-info-User .changeAvatar {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.box-info-User .changeAvatar img {
+  width: 130px;
+  height: auto;
+}
+.box-info-User .group-input-custom {
+  border-collapse: separate;
+  display: table;
+  width: 100%;
+  margin: 0 0 15px 0;
+}
+.box-info-User .group-input-custom .icon-input {
+  display: block;
+  float: left;
+  width: 15%;
+  height: 38px;
+  line-height: 38px;
+  background-color: #aeaeae;
+  border-radius: 2px 0 0 2px;
+  padding: 0 0;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+}
+.box-info-User .group-input-custom input[type="text"], .box-info-User .group-input-custom input[type="email"] {
+  background: #f3f3f3;
+  width: 100%;
+  border: 0;
+  display: table-cell;
+  border-radius: 0 2px 2px 0;
+  color: #1D242F;
+  height: 38px;
+  padding: 8px 20px;
+  vertical-align: middle;
+}
+.box-info-User .group-input-custom .btn-save {
+  display: block;
+  width: 100%;
+  font-size: 23px;
+  font-weight: 500;
+  background-color: #B6E685;
+  color: #27313D;
+  border: 0;
+  padding: 10px;
+  transition: 0.4s;
+  border-radius: 2px;
+  opacity: .8;
+}
+.box-info-User .group-input-custom .btn-save:hover {
+  opacity: 1;
+}
+
+.box-event-created {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.box-event-created h3 {
+  font-weight: 500;
+  font-size: 25px;
+}
+.box-event-created .event-type {
+  margin: 2em 0 4em 0;
+  background: #f6f6f6;
+  padding: 10px 20px;
+}
+.box-event-created .event-type a {
+  display: inline-block;
+  background: #87887e;
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.25) inset;
+  padding: 5px 0px;
+  width: 20%;
+  text-align: center;
+  color: #fff;
+}
+.box-event-created .event-type a:hover {
+  opacity: .8;
+}
+.box-event-created .event-type a span {
+  font-size: 12px;
+  display: inline-block;
+  background-color: #fff;
+  color: #87887e;
+  border-radius: 2px;
+  padding: 2px 5px;
+  margin-right: 5px;
+  line-height: 1;
+}
+.box-event-created .event-type a:last-child {
+  background-color: #77c47f;
+}
+
+.list-event-created .w-20 {
+  width: 20%;
+}
+.list-event-created .w-80 {
+  width: 80%;
+}
+.list-event-created .item {
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 50px;
+  padding: 10px;
+}
+.list-event-created .item span {
+  background: none repeat scroll 0 0 #DDDDDD;
+  display: block;
+  left: 30px;
+  padding: 8px;
+  position: absolute;
+  top: -29px;
+  width: 100px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+.list-event-created .item img {
+  width: 90px;
+  height: auto;
+}
+.list-event-created .item h5 {
+  font-size: 18px;
+  line-height: 1;
+}
+.list-event-created .item p > i {
+  margin-right: 5px;
+}
+.list-event-created .item .action-event button {
+  border: 0;
+  padding: 5px 8px;
+  height: 34px;
+}
+.list-event-created .item .action-event button:first-child {
+  background-color: #65d0f2;
+  color: #fff;
+}
+.list-event-created .item .action-event button:first-child i {
+  margin-right: 5px;
+}
+.list-event-created .item .action-event button:last-child {
+  line-height: 1;
+  background: #d8d8d8;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+.list-event-created .item .action-event button:last-child i {
+  font-size: 16px;
 }
