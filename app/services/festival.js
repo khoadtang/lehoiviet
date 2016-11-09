@@ -89,5 +89,8 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.get('/festival/filter/price?price='.concat(date), eventHandler);
     };
 
+    festivalService.getFestivalsByUser = function(eventHandler){
+      net.get('/festival/lists/user', eventHandler);
+    };
     return festivalService;
 });

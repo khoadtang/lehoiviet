@@ -22,6 +22,11 @@ app.config(['$routeProvider', function ($routeProvider) {
                     controller: "festivalController",
                     controllerAs: 'festival'
                 })
+                .when('/festival/update/:festivalId', {
+                    templateUrl : 'app/pods/festival/view.html',
+                    controller: "festivalController",
+                    controllerAs: 'festival'
+                })
                 .when('/video', {
                     templateUrl : 'app/pods/video/view.html',
                     controller: "videoController",
@@ -65,6 +70,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.constant("ENV", {
   apiUrl: "http://api.lehoiviet.vn",
   gateWay: "http://127.0.0.1:5000"
+});
+
+app.constant("FestivalStatus", {
+  "1": "Bản Nháp",
+  "2": "Chờ Duyệt",
+  "3": "Đã Duyệt"
 });
 
 app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route) {

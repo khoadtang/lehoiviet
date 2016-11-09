@@ -45,8 +45,7 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
     };
 
     userService.update = function(uid, user, eventHandler){
-      $http.defaults.headers.common['Authorization'] = $rootScope.token;
-      net.put('/user/update/'.concat(uid), user, eventHandler);
+      net.post('/user/update/'.concat(uid), user, eventHandler);
     };
 
     userService.getUserbyId = function(id, eventHandler){
