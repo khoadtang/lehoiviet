@@ -23,8 +23,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                     controllerAs: 'festival'
                 })
                 .when('/festival/update/:festivalId', {
-                    templateUrl : 'app/pods/festival/view.html',
-                    controller: "festivalController",
+                    templateUrl : 'app/pods/create-festival/view.html',
+                    controller: "createFestivalController",
                     controllerAs: 'festival'
                 })
                 .when('/video', {

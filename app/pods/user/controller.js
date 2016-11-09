@@ -35,4 +35,12 @@ user.controller("userController", function($rootScope, $scope, userService, fest
       $scope.isUpdatingProfile = false;
     });
   };
+
+  $scope.onEditFestival = function(festivalId){
+    window.location = "#/festival/update/" + festivalId;
+  };
+
+  $scope.onDelete = function(){
+
+  };
 });

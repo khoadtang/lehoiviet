@@ -1,7 +1,7 @@
 var createFestival = angular.module("lehoiviet");
 
 createFestival.controller("createFestivalController", function($scope, $rootScope, festivalService,
-  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper) {
+  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper, $routeParams) {
   var festivalId = {};
   var tabPriority = {
     "eventPost" : 1,
@@ -11,7 +11,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   var maxAccessablePriority = 1;
   var selectedTabPriority = 1;
   var backgroundImage = null;
-
+  var isUpdate = false;
 
   $scope.initData = function() {
     if ($rootScope.token == null) {
@@ -19,10 +19,20 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       return;
     }
 
+    isUpdate = $routeParams.festivalId >= 0;
+
+    if (isUpdate) {
+      $scope.nameFinalTask = "Cập Nhật Lễ Hội";
+      getFestivalById($routeParams.festivalId);
+    } else {
+      $scope.nameFinalTask = "Thêm Lễ Hội";
+    }
+
     $rootScope.currentPage = "creating-festival";
     getCategories();
     getProvincies();
     enableOrDisableTab();
+
   };
 
   enableOrDisableTab = function() {
@@ -49,6 +59,17 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     provinceService.get(function(response) {
       if (response.status == 200){
         $scope.provincies = response.data.data;
+      }
+    });
+  };
+
+  getFestivalById = function() {
+    var festivalId = $routeParams.festivalId;
+    festivalService.getById(festivalId, function(response) {
+      if (response.status == 200) {
+        $scope.festival = response.data.data;
+      } else {
+
       }
     });
   };
@@ -356,10 +377,12 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
         festivalId = $scope.festival.id;
 
-        festivalService.submit(festivalId, function(response) {
-          showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
-          $scope.isCreatingFestival = false;
-        })
+        if (!isUpdate) {
+          festivalService.submit(festivalId, function(response) {
+            showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
+            $scope.isCreatingFestival = false;
+          })
+        }
       }
     });
   };

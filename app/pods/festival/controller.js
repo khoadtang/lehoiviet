@@ -42,6 +42,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
             }
 
             $scope.point = rate;
+
+
             // $('#rating-bar').barrating('set', 5);
             console.log($scope.point);
           }

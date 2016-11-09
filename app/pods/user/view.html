@@ -86,8 +86,8 @@
                       <p><i class="fa fa-clock-o" aria-hidden="true"></i>{{festival.timeBegin}}</p>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{festival.address.city}}</p>
                       <div class="action-event">
-                        <button type="button" name="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
-                        <button type="button" name="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
+                        <button type="button" name="button"><i class="fa fa-trash-o" aria-hidden="true" ng-click="onDelete()"></i></button>
                       </div>
                     </div>
                   </div>
