@@ -221,13 +221,12 @@
   text-align: center;
   padding: 20px 0;
   .w-40{width: 40%}
-  .w-85{width: 85%}
-  .left{float: left}
   .right{float: right}
   .changeAvatar{
     display: inline-block;
     width: 130px;
     height: 130px;
+    background-color: #ddd;
     border-radius: 50%;
     margin-bottom: 20px;
     img{
@@ -235,50 +234,52 @@
       height: auto;
     }
   }
-  .group-input-custom{
-    border-collapse: separate;
-    display: table;
-    width: 100%;
-    margin: 0 0 15px 0;
-    .icon-input{
-      display: block;
-      float:left;
-      width: 15%;
-      height: 38px;
-      line-height: 38px;
-      background-color: #aeaeae;
-      border-radius: 2px 0 0 2px;
-      padding: 0 0;
-      text-align: center;
-      white-space: nowrap;
-      color: #fff;
-    }
-    input[type="text"], input[type="email"] {
-        background: #f3f3f3;
-        width: 100%;
-        border: 0;
-        display: table-cell;
-        border-radius: 0 2px 2px 0;
-        color: #1D242F;
-        height: 38px;
-        padding: 8px 20px;
-        vertical-align: middle;
-    }
-    .btn-save{
-      display: block;
+}
+.w-85{width: 85%}
+.left{float: left}
+.group-input-custom{
+  border-collapse: separate;
+  display: table;
+  width: 100%;
+  margin: 0 0 15px 0;
+  .icon-input{
+    display: block;
+    float:left;
+    width: 15%;
+    height: 38px;
+    line-height: 38px;
+    background-color: #aeaeae;
+    border-radius: 2px 0 0 2px;
+    padding: 0 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+      background: #f3f3f3;
       width: 100%;
-      font-size: 23px;
-      font-weight: 500;
-      background-color: #B6E685;
-      color: #27313D;
       border: 0;
-      padding: 10px;
-      transition: 0.4s;
-      border-radius: 2px;
-      opacity: .8;
-      &:hover{
-        opacity: 1;
-      }
+      display: table-cell;
+      border-radius: 0 2px 2px 0;
+      color: #1D242F;
+      height: 38px;
+      padding: 8px 20px;
+      vertical-align: middle;
+  }
+  .btn-save{
+    display: block;
+    width: 100%;
+    font-size: 23px;
+    font-weight: 500;
+    background-color: #B6E685;
+    color: #27313D;
+    border: 0;
+    padding: 10px;
+    transition: 0.4s;
+    border-radius: 2px;
+    opacity: .8;
+    &:hover{
+      opacity: 1;
     }
   }
 }
@@ -346,9 +347,21 @@
       line-height: 1;
       text-align: center;
     }
+    .draft{
+      background-color: #DDDDDD;
+    }
+    .pending{
+      background-color: #c00;
+      color: #fff;
+    }
+    .public{
+      background-color: #77c47f;
+      color: #fff;
+    }
     img{
       width: 90px;
       height: auto;
+      background-color: #ddd;
     }
     h5{
       font-size: 18px;

@@ -35,4 +35,8 @@ user.controller("userController", function($rootScope, $scope, userService, fest
       $scope.isUpdatingProfile = false;
     });
   };
+
+  $scope.showModalReset = function () {
+    $('#reset-password').modal('show')
+  }
 });

@@ -7,10 +7,10 @@
           <div class="tabAction">
             <div class="question-user"><a href=""><i class="fa fa-question-circle" aria-hidden="true"></i></a></div>
               <ul class="infoList">
-                <li class="action" id="infoUser" ng-click="onChangeTab('infoUser')">
+                <li class="action onhover" id="infoUser" ng-click="onChangeTab('infoUser')">
                     <i class="fa fa-info" aria-hidden="true"></i>Hồ sơ cá nhân
                 </li>
-                <li id="yourEvent" ng-click="onChangeTab('yourEvent')">
+                <li class="onhover" id="yourEvent" ng-click="onChangeTab('yourEvent')">
                     <i class="fa fa-calendar" aria-hidden="true"></i>Sự kiện đã tạo
                 </li>
               </ul>
@@ -51,7 +51,7 @@
                       <span class="left w-85"><input type="email" ng-model="user.email" name="name" placeholder='Email' /></span>
                     </div>
                     <div class="group-input-custom clearfix">
-                      <button type="button" name="button" class="btn-blue">Đổi mật khẩu</button>
+                      <button type="button" name="button" class="btn-save" ng-click="showModalReset()">Đổi mật khẩu</button>
                     </div>
                     <div class="group-input-custom clearfix">
                       <button type="button" name="button" class="btn-save" ng-click="onUpdateProfile()">
@@ -71,12 +71,12 @@
             <div class="box-event-created">
               <h3>Sự kiện của bạn</h3>
               <div class="event-type">
-                <a href="#"><span>3</span>Lưu nháp</a>
+                <a href="#"><span>3</span>Bản lưu</a>
                 <a href="#">Tạo sự kiện <i class="fa fa-plus" aria-hidden="true"></i></a>
               </div>
               <div class="list-event-created">
                 <div class="item" ng-repeat="festival in festivals">
-                  <span>{{festival.createAt}}</span>
+                  <span class="pending">Bản nháp</span>
                   <div class="clearfix">
                     <div class="left w-20">
                       <img src="assets/img/Logo_square.png" alt="" />
@@ -102,17 +102,27 @@
 </div>
 </div>
 <!--alert succes delete post-->
-<div class="modal fade" id="post-success" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+<div class="modal fade" id="reset-password" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <form role="form" name="forgotPassword">
             <div class="modal-content">
-                <div class="modal-body" style="text-align: center;">
-                    <div class="row">
-                        <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Đăng bài thành công</label>
-                        <div class="col-xs-12 ">
-                        </div>
-                        <a href="#/" type="button" class="btn btn-primary">Đồng ý</a>
-                    </div>
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div class="group-input-custom clearfix">
+                    <span class="icon-input"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    <span class="left w-85"><input type="password" name="name" placeholder='Mật khẩu hiện tại' /></span>
+                  </div>
+                  <div class="group-input-custom clearfix">
+                    <span class="icon-input"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    <span class="left w-85"><input type="password" name="name" placeholder='Mật khẩu mới' /></span>
+                  </div>
+                  <div class="group-input-custom clearfix">
+                    <span class="icon-input"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    <span class="left w-85"><input type="password" ng-model="user.email" name="name" placeholder='Nhập lại mật khẩu mới' /></span>
+                  </div>
+                  <div class="group-input-custom clearfix">
+                    <button type="button" name="button" class="btn-save">Lưu</button>
+                  </div>
                 </div>
             </div>
         </form>
