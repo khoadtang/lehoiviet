@@ -65,12 +65,12 @@
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
                                 <div class="clearfix">
-                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off" ng-disabled="true">
-                                        <option value="1" selected="point == 1">1</option>
-                                        <option value="2" selected="point == 2">2</option>
-                                        <option value="3" selected="point == 3">3</option>
-                                        <option value="4" selected="point == 4">4</option>
-                                        <option value="5" selected="point == 5">5</option>
+                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off" ng-disabled="true" >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                             </li>
@@ -319,10 +319,10 @@ $(function() {
     $("#imageCarousel").carousel({
         interval: false
     });
-
     $('#rating-bar').barrating({
         theme: 'bootstrap-stars',
-        showSelectedRating: true
+        showSelectedRating: false,
+        initialRating: 4
     });
 });
 $(document).ready(function(){
