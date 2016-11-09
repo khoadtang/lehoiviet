@@ -1,23 +1,38 @@
 var user = angular.module("lehoiviet");
 
-user.controller("userController", function($rootScope, $scope, userService) {
+user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus) {
   $scope.initData = function() {
+    if ($rootScope.uid == null || $rootScope.uid == undefined) {
+      window.location = "#/";
+    };
     $rootScope.currentPage = "profile";
     getProfile();
+    getFestivals();
   };
 
   getProfile = function() {
     userService.getProfile($rootScope.uid, function(response){
-      if (response.status == 200) {
-        $scope.user = response.data.data;
-      }
+      $scope.user = response.data.data;
     });
   };
 
-  $scope.changTab = function(info){
-    $('.infoList a').removeClass('action');
-    $('.infoList #' + info).addClass('action');
-    $('.infoTab section').addClass('hide');
-    $('.' + info + 'Tab').removeClass('hide')
+  getFestivals = function(){
+    festivalService.getFestivalsByUser(function(response){
+      $scope.festivals = response.data.data;
+    });
+  };
+
+  $scope.onChangeTab = function(info){
+    $(".infoTab section").addClass('hide');
+    $("." + info + "Tab").removeClass('hide');
+    $(".infoList li").removeClass('action');
+    $("#" + info).addClass('action')
+  };
+
+  $scope.onUpdateProfile = function(){
+    $scope.isUpdatingProfile = true;
+    userService.update($rootScope.uid, $scope.user, function(response){
+      $scope.isUpdatingProfile = false;
+    });
   };
 });

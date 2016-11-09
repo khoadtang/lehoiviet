@@ -42,7 +42,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
             }
 
             $scope.point = rate;
-
             // $('#rating-bar').barrating('set', 5);
             console.log($scope.point);
           }
@@ -113,8 +112,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.onRate = function() {
-    console.log("On Rate");
-    if ($scope.point > 0) {
+    if ($scope.point <= 0) {
       return;
     }
     if ($rootScope.token == null) {
@@ -125,7 +123,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     var data = {};
     data.point = $scope.point;
     festivalService.rate($scope.festival._id, data, function(response) {
-      console.log(response);
+
     });
   }
 
