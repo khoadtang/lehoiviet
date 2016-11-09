@@ -36,11 +36,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     });
   };
 
-  $scope.onEditFestival = function(festivalId){
-    window.location = "#/festival/update/" + festivalId;
-  };
-
-  $scope.onDelete = function(){
-
-  };
+  $scope.showModalReset = function () {
+    $('#reset-password').modal('show')
+  }
 });

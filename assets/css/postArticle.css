@@ -221,12 +221,6 @@
 .box-info-User .w-40 {
   width: 40%;
 }
-.box-info-User .w-85 {
-  width: 85%;
-}
-.box-info-User .left {
-  float: left;
-}
 .box-info-User .right {
   float: right;
 }
@@ -234,6 +228,7 @@
   display: inline-block;
   width: 130px;
   height: 130px;
+  background-color: #ddd;
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -241,13 +236,22 @@
   width: 130px;
   height: auto;
 }
-.box-info-User .group-input-custom {
+
+.w-85 {
+  width: 85%;
+}
+
+.left {
+  float: left;
+}
+
+.group-input-custom {
   border-collapse: separate;
   display: table;
   width: 100%;
   margin: 0 0 15px 0;
 }
-.box-info-User .group-input-custom .icon-input {
+.group-input-custom .icon-input {
   display: block;
   float: left;
   width: 15%;
@@ -260,7 +264,7 @@
   white-space: nowrap;
   color: #fff;
 }
-.box-info-User .group-input-custom input[type="text"], .box-info-User .group-input-custom input[type="email"] {
+.group-input-custom input[type="text"], .group-input-custom input[type="email"], .group-input-custom input[type="password"] {
   background: #f3f3f3;
   width: 100%;
   border: 0;
@@ -271,7 +275,7 @@
   padding: 8px 20px;
   vertical-align: middle;
 }
-.box-info-User .group-input-custom .btn-save {
+.group-input-custom .btn-save {
   display: block;
   width: 100%;
   font-size: 23px;
@@ -284,7 +288,7 @@
   border-radius: 2px;
   opacity: .8;
 }
-.box-info-User .group-input-custom .btn-save:hover {
+.group-input-custom .btn-save:hover {
   opacity: 1;
 }
 
@@ -353,9 +357,21 @@
   line-height: 1;
   text-align: center;
 }
+.list-event-created .item .draft {
+  background-color: #DDDDDD;
+}
+.list-event-created .item .pending {
+  background-color: #c00;
+  color: #fff;
+}
+.list-event-created .item .public {
+  background-color: #77c47f;
+  color: #fff;
+}
 .list-event-created .item img {
   width: 90px;
   height: auto;
+  background-color: #ddd;
 }
 .list-event-created .item h5 {
   font-size: 18px;
