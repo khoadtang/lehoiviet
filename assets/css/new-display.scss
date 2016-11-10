@@ -244,19 +244,50 @@
     }
 }
 .comment-render-image{
-  >a{
-    display: block;
-    width: 60px;
-    height: 60px;
-    overflow: hidden;
-    float: left;
-    margin-right: 5px;
-    margin-top: 5px;
-  }
-  img{
-    width: 100%;
-    height: auto;
-  }
+    >a{
+        display: block;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        float: left;
+        margin-right: 5px;
+        margin-top: 5px;
+        background-color: #ddd;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .btn-add-image{
+        width: 80px;
+        height: 80px;
+        background-color: transparent;
+        border: 2px dashed #ddd;
+        color: #ddd;
+        padding: 22px 24px;
+        font-size: 35px;
+        &:hover{
+            border-color: #C6C4C4;
+            color: #BCB7B7;
+        }
+    }
+    .edit-image{
+        width: 80px;
+        height: 80px;
+        position: relative;
+        span{
+            position: absolute;
+            top:0;
+            right: 0;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: #c00;
+            color: #fff;
+            line-height: 0;
+            padding: 5px;
+        }
+    }
 }
 .commen-render-header{
     a{

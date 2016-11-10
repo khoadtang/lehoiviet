@@ -205,6 +205,10 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       updateSubscribeElementState();
     });
   }
+
+  $scope.onDeleteImage = function () {
+    $('#delete-image').modal('show');
+  }
 });
 
 
