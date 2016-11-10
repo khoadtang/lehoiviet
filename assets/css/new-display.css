@@ -248,10 +248,41 @@
   float: left;
   margin-right: 5px;
   margin-top: 5px;
+  background-color: #ddd;
 }
 .comment-render-image img {
   width: 100%;
   height: auto;
+}
+.comment-render-image .btn-add-image {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border: 2px dashed #ddd;
+  color: #ddd;
+  padding: 22px 24px;
+  font-size: 35px;
+}
+.comment-render-image .btn-add-image:hover {
+  border-color: #C6C4C4;
+  color: #BCB7B7;
+}
+.comment-render-image .edit-image {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+.comment-render-image .edit-image span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #c00;
+  color: #fff;
+  line-height: 0;
+  padding: 5px;
 }
 
 .commen-render-header a {
