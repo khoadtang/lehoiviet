@@ -120,6 +120,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     }
     if ($rootScope.token == null) {
       $('#userLogin').modal('show');
+
+      $scope.point = 0;
       return;
     }
 
@@ -176,6 +178,9 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.onSubmitImage = function() {
     var formData = new FormData();
+    for (var i = 0; i < $scope.myCroppedImage.length; ++i){
+        formData.append("file", dataURItoBlob($scope.myCroppedImages[i]));
+    }
     formData.append("file", dataURItoBlob($scope.myCroppedImage));
     $scope.isUploading = true;
     imageService.uploadImagePost($scope.festival._id, formData, function(response){
@@ -185,6 +190,14 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       }
     });
   }
+
+  $scope.onAddImage = function(){
+    if ($scope.formData == null || $scope.formData == undefined){
+      $scope.formData = new FormData();
+    }
+    $scope.formData.append("files", dataURItoBlob($scope.myCroppedImage));
+    $('#upImage').modal('hide');
+  };
 
   $scope.onSubscribe = function() {
     if ($scope.festival == null || $scope.festival == undefined) {
