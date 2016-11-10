@@ -64,14 +64,23 @@
                             <li>
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
-                                <div class="clearfix">
-                                    <select id="rating-bar" name="rating" ng-model="point" ng-change ="onRate()" autocomplete="off" ng-disabled="true">
+                                <div class="clearfix" ng-show="point <= 0">
+                                    <select id="rating-bar" name="rating"  autocomplete="off" ng-model="point" ng-change="onRate()">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
+                                </div>
+                                <div class="clearfix" ng-show="point > 0">
+                                  <select id="rating-bar-rated" name="rating" ng-show="point > 0" autocomplete="off">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
                             </li>
                         </ul>
@@ -319,13 +328,13 @@ $(function() {
     $("#imageCarousel").carousel({
         interval: false
     });
-
-    $('#rating-bar').barrating({
-        theme: 'bootstrap-stars',
-        showSelectedRating: true
-    });
 });
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
+});
+
+$('#rating-bar').barrating({
+    theme: 'bootstrap-stars',
+    showSelectedRating: false
 });
 </script>

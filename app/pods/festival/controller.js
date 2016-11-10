@@ -8,9 +8,9 @@ festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
     };
 }]);
 
-festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService) {
+festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout) {
+  $scope.point = 0;
   $scope.initData = function() {
-
     // add listener
     $('#watchVideo').on('hidden.bs.modal', function () {
       $('iframe').attr('src', $('iframe').attr('src'));
@@ -20,8 +20,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.isUploading = false;
     $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
     getFestivalById();
-
-
   };
 
   getFestivalById = function() {
@@ -38,18 +36,21 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
           if (response.status == 200){
             var rate = response.data.data.point;
             if (rate == null || rate == undefined) {
-              return;
+              $scope.point = 0;
+            } else {
+              $scope.point = rate;
             }
 
-            $scope.point = rate;
-
-
-            // $('#rating-bar').barrating('set', 5);
-            console.log($scope.point);
+            if ($scope.point > 0){
+              $('#rating-bar-rated').barrating({
+                  initialRating: $scope.point,
+                  theme: 'bootstrap-stars',
+                  showSelectedRating: false,
+                  readonly: $scope.point > 0,
+              });
+            }
           }
         });
-      } else {
-
       }
     });
   };
@@ -124,6 +125,12 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
     var data = {};
     data.point = $scope.point;
+    $('#rating-bar-rated').barrating({
+        initialRating: $scope.point,
+        theme: 'bootstrap-stars',
+        showSelectedRating: false,
+        readonly: $scope.point > 0,
+    });
     festivalService.rate($scope.festival._id, data, function(response) {
 
     });
