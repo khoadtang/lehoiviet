@@ -8,11 +8,11 @@ app.service("commentService", function(net) {
     };
 
     commentService.deleteById = function(id, eventHandler) {
-        net.post('/comment/delete/'.concat(id), eventHandler);
+        net.post('/comment/delete/'.concat(id), null, eventHandler);
     };
 
     commentService.update = function(id, comment, eventHandler){
-        net.post('/comment/update/'.concat(id), comment, eventHandler);
+        net.upload('/comment/update/'.concat(id), comment, eventHandler);
     };
 
     commentService.deleteImage = function(id, eventHandler){
