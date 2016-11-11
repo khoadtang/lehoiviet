@@ -355,8 +355,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       $('#delete-image-editable').modal('hide');
       if (indexImage >= 0){
           commentService.deleteImage(images[indexImage]._id, function(response){
-
-          images.splice(indexImage, 1);
+          $scope.comments[index].imageId.splice(indexImage, 1);
         });
       }
     }
