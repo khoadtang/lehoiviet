@@ -92,5 +92,9 @@ app.service("festivalService", function($http, net, $rootScope) {
     festivalService.getFestivalsByUser = function(eventHandler){
       net.get('/festival/lists/user', eventHandler);
     };
+
+    festivalService.getComments = function(id, eventHandler){
+      net.get('/festival/comment/find/'.concat(id), eventHandler);
+    };
     return festivalService;
 });

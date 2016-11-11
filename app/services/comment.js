@@ -4,7 +4,7 @@ app.service("commentService", function(net) {
     var commentService = {};
 
     commentService.create = function(id, comment, eventHandler){
-        net.post('/comment/create/'.concat(id), comment, eventHandler);
+        net.upload('/comment/create/festival/'.concat(id), comment, eventHandler);
     };
 
     commentService.deleteById = function(id, eventHandler) {
@@ -13,6 +13,10 @@ app.service("commentService", function(net) {
 
     commentService.update = function(id, comment, eventHandler){
         net.post('/comment/update/'.concat(id), comment, eventHandler);
+    };
+
+    commentService.deleteImage = function(id, eventHandler){
+      net.post('/image/delete/comment/'.concat(id), null, eventHandler);
     };
 
     return commentService;

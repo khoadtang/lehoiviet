@@ -20,6 +20,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.isUploading = false;
     $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
     getFestivalById();
+    getComments();
   };
 
   getFestivalById = function() {
@@ -89,6 +90,17 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
       });
     }
+  }
+
+  getComments = function(){
+    var festivalId = $routeParams.festivalId;
+    if (festivalId < 0 || festivalId == null || festivalId == undefined) {
+      return;
+    }
+
+    festivalService.getComments(festivalId, function(response){
+      $scope.comments = response.data.data;
+    });
   }
 
   $scope.watchSlide = function () {
@@ -176,17 +188,20 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.myCroppedImage = null;
   }
 
-  $scope.onSubmitImage = function() {
-    var formData = new FormData();
-    for (var i = 0; i < $scope.myCroppedImage.length; ++i){
-        formData.append("file", dataURItoBlob($scope.myCroppedImages[i]));
+  $scope.onSubmitComment = function() {
+    if ($scope.formData == null || $scope.formData == undefined) {
+      $scope.formData = new FormData();
     }
-    formData.append("file", dataURItoBlob($scope.myCroppedImage));
-    $scope.isUploading = true;
-    imageService.uploadImagePost($scope.festival._id, formData, function(response){
+    $scope.formData.append("content", $scope.comment);
+    $scope.isPostingComment = true;
+    commentService.create($scope.festival._id, $scope.formData, function(response){
       if(response.status == 200) {
-        $scope.isUploading = false;
-        $('#upImage').modal('hide');
+        $scope.isPostingComment = false;
+
+        $scope.displayImages = null;
+        $scope.comment = null;
+        var height = $( document ).height() - $('.comment-render').height();
+        $("html, body").stop().animate({scrollTop:height - 400}, '1000', 'swing');
       }
     });
   }
@@ -195,6 +210,12 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     if ($scope.formData == null || $scope.formData == undefined){
       $scope.formData = new FormData();
     }
+
+    if ($scope.displayImages == null || $scope.displayImages == undefined) {
+      $scope.displayImages = [];
+    }
+
+    $scope.displayImages.push($scope.myCroppedImage);
     $scope.formData.append("files", dataURItoBlob($scope.myCroppedImage));
     $('#upImage').modal('hide');
   };
@@ -219,8 +240,54 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     });
   }
 
-  $scope.onDeleteImage = function () {
+  $scope.onDeleteImage = function (img) {
     $('#delete-image').modal('show');
+    $scope.selectedImage = img;
+  }
+
+  $scope.onAcceptRemove = function(){
+    var index = $scope.displayImages.indexOf($scope.selectedImage);
+
+    if (index >= 0){
+      $scope.displayImages.splice(index, 1);
+      $('#delete-image').modal('hide');
+      $scope.selectedImage = null;
+    }
+  }
+
+  $scope.onRejectRemove = function(){
+    $('#delete-image').modal('hide');
+  }
+
+  $scope.onEditableMode = function(commentId, content){
+    $scope.editable = commentId;
+    $scope.editable.content = content;
+  }
+
+  $scope.onDeleteImageEditableMode = function(cmt, image){
+    $('#delete-image-editable').modal('show');
+  }
+
+  $scope.onRejectRemoveEditable = function(){
+    $('#delete-image-editable').modal('hide');
+  }
+
+  $scope.onAcceptRemoveEditable = function(cmt, image){
+
+    var index = $scope.comments.indexOf(cmt);
+    if (index >= 0) {
+      var comment = $scope.comments[index];
+      var images = comment.imageId;
+      var indexImage = images.indexOf(image);
+      $('#delete-image-editable').modal('hide');
+      if (indexImage >= 0){
+        commentService.deleteImage(images[indexImage]._id, function(response){
+
+          images.splice(indexImage, 1);
+
+        });
+      }
+    }
   }
 });
 
