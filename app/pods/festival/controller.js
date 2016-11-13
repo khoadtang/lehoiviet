@@ -256,7 +256,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     }
 
     if ($scope.displayImages.indexOf($scope.myCroppedImage) >= 0) {
-      console.log("WRONG");
+      $('#duplicated-image').modal('show');
     } else {
       $scope.displayImages.push($scope.myCroppedImage);
     }
@@ -400,6 +400,10 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         getComments();
       }
     });
+  }
+
+  $scope.closeImmediately = function(){
+    $('#duplicated-image').modal('hide');
   }
 });
 
