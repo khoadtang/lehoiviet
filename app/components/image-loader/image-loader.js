@@ -5,10 +5,10 @@ imageLoader.directive('imageonload', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             element.bind('load', function() {
-                scope.$apply(attrs.imageonload);
+              scope.$apply(attrs.imageonload);
             });
             element.bind('error', function(){
-
+              
             });
         }
     };

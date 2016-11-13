@@ -9,5 +9,5 @@ videoHeader.directive("videoHeader", function(){
 });
 
 videoHeader.controller("videoHeaderController", function($scope) {
-
+  
 });

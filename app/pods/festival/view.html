@@ -197,7 +197,7 @@
                                     </div>
                                     <div class="comment-render-text">
                                         <p ng-show="editable !== cmt._id">{{cmt.content}}</p>
-                                        <textarea ng-show="editable == cmt._id" name="" class="form-control" placeholder="Nhập bình luận của bạn..." ng-model="cmt.content">{{cmt.content}}</textarea>
+                                        <textarea ng-show="editable == cmt._id" ng-model="editableContent[cmt._id]" ng-init="editableContent[cmt._id] = cmt.content" class="form-control" placeholder="Nhập bình luận của bạn..."></textarea>
                                         <div class="comment-render-image clearfix">
                                           <a href="" class="edit-image" ng-repeat="img in cmt.imageId">
                                             <img ng-src="http://lehoiviet.herokuapp.com/{{img.imgName}}" alt="" />
@@ -332,7 +332,16 @@
             </div>
         </div>
     </div>
-
+    <div id="duplicated-image" class="modal fade " tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h4>Có lẽ hình này đã tồn tại</h4>
+                    <button type="button" class="btn-gray" ng-click="closeImmediately()">Hủy Tải Lên</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
