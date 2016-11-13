@@ -275,7 +275,13 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       $scope.editableDisplayImages = [];
     }
 
-    $scope.editableDisplayImages.push($scope.myEditableCroppedImage);
+    if ($scope.editableDisplayImages.indexOf($scope.myEditableCroppedImage) >= 0) {
+      $('#duplicated-image').modal('show');
+    } else {
+      $scope.editableDisplayImages.push($scope.myEditableCroppedImage);
+    }
+
+
     $('#upEditableImage').modal('hide');
   };
 
