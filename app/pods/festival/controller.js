@@ -255,7 +255,13 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       $scope.displayImages = [];
     }
 
-    $scope.displayImages.push($scope.myCroppedImage);
+    if ($scope.displayImages.indexOf($scope.myCroppedImage) >= 0) {
+      console.log("WRONG");
+    } else {
+      $scope.displayImages.push($scope.myCroppedImage);
+    }
+
+
     $('#upImage').modal('hide');
   };
 
