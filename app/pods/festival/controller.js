@@ -226,6 +226,10 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     if ($scope.formData == null || $scope.formData == undefined) {
       $scope.formData = new FormData();
     }
+
+    if ($scope.displayImages == null ||  $scope.displayImages == undefined){
+       $scope.displayImages = [];
+    }
     console.log($scope.displayImages.length);
     for (var i = 0; i < $scope.displayImages.length; ++i){
       $scope.formData.append("files", dataURItoBlob($scope.displayImages[i]));
