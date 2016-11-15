@@ -39,4 +39,8 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   $scope.showModalReset = function () {
     $('#reset-password').modal('show')
   }
+
+  $scope.showModalChangeAvatar = function () {
+    $('#upEditableImage').modal('show');
+  }
 });
