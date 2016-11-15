@@ -231,10 +231,32 @@
   background-color: #ddd;
   border-radius: 50%;
   margin-bottom: 20px;
+  position: relative;
 }
 .box-info-User .changeAvatar img {
   width: 130px;
   height: auto;
+  border-radius: 50%;
+}
+.box-info-User .changeAvatar .overlay-change-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 36px 0;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 50%;
+  font-size: 13px;
+}
+.box-info-User .changeAvatar .overlay-change-avatar i {
+  font-size: 30px;
+}
+.box-info-User .changeAvatar:hover .overlay-change-avatar {
+  visibility: visible;
 }
 
 .w-85 {
