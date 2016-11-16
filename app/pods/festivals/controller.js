@@ -1,6 +1,7 @@
 var festivals = angular.module("lehoiviet");
 
 festivals.controller("festivalsController", function($scope, $rootScope, festivalService, dateHelper, categoryService) {
+  $scope.festivals = [];
   $scope.initData = function() {
     $rootScope.currentPage = "festivals";
 
