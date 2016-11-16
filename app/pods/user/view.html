@@ -1,4 +1,12 @@
 <div ng-init="initData()">
+<style>
+.cropArea {
+  background: transparent;
+  overflow: hidden;
+  width:100%;
+  height: 300px;
+}
+</style>
 <!-- <div id="mainpost"> -->
 <div id="post-create">
   <div class="profile_area">
@@ -83,7 +91,7 @@
               </div>
               <div class="list-event-created">
                 <div class="item" ng-repeat="festival in festivals">
-                  <span class="pending">Bản nháp</span>
+                  <span class="'draft': festival.status == 1, 'pending': festival.status == 2, 'public': festival.status == 3">{{$root.status[festival.status]}}</span>
                   <div class="clearfix">
                     <div class="left w-20">
                       <img src="assets/img/Logo_square.png" alt="" />
@@ -148,16 +156,16 @@
                           <i class="fa fa-plus" aria-hidden="true"></i> Tải ảnh lên <input type="file" name="file" onchange="angular.element(this).scope().onEditableImageSelected(this)" />
                       </span>
                 </div>
-                <div ng-show="isUploading" class="text-center">
+                <div ng-show="isChangingAvatar" class="text-center">
                     <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear; font-size: 50px; display:inline-block; margin: 20px auto;"></i>
                 </div>
-                <div class="cropArea">
+                <div class="cropArea" ng-show="!isChangingAvatar">
                     <img-crop area-type="square" image="editableImage" result-image="myEditableCroppedImage"></img-crop>
                 </div>
             </div>
             <div class="text-right">
                 <button type="Submit" data-dismiss="modal">Hủy</button>
-                <button type="Submit" ng-click="onAddEditableImage()">Hoàn tất</button>
+                <button type="Submit" ng-click="onChangeAvatar()">Hoàn tất</button>
             </div>
         </div>
     </div>
@@ -166,14 +174,5 @@
 $(function() {
     $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
 });
-//upload and display image
-$(function() {
-    $(":file").change(function() {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-});
+
 </script>

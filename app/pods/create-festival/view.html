@@ -64,7 +64,7 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Loại lễ hội</div>
                             <div class="details col-sm-9 col-xs-12">
-                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="festival.typeEvent" ng-change="onChangeValidateInfoTab()">
+                                <select class="col-sm-4 col-xs-12" name="typeEvent" ng-model="festival.typeEvent" ng-change="onChangeValidateInfoTab()" convert-to-number>
                                     <option value="" ng-disabled="true">Chọn Loại Lễ Hội</option>
                                     <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
                                 </select>
@@ -93,11 +93,11 @@
                         <div class="box-info-normal">
                             <div class="lable col-sm-3 col-xs-12">Địa chỉ</div>
                             <div class="details col-sm-9 row col-xs-12">
-                                <select class="col-sm-4 col-xs-5" ng-model="festival.city" ng-change="onChangeValidateInfoTab()">
+                                <select class="col-sm-4 col-xs-5" ng-model="festival.city" ng-change="onChangeValidateInfoTab()" convert-to-number>
                                     <option value="" ng-disabled="true">Chọn Tỉnh / Thành Phố</option>
                                     <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)">{{province.name}}</option>
                                 </select>
-                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district" ng-change="onChangeValidateInfoTab()">
+                                <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district" ng-change="onChangeValidateInfoTab()" convert-to-number>
                                     <option value="" ng-disabled="true">Chọn Huyện / Phường</option>
                                     <option ng-repeat="itemDistricts in districts">{{itemDistricts.name}}</option>
                                 </select>

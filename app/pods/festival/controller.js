@@ -57,15 +57,20 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
           }
         });
 
-        for (var i = 0; i < $scope.event.length; ++i){
-          eventService.getById($scope.event[i]._id, function(response) {
-            if (response.status == 200) {
-              $scope.event = response.data.data;
-            }
-          });
-        }
+        getEvents($scope.festival._id);
       }
     });
+  };
+
+  getEvents = function(festivalId){
+    eventService.getAll(festivalId, function(response) {
+      if (response.status == 200) {
+        $scope.events = response.data.data;
+
+        dateHelper.sortBydate($scope.events);
+        console.log($scope.events);
+      }
+    })
   };
 
   updateLikeElementState = function() {
@@ -430,24 +435,3 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $('#duplicated-image').modal('hide');
   }
 });
-
-
-function dataURItoBlob(dataURI) {
-    // convert base64/URLEncoded data component to raw binary data held in a string
-    var byteString;
-    if (dataURI.split(',')[0].indexOf('base64') >= 0)
-        byteString = atob(dataURI.split(',')[1]);
-    else
-        byteString = unescape(dataURI.split(',')[1]);
-
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to a typed array
-    var ia = new Uint8Array(byteString.length);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([ia], {type:mimeString});
-}

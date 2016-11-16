@@ -78,8 +78,9 @@ app.constant("FestivalStatus", {
   "3": "Đã Duyệt"
 });
 
-app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route) {
+app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus) {
   $scope.init = function() {
+    $rootScope.status = FestivalStatus;
     $rootScope.token = null;
 
     userService.autoLogin(function(response){

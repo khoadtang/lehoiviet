@@ -19,7 +19,7 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
       $('#userLogin').modal('show');
   };
   $scope.actionUserPanel = function(){
-      $('.actionUserPanel .dropdown-menu').toggle();
+      window.location = "#/user/profile"
   };
   $scope.createFestivalView = function() {
     if ($rootScope.token != null) {

@@ -68,6 +68,11 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     festivalService.getById(festivalId, function(response) {
       if (response.status == 200) {
         $scope.festival = response.data.data;
+        $scope.backgroundImage = $scope.festival.thumbnail.resize;
+        $scope.festival.typeEvent = $scope.festival.typeEvent._id;
+        $scope.festival.mainAddress = $scope.festival.address.mainAddress;
+        $scope.festival.district = $scope.festival.address.district;
+        $scope.festival.city = $scope.festival.address.city;
       } else {
 
       }

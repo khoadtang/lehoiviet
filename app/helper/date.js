@@ -16,5 +16,30 @@ dateHelper.service("dateHelper", function(){
     return format[2] + "/" + format[1] + "/" + format[0] + " " + hour[0] + ":" + hour[1];
   };
 
+  dateHelper.sortBydate = function(data){
+    if (data == null || data == undefined) {
+      return;
+    }
+
+    var events = data;
+
+    for (var i = 0; i < events.length - 1; ++i){
+      for (var j = i + 1; j < events.length; ++j){
+        if (moment(this.concatDateTime(events[i].dateBegin, events[i].dateEnd)).
+              ifAfter(this.concatDateTime(events[j].dateBegin, events[j].dateEnd))) {
+          var date = events[i];
+          events[i] = events[j];
+          events[j] = date;
+        }
+      }
+    }
+  };
+
+  dateHelper.concatDateTime = function(date, time){
+    var dateTime = data + " " + time;
+
+    return moment(dateTime, "DD-MM-YYYY HH:mm");
+  };
+  
   return dateHelper;
 })

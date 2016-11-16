@@ -33,7 +33,7 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
     };
 
     userService.postAvatar = function(post, eventHandler){
-        net.post('/user/avatar/', post, eventHandler);
+        net.upload('/user/avatar/', post, eventHandler);
     };
 
     userService.inactive = function(eventHandler) {
