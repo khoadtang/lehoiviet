@@ -41,9 +41,13 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     });
   };
   $scope.onClickNotification = function() {
+    console.log("Seen");
     if ($rootScope.notification.unseen == null) {
       $rootScope.notification.unseen = 0;
     }
+    festivalService.seen(function(response){
+
+    });
     $rootScope.notification.unseen = 0;
   };
   $scope.onMaintenance = function(){

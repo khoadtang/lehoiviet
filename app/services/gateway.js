@@ -31,14 +31,12 @@ app.service("gatewayService", function($rootScope, ENV) {
     });
 
     socket.on('users', function(data) {
-      console.log(data);
       if ($rootScope.users == null) {
         $rootScope.users = [];
       }
 
       $rootScope.$apply(function() {
         $rootScope.users = data;
-        console.log(data);
       });
     });
   }

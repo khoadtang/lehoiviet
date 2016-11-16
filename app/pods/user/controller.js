@@ -1,6 +1,6 @@
 var user = angular.module("lehoiviet");
 
-user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus) {
+user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService) {
   $scope.isChangingAvatar = false;
 
   $scope.initData = function() {
@@ -74,6 +74,19 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   $scope.onEditFestival = function(festivalId){
     window.location = "#/festival/update/".concat(festivalId);
   }
+
+  $scope.logout = function() {
+    userService.logout(function(response){
+      if(response.status == 200) {
+        $rootScope.token = null;
+        $rootScope.notification.unseen = 0;
+        $rootScope.notification = null;
+        cookiesManager.removeUser();
+        window.location = "#/";
+        gatewayService.offline();
+      }
+    });
+  };
 });
 
 function dataURItoBlob(dataURI) {
