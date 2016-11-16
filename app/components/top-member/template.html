@@ -3,7 +3,7 @@
           <p>Top thành viên</p>
           <ul class="row item">
               <li class="col-md-1 col-sm-1 col-xs-3" ng-repeat="member in $root.users">
-                  <a href="" ng-click="checkLoginSeeUser(member._id)">
+                  <a href="#/user/profile/{{member._id}}" ng-click="checkLoginSeeUser(member._id)">
                       <div class="icon-user">
                           <img class="img-responsive img-circle" src="http://lehoiviet.herokuapp.com{{member.avatar}}"/>
                           <i class="fa fa-check-circle" aria-hidden="true" ng-show="member.status"></i>

@@ -1,15 +1,27 @@
 var user = angular.module("lehoiviet");
 
-user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService) {
+user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService, $routeParams) {
   $scope.isChangingAvatar = false;
+  $scope.isVisiter = false;
 
   $scope.initData = function() {
-    if ($rootScope.uid == null || $rootScope.uid == undefined) {
+    if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId > 0){
+      $scope.isVisiter = true;
+    }
+    if (!$scope.isVisiter && ($rootScope.uid == null || $rootScope.uid == undefined)) {
       window.location = "#/";
     };
     $rootScope.currentPage = "profile";
-    getProfile();
-    getFestivals();
+
+    if ($scope.isVisiter){
+      initVissterGUI();
+      getGuestProfile();
+      getGuestFestival();
+    }else {
+      getProfile();
+      getFestivals();
+    }
+
   };
 
   getProfile = function() {
@@ -23,6 +35,25 @@ user.controller("userController", function($rootScope, $scope, userService, fest
       $scope.festivals = response.data.data;
     });
   };
+
+  initVissterGUI = function(){
+    $('#logout').remove();
+
+  };
+
+  getGuestProfile = function(){
+    var guestId = $routeParams.userId;
+    userService.getGuestProfile(guestId, function(response){
+      $scope.user = response.data.data;
+    });
+  };
+
+  getGuestFestival = function(){
+    var guestId = $routeParams.userId;
+    festivalService.getFestivalsByGuest(guestId, function(response){
+      $scope.festivals = response.data.data;
+    });
+  }
 
   $scope.onChangeTab = function(info){
     $(".infoTab section").addClass('hide');
@@ -65,9 +96,9 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     data.append("file", dataURItoBlob($scope.myEditableCroppedImage));
 
     $scope.isChangingAvatar = true;
-    userService.postAvatar(data, function(response){
+    userService.changeAvatar(data, function(response){
       $scope.isChangingAvatar = false;
-      console.log(response);
+      $('#upEditableImage').modal('hide');
     });
   }
 

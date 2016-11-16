@@ -140,6 +140,10 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     $scope.districts = province.districts;
   };
 
+  $scope.onDistrictSelected = function(district){
+    $scope.festival.district= district;
+  };
+
   $scope.onCreateFestival = function(){
     var festival = {};
     festival.title = $scope.title;
@@ -185,6 +189,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     if ($scope.festival == null || $scope.festival == undefined) {
       return;
     }
+    console.log($scope.festival);
     $scope.festival.thumbnailFull = backgroundImage;
     $scope.festival.thumbnailResize = backgroundImage;
     festival = $scope.festival;
@@ -375,6 +380,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
     festival = $scope.festival;
     $scope.isCreatingFestival = true;
+    console.log(festival);
     festivalService.save(festival, $scope.festival.id, function(response) {
       if (response.status == 200) {
         $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;

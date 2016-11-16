@@ -34,20 +34,20 @@
                   <form name="profile" novalidate="true">
                     <a href="" class="changeAvatar" ng-click="showModalChangeAvatar()">
                       <img src="http://lehoiviet.herokuapp.com/{{user.avatar}}" alt="" />
-                        <div class="overlay-change-avatar">
+                        <div class="overlay-change-avatar" ng-show="!isVisiter">
                             <i class="fa fa-camera" aria-hidden="true"></i>
                             <p>Đổi ảnh đại diện</p>
                         </div>
                     </a>
                     <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-user" aria-hidden="true"></i></span>
-                      <span class="left w-40"><input type="text" name="name" ng-model="user.firstName" placeholder='Tên'/></span>
-                      <span class="right w-40"><input type="text" name="name" ng-model="user.lastName" placeholder='Họ'></span>
+                      <span class="left w-40"><input ng-readonly="isVisiter" type="text" name="name" ng-model="user.firstName" placeholder='Tên'/></span>
+                      <span class="right w-40"><input ng-readonly="isVisiter" type="text" name="name" ng-model="user.lastName" placeholder='Họ'></span>
                     </div>
                     <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-user" aria-hidden="true"></i></span>
-                      <span class="left w-40"><input type="text" name="name" ng-model="user.address.district" placeholder='Huyện'/></span>
-                      <span class="right w-40"><input type="text" name="name" ng-model="user.address.city" placeholder='Tỉnh'></span>
+                      <span class="left w-40"><input ng-readonly="isVisiter" type="text" name="name" ng-model="user.address.district" placeholder='Huyện'/></span>
+                      <span class="right w-40"><input ng-readonly="isVisiter" type="text" name="name" ng-model="user.address.city" placeholder='Tỉnh'></span>
                     </div>
                     <!-- <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
@@ -55,7 +55,7 @@
                     </div> -->
                     <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-building-o" aria-hidden="true"></i></span>
-                      <span class="left w-85"><input type="text" name="name" ng-model="user.company" placeholder='Công ty' /></span>
+                      <span class="left w-85"><input ng-readonly="isVisiter" type="text" name="name" ng-model="user.company" placeholder='Công ty' /></span>
                     </div>
                     <!-- <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-phone" aria-hidden="true"></i></i></span>
@@ -63,14 +63,14 @@
                     </div> -->
                     <div class="group-input-custom clearfix">
                       <span class="icon-input"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                      <span class="left w-85"><input type="email" ng-model="user.email" name="name" placeholder='Email' /></span>
+                      <span class="left w-85"><input ng-readonly="isVisiter" type="email" ng-model="user.email" name="name" placeholder='Email' /></span>
                     </div>
                     <div class="group-input-custom clearfix">
-                      <button type="button" name="button" class="btn-save" ng-click="showModalReset()">Đổi mật khẩu</button>
+                      <button ng-show="!isVisiter" type="button" name="button" class="btn-save" ng-click="showModalReset()">Đổi mật khẩu</button>
                     </div>
                     <div class="group-input-custom clearfix">
-                      <button type="button" name="button" class="btn-save" ng-click="onUpdateProfile()">
-                        <div ng-show="!isUpdatingProfile">
+                      <button ng-show="!isVisiter" type="button" name="button" class="btn-save" ng-click="onUpdateProfile()">
+                        <div ng-show="!isUpdatingProfile && !isVisiter">
                           <i class="fa fa-save" aria-hidden="true"></i> Lưu
                         </div>
                         <div ng-show="isUpdatingProfile">
@@ -101,8 +101,8 @@
                       <p><i class="fa fa-clock-o" aria-hidden="true"></i>{{festival.timeBegin}}</p>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{festival.address.city}}</p>
                       <div class="action-event">
-                        <button type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
-                        <button type="button" name="button"><i class="fa fa-trash-o" aria-hidden="true" ng-click="onDelete()"></i></button>
+                        <button ng-show="!isVisiter" type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
+                        <button ng-show="!isVisiter" type="button" name="button"><i class="fa fa-trash-o" aria-hidden="true" ng-click="onDelete()"></i></button>
                       </div>
                     </div>
                   </div>

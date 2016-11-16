@@ -32,8 +32,8 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
         net.post("/user/logout", null, eventHandler);
     };
 
-    userService.postAvatar = function(post, eventHandler){
-        net.upload('/user/avatar/', post, eventHandler);
+    userService.changeAvatar = function(post, eventHandler){
+        net.upload('/user/avatar/update', post, eventHandler);
     };
 
     userService.inactive = function(eventHandler) {
@@ -58,6 +58,10 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
 
     userService.getProfile = function(id, eventHandler){
         net.get('/user/profile/'.concat(id), eventHandler);
+    };
+
+    userService.getGuestProfile = function(id, eventHandler){
+      net.get('/user/guest/profile/'.concat(id), eventHandler);
     };
 
     userService.changePassword = function(uid, passwords, eventHandler){
