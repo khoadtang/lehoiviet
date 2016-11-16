@@ -101,30 +101,31 @@
                 <div class="item description">
                     <h3><i class="fa fa-info-circle focus" aria-hidden="true"></i>Thông tin sự kiện</h3>
                     <div class="content" ng-bind-html="festival.content">
-                        <div class="event">
-                            <h4 class="text-center">Sự kiện diễn ra</h4>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                       <th>Thời gian bắt đầu</th>
-                                        <th>Thời gian kết thúc</th>
-                                        <th>Hoạt động</th>
-                                    </tr>
-                                </thead>
-                                <tboody>
-                                    <tr>
-                                        <td>12/10/2016</td>
-                                        <td>16/10/2016</td>
-                                        <td>test demo test demo test demo test demo test demo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>12/10/2016</td>
-                                        <td>16/10/2016</td>
-                                        <td>test demo test demo test demo test demo test demo</td>
-                                    </tr>
-                                </tboody>
-                            </table>
-                        </div>
+
+                    </div>
+                    <div class="event">
+                        <h2 class="text-left">Sự kiện diễn ra</h2>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                   <th>Thời gian bắt đầu</th>
+                                    <th>Thời gian kết thúc</th>
+                                    <th>Hoạt động</th>
+                                </tr>
+                            </thead>
+                            <tboody>
+                                <tr>
+                                    <td>12/10/2016</td>
+                                    <td>16/10/2016</td>
+                                    <td>test demo test demo test demo test demo test demo</td>
+                                </tr>
+                                <tr>
+                                    <td>12/10/2016</td>
+                                    <td>16/10/2016</td>
+                                    <td>test demo test demo test demo test demo test demo</td>
+                                </tr>
+                            </tboody>
+                        </table>
                     </div>
                 </div>
                 <div class="item">
@@ -132,16 +133,7 @@
                     <div class="content">
                         <h4>Hình ảnh</h4>
                         <div class="row list-img-article">
-                            <img ng-click="watchSlide()"class="col-xs-3" src="./assets/img/img1.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img2.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img3.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img4.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img5.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img1.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img2.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img3.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img4.png" alt=""/>
-                            <img class="col-xs-3" src="./assets/img/img5.png" alt=""/>
+                            <img ng-repeat="img in album" ng-click="watchSlide(img.imgName)"class="col-xs-3" src="http://api.lehoiviet.vn{{img.imgName}}" alt=""/>
                         </div>
                         <h4>Video</h4>
                         <div class="row list-img-article">
@@ -243,7 +235,7 @@
                 <div class="modal-body">
                     <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i>
                     </button>
-                    <img src="./assets/img/img2.png" alt=""/>
+                    <img src="http://api.lehoiviet.vn{{shownImage}}" alt=""/>
                 </div>
             </div>
         </div>

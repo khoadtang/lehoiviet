@@ -13,9 +13,9 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav menu-left">
           <li><a href="#/festivals" class="hover-menu">Lễ hội</a></li>
-          <li><a href="#/blog" class="hover-menu">Blog</a></li>
-          <li><a href="#/video" class="hover-menu">Video</a></li>
-          <li><a href="#contact" class="video-live">Trực tiếp</a></li>
+          <li ng-click="onMaintenance()"><a  class="hover-menu">Blog</a></li>
+          <li ng-click="onMaintenance()"><a  class="hover-menu">Video</a></li>
+          <li ng-click="onMaintenance()"><a  class="video-live">Trực tiếp</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
@@ -59,19 +59,14 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
-    <div class="modal fade" tabindex="-1" role="dialog" id="searchbox">
+    <div id="maintenance" class="modal fade" tabindex="-1" role="dialog" id="searchbox">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form id="search" method="post" action="index.html">
-                        <input type="text" name="search" placeholder="Tìm kiếm lễ hội..." ng-keyup="searchKeyword()" ng-model="keySearch" id="key" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" />
-                        <ul class="showSearch">
-                            <li ng-repeat="item in dataSearch"><a href="/create/festival/{{item._id}}">{{item.title.trunc(80)}}</a></li>
-                        </ul>
-                    </form>
+                    <h3> Chức Năng Này Đang Được Bảo Trì </h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

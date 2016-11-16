@@ -37,6 +37,8 @@ login.directive('validPasswordC', function() {
 });
 
 login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route) {
+  $scope.isLogining = false;
+
   $scope.init = function() {
     $scope.needAlert = false;
     $scope.alert = "";
@@ -120,7 +122,9 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     userInfo.password = $scope.password;
     if($scope.email != "" &&  $scope.password != "")
     {
+      $scope.isLogining = true;
         userService.login(userInfo, function(response) {
+          $scope.isLogining = false;
           if (response.status == 200) {
             var data = response.data;
             if (data.token != null) {

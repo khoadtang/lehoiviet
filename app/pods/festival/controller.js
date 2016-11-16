@@ -8,11 +8,12 @@ festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
     };
 }]);
 
-festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout) {
+festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout, eventService) {
   $scope.point = 0;
   $scope.editable = -1;
   $scope.editableContent = [];
   $scope.comments = [];
+  $scope.album = [];
   $scope.initData = function() {
     // add listener
     $('#watchVideo').on('hidden.bs.modal', function () {
@@ -55,6 +56,14 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
             }
           }
         });
+
+        for (var i = 0; i < $scope.event.length; ++i){
+          eventService.getById($scope.event[i]._id, function(response) {
+            if (response.status == 200) {
+              $scope.event = response.data.data;
+            }
+          });
+        }
       }
     });
   };
@@ -96,6 +105,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   getComments = function(){
+    $scope.album = [];
     var festivalId = $routeParams.festivalId;
     if (festivalId < 0 || festivalId == null || festivalId == undefined) {
       return;
@@ -103,11 +113,15 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
     festivalService.getComments(festivalId, function(response){
       $scope.comments = response.data.data;
+      for (var i = 0; i < $scope.comments.length; ++i){
+        $scope.album.push.apply($scope.album, $scope.comments[i].imageId);
+      }
     });
   }
 
-  $scope.watchSlide = function () {
+  $scope.watchSlide = function (shownImage) {
     $('#slideImage').modal('show')
+    $scope.shownImage = shownImage;
   }
 
   $scope.watchVideo = function () {

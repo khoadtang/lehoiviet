@@ -116,7 +116,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     eventService.getAll(festivalId, function(response) {
       if (response.status == 200) {
         $scope.events = response.data.data;
-        console.log($scope.events);
       }
     })
   };

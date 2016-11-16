@@ -46,4 +46,7 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     }
     $rootScope.notification.unseen = 0;
   };
+  $scope.onMaintenance = function(){
+    $('#maintenance').modal('show');
+  }
 });
