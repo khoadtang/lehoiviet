@@ -42,7 +42,7 @@
 
           <li ng-show="$root.token != null">
             <a class="menu-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()">
-              <img ng-src="http://lehoiviet.herokuapp.com/{{$root.avatar}}" alt="" />
+              <img ng-src="http://lehoiviet.herokuapp.com{{$root.avatar}}" alt="" />
             </a>
           </li>
           <li class="login"><a class=" hover-menu" type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>

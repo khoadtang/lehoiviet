@@ -74,11 +74,15 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   }
 
   $scope.showModalChangeAvatar = function () {
+    $('#upEditableImage').on('hidden.bs.modal', function(){
+      resetImageSelector();
+    });
+
     $('#upEditableImage').modal('show');
   }
 
   $scope.onEditableImageSelected = function(element) {
-
+    resetImageSelector();
     $scope.myEditableCroppedImage='';
     var selectedFile = element.files[0];
     var reader = new FileReader();
@@ -97,9 +101,18 @@ user.controller("userController", function($rootScope, $scope, userService, fest
 
     $scope.isChangingAvatar = true;
     userService.changeAvatar(data, function(response){
-      $scope.isChangingAvatar = false;
+      resetImageSelector();
       $('#upEditableImage').modal('hide');
+
+      $scope.isChangingAvatar = false;
+      $scope.user.avatar = response.data.data.avatar;
+      $rootScope.avatar = $scope.user.avatar;
     });
+  }
+
+  resetImageSelector = function() {
+    $scope.editableImage = null;
+    $scope.myEditableCroppedImage = null;
   }
 
   $scope.onEditFestival = function(festivalId){
