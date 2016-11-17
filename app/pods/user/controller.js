@@ -6,7 +6,11 @@ user.controller("userController", function($rootScope, $scope, userService, fest
 
   $scope.initData = function() {
     if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId > 0){
-      $scope.isVisiter = true;
+      console.log($rootScope.uid + ", " + $scope.isVisiter);
+      if ($rootScope.uid != $scope.isVisiter){
+        $scope.isVisiter = true;
+      }
+
     }
     if (!$scope.isVisiter && ($rootScope.uid == null || $rootScope.uid == undefined)) {
       window.location = "#/";
