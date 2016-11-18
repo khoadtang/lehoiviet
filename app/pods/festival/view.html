@@ -9,6 +9,7 @@
   height: 300px;
 }
 </style>
+
 <div id="article" ng-init="initData()">
     <div class="info-festival bg-white">
         <div class="container" data-ng-init="getReview()">
@@ -88,9 +89,21 @@
                             <a href="" ng-click="onSubscribe()" title="Lên lịch"><i class="fa fa-plane" aria-hidden="true"></i></a>
                             <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
                             <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                            <a href="" ng-click="onUploadImage()" title="Upload hình ảnh"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
+
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="maintenance" class="modal fade" tabindex="-1" role="dialog" id="searchbox">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3> Chức Năng Này Đang Được Bảo Trì </h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -170,6 +183,7 @@
                 <div class="item">
                     <h3><i class="fa fa-thumb-tack" aria-hidden="true" style="padding-left: 16px;"></i></i>Vị trí</h3>
                     <div class="content">
+                       <ng-map center="{{location}}"></ng-map>
                     </div>
                 </div>
                 <div class="item">
@@ -207,7 +221,7 @@
                                 <div class="col-sm-11 comment-render-content">
                                     <div class="commen-render-header">
                                         <a href="">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
-                                        <span>{{cmt.createAt}}</span>
+                                        <span>{{dateHelper.parse(cmt.createAt)}}</span>
                                         <button class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <button class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </div>
@@ -361,6 +375,7 @@
 </div>
 
 <script type="text/javascript">
+
 $(function() {
     $("html, body").stop().animate({scrollTop:0}, '2000', 'swing');
 

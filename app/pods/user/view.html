@@ -89,6 +89,7 @@
                 <a href="#"><span>3</span>Bản lưu</a>
                 <a href="#">Tạo sự kiện <i class="fa fa-plus" aria-hidden="true"></i></a>
               </div>
+              <h2 class="text-center" style="margin: 30px 0" ng-show="festivals.length <= 0">Bạn chưa tạo lễ hội nào</h2>
               <div class="list-event-created">
                 <div class="item" ng-repeat="festival in festivals">
                   <span class="'draft': festival.status == 1, 'pending': festival.status == 2, 'public': festival.status == 3">{{$root.status[festival.status]}}</span>
@@ -98,7 +99,7 @@
                     </div>
                     <div class="left w-80">
                       <h5>{{festival.title}}</h5>
-                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>{{festival.timeBegin}}</p>
+                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>{{dateHelper.parse(festival.timeBegin != null ? festival.timeBegin : null)}}</p>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{festival.address.city}}</p>
                       <div class="action-event">
                         <button ng-show="!isVisiter" type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>

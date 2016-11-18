@@ -1,9 +1,10 @@
 var user = angular.module("lehoiviet");
 
-user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService, $routeParams) {
+user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService, $routeParams, dateHelper) {
   $scope.isChangingAvatar = false;
   $scope.isVisiter = false;
-
+  $scope.dateHelper = dateHelper;
+  $scope.festivals = [];
   $scope.initData = function() {
     if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId > 0){
       console.log($rootScope.uid + ", " + $scope.isVisiter);
@@ -78,11 +79,14 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   }
 
   $scope.showModalChangeAvatar = function () {
-    $('#upEditableImage').on('hidden.bs.modal', function(){
-      resetImageSelector();
-    });
+    if (!$scope.isVisiter) {
+      $('#upEditableImage').on('hidden.bs.modal', function(){
+        resetImageSelector();
+      });
 
-    $('#upEditableImage').modal('show');
+      $('#upEditableImage').modal('show');
+    }
+
   }
 
   $scope.onEditableImageSelected = function(element) {

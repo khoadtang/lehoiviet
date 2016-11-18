@@ -8,6 +8,10 @@ app.service("net", function($http, ENV, $rootScope) {
     $http.get(ENV.apiUrl + url).then(eventHandler);
   };
 
+  netService.getGoogle = function(url, eventHandler) {
+    $http.get(url).then(eventHandler);
+  };
+
   netService.post = function(url, param, eventHandler) {
     $http.defaults.headers.common['Authorization'] = $rootScope.token;
     $http.post(ENV.apiUrl + url, param).then(eventHandler);
