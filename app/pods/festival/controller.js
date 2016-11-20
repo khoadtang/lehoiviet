@@ -8,18 +8,20 @@ festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
     };
 }]);
 
-festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout, eventService) {
+festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout, eventService, googleService) {
   $scope.point = 0;
   $scope.editable = -1;
   $scope.editableContent = [];
   $scope.comments = [];
   $scope.album = [];
+  $scope.dateHelper;
   $scope.initData = function() {
     // add listener
     $('#watchVideo').on('hidden.bs.modal', function () {
       $('iframe').attr('src', $('iframe').attr('src'));
     })
 
+    $scope.dateHelper = dateHelper;
     $rootScope.currentPage = "festival";
     $scope.isUploading = false;
     $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
@@ -34,7 +36,18 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.festival = response.data.data;
         $scope.festival.timeBegin = dateHelper.parse($scope.festival.timeBegin);
         $scope.festival.timeEnd = dateHelper.parse($scope.festival.timeEnd);
-
+        $scope.fullAddress =  $scope.festival.address.district + "," + $scope.festival.address.city;
+        $scope.fullAddress = $scope.fullAddress.replace(/\s+/g, '');
+        console.log($scope.fullAddress);
+        googleService.getLocation($scope.fullAddress, function(response){
+          var data = response.data;
+          $scope.latitude = data.results[0].geometry.location.lat;
+          $scope.longitude = data.results[0].geometry.location.lng;
+          $scope.location = [];
+          $scope.location.push($scope.latitude);
+          $scope.location.push($scope.longitude);
+          console.log($scope.location);
+        });
         updateLikeElementState();
         updateSubscribeElementState();
         festivalService.checkUserRate(festivalId, function(response){
@@ -134,7 +147,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.postVideo = function () {
-    $('#postVideo').modal('show');
+    $('#maintenance').modal('show');
   }
 
   $scope.onLike = function() {
@@ -242,6 +255,12 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   }
 
   $scope.onSubmitComment = function() {
+    if ($rootScope.token == null) {
+      $('#userLogin').modal('show');
+      return;
+    }
+
+
     if ($scope.formData == null || $scope.formData == undefined) {
       $scope.formData = new FormData();
     }

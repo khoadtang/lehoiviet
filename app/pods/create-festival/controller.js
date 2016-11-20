@@ -1,7 +1,7 @@
 var createFestival = angular.module("lehoiviet");
 
 createFestival.controller("createFestivalController", function($scope, $rootScope, festivalService,
-  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper, $routeParams) {
+  categoryService, provinceService, imageService, dateHelper, $window, $compile, $sce, eventService, dateHelper, $routeParams, $timeout) {
   var festivalId = {};
   var tabPriority = {
     "eventPost" : 1,
@@ -80,6 +80,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   };
 
   $scope.onChangeTab = function(info){
+
     if (info == null || info == undefined) {
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
@@ -89,10 +90,18 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       for (var tabName in tabPriority) {
         if (tabPriority[tabName] == maxAccessablePriority) {
           info = tabName;
+          if (info == 'detailPost'){
+            $('.btn-create-event').addClass('hide');
+            $('.box-save2').addClass('hide')
+          }
         }
       }
       this.onSave(info);
     } else {
+      if (info == 'detailPost'){
+        $('.btn-create-event').addClass('hide');
+        $('.box-save2').addClass('hide')
+      }
       selectedTabPriority = getTabPriorityByEventName(info);
       if (selectedTabPriority > maxAccessablePriority) {
         return;
@@ -391,6 +400,10 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
           festivalService.submit(festivalId, function(response) {
             showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
             $scope.isCreatingFestival = false;
+            $timeout(function() {
+              window.location = "#/";
+            }, 10 * 1000);
+
           })
         }
       }

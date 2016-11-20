@@ -10,6 +10,9 @@ dateHelper.service("dateHelper", function(){
   };
 
   dateHelper.parse = function(date) {
+    if (date == null || date == undefined){
+      return "";
+    }
     var getString = date.split("T");
     var format = getString[0].split("-");
     var hour = getString[1].split(":");

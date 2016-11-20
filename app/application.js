@@ -1,4 +1,4 @@
-var app = angular.module("lehoiviet", ["ngRoute", "component", "ngCookies", "ngSanitize", "ng.ckeditor", "ngImgCrop"]);
+var app = angular.module("lehoiviet", ["ngRoute", "component", "ngCookies", "ngSanitize", "ng.ckeditor", "ngImgCrop", "ngMap"]);
 
 app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
@@ -74,7 +74,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.constant("ENV", {
   apiUrl: "http://api.lehoiviet.vn",
-  gateWay: "http://api.lehoiviet.vn"
+  gateWay: "http://127.0.0.1:3000"
 });
 
 app.constant("FestivalStatus", {
@@ -85,6 +85,7 @@ app.constant("FestivalStatus", {
 
 app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus) {
   $scope.init = function() {
+
     $rootScope.status = FestivalStatus;
     $rootScope.token = null;
 
