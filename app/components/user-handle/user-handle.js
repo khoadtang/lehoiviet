@@ -126,6 +126,8 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.login = function() {
+    $('#btnLogin').attr("disabled");
+    console.log("Login Login");
     var userInfo = {};
     userInfo.email = $scope.email;
     userInfo.password = $scope.password;

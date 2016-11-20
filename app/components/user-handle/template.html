@@ -68,8 +68,7 @@
                                     </label>
                                 </div>
                                 <div class="col-xs-6" style="text-align: right ">
-                                    <!-- <button type="Submit" class="btn-blue " ng-click="login()">Đăng nhập</button> -->
-                                    <button type="button" class="btn-blue btn-fix" ng-click="login()">
+                                    <button ng-disabled="isLogining" type="button" class="btn-blue btn-fix" ng-click="login()">
                                       <div ng-show="!isLogining">
                                         Đăng Nhập
                                       </div>
