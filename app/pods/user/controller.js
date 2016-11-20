@@ -6,7 +6,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   $scope.dateHelper = dateHelper;
   $scope.festivals = [];
   $scope.initData = function() {
-    if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId > 0){
+    if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId >= 0){
       console.log($rootScope.uid + ", " + $scope.isVisiter);
       if ($rootScope.uid != $scope.isVisiter){
         $scope.isVisiter = true;
@@ -97,7 +97,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     },{
       type: 'submitting',
       allow_dismiss: false,
-      
+
     });
   }
 
