@@ -150,11 +150,12 @@
 .list-info h3 i {
   width: 50px;
   height: 50px;
-  background: #efefef none repeat scroll 0 0;
+  background: #247BA0 none repeat scroll 0 0;
   padding-left: 14px;
   font-size: 25px;
   line-height: 50px;
   margin-right: 20px;
+  color: #fff;
 }
 .list-info h4 {
   font-size: 16px;
