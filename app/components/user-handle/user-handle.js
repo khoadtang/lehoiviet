@@ -42,19 +42,19 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   $scope.init = function() {
     $scope.needAlert = false;
     $scope.alert = "";
-    $scope.firstName = null;
-    $scope.lastName = null;
-    $scope.password = null;
-    $scope.gender = null;
-    $scope.message = null;
+    $scope.firstName = '';
+    $scope.lastName = '';
+    $scope.password = '';
+    $scope.gender = '';
+    $scope.message = '';
 
     $('#login').on('hidden.bs.modal', function () {
       console.log("Close");
-      $scope.firstName = null;
-      $scope.lastName = null;
-      $scope.email = null;
-      $scope.password = null;
-      $scope.password_c = null;
+      $scope.firstName = '';
+      $scope.lastName = '';
+      $scope.email = '';
+      $scope.password = '';
+      $scope.password_c = '';
     })
   };
   $scope.showModal = function(id){
