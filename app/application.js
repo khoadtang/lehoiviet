@@ -90,7 +90,7 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
     $rootScope.token = null;
 
     userService.autoLogin(function(response){
-      if(response.status == 200) {
+      if(response.data.success) {
         var data = response.data;
         $rootScope.token = data.token;
         $rootScope.email = data.user.email;

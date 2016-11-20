@@ -47,6 +47,15 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     $scope.password = null;
     $scope.gender = null;
     $scope.message = null;
+
+    $('#login').on('hidden.bs.modal', function () {
+      console.log("Close");
+      $scope.firstName = null;
+      $scope.lastName = null;
+      $scope.email = null;
+      $scope.password = null;
+      $scope.password_c = null;
+    })
   };
   $scope.showModal = function(id){
 
