@@ -209,13 +209,14 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       $scope.isSavingBeforeEnter = true;
     }
 
-    festivalService.save(festival, $scope.festival.id, function(response) {
+    console.log($scope.festival.id);
+    festivalService.save(festival, $scope.festival._id, function(response) {
       if (response.status == 200) {
         showSavingNotification("Lưu Thành Công");
-        $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
+        $scope.festival._id = $scope.festival._id == null ? response.data.data._id : $scope.festival._id;
         $scope.isSaving = false;
         $scope.isSavingBeforeEnter = false;
-        festivalId = $scope.festival.id;
+        festivalId = $scope.festival._id;
 
         if (tabNeedUpdate != null && tabNeedUpdate != undefined) {
           $scope.isSaving = false;
@@ -390,11 +391,11 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     festival = $scope.festival;
     $scope.isCreatingFestival = true;
     console.log(festival);
-    festivalService.save(festival, $scope.festival.id, function(response) {
+    festivalService.save(festival, $scope.festival._id, function(response) {
       if (response.status == 200) {
-        $scope.festival.id = $scope.festival.id == null ? response.data.data._id : $scope.festival.id;
+        $scope.festival._id = $scope.festival._id == null ? response.data.data._id : $scope.festival._id;
 
-        festivalId = $scope.festival.id;
+        festivalId = $scope.festival._id;
 
         if (!isUpdate) {
           festivalService.submit(festivalId, function(response) {
