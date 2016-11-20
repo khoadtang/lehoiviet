@@ -49,7 +49,16 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     $scope.message = '';
 
     $('#login').on('hidden.bs.modal', function () {
-      $('#login').bootstrapValidator('resetForm', true);
+      $scope.email = "";
+      $scope.password = "";
+      $scope.lastName = "";
+      $scope.firstName = "";
+      $scope.gender = "";
+      $scope.password_c = "";
+      $scope.emailpw = "";
+      $scope.loginForm.$setPristine();
+      $scope.registerForm.$setPristine();
+      $scope.forgotPassword.$setPristine();
     })
   };
   $scope.showModal = function(id){
