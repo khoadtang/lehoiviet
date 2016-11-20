@@ -16,7 +16,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     if (!$scope.isVisiter && ($rootScope.uid == null || $rootScope.uid == undefined)) {
       window.location = "#/";
     };
-    $rootScope.currentPage = "profile";
+    $rootScope.currentPage = "user-profile";
 
     if ($scope.isVisiter){
       initVissterGUI();

@@ -74,7 +74,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.constant("ENV", {
   apiUrl: "http://api.lehoiviet.vn",
-  gateWay: "http://127.0.0.1:3000"
+  gateWay: "http://api.lehoiviet.vn"
 });
 
 app.constant("FestivalStatus", {
