@@ -71,6 +71,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     $scope.isUpdatingProfile = true;
     userService.update($rootScope.uid, $scope.user, function(response){
       $scope.isUpdatingProfile = false;
+      showSubmittingNotification("Thay đổi thành công");
     });
   };
 
@@ -87,6 +88,17 @@ user.controller("userController", function($rootScope, $scope, userService, fest
       $('#upEditableImage').modal('show');
     }
 
+  }
+
+  showSubmittingNotification = function(message) {
+    $.notify({
+      icon: 'fa fa-check',
+      message: message,
+    },{
+      type: 'submitting',
+      allow_dismiss: false,
+      
+    });
   }
 
   $scope.onEditableImageSelected = function(element) {
