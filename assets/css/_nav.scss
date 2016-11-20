@@ -13,7 +13,7 @@
   }
 }
 .navbar-nav > li {
-  > .menu-avatar, .menu-create-post, .btn-notify{
+  >.menu-create-post, .btn-notify{
     padding: 7px 0;
   }
 }
@@ -24,9 +24,12 @@
   background-color: transparent;
 }
 .menu-avatar{
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-top: 7px;
+  background-color: #ddd;
+  padding: 0 !important;
   img{
     width: 36px;
     height: auto;
@@ -60,8 +63,8 @@
     padding-bottom: 10px;
     &:hover,
     &:focus {
-        border-bottom: 5px solid #247ba0;
-        color: #247ba0;
+      border-bottom: 5px solid #247ba0;
+      color: #247ba0;
     }
   }
   .video-live{
@@ -79,35 +82,35 @@
   }
 }
 .notify{
-    >a{
-        font-size: 30px;
-        display: block;
-        width: 40px;
-        height: 50px;
-        overflow: hidden;
-        line-height: 0;
-        position: relative;
-        color: #247ba0;
-        span{
-          background-color: #c00;
-          border-radius: 50%;
-          color: #ffffff;
-          display: block;
-          font-size: 9px;
-          height: 18px;
-          width: 18px;
-          position: absolute;
-          right: 0px;
-          top: 5px;
-          text-align: center;
-        }
+  >a{
+    font-size: 30px;
+    display: block;
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    line-height: 0;
+    position: relative;
+    color: #247ba0;
+    span{
+      background-color: #c00;
+      border-radius: 50%;
+      color: #ffffff;
+      display: block;
+      font-size: 9px;
+      height: 18px;
+      width: 18px;
+      position: absolute;
+      right: 0px;
+      top: 5px;
+      text-align: center;
     }
-    .dropdown-menu{
-      width: 350px;
-      max-height: 300px;
-      // overflow-x: hidden;
-      overflow-y:auto;
-    }
+  }
+  .dropdown-menu{
+    width: 350px;
+    max-height: 300px;
+    // overflow-x: hidden;
+    overflow-y:auto;
+  }
 }
 .dropdown-menu > .notification-message-item > a{
   padding: 10px 5px;
