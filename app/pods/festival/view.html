@@ -193,8 +193,8 @@
                                     <div class="commen-render-header">
                                         <a href="">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
                                         <span>{{dateHelper.parse(cmt.createAt)}}</span>
-                                        <button class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <button class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                        <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </div>
                                     <div class="comment-render-text">
                                         <p ng-show="editable !== cmt._id">{{cmt.content}}</p>
