@@ -141,6 +141,7 @@
                     <div class="content">
                         <h4>Hình ảnh</h4>
                         <div class="row list-img-article">
+                            <h2 class="text-center" style="margin: 30px 0" ng-show="album.length <= 0">Chưa có hình ảnh nào</h2>
                             <img ng-repeat="img in album" ng-click="watchSlide(img.imgName)"class="col-xs-3" src="http://api.lehoiviet.vn{{img.imgName}}" alt=""/>
                         </div>
                         <h4>Video</h4>
