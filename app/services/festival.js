@@ -25,9 +25,14 @@ app.service("festivalService", function($http, net, $rootScope) {
         net.upload('/festival/delete/', festival, eventHandler);
     };
 
-    festivalService.getAll = function(eventHandler) {
-        net.get('/festival/lists/', eventHandler);
+    festivalService.getCommingSoon = function(eventHandler) {
+        net.get('/festival/lists/commingsoon', eventHandler);
     };
+
+    festivalService.getFamouse = function(eventHandler){
+      net.get('/festival/lists/famous', eventHandler);
+    };
+
 
     festivalService.getById = function(id, eventHandler) {
         net.get('/festival/show/'.concat(id), eventHandler);

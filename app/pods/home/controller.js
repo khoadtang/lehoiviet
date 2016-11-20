@@ -9,7 +9,7 @@ home.controller("homeController", function($scope, $rootScope, festivalService) 
   };
 
   getCommingSoonFestival = function() {
-    festivalService.getAll(function(response) {
+    festivalService.getCommingSoon(function(response) {
       if (response.status == 200) {
         $scope.commingSoonFestival = response.data.data;
         $scope.isLoaded = true;
@@ -20,7 +20,7 @@ home.controller("homeController", function($scope, $rootScope, festivalService) 
   };
 
   getFeaturedFestival = function() {
-    festivalService.getAll(function(response) {
+    festivalService.getFamouse(function(response) {
       if (response.status == 200) {
         $scope.featuredFestival = response.data.data;
       } else {
