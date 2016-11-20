@@ -92,7 +92,7 @@
               <h2 class="text-center" style="margin: 30px 0" ng-show="festivals.length <= 0">Bạn chưa tạo lễ hội nào</h2>
               <div class="list-event-created">
                 <div class="item" ng-repeat="festival in festivals">
-                  <span class="'draft': festival.status == 1, 'pending': festival.status == 2, 'public': festival.status == 3">{{$root.status[festival.status]}}</span>
+                  <span ng-class="{'draft': festival.status === 1, 'pending': festival.status === 2, 'public': festival.status === 3}">{{$root.status[festival.status]}}</span>
                   <div class="clearfix">
                     <div class="left w-20">
                       <img src="assets/img/Logo_square.png" alt="" />
