@@ -49,12 +49,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     $scope.message = '';
 
     $('#login').on('hidden.bs.modal', function () {
-      console.log("Close");
-      $scope.firstName = '';
-      $scope.lastName = '';
-      $scope.email = '';
-      $scope.password = '';
-      $scope.password_c = '';
+      $('#login').bootstrapValidator('resetForm', true);
     })
   };
   $scope.showModal = function(id){
