@@ -28,7 +28,7 @@
 }
 .festival-item-base .festival-img a img {
   width: 100%;
-  height: auto;
+  min-height: 220px;
 }
 .festival-item-base .festival-info {
   padding: 10px;
@@ -317,13 +317,4 @@
   background-color: transparent;
   border: none;
   overflow: hidden;
-}
-
-.btn-fix{
-  width: 120px;
-  height: 50px;
-  font-size: 18px;
-  background-color: #228aa9;
-  border: 0;
-  color: #fff;
 }

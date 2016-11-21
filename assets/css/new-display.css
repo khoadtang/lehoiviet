@@ -65,8 +65,8 @@
   overflow: hidden;
 }
 .info-festival .thumbnail-article img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 .info-festival span {
   text-transform: uppercase;

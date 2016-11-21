@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
                     <a href="#" class="thumbnail-article">
-                        <img class="img-responsive" ng-src="http://lehoiviet.herokuapp.com/{{festival.thumbnail.resize}}" />
+                        <img class="img-responsive" ng-src="http://125.253.113.15:3000//{{festival.thumbnail.resize}}" />
                     </a>
                 </div>
 
@@ -146,7 +146,7 @@
                         <h4>Hình ảnh</h4>
                         <div class="row list-img-article">
                             <h5 class="text-center" style="margin: 30px 0" ng-show="album.length <= 0">Chưa có hình ảnh nào</h5>
-                            <img ng-repeat="img in album" ng-click="watchSlide(img.imgName)"class="col-xs-3" src="http://api.lehoiviet.vn{{img.imgName}}" alt=""/>
+                            <img ng-repeat="img in album" ng-click="watchSlide(img.imgName)"class="col-xs-3" src="http://125.253.113.15:3000/{{img.imgName}}" alt=""/>
                         </div>
                         <h4>Video</h4>
                         <div class="row list-img-article">
@@ -206,7 +206,7 @@
                                         <textarea ng-show="editable == cmt._id" ng-model="editableContent[cmt._id]" ng-init="editableContent[cmt._id] = cmt.content" class="form-control" placeholder="Nhập bình luận của bạn..."></textarea>
                                         <div class="comment-render-image clearfix">
                                           <a href="" class="edit-image" ng-repeat="img in cmt.imageId">
-                                            <img ng-src="http://lehoiviet.herokuapp.com/{{img.imgName}}" alt="" />
+                                            <img ng-src="http://125.253.113.15:3000/{{img.imgName}}" alt="" />
                                             <span ng-show="editable == cmt._id" ng-click="onDeleteImageEditableMode(cmt, img)">x</span>
                                             <div id="delete-image-editable" class="modal fade " tabindex="-1" role="dialog">
                                                 <div class="modal-dialog modal-sm">
@@ -249,7 +249,7 @@
                 <div class="modal-body">
                     <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i>
                     </button>
-                    <img src="http://api.lehoiviet.vn{{shownImage}}" alt=""/>
+                    <img src="http://125.253.113.15:3000{{shownImage}}" alt=""/>
                 </div>
             </div>
         </div>
