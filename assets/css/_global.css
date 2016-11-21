@@ -374,6 +374,10 @@ nav {
   background-color: #f80;
 }
 
+.btn-fix {
+  min-width: 110px;
+}
+
 .feedback-form .infomation-box span {
   color: #c00;
 }
