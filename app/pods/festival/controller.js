@@ -335,7 +335,9 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     }
 
     festivalService.subscribe($scope.festival._id, function(response){
+
       updateSubscribeElementState();
+      showSavingNotification("Bạn đã đăng kí theo dõi lễ hội này!");
     });
   }
 
@@ -454,6 +456,21 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.closeImmediately = function(){
     $('#duplicated-image').modal('hide');
+  }
+
+  showSavingNotification = function(message){
+    $.notify({
+      icon: 'fa fa-check',
+      message: message,
+    },{
+      type: 'saving',
+      allow_dismiss: false,
+      offset: {
+        x: 50,
+        y: 55
+      },
+      delay: 500
+    });
   }
 });
 

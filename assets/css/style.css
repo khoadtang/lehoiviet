@@ -858,7 +858,6 @@ nav {
   margin: 0;
 }
 
-/*begin:promotion*/
 /*btn-top*/
 .btn-top {
   width: 40px;
@@ -961,6 +960,10 @@ nav {
   color: #fff;
 }
 
+.carousel-inner .item {
+  width: 400px;
+}
+
 /*#login*/
 .text-error {
   color: #c00;
@@ -988,7 +991,7 @@ nav {
   margin: 0 auto;
 }
 
-.navbar-nav > li > .menu-create-post, .navbar-nav > li .btn-notify {
+.navbar-nav > li > .menu-create-post {
   padding: 7px 0;
 }
 
@@ -1018,13 +1021,11 @@ nav {
 .menu-create-post i {
   font-size: 16px;
   display: block;
-  width: 36px;
+  width: 20px;
   height: 36px;
   margin: 0 auto;
   border-radius: 50%;
-  background-color: #247BA0;
-  color: #ffffff;
-  padding: 10px 11px;
+  padding: 10px 3px;
 }
 
 .navbar-right > li {
@@ -1051,13 +1052,13 @@ nav {
 }
 
 .navbar-nav > li > .btn-notify {
-  padding: 10px 0 0 5px;
+  padding: 13px 0 0 5px;
 }
 
 .notify > a {
-  font-size: 30px;
+  font-size: 22px;
   display: block;
-  width: 40px;
+  width: 34px;
   height: 50px;
   overflow: hidden;
   line-height: 0;
