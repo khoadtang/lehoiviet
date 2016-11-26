@@ -17,36 +17,37 @@
           <li ng-click="onMaintenance()"><a  class="hover-menu">Video</a></li>
           <li ng-click="onMaintenance()"><a  class="video-live">Trực tiếp</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
-          <li class="dropdown notify">
-              <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
-                  <span ng-show="$root.notification.unseen > 0">{{$root.notification.unseen}}</span></a>
-              <ul class="dropdown-menu">
-                  <li class="notification-message-item" ng-repeat="festival in $root.notification">
-                    <a class="clearfix" href="#/festival/{{festival.data._id}}" ng-click="onClickNotification()">
-                      <div class="thumnail">
-                        <img src="./assets/img/img2.png" alt="" />
-                      </div>
-                      <div class="message">
-                        <p>{{festival.data.title}}</p>
-                        <span color='red'>SẮP DIỄN RA</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" style="display:block; text-align:center; padding: 5px" ng-show="$root.notification.length > 10">Xem thêm</a>
-                  </li>
-              </ul>
-          </li>
-
-          <li ng-show="$root.token != null">
-            <a class="menu-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()">
-              <img ng-src="http://125.253.113.15:3000{{$root.avatar}}" alt="" />
-            </a>
-          </li>
-          <li class="login"><a class=" hover-menu" type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>
-        </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <div ng-show="$root.token != null">
+                <li><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                <li class="dropdown notify">
+                  <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
+                      <span ng-show="$root.notification.unseen > 0">{{$root.notification.unseen}}</span></a>
+                  <ul class="dropdown-menu">
+                      <li class="notification-message-item" ng-repeat="festival in $root.notification">
+                        <a class="clearfix" href="#/festival/{{festival.data._id}}" ng-click="onClickNotification()">
+                          <div class="thumnail">
+                            <img src="./assets/img/img2.png" alt="" />
+                          </div>
+                          <div class="message">
+                            <p>{{festival.data.title}}</p>
+                            <span color='red'>SẮP DIỄN RA</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" style="display:block; text-align:center; padding: 5px" ng-show="$root.notification.length > 10">Xem thêm</a>
+                      </li>
+                  </ul>
+              </li>
+                <li>
+                <a class="menu-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()">
+                  <img ng-src="http://125.253.113.15:3000{{$root.avatar}}" alt="" />
+                </a>
+              </li>
+              </div>
+              <li><a class="btn-login" type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>
+          </ul>
       </div><!--/.nav-collapse -->
     </div>
   </nav>

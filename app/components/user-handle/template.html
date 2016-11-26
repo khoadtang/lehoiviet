@@ -48,7 +48,7 @@
                                     <div class="form-group">
                                         <input name="email" type="email" placeholder="Email" ng-model="email" required/>
                                         <!-- /.input group -->
-                                        <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid"></span>
+                                        <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
                                         <span ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Email là bắt buộc</span>
                                         <span ng-show="loginForm.email.$error.email">Email không hợp lệ</span>
                                         </span>
@@ -56,8 +56,8 @@
                                     <div class="form-group">
                                         <input name="password" type="Password" placeholder="Password" required="required" ng-model="password" />
                                         <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-                            <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
-                            </span>
+                                            <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
