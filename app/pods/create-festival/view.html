@@ -28,7 +28,7 @@
           <!--</div>-->
           <section class="eventPostTab feedback-form infoUserTab">
               <div class="imageHeader">
-                <img ng-src="http://lehoiviet.herokuapp.com{{backgroundImage}}" alt="" class="img-responsive" imageonload="onImageUploaded()"/>
+                <img ng-src="http://125.253.113.15:3000{{backgroundImage}}" alt="" class="img-responsive" imageonload="onImageUploaded()"/>
                 <div class="bg-tran"></div>
                 <div class="btn-position-upload" ng-show="!isUploading">
                   <div class="file-input btn-load-image btn-file">
@@ -175,7 +175,8 @@
                       <tr ng-repeat="event in events">
                         <td>{{event.name}}</td>
                         <td class="center" width="30" style="cursor: pointer; color: green">
-                          <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </td>
                       </tr>
                     </tbody>
