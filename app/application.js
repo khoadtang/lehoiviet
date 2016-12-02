@@ -92,7 +92,6 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
     $rootScope.token = null;
 
     userService.autoLogin(function(response){
-      if(response.data.success) {
         var data = response.data;
         $rootScope.token = data.token;
         $rootScope.email = data.user.email;
@@ -114,7 +113,7 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
 
         gatewayService.online();
         gatewayService.listen();
-      }
+
     });
   };
 });

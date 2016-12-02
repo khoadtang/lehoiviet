@@ -59,6 +59,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
       $scope.loginForm.$setPristine();
       $scope.registerForm.$setPristine();
       $scope.forgotPassword.$setPristine();
+      $scope.errorMessage = null;
     })
   };
   $scope.showModal = function(id){
@@ -130,6 +131,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.login = function() {
+    console.log("Login");
     $('#btnLogin').attr("disabled");
     console.log("Login Login");
     var userInfo = {};
@@ -179,7 +181,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.forgetPassword = function() {
-
+    console.log("Forget Password");
   };
 
 
