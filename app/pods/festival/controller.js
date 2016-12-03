@@ -40,8 +40,17 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.fullAddress = $scope.fullAddress.replace(/\s+/g, '+');
         console.log($scope.fullAddress);
         googleService.getLocation($scope.fullAddress, function(response){
-          console.log("Test" + response);
+          console.log($scope.fullAddress);
           var data = response.data;
+          if (data.results.length <= 0){
+            $scope.latitude = 10.8230989;
+            $scope.longitude = 106.6296638;
+
+            $scope.location = [];
+            $scope.location.push($scope.latitude);
+            $scope.location.push($scope.longitude);
+            return 0;
+          }
           $scope.latitude = data.results[0].geometry.location.lat;
           $scope.longitude = data.results[0].geometry.location.lng;
           $scope.location = [];
@@ -471,7 +480,25 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       },
       delay: 500
     });
-  }
+  };
+
+  $scope.convertToCurrency = function(data){
+    if (data != null && data != "undefined"){
+      data = data.toString();
+      var result = "";
+      var counter = 0;
+      for (var i = data.length - 1; i >= 0; --i){
+        result += data.charAt(i);
+        ++counter;
+        if (counter % 3 == 0 && counter < data.length){
+          result += ".";
+        }
+      }
+
+      var result = result.split("").reverse().join("");
+      return result;
+    }
+  };
 });
 
 

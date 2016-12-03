@@ -20,7 +20,6 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
       }
 
       user.password = cookiesManager.get("password");
-
       if (user.password == null) {
         return;
       }

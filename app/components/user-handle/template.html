@@ -21,7 +21,7 @@
                                         </span>
                                     </div>
                                     <div style="text-align: right;">
-                                        <button type="Submit" class="btn-blue" ng-click="emailPasswd()">Gửi</button>
+                                        <button type="Submit" class="btn-blue" ng-click="forgetPassword()" ng-keydown="$event.keyCode == 13 ? forgetPassword() : null">Gửi</button>
                                     </div>
                                 </div>
                                 <div class="toolbar clearfix modal-footer">
@@ -46,7 +46,7 @@
                                 <div class="details">
                                     <span class="text-error" ng-show="errorMessage != null">{{errorMessage}}</span>
                                     <div class="form-group">
-                                        <input name="email" type="email" placeholder="Email" ng-model="email" required/>
+                                        <input name="email" type="email" placeholder="Email" ng-model="email" required  ng-keydown="$event.keyCode == 13 ? login() : null"/>
                                         <!-- /.input group -->
                                         <span class="text-error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
                                         <span ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Email là bắt buộc</span>
@@ -54,7 +54,7 @@
                                         </span>
                                     </div>
                                     <div class="form-group">
-                                        <input name="password" type="Password" placeholder="Password" required="required" ng-model="password" />
+                                        <input name="password" type="Password" placeholder="Password" required="required" ng-model="password"  ng-keydown="$event.keyCode == 13 ? login() : null"/>
                                         <span class="text-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
                                             <span ng-show="loginForm.password.$error.required">Mật khẩu là bắt buộc</span>
                                         </span>
@@ -68,7 +68,7 @@
                                     </label>
                                 </div>
                                 <div class="col-xs-6" style="text-align: right ">
-                                    <button ng-disabled="isLogining" type="button" class="btn-blue btn-fix" ng-click="login()">
+                                    <button ng-disabled="isLogining" type="button" class="btn-blue btn-fix" ng-click="login()" >
                                       <div ng-show="!isLogining">
                                         Đăng Nhập
                                       </div>
@@ -119,32 +119,32 @@
                                           <span>{{alert}}</span>
                                       </span>
                                         <div class="form-group col-xs-12 row">
-                                            <input ng-model="firstName" name="firstName" type="text" placeholder="Tên" required>
+                                            <input ng-model="firstName" name="firstName" type="text" placeholder="Tên" required  ng-keydown="$event.keyCode == 13 ? signup() : null">
                                             <span class="text-error" ng-show="registerForm.firstName.$dirty && registerForm.firstName.$invalid">
                                                 <span ng-show="registerForm.firstName.$error.required">Tên là bắt buộc.</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input ng-model="lastName" name="lastName" type="text" placeholder="Họ" required>
+                                            <input ng-model="lastName" name="lastName" type="text" placeholder="Họ" required  ng-keydown="$event.keyCode == 13 ? signup() : null">
                                             <span class="text-error" ng-show="registerForm.lastName.$dirty && registerForm.lastName.$invalid">
                                               <span ng-show="registerForm.lastName.$error.required">Họ là bắt buộc.</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input ng-model="email" name="email" type="email" placeholder="Email" required>
+                                            <input ng-model="email" name="email" type="email" placeholder="Email" required  ng-keydown="$event.keyCode == 13 ? signup() : null">
                                             <span class="text-error" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
                                             <span ng-show="registerForm.email.$error.required">Email là bắt buộc</span>
                                                   <span ng-show="registerForm.email.$error.email">Email không đúng</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input ng-model="password" name="password" type="password" placeholder="Mật khẩu" required>
+                                            <input ng-model="password" name="password" type="password" placeholder="Mật khẩu" required  ng-keydown="$event.keyCode == 13 ? signup() : null">
                                             <span class="text-error" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
                                               <span ng-show="registerForm.password.$error.required">Mật khẩu là bắt buộc</span>
                                             </span>
                                         </div>
                                         <div class="form-group col-xs-12 row">
-                                            <input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Nhập lại mật khẩu" valid-password-c="password"  required>
+                                            <input type="password" id="password_c" name="password_c" ng-model="password_c" placeholder="Nhập lại mật khẩu" valid-password-c="password"  required  ng-keydown="$event.keyCode == 13 ? signup() : null">
                                             <span class="text-error" ng-show="registerForm.password_c.$error.required && registerForm.password_c.$dirty && resgiterFrom.password.$invalid">Vui lòng xác thực mật khẩu</span>
                                             <span class="text-error" ng-show="registerForm.password_c.$error.noMatch">Mật khẩu không khớp</span>
                                         </div>
@@ -153,10 +153,10 @@
                                         <p class="col-xs-3">Giới tính:</p>
                                         <div class="col-xs-9 row" required style="margin-top: 5px;">
                                             <label class="radio-inline">
-                                                <input ng-model="gender" ng-value="1" type="radio" name="gender">Nam
+                                                <input ng-model="gender" ng-value="1" type="radio" name="gender"  ng-keydown="$event.keyCode == 13 ? signup() : null">Nam
                                             </label>
                                             <label class="radio-inline">
-                                                <input ng-model="gender" ng-value="2" type="radio" name="gender">Nữ
+                                                <input ng-model="gender" ng-value="2" type="radio" name="gender"  ng-keydown="$event.keyCode == 13 ? signup() : null">Nữ
                                             </label>
                                         </div>
                                     </div>

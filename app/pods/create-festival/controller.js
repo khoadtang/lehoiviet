@@ -72,7 +72,8 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
         $scope.festival.typeEvent = $scope.festival.typeEvent._id;
         $scope.festival.mainAddress = $scope.festival.address.mainAddress;
         $scope.festival.district = $scope.festival.address.district;
-        $scope.festival.city = $scope.festival.address.city;
+        $scope.festival.city = $scope.festival.address.code;
+        console.log($scope.festival.city);
       } else {
 
       }
