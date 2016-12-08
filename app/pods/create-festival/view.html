@@ -32,7 +32,7 @@
                 <div class="bg-tran"></div>
                 <div class="btn-position-upload" ng-show="!isUploading">
                   <div class="file-input btn-load-image btn-file">
-                    <i class="fa fa-camera" aria-hidden="true"></i>
+                      <i class="fa fa-camera" aria-hidden="true"></i>
                       Tải ảnh bìa lên&hellip;
                       <input type="file" name="file" onchange="angular.element(this).scope().onImageSelected(this)" />
                   </div>
@@ -174,9 +174,9 @@
                     <tbody>
                       <tr ng-repeat="event in events">
                         <td>{{event.name}}</td>
-                        <td class="center" width="30" style="cursor: pointer; color: green">
+                        <td class="center" width="60" style="cursor: pointer; color: green">
                             <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <i class="fa fa-trash-o" aria-hidden="true" ng-click="onConfirmDeleteEvent(event._id)"></i>
                         </td>
                       </tr>
                     </tbody>
@@ -333,16 +333,17 @@
 </div>
 </div>
 <!--alert succes delete post-->
-<div class="modal fade" id="post-success" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+<div class="modal fade" id="delete-event" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
     <div class="modal-dialog modal-sm">
-        <form role="form" name="forgotPassword">
+        <form role="form">
             <div class="modal-content">
                 <div class="modal-body" style="text-align: center;">
                     <div class="row">
-                        <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Đăng bài thành công</label>
+                        <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Bạn muốn xóa sự kiện?</label>
                         <div class="col-xs-12 ">
+                            <button class="btn btn-default" data-dismiss="modal">Không</button>
+                            <button type="button" class="btn btn-primary" ng-click="onDeleteEvent()">Đồng ý</button>
                         </div>
-                        <a href="#/" type="button" class="btn btn-primary">Đồng ý</a>
                     </div>
                 </div>
             </div>
