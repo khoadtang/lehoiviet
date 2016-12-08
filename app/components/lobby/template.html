@@ -9,12 +9,12 @@
         <div class="col-sm-6 col-xs-12 " ng-repeat="event in events" >
             <div class="festival-item-base">
                 <div class="festival-img">
-                    <a href="#/festival/{{event._id}}"><img class="img-responsive" src="http://125.253.113.15:3000/{{event.thumbnail.resize}}" /></a>
+                    <a href="#/festival/{{event._id}}" title="{{event.title}}"><img class="img-responsive" src="http://125.253.113.15:3000/{{event.thumbnail.resize}}" /></a>
                 </div>
                 <div class="festival-info">
                     <div class="header row">
                         <div class="">
-                            <div class="title"><a href="#/festival/{{event._id}}">{{event.title}}</a></div>
+                            <div class="title"><a href="#/festival/{{event._id}}" class="{{event.title}}">{{event.title}}</a></div>
                             <span class="price" ng-if="event.priceTicket!=0">
                                 Giá: <lable>Từ</lable> {{convertToCurrency(event.priceTicket)}} VNĐ
                             </span>
