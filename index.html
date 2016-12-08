@@ -56,6 +56,9 @@
     </div>
   <info-footer ng-show="$root.currentPage !== 'creating-festival' && $root.currentPage !== 'user-profile'"></info-footer>
 </body>
+<script src="assets/socket.io-1.4.5.js"></script>
+<!-- inject webrtc -->
+<script src="assets/libs/webrtc/adapter.js"></script>
 
 <!-- Include Libs -->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -63,7 +66,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
 <script src="assets/libs/angular/angular-cookies.js"></script>
 <script src="assets/libs/angular/angular-sanitize.min.js"></script>
-<script src="assets/socket.io-1.4.5.js"></script>
+<script src="app/webrtc/rtcClient.js"></script>
 <script src="assets/libs/bootstrap/js/bootstrap.js"></script>
 <script src="assets/libs/ng-ckeditor.js"></script>
 <script src="assets/libs/ng-ckeditor.min.js"></script>
@@ -78,6 +81,7 @@
 <script src="app/components/components.js"></script>
 <script src="app/services/net.js"></script>
 
+
 <!-- inject controller -->
 <script src="app/pods/home/controller.js"></script>
 <script src="app/pods/festivals/controller.js"></script>
@@ -88,7 +92,8 @@
 <script src="app/pods/user/controller.js"></script>
 <script src="app/pods/account/controller.js"></script>
 <script src="app/pods/festival/controller.js"></script>
-<script src="app/pods/live/controller.js"></script>
+<script src="app/pods/lives/controller.js"></script>
+<script src="app/pods/create-live/controller.js"></script>
 <script src="app/pods/404/controller.js"></script>
 
 <!-- inject component -->
