@@ -38,9 +38,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.festival.timeEnd = dateHelper.parse($scope.festival.timeEnd);
         $scope.fullAddress =  $scope.festival.address.mainAddress + "," +  $scope.festival.address.district + "," + $scope.festival.address.city;
         $scope.fullAddress = $scope.fullAddress.replace(/\s+/g, '+');
-        console.log($scope.fullAddress);
         googleService.getLocation($scope.fullAddress, function(response){
-          console.log($scope.fullAddress);
           var data = response.data;
           if (data.results.length <= 0){
             $scope.latitude = 10.8230989;
@@ -56,8 +54,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
           $scope.location = [];
           $scope.location.push($scope.latitude);
           $scope.location.push($scope.longitude);
-          console.log($scope.fullAddress);
-          console.log($scope.location);
         });
         updateLikeElementState();
         updateSubscribeElementState();

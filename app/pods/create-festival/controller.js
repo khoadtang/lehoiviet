@@ -382,6 +382,12 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     });
   }
 
+  $scope.onDeleteEvent = function(eventId){
+    eventService.delete(eventId, function(response){
+
+    });
+  };
+
   $scope.onSubmit = function() {
     var festival = {};
 
