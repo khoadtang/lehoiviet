@@ -176,7 +176,7 @@
                         <td>{{event.name}}</td>
                         <td class="center" width="60" style="cursor: pointer; color: green">
                             <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="onUpdateEvent(event._id)"></i>
-                            <i class="fa fa-trash-o" aria-hidden="true" ng-click="onDeleteEvent(event._id)"></i>
+                            <i class="fa fa-trash-o" aria-hidden="true" ng-click="onConfirmDeleteEvent(event._id)"></i>
                         </td>
                       </tr>
                     </tbody>
@@ -342,7 +342,7 @@
                         <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Bạn muốn xóa sự kiện?</label>
                         <div class="col-xs-12 ">
                             <button class="btn btn-default" data-dismiss="modal">Không</button>
-                            <button type="button" class="btn btn-primary">Đồng ý</button>
+                            <button type="button" class="btn btn-primary" ng-click="onDeleteEvent()">Đồng ý</button>
                         </div>
                     </div>
                 </div>

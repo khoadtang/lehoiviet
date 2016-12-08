@@ -334,13 +334,10 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     event.dateEnd = $('#dateEnd').val();
     event.timeEnd = $('#timeEnd').val();
 
-    console.log(event);
-
     if (event._id == null || event._id == undefined) {
       eventService.create(festivalId, event, function(response) {
         if (response.status == 200) {
           $scope.event.isSaving = false;
-          console.log("Create Successfully");
           getEvents();
 
           $('.box-event').addClass('hide');
@@ -352,7 +349,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       eventService.updateById(event._id, event, function(response) {
         if (response.status == 200) {
           $scope.isSaving = false;
-          console.log("Create Successfully");
           getEvents();
 
           $('.box-event').addClass('hide');
@@ -382,10 +378,16 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     });
   }
 
-  $scope.onDeleteEvent = function(eventId){
-    eventService.delete(eventId, function(response){
-
+  $scope.onDeleteEvent = function(){
+    eventService.delete($scope.selectedEventId, function(response){
+      $("#delete-event").modal("hide");
     });
+  };
+
+  $scope.onConfirmDeleteEvent = function(eventId){
+    $("#delete-event").modal("show");
+
+    $scope.selectedEventId = eventId;
   };
 
   $scope.onSubmit = function() {
@@ -397,7 +399,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
     festival = $scope.festival;
     $scope.isCreatingFestival = true;
-    console.log(festival);
     festivalService.save(festival, $scope.festival._id, function(response) {
       if (response.status == 200) {
         $scope.festival._id = $scope.festival._id == null ? response.data.data._id : $scope.festival._id;
