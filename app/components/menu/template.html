@@ -20,8 +20,6 @@
           <ul class="nav navbar-nav navbar-right">
                 <li ng-show="$root.token != null"><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
 
-                <li ng-show="$root.token != null"><a class="menu-create-post" href="#/live/create"><i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
-
                 <li class="dropdown notify" ng-show="$root.token != null">
                   <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>
                       <span ng-show="$root.notification.unseen > 0">{{$root.notification.unseen}}</span></a>
