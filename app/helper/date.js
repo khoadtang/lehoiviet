@@ -44,5 +44,12 @@ dateHelper.service("dateHelper", function(){
     return moment(dateTime, "DD-MM-YYYY HH:mm");
   };
 
+  dateHelper.formatDate = function(date){
+    if (date == null || date == undefined){
+      return;
+    }
+
+    return moment(date).format("DD-MM-YYYY");
+  };
   return dateHelper;
 })
