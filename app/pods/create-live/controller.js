@@ -32,10 +32,8 @@
             return new Promise(function(resolve, reject) {
                     try {
                         //camera.stream.stop() no longer works
-                        for (var track in camera.stream.getTracks()) {
-                            console.log(track)
-                            track.stop();
-                        }
+                        var track = camera.stream.getTracks()[0];
+                        track.stop();
                         camera.preview.src = '';
                         resolve();
                     } catch (error) {
@@ -75,19 +73,23 @@
                 } else {
                     camera.start()
                         .then(function(result) {
-                            localStream.festivalId = $scope.festivalId;
-                            localStream.name = $scope.nameStream;
-                            localStream.link = $window.location.host + '/channel/' + client.getId();
-                            var liveData = {};
-                            liveData.name = localStream.name;
-                            liveData.festivalId = localStream.festivalId;
-                            liveData.streamId = client.getId();
+                            if ($scope.festivalId != null && $scope.nameStream != null) {
+                                localStream.festivalId = $scope.festivalId;
+                                localStream.name = $scope.nameStream;
+                                localStream.link = $window.location.host + '/channel/' + client.getId();
+                                var liveData = {};
+                                liveData.name = localStream.name;
+                                liveData.festivalId = localStream.festivalId;
+                                liveData.streamId = client.getId();
 
-                            liveService.create(liveData, function(response) {
-                                if (response.status == 200) {
-                                    client.send('readyToStream', { name: localStream.name, festivalId: localStream.festivalId });
-                                }
-                            })
+                                liveService.create(liveData, function(response) {
+                                    if (response.status == 200) {
+                                        client.send('readyToStream', { name: localStream.name, festivalId: localStream.festivalId });
+                                    }
+                                })
+                            } else {
+                                console.log('dont')
+                            }
                         })
                         .catch(function(err) {
                             console.log(err);
@@ -106,22 +108,21 @@
     ]);
 
     live.controller('RemoteStreamsController', ['camera', '$location', '$http', '$routeParams', 'liveService',
-        function(camera, $location, $http, $routeParams,liveService) {
-        var streamId = $routeParams.streamId;
-        var rtc = this;
-        rtc.id = streamId;
-        rtc.viewStream = function(id) {
-            client.peerInit(id);
+        function(camera, $location, $http, $routeParams, liveService) {
+            var streamId = $routeParams.streamId;
+            var rtc = this;
+            rtc.id = streamId;
+            client.peerInit(streamId);
+
+
+            liveService.getByStreamId(streamId, function(response) {
+                if (response.status == 200) {
+                    rtc.stream = response.data.data;
+                } else {
+
+                }
+            })
         }
-
-
-        liveService.getByStreamId(streamId, function(response) {
-            if (response.status == 200) {
-                rtc.stream = response.data.data;
-            } else {
-
-            }
-        })
-    }]);
+    ]);
 
 })();
