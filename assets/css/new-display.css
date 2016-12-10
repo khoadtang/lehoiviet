@@ -179,21 +179,16 @@
 }
 .list-img-article .item-liveStream {
   position: relative;
-  width: 22%;
-  float: left;
-  margin-right: 3%;
-  max-height: 188px;
   overflow: hidden;
   text-align: center;
   cursor: pointer;
 }
 .list-img-article .item-liveStream img {
-  width: auto;
-  height: 188px;
+  width: 100%;
+  height: auto;
 }
 .list-img-article .item-liveStream .overlay-front {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
   padding: 55px 10px 0;
@@ -202,12 +197,11 @@
   left: 0;
   font-size: 25px;
 }
-.list-img-article .item-liveStream .overlay-front i {
-  margin-right: 10px;
-  color: #E62118;
-}
 .list-img-article .item-liveStream .overlay-front p {
-  margin: 10px 0;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
 }
 
 .actionUser a {
