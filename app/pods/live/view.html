@@ -1,6 +1,8 @@
+<div ng-init="init()">
 <div class="create-live-stream">
     <div class="container">
-        <div class="bg-over">
+        <video id="streamPlayer" muted="muted" autoplay="true" ng-show="isStreaming"></video>
+        <div class="bg-over" ng-show="!isStreaming">
             <div class="image-live">
                 <div class="overlay-create">
                     <div class="row-overlay clearfix">
@@ -8,15 +10,16 @@
                             <i class="fa fa-video-camera" aria-hidden="true"></i>Live
                         </div>
                         <div>
-                            <h2>Tâm điểm ánh nhìn</h2>
-                            <p>Thời gian: 22/12/2016</p>
-                            <p>Địa điểm: Hồ chí minh</p>
+                            <h2>{{festival.title}}</h2>
+                            <p>Thời gian: {{formatDate(festival.timeBegin)}}</p>
+                            <p>{{festival.address.city}}</p>
                         </div>
                     </div>
-                    <button><i class="fa fa-play-circle" aria-hidden="true"></i></button>
+                    <button ng-click="startStreamming()"><i class="fa fa-play-circle" aria-hidden="true"></i></button>
                 </div>
                 <img src="http://wallpapersrage.com/wp-content/uploads/2016/05/EWB0009963-Lanterns-released-into-sky-during-a-festival-Chiang-Mai-province-Thailand-640x400.jpg" alt=""/>
             </div>
         </div>
     </div>
+</div>
 </div>

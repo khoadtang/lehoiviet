@@ -16,7 +16,7 @@
 
     live.factory('camera', ['$rootScope', '$window', function($rootScope, $window) {
         var camera = {};
-        camera.preview = $window.document.getElementById('localVideo');
+        camera.preview = $window.document.getElementById('streamPlayer');
 
         camera.start = function() {
             return requestUserMedia(mediaConfig)

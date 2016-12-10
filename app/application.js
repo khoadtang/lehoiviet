@@ -67,12 +67,12 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: "createLiveController",
             controllerAs: 'createLive'
         })
-        .when('/live/:streamId', {
-            templateUrl: 'app/pods/create-live/view.html',
-            controller: "createLiveController",
-            controllerAs: 'createLive'
-        })
-        .when('/live', {
+        // .when('/live/:streamId', {
+        //     templateUrl: 'app/pods/create-live/view.html',
+        //     controller: "createLiveController",
+        //     controllerAs: 'createLive'
+        // })
+        .when('/live/:festivalId', {
             templateUrl: 'app/pods/live/view.html',
             controller: "liveController",
             controllerAs: 'live'
