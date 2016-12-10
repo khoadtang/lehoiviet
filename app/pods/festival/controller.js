@@ -88,7 +88,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.events = response.data.data;
 
         dateHelper.sortBydate($scope.events);
-        console.log($scope.events);
+
       }
     })
   };
@@ -494,6 +494,15 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       var result = result.split("").reverse().join("");
       return result;
     }
+  };
+
+  $scope.onStream = function(festivalId){
+    if ($rootScope.token == null) {
+      $('#userLogin').modal('show');
+      return;
+    }
+
+    window.location = "#live/" + $routeParams.festivalId;
   };
 });
 
