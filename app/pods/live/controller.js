@@ -1,6 +1,6 @@
 var live = angular.module("lehoiviet");
 
-live.controller("liveController", function($scope, festivalService, $routeParams, dateHelper, $window) {
+live.controller("liveController", function($scope, festivalService, $routeParams, dateHelper, $window, liveService) {
     $scope.formatDate = dateHelper.formatDate;
 
     $scope.client = new PeerManager();
@@ -38,6 +38,18 @@ live.controller("liveController", function($scope, festivalService, $routeParams
       }) .catch(Error('Failed to get access to local media.')).then(function(result){
         $scope.$apply(function(){
           $scope.isStreaming = true;
+
+          var data = {};
+          data.name = $scope.festival.title;
+          data.festivalId = $scope.festivalId;
+          data.streamId = $scope.client.getId();
+
+          liveService.create(data, function(response) {
+            console.log(response);
+            if (response.status == 200) {
+              $scope.client.send('readyToStream', { name: data.name, festivalId: data.festivalId});
+            }
+          });
         });
       });
     };
