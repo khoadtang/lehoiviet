@@ -559,6 +559,10 @@ nav {
 #footer .description p {
   max-width: 315px;
 }
+#footer .description img {
+  width: 100%;
+  height: auto;
+}
 #footer .infoWeb {
   color: #aaa;
   padding: 10px;
