@@ -101,7 +101,7 @@ app.constant("FestivalStatus", {
     "3": "Đã Duyệt"
 });
 
-app.run(['$rootScope', '$window',function($rootScope, $window) {
+app.run(['$rootScope', '$window', 'facebookService', 'userService', function($rootScope, $window, facebookService, userService) {
 
   $rootScope.user = {};
 
@@ -115,7 +115,7 @@ app.run(['$rootScope', '$window',function($rootScope, $window) {
        ( https://developers.facebook.com/apps/ )
       */
 
-      appId: "1049854778455517",
+      appId: "226048441093415",
 
       /*
        Adding a Channel File improves the performance
@@ -144,6 +144,18 @@ app.run(['$rootScope', '$window',function($rootScope, $window) {
       xfbml: true
     });
 
+      facebookService.checkFacebookLoginStage(function(res){
+          console.log(res.authResponse.accessToken);
+          userService.loginByFacebook(res.authResponse.accessToken, function(response){
+              console.log(response);
+              var data = response.data;
+              $rootScope.token = data.token;
+              $rootScope.email = data.user.email;
+              $rootScope.avatar = data.user.avatar;
+              $rootScope.firstName = data.user.firstName;
+              $rootScope.uid = data.user._id;
+          });
+      });
   };
 
   (function(d){

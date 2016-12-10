@@ -42,7 +42,7 @@
               </li>
                 <li ng-show="$root.token != null">
                 <a class="menu-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="actionUserPanel()">
-                  <img ng-src="http://125.253.113.15:3000{{$root.avatar}}" alt="" />
+                  <img ng-src="{{$root.avatar}}" alt="" />
                 </a>
               </li>
               <li><a class="btn-login" type="button" ng-click="loginView()" ng-show="$root.token == null">Đăng Nhập</a></li>
