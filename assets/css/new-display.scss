@@ -182,20 +182,15 @@
     }
     .item-liveStream{
         position: relative;
-        width: 22%;
-        float: left;
-        margin-right: 3%;
-        max-height: 188px;
         overflow: hidden;
         text-align: center;
         cursor: pointer;
         img{
-            width: auto;
-            height: 188px;
+            width: 100%;
+            height: auto;
         }
         .overlay-front{
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
             width: 100%;
             height: 100%;
             padding: 55px 10px 0;
@@ -203,12 +198,11 @@
             top:0;
             left: 0;
             font-size: 25px;
-            i{
-                margin-right: 10px;
-                color: #E62118;
-            }
             p{
-                margin: 10px 0;
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+                width: 100%;
             }
         }
     }
