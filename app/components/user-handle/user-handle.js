@@ -36,7 +36,7 @@ login.directive('validPasswordC', function() {
   }
 });
 
-login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route) {
+login.controller("userHandleController", function($scope, $rootScope, userService, cookiesManager, gatewayService, festivalService, $route, facebookService) {
   $scope.isLogining = false;
 
   $scope.init = function() {
@@ -184,5 +184,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
     console.log("Forget Password");
   };
 
-
+  $scope.onLoginFacebook = function(){
+    facebookService.login();
+  };
 });

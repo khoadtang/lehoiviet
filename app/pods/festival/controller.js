@@ -78,6 +78,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         });
 
         getEvents($scope.festival._id);
+
+        $scope.getStreams(festivalId);
       }
     });
   };
@@ -475,6 +477,12 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         y: 55
       },
       delay: 500
+    });
+  };
+
+  $scope.getStreams = function(festivalId){
+    festivalService.getStreams(festivalId, function(response){
+
     });
   };
 
