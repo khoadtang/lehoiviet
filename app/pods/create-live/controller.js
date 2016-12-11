@@ -32,8 +32,7 @@
             return new Promise(function(resolve, reject) {
                     try {
                         //camera.stream.stop() no longer works
-                        var track = camera.stream.getTracks()[0];
-                        track.stop();
+                        camera.stream.getVideoTracks()[0].stop();
                         camera.preview.src = '';
                         resolve();
                     } catch (error) {
