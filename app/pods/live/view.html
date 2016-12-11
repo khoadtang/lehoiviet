@@ -4,11 +4,11 @@
         <div class="video-live" ng-show="isStreaming">
             <video id="streamPlayer" muted="muted" autoplay="true"></video>
             <div class="overlay-video">
-                <a href=""><i class="fa fa-stop-circle-o" aria-hidden="true"></i></a>
+                <a href="" ng-click="stopStreamming()"><i class="fa fa-stop-circle-o" aria-hidden="true"></i></a>
             </div>
             <img src="assets/img/giphy.gif" alt="">
         </div>
-        
+
         <div class="image-live" ng-show="!isStreaming">
             <div class="overlay-create">
                 <div class="row-overlay clearfix">

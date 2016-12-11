@@ -19,6 +19,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     // add listener
     $('#watchVideo').on('hidden.bs.modal', function () {
       $('iframe').attr('src', $('iframe').attr('src'));
+      $("#remoteVideosContainer").children().remove();
     })
 
     $scope.dateHelper = dateHelper;
@@ -151,8 +152,11 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.shownImage = shownImage;
   }
 
-  $scope.watchVideo = function () {
-    $('#watchVideo').modal('show')
+  $scope.watchVideo = function (streamId) {
+    $('#watchVideo').modal('show');
+    console.log(streamId);
+    var clientPlayer = new PeerManager();
+    clientPlayer.peerInit(streamId);
   }
 
   $scope.postVideo = function () {
@@ -482,7 +486,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.getStreams = function(festivalId){
     festivalService.getStreams(festivalId, function(response){
-
+      $scope.streams = response.data.data;
+      console.log($scope.streams);
     });
   };
 

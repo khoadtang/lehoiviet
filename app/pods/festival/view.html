@@ -150,21 +150,7 @@
                         </div>
                         <h4>Video live stream</h4>
                         <div class="list-img-article row">
-                            <div class="item-liveStream col-sm-3" ng-click="watchVideo()">
-                                <img  class="" src="assets/img/gif-bg.gif" alt=""/>
-                                <div class="overlay-front">
-                                    <p>#1</p>
-                                </div>
-                            </div>
-
-                            <div class="item-liveStream col-sm-3" ng-click="watchVideo()">
-                                <img  class="" src="assets/img/gif-bg.gif" alt=""/>
-                                <div class="overlay-front">
-                                    <p>#1</p>
-                                </div>
-                            </div>
-
-                            <div class="item-liveStream col-sm-3" ng-click="watchVideo()">
+                            <div class="item-liveStream col-sm-3" ng-repeat="stream in streams" ng-click="watchVideo(stream.streamId)">
                                 <img  class="" src="assets/img/gif-bg.gif" alt=""/>
                                 <div class="overlay-front">
                                     <p>#1</p>
@@ -277,8 +263,9 @@
         <div  class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body" id="body-player">
-                    <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                    <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="{{srcVideo | trustAsResourceUrl}}" frameborder="0" allowFullScreen></iframe>
+                    <!-- <button type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button> -->
+                    <div class="youtube-player" id="remoteVideosContainer"></div>
+                    <!-- <iframe id="yt-player" title="YouTube video player" class="youtube-player" type="text/html" width="100%" ng-src="{{srcVideo | trustAsResourceUrl}}" frameborder="0" allowFullScreen></iframe> -->
                 </div>
             </div>
         </div>

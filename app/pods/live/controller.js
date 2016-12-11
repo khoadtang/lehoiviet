@@ -55,6 +55,18 @@ live.controller("liveController", function($scope, festivalService, $routeParams
     };
 
     $scope.stopStreamming = function(){
-
+      new Promise(function(resolve, reject) {
+            try {
+                //camera.stream.stop() no longer works
+                $scope.stream.stream.getVideoTracks()[0].stop();
+                $scope.stream.preview.src = '';
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+          })
+        .then(function(result) {
+            $rootScope.$broadcast('cameraIsOn', false);
+        });
     };
 });
