@@ -66,7 +66,7 @@ live.controller("liveController", function($scope, festivalService, $routeParams
             }
           })
         .then(function(result) {
-            $rootScope.$broadcast('cameraIsOn', false);
+            
         });
     };
 });
