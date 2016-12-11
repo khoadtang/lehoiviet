@@ -145,6 +145,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
         $rootScope.token = null;
         $rootScope.notification.unseen = 0;
         $rootScope.notification = null;
+        $rootScope.uid = -1;
         cookiesManager.removeUser();
         window.location = "#/";
         gatewayService.offline();
