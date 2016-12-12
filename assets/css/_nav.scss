@@ -184,3 +184,12 @@
     color: #fff !important;
   }
 }
+.navbar-toggle .icon-bar{
+  background-color: #2467A5;
+}
+
+@media  (max-width: 767px){
+  .navbar-brand{
+    padding-top: 5px;
+  }
+}
