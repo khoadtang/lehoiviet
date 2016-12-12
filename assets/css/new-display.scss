@@ -136,14 +136,26 @@
     .modal-body{
         padding: 0;
     }
+    .modal-dialog{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 #watchVideo{
+    padding-right:0;
     iframe{
         height: 500px;
     }
     button{
         top: -5px;
         right: -18px;
+    }
+    .youtube-player{
+        video{
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+        }
     }
 }
 .list-info{
@@ -185,6 +197,7 @@
         overflow: hidden;
         text-align: center;
         cursor: pointer;
+        margin-bottom: 10px;
         img{
             width: 100%;
             height: auto;
@@ -388,5 +401,22 @@
             background-color: #247ba0;
             color: #ffffff;
         }
+    }
+}
+
+@media (max-width: 400px) {
+    #watchVideo{
+        .modal-dialog{
+            margin-top: 30%;
+        }
+    }
+    #slideImage .modal-dialog{
+        width: calc(100% - 30px);
+        height: auto;
+        margin-top: 30%;
+
+    }
+    .info-festival .thumbnail-article{
+        height: 255px;
     }
 }

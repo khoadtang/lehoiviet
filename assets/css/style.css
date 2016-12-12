@@ -560,8 +560,8 @@ nav {
   max-width: 315px;
 }
 #footer .description img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-height: 85px;
 }
 #footer .infoWeb {
   color: #aaa;
@@ -965,6 +965,11 @@ nav {
   margin-top: 15px;
 }
 
+@media (max-width: 400px) {
+  #footer .description img {
+    max-height: 60px;
+  }
+}
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/
 #pageHome h2 {
   padding: 0px;
@@ -1201,6 +1206,74 @@ nav {
   opacity: 1;
 }
 
+@media (max-width: 767px) {
+  .create-live-stream .image-live {
+    width: 100%;
+    height: auto;
+  }
+  .create-live-stream .image-live img {
+    width: 100%;
+    height: auto;
+  }
+  .create-live-stream .row-overlay > div:last-child {
+    font-size: 15px;
+  }
+  .create-live-stream .row-overlay > div:last-child h2 {
+    font-size: 25px;
+  }
+  .create-live-stream .row-overlay > div:last-child p {
+    margin: 0;
+  }
+  .create-live-stream .row-overlay > div:first-child {
+    font-size: 50px;
+  }
+  .create-live-stream .row-overlay button {
+    font-size: 50px;
+    margin-top: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .create-live-stream .overlay-create {
+    padding: 0 10px 0;
+  }
+  .create-live-stream .overlay-create button {
+    margin-top: 25px;
+  }
+  .create-live-stream .row-overlay > div {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+  .create-live-stream .row-overlay > div:first-child {
+    padding-top: 35px;
+    font-size: 35px;
+  }
+  .create-live-stream .row-overlay > div:last-child {
+    text-align: center;
+  }
+  .create-live-stream .row-overlay > div:last-child h2 {
+    font-size: 20px;
+  }
+  .create-live-stream .video-live video {
+    width: 100%;
+    height: auto;
+  }
+  .create-live-stream .video-live img {
+    height: 35px;
+  }
+}
+@media (max-width: 550px) {
+  .create-live-stream {
+    padding: 20px 0;
+  }
+  .create-live-stream .image-live {
+    min-height: calc(100vh - 100px);
+  }
+  .create-live-stream .image-live img {
+    height: calc(100vh - 100px);
+    width: auto;
+  }
+}
 .menu-fix-top {
   background-color: #ffffff;
 }
@@ -1380,4 +1453,14 @@ nav {
 .btn-login:hover {
   background-color: #247ba0 !important;
   color: #fff !important;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #2467A5;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    padding-top: 5px;
+  }
 }
