@@ -57,7 +57,7 @@
                                 <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.timeBegin}} <span style="margin: 0 3px">-</span> {{festival.timeEnd}}
                             </li>
                             <li>
-                                <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToCurrency(festival.priceTicket)}} đ
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.priceTicket == 0 ? 'Miễn Phí' : convertToCurrency(festival.priceTicket) + ' VNĐ'}}
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.contactInfo.phoneNumber}}
@@ -86,7 +86,7 @@
                             </li>
                         </ul>
                         <div class="actionUser">
-                            <a href="" ng-click="onSubscribe()" title="Lên lịch"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onSubscribe()" title="Lên lịch" class=""><i class="fa fa-rss" aria-hidden="true"></i></a>
                             <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
                             <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                             <a href="" ng-click="onStream()" title="Live stream"><i class="fa fa-video-camera"></i></a>
@@ -204,7 +204,7 @@
                                 <div class="col-sm-11 comment-render-content">
                                     <div class="commen-render-header">
                                         <a href="">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
-                                        <span>{{dateHelper.parse(cmt.createAt)}}</span>
+                                        <span>{{dateHelper.convertToAgo(cmt.createAt)}}</span>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </div>

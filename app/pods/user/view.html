@@ -99,11 +99,11 @@
                     </div>
                     <div class="left w-80">
                       <h5>{{festival.title}}</h5>
-                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>{{dateHelper.parse(festival.timeBegin != null ? festival.timeBegin : null)}}</p>
+                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>Create Time: {{dateHelper.formatDate(festival.createAt != null ? festival.createAt : null)}}</p>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{festival.address.city}}</p>
                       <div class="action-event">
                         <button ng-show="!isVisiter" type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
-                        <button ng-show="!isVisiter" type="button" name="button"><i class="fa fa-trash-o" aria-hidden="true" ng-click="onDelete()"></i></button>
+                        <button ng-show="!isVisiter" type="button" name="button" ng-click="onConfirmDelete(festival._id)"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                       </div>
                     </div>
                   </div>
@@ -169,6 +169,25 @@
                 <button type="Submit" ng-click="onChangeAvatar()">Hoàn tất</button>
             </div>
         </div>
+    </div>
+</div>
+
+<!--alert succes delete post-->
+<div class="modal fade" id="delete-festival" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top: 10px;">
+    <div class="modal-dialog modal-sm">
+        <form role="form">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <div class="row">
+                        <label class="col-xs-12" style="font-size: 20px; margin-bottom: 20px; margin-top: 20px;">Bạn muốn xóa lễ hội này?</label>
+                        <div class="col-xs-12 ">
+                            <button class="btn btn-default" data-dismiss="modal">Không</button>
+                            <button type="button" class="btn btn-primary" ng-click="onDelete()">Đồng ý</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <script>

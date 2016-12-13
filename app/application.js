@@ -145,9 +145,8 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', function($ro
     });
 
       facebookService.checkFacebookLoginStage(function(res){
-          console.log(res.authResponse.accessToken);
           userService.loginByFacebook(res.authResponse.accessToken, function(response){
-              console.log(response);
+              $('#userLogin').modal('show');
               var data = response.data;
               $rootScope.token = data.token;
               $rootScope.email = data.user.email;
@@ -184,8 +183,8 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
 
         $rootScope.status = FestivalStatus;
         $rootScope.token = null;
-
-        userService.autoLogin(function(response) {
+        $rootScope.notification = {};
+        function(response) {
             var data = response.data;
             $rootScope.token = data.token;
             $rootScope.email = data.user.email;
@@ -209,5 +208,9 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
             gatewayService.listen();
 
         });
+    };
+
+    $scope.scrollTop = function(){
+      $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
     };
 });

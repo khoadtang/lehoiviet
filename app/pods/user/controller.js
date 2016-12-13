@@ -7,7 +7,6 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   $scope.festivals = [];
   $scope.initData = function() {
     if ($routeParams.userId != null && $routeParams.userId != undefined && $routeParams.userId >= 0){
-      console.log($rootScope.uid + ", " + $scope.isVisiter);
       if ($rootScope.uid != $scope.isVisiter){
         $scope.isVisiter = true;
       }
@@ -138,6 +137,21 @@ user.controller("userController", function($rootScope, $scope, userService, fest
   $scope.onEditFestival = function(festivalId){
     window.location = "#/festival/update/".concat(festivalId);
   }
+
+  $scope.onConfirmDelete = function(festivalId){
+    $("#delete-festival").modal("show");
+    $scope.selectedFestivalId = festivalId;
+  };
+
+  $scope.onDelete = function(){
+    if ($scope.selectedFestivalId != null){
+      festivalService.delete($scope.selectedFestivalId, function(response){
+        $("#delete-festival").modal("hide");
+        $scope.selectedFestivalId = null;
+        getFestivals();
+      });
+    }
+  };
 
   $scope.logout = function() {
     userService.logout(function(response){

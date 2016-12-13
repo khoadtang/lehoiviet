@@ -21,8 +21,8 @@ app.service("festivalService", function($http, net, $rootScope) {
         net.post('/festival/update/', festival, eventHandler);
     };
 
-    festivalService.delete = function(festival, eventHandler){
-        net.upload('/festival/delete/', festival, eventHandler);
+    festivalService.delete = function(festivalId, eventHandler){
+        net.upload('/festival/delete/'.concat(festivalId), null, eventHandler);
     };
 
     festivalService.getCommingSoon = function(eventHandler) {

@@ -159,7 +159,6 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
 
               festivalService.getNotifiedFestival(function(response){
                 $rootScope.notification = response.data.data;
-                console.log($rootScope.notification + ", " + response.data.data);
                 angular.forEach($rootScope.notification, function(value, key){
                   if(!value.notifyStatus) {
                     if ($rootScope.notification.unseen == null || $rootScope.notification.unseen == undefined){

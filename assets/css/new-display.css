@@ -237,6 +237,9 @@
 .actionUser a:visited {
   text-decoration: none;
 }
+.actionUser .subcribed {
+  background-color: gray !important;
+}
 
 .comment-box {
   margin: 20px 0;
