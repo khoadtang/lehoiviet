@@ -4,33 +4,11 @@ var PeerManager = (function() {
         config = {
             peerConnectionConfig: {
                 iceServers: [{
-                    "urls": "stun:stun.l.google.com:19302"
+                    "url": "stun:stun.l.google.com:19302"
                 }, {
-                    "urls": "stun:stun.voip.aebc.com"
-                }, {
-                    "urls": "stun:stun.services.mozilla.com"
-                }, {
-                    "urls": "stun:stun.stunprotocol.org"
-                }, {
-                    "urls": "stun:provserver.televolution.net"
-                }, {
-                    "urls": "stun:stun1.l.google.com:19302"
-                }, {
-                    "urls": 'turn:numb.viagenie.ca',
-                    "credential": '123@son231994',
-                    "username": 'nvs231994@gmail.com'
-                }, {
-                    "urls": 'stun:numb.viagenie.ca',
-                    "credential": '123@son231994',
-                    "username": 'nvs231994@gmail.com'
-                }, {
-                    "url": 'turn:192.158.29.39:3478?transport=udp',
-                    "credential": 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-                    "username": '28224511:1379330808'
-                }, {
-                    "url": 'turn:192.158.29.39:3478?transport=tcp',
-                    "credential": 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-                    "username": '28224511:1379330808'
+                    "url": "turn:numb.viagenie.ca",
+                    "credential": "123@son231994",
+                    "username": "nvduc2910@gmail.com"
                 }]
             },
             peerConnectionConstraints: {
