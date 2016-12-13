@@ -204,7 +204,7 @@
                                 <div class="col-sm-11 comment-render-content">
                                     <div class="commen-render-header">
                                         <a href="">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
-                                        <span>{{dateHelper.parse(cmt.createAt)}}</span>
+                                        <span>{{dateHelper.convertToAgo(cmt.createAt)}}</span>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </div>

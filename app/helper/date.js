@@ -51,5 +51,26 @@ dateHelper.service("dateHelper", function(){
 
     return moment(date).format("DD-MM-YYYY");
   };
+
+  dateHelper.convertToAgo = function(date){
+    if (date == null || date == undefined){
+      return;
+    }
+
+    var date = moment(date).add(7, 'hours');
+    var now = moment().add(7, 'hours');
+    var diff = now.diff(date, 'minutes', true);
+
+    if (diff <= 1){
+      return 'now';
+    } else if(diff > 1 && diff <= 60) {
+      return Math.floor(diff) + " minutes ago";
+    }else if (diff > 60 && diff < 60 * 24){
+      return Math.floor(diff / 60) + " hours ago";
+    } else {
+      return Math.floor(diff / (60 * 24)) + " days ago";
+    }
+  };
+
   return dateHelper;
 })
