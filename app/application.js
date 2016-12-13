@@ -145,8 +145,9 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', function($ro
     });
 
       facebookService.checkFacebookLoginStage(function(res){
+          console.log(res.authResponse.accessToken);
           userService.loginByFacebook(res.authResponse.accessToken, function(response){
-              $('#userLogin').modal('show');
+              console.log(response);
               var data = response.data;
               $rootScope.token = data.token;
               $rootScope.email = data.user.email;
@@ -184,7 +185,7 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
         $rootScope.status = FestivalStatus;
         $rootScope.token = null;
         $rootScope.notification = {};
-        function(response) {
+        userService.autoLogin(function(response) {
             var data = response.data;
             $rootScope.token = data.token;
             $rootScope.email = data.user.email;
