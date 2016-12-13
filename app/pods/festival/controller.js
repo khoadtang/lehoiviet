@@ -374,10 +374,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.onAcceptRemove = function(){
     if ($scope.displayImages != null) {
       var index = $scope.displayImages.indexOf($scope.selectedImage);
-      console.log(index);
       if (index >= 0){
         $scope.displayImages.splice(index, 1);
-        console.log($scope.displayImages);
         $('#delete-image').modal('hide');
         $scope.selectedImage = null;
         return;
@@ -491,7 +489,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.getStreams = function(festivalId){
     festivalService.getStreams(festivalId, function(response){
       $scope.streams = response.data.data;
-      console.log($scope.streams);
     });
   };
 
