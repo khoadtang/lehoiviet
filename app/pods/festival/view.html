@@ -57,7 +57,7 @@
                                 <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.timeBegin}} <span style="margin: 0 3px">-</span> {{festival.timeEnd}}
                             </li>
                             <li>
-                                <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToCurrency(festival.priceTicket)}} đ
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.priceTicket == 0 ? 'Miễn Phí' : convertToCurrency(festival.priceTicket) + ' VNĐ'}}
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.contactInfo.phoneNumber}}
@@ -86,7 +86,7 @@
                             </li>
                         </ul>
                         <div class="actionUser">
-                            <a href="" ng-click="onSubscribe()" title="Lên lịch" class="subcribed"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                            <a href="" ng-click="onSubscribe()" title="Lên lịch" class=""><i class="fa fa-rss" aria-hidden="true"></i></a>
                             <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
                             <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                             <a href="" ng-click="onStream()" title="Live stream"><i class="fa fa-video-camera"></i></a>

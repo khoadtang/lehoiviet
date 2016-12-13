@@ -281,7 +281,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     if ($scope.displayImages == null ||  $scope.displayImages == undefined){
        $scope.displayImages = [];
     }
-    console.log($scope.displayImages.length);
     for (var i = 0; i < $scope.displayImages.length; ++i){
       $scope.formData.append("files", dataURItoBlob($scope.displayImages[i]));
     }
@@ -295,8 +294,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       if(response.status == 200) {
         $scope.isPostingComment = false;
         getComments();
-        var height = $( document ).height() - $('.comment-render').height();
-        $("html, body").stop().animate({scrollTop:height - 200}, '1000', 'swing');
+        var height = $( document ).height();
+        $("html, body").stop().animate({scrollTop:height - 2000}, '1000', 'swing');
       }
     });
   }
@@ -341,6 +340,11 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   };
 
   $scope.onSubscribe = function() {
+    if ($rootScope.token == null) {
+      $('#userLogin').modal('show');
+      return;
+    }
+
     if ($scope.festival == null || $scope.festival == undefined) {
       return;
     }

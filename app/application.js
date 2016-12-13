@@ -210,4 +210,8 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
 
         });
     };
+
+    $scope.scrollTop = function(){
+      $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
+    };
 });
