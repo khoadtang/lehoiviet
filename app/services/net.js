@@ -6,6 +6,7 @@ app.service("net", function($http, ENV, $rootScope, gatewayService) {
 
   netService.get = function(url, eventHandler) {
     gatewayService.online();
+    $http.defaults.headers.common['Authorization'] = $rootScope.token;
     $http.get(ENV.apiUrl + url).then(eventHandler);
   };
 

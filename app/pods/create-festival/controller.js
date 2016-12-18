@@ -13,7 +13,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   var backgroundImage = null;
   var isUpdate = false;
 
-  $scope.initData = function() {
+  $scope.initData = function() {1
     if ($rootScope.token == null) {
       window.location = "#/";
       return;
@@ -22,9 +22,15 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     isUpdate = $routeParams.festivalId >= 0;
 
     if (isUpdate) {
+      $scope.isUpdate = true;
       $scope.nameFinalTask = "Cập Nhật Lễ Hội";
       getFestivalById($routeParams.festivalId);
+
+      $('.box-event').addClass('hide');
+      $('.btn-create-event').removeClass('hide');
+      $('.box-save2').removeClass('hide');
     } else {
+      $scope.isUpdate = false;
       $scope.nameFinalTask = "Thêm Lễ Hội";
     }
 
@@ -68,12 +74,11 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     festivalService.getById(festivalId, function(response) {
       if (response.status == 200) {
         $scope.festival = response.data.data;
-        $scope.backgroundImage = $scope.festival.thumbnail.resize;
+        $scope.backgroundImage = $scope.festival.thumbnail.full;
         $scope.festival.typeEvent = $scope.festival.typeEvent._id;
         $scope.festival.mainAddress = $scope.festival.address.mainAddress;
         $scope.festival.district = $scope.festival.address.district;
         $scope.festival.city = $scope.festival.address.code;
-        console.log($scope.festival.city);
       } else {
 
       }
@@ -82,16 +87,22 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
   $scope.onChangeTab = function(info){
 
+      console.log(selectedTabPriority);
+      console.log(maxAccessablePriority);
+
     if (info == null || info == undefined) {
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
         ++selectedTabPriority;
       }
 
+      console.log(selectedTabPriority);
+      console.log(maxAccessablePriority);
       for (var tabName in tabPriority) {
         if (tabPriority[tabName] == maxAccessablePriority) {
           info = tabName;
-          if (info == 'detailPost'){
+          console.log(tabName);
+          if (info == 'detailPost' && !$scope.isUpdate){
             $('.btn-create-event').addClass('hide');
             $('.box-save2').addClass('hide')
           }
@@ -99,7 +110,7 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       }
       this.onSave(info);
     } else {
-      if (info == 'detailPost'){
+      if (info == 'detailPost' && !$scope.isUpdate){
         $('.btn-create-event').addClass('hide');
         $('.box-save2').addClass('hide')
       }

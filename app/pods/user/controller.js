@@ -157,8 +157,10 @@ user.controller("userController", function($rootScope, $scope, userService, fest
     userService.logout(function(response){
       if(response.status == 200) {
         $rootScope.token = null;
-        $rootScope.notification.unseen = 0;
-        $rootScope.notification = null;
+        if ($rootScope.notification != null){
+          $rootScope.notification.unseen = 0;
+          $rootScope.notification = null;
+        }
         $rootScope.uid = -1;
         cookiesManager.removeUser();
         window.location = "#/";

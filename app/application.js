@@ -47,6 +47,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: "userController",
             controllerAs: 'user'
         })
+        .when('/users', {
+            templateUrl: 'app/pods/user/view.html',
+            controller: "userController",
+            controllerAs: 'user'
+        })
         .when('/user/profile/:userId', {
             templateUrl: 'app/pods/user/view.html',
             controller: "userController",
