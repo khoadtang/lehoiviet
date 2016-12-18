@@ -47,11 +47,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: "userController",
             controllerAs: 'user'
         })
-        .when('/users', {
-            templateUrl: 'app/pods/user/view.html',
-            controller: "userController",
-            controllerAs: 'user'
-        })
+        // .when('/users', {
+        //     templateUrl: 'app/pods/user/view.html',
+        //     controller: "userController",
+        //     controllerAs: 'user'
+        // })
         .when('/user/profile/:userId', {
             templateUrl: 'app/pods/user/view.html',
             controller: "userController",
@@ -81,6 +81,11 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'app/pods/live/view.html',
             controller: "liveController",
             controllerAs: 'live'
+        })
+        .when('/users', {
+            templateUrl: 'app/pods/users/view.html',
+            controller: "usersController",
+            controllerAs: 'users'
         })
         .when('/404', {
             templateUrl: 'app/pods/404/view.html',

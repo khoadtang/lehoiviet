@@ -1,0 +1,19 @@
+<div ng-init="init()">
+  <div class="row">
+      <div class="container">
+          <div class="user-item col-sm-3 col-xs-6" ng-repeat="user in users">
+              <div class="box-item row">
+                  <div class="col-xs-5" style="text-align: center">
+                      <a href="/profile/{{user._id}}">
+                          <img class="img-circle" src="{{user.avatar}}" />
+                      </a>
+                  </div>
+                  <div class="col-xs-7 username">
+                      <a href="/profile/{{item._id}}">{{user.firstName}}</a></br>
+                      <span class="badge"> Post {{user.statistic.countpost}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
