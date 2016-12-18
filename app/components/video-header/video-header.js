@@ -17,12 +17,11 @@ videoHeader.controller("videoHeaderController", function($scope, liveService) {
   $scope.getAllStream = function(){
     liveService.get(function(response){
       $scope.streams = response.data.data;
-      if ($scope.streams.length >= 0){
+      if ($scope.streams.length > 0){
           $scope.selectedStream = $scope.streams[0];
           var clientPlayer = new PeerManager();
           clientPlayer.peerInit($scope.selectedStream.streamId);
       }
-
     });
   };
 });

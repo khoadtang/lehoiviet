@@ -66,9 +66,9 @@ dateHelper.service("dateHelper", function(){
     } else if(diff > 1 && diff <= 60) {
       return 'cách đây ' + Math.floor(diff) + " phút";
     }else if (diff > 60 && diff < 60 * 24){
-      return 'cách đây ' + Math.floor(diff / 60) + " hours ago";
+      return 'cách đây ' + Math.floor(diff / 60) + " giờ";
     } else {
-      return 'cách đây ' + Math.floor(diff / (60 * 24)) + " days ago";
+      return 'cách đây ' + Math.floor(diff / (60 * 24)) + " ngày";
     }
   };
 

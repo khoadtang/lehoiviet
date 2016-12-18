@@ -13,7 +13,19 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   var backgroundImage = null;
   var isUpdate = false;
 
-  $scope.initData = function() {1
+  $scope.initData = function() {
+    $scope.showAlert = false;
+
+    $(window).resize(function(){
+      $scope.$apply(function(){
+        if (window.innerWidth < 767){
+          $scope.showAlert = true;
+        } else {
+          $scope.showAlert = false;
+        }
+      });
+    });
+
     if ($rootScope.token == null) {
       window.location = "#/";
       return;
