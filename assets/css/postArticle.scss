@@ -19,6 +19,13 @@
 }
 #post-create{
   background-color: #ffffff;
+  .alert-funtion{
+    margin: 0;
+    padding: 10px;
+    color: #c00;
+    text-align: center;
+    text-transform: uppercase;
+  }
   .box-notify{
     margin: 10px;
   }

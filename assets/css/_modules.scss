@@ -65,6 +65,7 @@
     #userLogin, #forgot-password{
       .modal-dialog{
         width: 400px;
+        margin: 30px auto;
       }
     }
     .col-xs-6 {
@@ -72,6 +73,10 @@
     }
     .modal-title{
       font-size: 18px;
+      width: calc(100% - 30px);
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
     }
     .modal-footer{
       text-transform: uppercase;
@@ -317,6 +322,9 @@
       }
     }
   }
+  #login .btn-blue {
+    font-size: 13px;
+  }
 }
 @media (max-width: 550px) {
   .create-live-stream {
@@ -328,5 +336,20 @@
         width: auto;
       }
     }
+  }
+  #login #userLogin, #login #forgot-password{
+    .modal-dialog{
+      width: calc(100% - 30px);
+      padding-left: 17px;
+    }
+  }
+  #login .modal-title{
+    font-size: 15px;
+  }
+  #login .modal-body{
+    height: 275px;
+  }
+  .carousel-inner .item{
+    width: 100%;
   }
 }

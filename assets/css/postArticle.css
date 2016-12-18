@@ -20,6 +20,13 @@
 #post-create {
   background-color: #ffffff;
 }
+#post-create .alert-funtion {
+  margin: 0;
+  padding: 10px;
+  color: #c00;
+  text-align: center;
+  text-transform: uppercase;
+}
 #post-create .box-notify {
   margin: 10px;
 }
