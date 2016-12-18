@@ -143,19 +143,6 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', function($ro
 
       xfbml: true
     });
-
-      facebookService.checkFacebookLoginStage(function(res){
-          console.log(res.authResponse.accessToken);
-          userService.loginByFacebook(res.authResponse.accessToken, function(response){
-              console.log(response);
-              var data = response.data;
-              $rootScope.token = data.token;
-              $rootScope.email = data.user.email;
-              $rootScope.avatar = data.user.avatar;
-              $rootScope.firstName = data.user.firstName;
-              $rootScope.uid = data.user._id;
-          });
-      });
   };
 
   (function(d){
