@@ -110,6 +110,10 @@
 .festivals .item-filter-festivals > .col-sm-4 {
   margin-top: 15px;
 }
+.festivals .item-filter-festivals .col-sm-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .festivals select {
   height: 40px;
   border: none;
@@ -119,10 +123,6 @@
 }
 .festivals select option {
   padding: 6px;
-}
-.festivals .col-sm-4 {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 .festivals .festival-item-base .festival-img a {
   height: 130px;
@@ -172,7 +172,7 @@
 .input-search-festival {
   position: absolute;
   width: 100%;
-  height: 250px;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
@@ -317,4 +317,50 @@
   background-color: transparent;
   border: none;
   overflow: hidden;
+}
+
+@media (max-width: 500px) {
+  .box-input-search-festivals h2 {
+    font-size: 20px;
+  }
+
+  .input-search-festival > div {
+    width: 80%;
+    padding: 10px 5px 10px 15px;
+  }
+
+  .box-input-search-festivals {
+    height: 100%;
+  }
+
+  .festivals .item-filter-festivals .col-xs-12 {
+    padding: 0;
+  }
+}
+@media (max-width: 400px) {
+  .festival-item-base .title {
+    font-size: 16px;
+  }
+  .festival-item-base .festival-img a {
+    height: 150px;
+  }
+  .festival-item-base .festival-img a img {
+    min-height: 150px;
+  }
+
+  .input-search-festival > div {
+    padding: 5px;
+  }
+
+  .input-search-festival {
+    padding-top: 35px;
+  }
+  .input-search-festival button {
+    font-size: 15px;
+    width: 30px;
+    padding: 5px;
+  }
+  .input-search-festival input {
+    width: calc(100% - 33px);
+  }
 }
