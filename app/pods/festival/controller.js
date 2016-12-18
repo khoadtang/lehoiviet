@@ -8,7 +8,7 @@ festival.filter('trustAsResourceUrl', ['$sce', function($sce) {
     };
 }]);
 
-festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout, eventService, googleService) {
+festival.controller("festivalController", function($scope, $rootScope, festivalService, dateHelper, $routeParams, imageService, commentService, $timeout, eventService, googleService, facebookService) {
   $scope.point = 0;
   $scope.editable = -1;
   $scope.editableContent = [];
@@ -32,6 +32,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   getFestivalById = function() {
     var festivalId = $routeParams.festivalId;
+    $scope.festivalId = festivalId;
     festivalService.getById(festivalId, function(response) {
       if (response.status == 200) {
         $scope.festival = response.data.data;
@@ -39,6 +40,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.festival.timeEnd = dateHelper.parse($scope.festival.timeEnd);
         $scope.fullAddress =  $scope.festival.address.mainAddress + "," +  $scope.festival.address.district + "," + $scope.festival.address.city;
         $scope.fullAddress = $scope.fullAddress.replace(/\s+/g, '+');
+
+        $rootScope.title = $scope.festival.title;
         googleService.getLocation($scope.fullAddress, function(response){
           var data = response.data;
           if (data.results.length <= 0){
@@ -536,6 +539,15 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
     window.location = "#live/" + $routeParams.festivalId;
   };
+
+  $scope.onShareFacebook = function(){
+    var data = {};
+    data.href = "https://lehoiviet.vn#/festival/".concat($scope.festival._id);
+    data.title = $scope.festival.title;
+    data.picture = "https://api.lehoiviet.vn/".concat($scope.festival.thumbnail.resize);
+    data.description= $scope.festival.description;
+    facebookService.onShareFacebook(data);
+  }
 });
 
 

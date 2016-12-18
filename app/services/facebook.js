@@ -25,5 +25,17 @@ app.service("facebookService", function($http, net, $rootScope) {
     facebookService.logout = function(){
 
     };
+
+    facebookService.onShareFacebook = function(data){
+      FB.ui({
+        method: 'share',
+        display: 'popup',
+        href: data.href,
+        picture: data.picture,
+        title: data.title,
+        description: data.description
+      }, function(response){});
+    };
+
     return facebookService;
 });

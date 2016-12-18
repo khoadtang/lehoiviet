@@ -191,6 +191,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
           $rootScope.firstName = data.user.firstName;
           $rootScope.uid = data.user._id;
 
+          gatewayService.online();
           $('#userLogin').modal('hide');
       });
     });
