@@ -510,6 +510,24 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     }
   };
 
+  $scope.convertToNumberPhone = function(data){
+    if (data != null && data != "undefined"){
+      data = data.toString();
+      var result = "";
+      var counter = 0;
+      for (var i = data.length - 1; i >= 0; --i){
+        result += data.charAt(i);
+        ++counter;
+        if (counter % 4 == 0 && counter < data.length){
+          result += ".";
+        }
+      }
+
+      var result = result.split("").reverse().join("");
+      return result;
+    }
+  };
+
   $scope.onStream = function(festivalId){
     if ($rootScope.token == null) {
       $('#userLogin').modal('show');

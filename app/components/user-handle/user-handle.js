@@ -131,9 +131,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.login = function() {
-    console.log("Login");
     $('#btnLogin').attr("disabled");
-    console.log("Login Login");
     var userInfo = {};
     userInfo.email = $scope.email;
     userInfo.password = $scope.password;
@@ -180,10 +178,21 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.forgetPassword = function() {
-    console.log("Forget Password");
+
   };
 
   $scope.onLoginFacebook = function(){
-    facebookService.login();
+    facebookService.login(function(response){
+      userService.loginByFacebook(response.authResponse.accessToken, function(response){
+          var data = response.data;
+          $rootScope.token = data.token;
+          $rootScope.email = data.user.email;
+          $rootScope.avatar = data.user.avatar;
+          $rootScope.firstName = data.user.firstName;
+          $rootScope.uid = data.user._id;
+
+          $('#userLogin').modal('hide');
+      });
+    });
   };
 });

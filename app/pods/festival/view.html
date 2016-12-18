@@ -60,7 +60,7 @@
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.priceTicket == 0 ? 'Miễn Phí' : convertToCurrency(festival.priceTicket) + ' VNĐ'}}
                             </li>
                             <li>
-                                <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.contactInfo.phoneNumber}}
+                                <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.phoneNumber)}}
                             </li>
                             <li>
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
@@ -90,6 +90,7 @@
                             <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
                             <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                             <a href="" ng-click="onStream()" title="Live stream"><i class="fa fa-video-camera"></i></a>
+                            <div class="fb-share-button" data-href="https://lehoiviet.vn/#/festival/0" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flehoiviet.vn%2F%23%2Ffestival%2F0&amp;src=sdkpreparse">Chia sẻ</a></div>
                         </div>
                     </div>
                 </div>
