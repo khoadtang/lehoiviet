@@ -296,8 +296,8 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       if(response.status == 200) {
         $scope.isPostingComment = false;
         getComments();
-        var height = $( document ).height();
-        $("html, body").stop().animate({scrollTop:height - 2000}, '1000', 'swing');
+        var height = $( document ).height() - 500;
+        $("html, body").stop().animate({scrollTop:heigth}, '1000', 'swing');
       }
     });
   }

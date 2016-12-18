@@ -62,13 +62,13 @@ dateHelper.service("dateHelper", function(){
     var diff = now.diff(date, 'minutes', true);
 
     if (diff <= 1){
-      return 'now';
+      return 'mới đây';
     } else if(diff > 1 && diff <= 60) {
-      return Math.floor(diff) + " minutes ago";
+      return 'cách đây ' + Math.floor(diff) + " phút";
     }else if (diff > 60 && diff < 60 * 24){
-      return Math.floor(diff / 60) + " hours ago";
+      return 'cách đây ' + Math.floor(diff / 60) + " hours ago";
     } else {
-      return Math.floor(diff / (60 * 24)) + " days ago";
+      return 'cách đây ' + Math.floor(diff / (60 * 24)) + " days ago";
     }
   };
 

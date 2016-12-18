@@ -176,7 +176,7 @@
                     <div class="content"  ng-keydown="$event.keyCode == 13 ? onSubmitComment() : null">
                         <div class="comment-box">
                             <div class="row">
-                                <div class="col-sm-1 comment-author-thumnail"><img src="./assets/img/avatar.png" alt="" class="img-circle img-responsive"></div>
+                                <!-- <div class="col-sm-1 comment-author-thumnail"><img src="./assets/img/avatar.png" alt="" class="img-circle img-responsive"></div> -->
                                 <div class="col-sm-11">
                                     <textarea name="" class="form-control" ng-model="comment" placeholder="Nhập bình luận của bạn..."></textarea>
                                     <div class="comment-render-image clearfix">
@@ -205,8 +205,8 @@
                                 </div>
                                 <div class="col-sm-11 comment-render-content">
                                     <div class="commen-render-header">
-                                        <a href="">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
-                                        <span>{{dateHelper.convertToAgo(cmt.createAt)}}</span>
+                                        <a ng-href="#/user/profile/{{cmt.userId._id}}">{{cmt.userId.firstName}} {{cmt.userId.lastName}}</a>
+                                        <span style="color:green">{{dateHelper.convertToAgo(cmt.createAt)}}</span>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onEditableMode(cmt._id, cmt.content)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         <button ng-show="$root.uid == cmt.userId._id" class="close" ng-click="onDeleteComment(cmt._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </div>
