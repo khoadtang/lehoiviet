@@ -33,6 +33,7 @@
                     try {
                         //camera.stream.stop() no longer works
                         camera.stream.getVideoTracks()[0].stop();
+                        camera.stream.getAudioTracks()[0].stop();
                         camera.preview.src = '';
                         resolve();
                     } catch (error) {
