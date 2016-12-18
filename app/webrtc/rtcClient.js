@@ -9,6 +9,10 @@ var PeerManager = (function() {
                     "url": "turn:numb.viagenie.ca",
                     "credential": "123@son231994",
                     "username": "nvduc2910@gmail.com"
+                },{
+                    "url": "turn:mmt-turn.verkstad.net",
+                    "username": "webrtc",
+                    "credential": "secret"
                 }]
             },
             peerConnectionConstraints: {
@@ -20,7 +24,7 @@ var PeerManager = (function() {
         peerDatabase = {},
         localStream,
         remoteVideoContainer = document.getElementById('remoteVideosContainer'),
-        socket = io('https://125.253.113.15:9000');
+        socket = io('https://live-stream-lhv.herokuapp.com');
 
     socket.on('message', handleMessage);
     socket.on('id', function(id) {

@@ -88,8 +88,8 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 app.constant("ENV", {
-    apiUrl: "http://125.253.113.15:3000",
-    gateWay: "http://125.253.113.15:3000"
+    apiUrl: "https://api.lehoiviet.vn",
+    gateWay: "https://api.lehoiviet.vn"
 
     /*apiUrl: "http://api.lehoiviet.vn",
     gateWay: "http://api.lehoiviet.vn"*/
