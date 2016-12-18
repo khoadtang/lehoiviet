@@ -4,22 +4,16 @@ var PeerManager = (function() {
         config = {
             peerConnectionConfig: {
                 iceServers: [{
-                        "urls": "stun:stun.l.google.com:19302"
-                    },{
-                        "urls": "stun:stun.services.mozilla.com"
-                    },{
-                        "urls": "stun:nodestun.herokuapp.com"
-                    }
-                    , {
-                        "urls": 'turn:numb.viagenie.ca',
-                        "credential": '123@son231994',
-                        "username": 'nvs231994@gmail.com'
-                    },{
-                        "urls": 'stun:numb.viagenie.ca',
-                        "credential": '123@son231994',
-                        "username": 'nvs231994@gmail.com'
-                    }
-                ]
+                    "url": "stun:stun.l.google.com:19302"
+                }, {
+                    "url": "turn:numb.viagenie.ca",
+                    "credential": "123@son231994",
+                    "username": "nvduc2910@gmail.com"
+                },{
+                    "url": "turn:mmt-turn.verkstad.net",
+                    "username": "webrtc",
+                    "credential": "secret"
+                }]
             },
             peerConnectionConstraints: {
                 optional: [
@@ -30,7 +24,7 @@ var PeerManager = (function() {
         peerDatabase = {},
         localStream,
         remoteVideoContainer = document.getElementById('remoteVideosContainer'),
-        socket = io('https://125.253.113.15:9000');
+        socket = io('https://live-stream-lhv.herokuapp.com');
 
     socket.on('message', handleMessage);
     socket.on('id', function(id) {
