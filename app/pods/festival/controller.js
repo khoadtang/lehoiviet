@@ -157,7 +157,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   $scope.watchVideo = function (streamId) {
     $('#watchVideo').modal('show');
-    console.log(streamId);
     var clientPlayer = new PeerManager();
     clientPlayer.peerInit(streamId);
   }

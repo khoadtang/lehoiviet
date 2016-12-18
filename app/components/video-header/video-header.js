@@ -9,5 +9,8 @@ videoHeader.directive("videoHeader", function(){
 });
 
 videoHeader.controller("videoHeaderController", function($scope) {
-  
+  $scope.init = function(){
+    var clientPlayer = new PeerManager();
+    clientPlayer.peerInit("4zvg6k5S99mWCj3wAAEq");
+  };
 });
