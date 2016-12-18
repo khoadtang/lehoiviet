@@ -88,8 +88,8 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 app.constant("ENV", {
-    apiUrl: "https://125.253.113.15:3000",
-    gateWay: "https://125.253.113.15:3000"
+    apiUrl: "https://api.lehoiviet.vn",
+    gateWay: "https://api.lehoiviet.vn"
 
     /*apiUrl: "http://api.lehoiviet.vn",
     gateWay: "http://api.lehoiviet.vn"*/
@@ -143,6 +143,19 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', function($ro
 
       xfbml: true
     });
+
+      facebookService.checkFacebookLoginStage(function(res){
+          console.log(res.authResponse.accessToken);
+          userService.loginByFacebook(res.authResponse.accessToken, function(response){
+              console.log(response);
+              var data = response.data;
+              $rootScope.token = data.token;
+              $rootScope.email = data.user.email;
+              $rootScope.avatar = data.user.avatar;
+              $rootScope.firstName = data.user.firstName;
+              $rootScope.uid = data.user._id;
+          });
+      });
   };
 
   (function(d){
