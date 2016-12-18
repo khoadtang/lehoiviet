@@ -195,4 +195,9 @@
   .navbar-nav .video-live{
     margin: 5px;
   }
+  .navbar-right{
+    >li{
+      float: left;
+    }
+  }
 }
