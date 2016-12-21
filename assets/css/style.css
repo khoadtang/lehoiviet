@@ -799,6 +799,14 @@ nav {
 .slider-header .carousel-indicators {
   display: none;
 }
+.slider-header .carousel-inner > .item {
+  height: 450px;
+  overflow: hidden;
+  font-family: 'Lobster', cursive;
+}
+.slider-header .carousel-inner > .item h4 {
+  font-size: 25px;
+}
 .slider-header .carousel-inner > .item > a {
   display: block;
   height: 450px;
@@ -818,6 +826,13 @@ nav {
 .slider-header .carousel-control .icon-next, .slider-header .carousel-control .icon-prev {
   width: 45px;
   height: 60px;
+}
+.slider-header .carousel-caption {
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 992px) {

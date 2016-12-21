@@ -394,7 +394,13 @@ nav{
         display: none;
     }
     .carousel-inner > .item{
-         > a {
+        height: 450px;
+        overflow: hidden;
+        font-family: 'Lobster', cursive;
+        h4{
+            font-size: 25px;
+        }
+        > a {
             display: block;
              height: 450px;
              overflow: hidden;
@@ -414,6 +420,13 @@ nav{
             width: 45px;
             height: 60px;
         }
+    }
+    .carousel-caption{
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
     }
 }
 @media (max-width: 992px) {
