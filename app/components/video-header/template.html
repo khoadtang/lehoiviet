@@ -13,10 +13,10 @@
 </div> -->
 <!-- </div> -->
 <carousel interval="myInterval">
-        <slide ng-repeat="slide in slides" active="slide.active">
-          <img ng-src="{{slide.image}}">
+        <slide ng-repeat="thumbnail in thumbnails" active="slide.active">
+          <img ng-src="https://api.lehoiviet.vn{{thumbnail.thumbnail.full}}">
           <div class="carousel-caption">
-            <h4>Slide {{$index+1}}</h4>
+            <h4>{{thumbnail.title}} {{$index+1}}</h4>
           </div>
         </slide>
       </carousel>

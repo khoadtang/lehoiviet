@@ -113,5 +113,9 @@ app.service("festivalService", function($http, net, $rootScope) {
     festivalService.getStreams = function(id, eventHandler){
       net.get('/live/festival/'.concat(id), eventHandler);
     };
+
+    festivalService.getThumbnailsForSlider = function(eventHandler){
+      net.get('/live/slider', eventHandler);
+    };
     return festivalService;
 });

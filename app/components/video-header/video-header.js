@@ -8,36 +8,15 @@ videoHeader.directive("videoHeader", function(){
     };
 });
 
-videoHeader.controller("videoHeaderController", function($scope, liveService) {
+videoHeader.controller("videoHeaderController", function($scope, festivalService) {
   $scope.myInterval = 3000;
-  $scope.slides = [
-    {
-      image: 'http://lorempixel.com/400/200/'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/food'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/sports'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/people'
-    }
-  ];
-  
   $scope.init = function(){
-
-    $scope.getAllStream();
+    $scope.getThumbnails();
   };
 
-  $scope.getAllStream = function(){
-    liveService.get(function(response){
-      $scope.streams = response.data.data;
-      if ($scope.streams.length > 0){
-          $scope.selectedStream = $scope.streams[0];
-          var clientPlayer = new PeerManager();
-          clientPlayer.peerInit($scope.selectedStream.streamId);
-      }
+  $scope.getThumbnails = function(){
+    festivalService.getThumbnailsForSlider(function(response){
+      $scope.thumbnails = response.data.data;
     });
   };
 });
