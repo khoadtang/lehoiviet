@@ -1,15 +1,23 @@
 <div ng-init="init()">
-<div class="streamVideo">
+<!-- <div class="streamVideo">
     <div class="videoSource">
       <div class="" id="remoteVideosContainer" ng-show="streams.length > 0"></div>
       <video ng-show="streams.length == 0" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
         <source src="https://vietnamwebsummit.com/wp-content/uploads/2016/07/WebSummit.mp4" type="video/mp4">
       </video>
-  </div>
+  </div> -->
 <!-- <div class="content">
     <p class="title">
       {{selectedStream != null ? selectedStream.name : "Lễ Hội Việt"}}
     </p>
 </div> -->
-</div>
+<!-- </div> -->
+<carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
 </div>
