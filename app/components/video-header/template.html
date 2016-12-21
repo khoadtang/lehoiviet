@@ -1,4 +1,4 @@
-<div ng-init="init()">
+<div ng-init="init()" class="slider-header">
 <!-- <div class="streamVideo">
     <div class="videoSource">
       <div class="" id="remoteVideosContainer" ng-show="streams.length > 0"></div>
@@ -14,10 +14,10 @@
 <!-- </div> -->
 <carousel interval="myInterval">
         <slide ng-repeat="slide in slides" active="slide.active">
-          <img ng-src="{{slide.image}}">
-          <div class="carousel-caption">
-            <h4>Slide {{$index+1}}</h4>
-          </div>
+            <a href=""><img ng-src="{{slide.image}}"></a>
+              <div class="carousel-caption">
+                <h4>Slide {{$index+1}}</h4>
+              </div>
         </slide>
-      </carousel>
+</carousel>
 </div>

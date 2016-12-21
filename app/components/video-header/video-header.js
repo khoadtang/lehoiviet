@@ -12,16 +12,16 @@ videoHeader.controller("videoHeaderController", function($scope, liveService) {
   $scope.myInterval = 3000;
   $scope.slides = [
     {
-      image: 'http://lorempixel.com/400/200/'
+      image: 'https://api.lehoiviet.vn//uploads/posts/thumbnails/img_full_thumbnail_EXKCdNbfzXKkvLo2GljJ.jpg'
     },
     {
-      image: 'http://lorempixel.com/400/200/food'
+      image: 'https://api.lehoiviet.vn//uploads/posts/thumbnails/img_full_thumbnail_bGEQdtzp5E3btMjlNFmN.jpg'
     },
     {
-      image: 'http://lorempixel.com/400/200/sports'
+      image: 'https://api.lehoiviet.vn//uploads/posts/thumbnails/img_full_thumbnail_q66m6hSlQgin5moIoWjJ.jpg'
     },
     {
-      image: 'http://lorempixel.com/400/200/people'
+      image: 'https://api.lehoiviet.vn//uploads/posts/thumbnails/img_full_thumbnail_bGEQdtzp5E3btMjlNFmN.jpg'
     }
   ];
   

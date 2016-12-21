@@ -792,6 +792,34 @@ nav {
   font-size: 30px;
 }
 
+.slider-header {
+  height: 450px;
+  overflow: hidden;
+}
+.slider-header .carousel-indicators {
+  display: none;
+}
+.slider-header .carousel-inner > .item > a {
+  display: block;
+  height: 450px;
+  overflow: hidden;
+}
+.slider-header .carousel-inner > .item > a > img {
+  width: 100%;
+  min-height: 450px;
+}
+.slider-header .carousel-control {
+  width: 5%;
+}
+.slider-header .carousel-control .icon-next::before, .slider-header .carousel-control .icon-prev::before {
+  font-size: 60px;
+  cursor: pointer;
+}
+.slider-header .carousel-control .icon-next, .slider-header .carousel-control .icon-prev {
+  width: 45px;
+  height: 60px;
+}
+
 @media (max-width: 992px) {
   #footer {
     padding: 20px 0;
@@ -860,6 +888,9 @@ nav {
   box-shadow: none;
 }
 
+#login .carousel-inner .item {
+  width: 400px;
+}
 #login p {
   margin: 7px 0;
 }
@@ -942,10 +973,6 @@ nav {
 }
 #login .toolbar a:hover {
   color: #fff;
-}
-
-.carousel-inner .item {
-  width: 400px;
 }
 
 /*#login*/

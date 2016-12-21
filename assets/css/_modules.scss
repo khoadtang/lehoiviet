@@ -53,6 +53,9 @@
   box-shadow: none;
 }
 #login {
+  .carousel-inner .item{
+    width: 400px;
+  }
   p{
     margin: 7px 0;
   }
@@ -141,9 +144,7 @@
       }
     }
 }
-.carousel-inner .item{
-  width: 400px;
-}
+
 
 /*#login*/
 
