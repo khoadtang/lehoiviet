@@ -387,45 +387,6 @@ nav{
     font-size: 30px;
   }
 }
-/*video header*/
-.streamVideo {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    overflow: hidden;
-    .videoSource {
-        position: absolute;
-        width: 100%;
-        min-height: 50vh;
-       background-color: #ffffff;
-    }
-    .content{
-        font-family: 'Lobster', cursive;
-        cursor: pointer;
-        position: absolute;
-        background: rgba(0,0,0,0.5);
-        width: 100%;
-        height: 50vh;
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        vertical-align: middle;
-        padding-top: 15vh;
-    }
-    video {
-        width: 100%;
-    }
-    .title{
-        font-size: 36px;
-        margin: 30px 10px 15px;
-        line-height: 1.2;
-    }
-    .btn-blue{
-      text-transform: uppercase;
-      margin-top: 15px;
-    }
-}
 
 @media (max-width: 992px) {
     #footer{
@@ -441,18 +402,7 @@ nav{
     }
 }
 @media  (max-width: 500px){
-    .streamVideo{
-        video{
-            min-height: 50vh;
-            width: auto;
-        }
-        .content{
-            padding-top: 10vh;
-        }
-        .title{
-            font-size: 30px;
-        }
-    }
+
 }
 @media (max-width: 400px) {
     #footer{
