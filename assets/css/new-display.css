@@ -71,15 +71,12 @@
   text-transform: uppercase;
 }
 .info-festival .content {
-  padding: 5px 0 0 20px;
+  padding: 0 0 0 20px;
   font-weight: 400;
 }
 .info-festival .content h3 {
   font-weight: 700;
   margin: 7px 0;
-}
-.info-festival .content li {
-  margin-top: 5px;
 }
 .info-festival .res-summary-point {
   text-align: center;

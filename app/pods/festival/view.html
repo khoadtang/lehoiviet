@@ -22,7 +22,7 @@
 
                 <div class="col-sm-5 col-xs-12">
                     <div class="content">
-                          <span>DANH MỤC: {{festival.typeEvent.name}}</span>
+                        <span>DANH MỤC: {{festival.typeEvent.name}}</span>
                         <h3>{{festival.title}}</h3>
                         <p class="address"><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px"></i> {{festival.address.mainAddress}} , {{festival.address.district}}, {{festival.address.city}}</p>
                         <!-- <div class="boderTop"></div> -->
@@ -58,6 +58,12 @@
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.priceTicket == 0 ? 'Miễn Phí' : convertToCurrency(festival.priceTicket) + ' VNĐ'}}
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.website)}}
+                            </li>
+                            <li>
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.emailAddress)}}
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.phoneNumber)}}
