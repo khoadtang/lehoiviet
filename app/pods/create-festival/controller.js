@@ -89,8 +89,8 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
         $scope.backgroundImage = $scope.festival.thumbnail.full;
         $scope.festival.typeEvent = $scope.festival.typeEvent._id;
         $scope.festival.mainAddress = $scope.festival.address.mainAddress;
-        $scope.festival.district = $scope.festival.address.district;
-        $scope.festival.city = $scope.festival.address.code;
+        $scope.festival.district = $scope.festival.address.districtCode;
+        $scope.festival.city = $scope.festival.address.cityCode;
       } else {
 
       }
