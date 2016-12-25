@@ -43,6 +43,7 @@ live.controller("liveController", function($scope, festivalService, $routeParams
           data.name = $scope.festival.title;
           data.festivalId = $scope.festivalId;
           data.streamId = $scope.client.getId();
+          $scope.streamId = $scope.client.getId();
 
           liveService.create(data, function(response) {
             console.log(response);

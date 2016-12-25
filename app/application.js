@@ -92,6 +92,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: "errorController",
             controllerAs: 'error'
         })
+        .when('/chat/:streamId',{
+            templateUrl:'app/pods/chat/chat-box.html',
+            controller:"chatController",
+            controllerAs:"chatBox"
+        })
         .otherwise({
             redirectTo: '/404'
         });
