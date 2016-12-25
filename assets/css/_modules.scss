@@ -341,7 +341,7 @@
   #login #userLogin, #login #forgot-password{
     .modal-dialog{
       width: calc(100% - 30px);
-      padding-left: 17px;
+      padding-left: 0;
     }
   }
   #login .modal-title{
@@ -350,7 +350,7 @@
   #login .modal-body{
     height: 275px;
   }
-  .carousel-inner .item{
+  #login .carousel-inner .item{
     width: 100%;
   }
 }

@@ -793,14 +793,14 @@ nav {
 }
 
 .slider-header {
-  height: 450px;
+  height: calc(100vw / (2.6));
   overflow: hidden;
 }
 .slider-header .carousel-indicators {
   display: none;
 }
 .slider-header .carousel-inner > .item {
-  height: 450px;
+  height: calc(100vw / (2.6));
   overflow: hidden;
   font-family: 'Lobster', cursive;
 }
@@ -809,12 +809,12 @@ nav {
 }
 .slider-header .carousel-inner > .item > a {
   display: block;
-  height: 450px;
+  height: 100%;
   overflow: hidden;
 }
 .slider-header .carousel-inner > .item > a > img {
   width: 100%;
-  min-height: 450px;
+  height: calc(100vw / (2.6));
 }
 .slider-header .carousel-control {
   width: 5%;
@@ -826,6 +826,7 @@ nav {
 .slider-header .carousel-control .icon-next, .slider-header .carousel-control .icon-prev {
   width: 45px;
   height: 60px;
+  top: 45%;
 }
 .slider-header .carousel-caption {
   width: 100%;
@@ -845,6 +846,17 @@ nav {
     width: 50%;
   }
 }
+@media (max-width: 767px) {
+  .slider-header .carousel-inner > .item h4 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .carousel-caption {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
 @media (max-width: 400px) {
   #footer .description img {
     max-height: 60px;
@@ -852,6 +864,20 @@ nav {
 
   .btn-fix {
     min-width: 100px;
+  }
+
+  .slider-header .carousel-control .icon-next::before, .slider-header .carousel-control .icon-prev::before {
+    font-size: 40px;
+  }
+
+  .slider-header .carousel-control .icon-next, .slider-header .carousel-control .icon-prev {
+    top: 35%;
+    width: 30px;
+    height: 40px;
+  }
+
+  .slider-header .carousel-inner > .item h4 {
+    font-size: 15px;
   }
 }
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/
@@ -1168,7 +1194,7 @@ nav {
 
   #login #userLogin .modal-dialog, #login #forgot-password .modal-dialog {
     width: calc(100% - 30px);
-    padding-left: 17px;
+    padding-left: 0;
   }
 
   #login .modal-title {
@@ -1179,7 +1205,7 @@ nav {
     height: 275px;
   }
 
-  .carousel-inner .item {
+  #login .carousel-inner .item {
     width: 100%;
   }
 }
@@ -1377,8 +1403,20 @@ nav {
     margin: 5px;
   }
 
-  .navbar-right > li {
-    float: left;
+  .notify .dropdown-menu {
+    width: 100%;
+  }
+
+  .navbar-nav .open .dropdown-menu {
+    border: 1px solid #ddd;
+  }
+
+  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 10px;
+  }
+
+  .nav > li > a {
+    display: inline-block;
   }
 }
 #review-top-list {
