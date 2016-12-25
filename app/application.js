@@ -116,7 +116,7 @@ app.constant("FestivalStatus", {
     "3": "Đã Duyệt"
 });
 
-app.run(['$rootScope', '$window', 'facebookService', 'userService', function($rootScope, $window, facebookService, userService) {
+app.run(['$rootScope', '$window', 'facebookService', 'userService', 'gatewayService', function($rootScope, $window, facebookService, userService, gatewayService) {
 
   $rootScope.user = {};
 
@@ -158,7 +158,22 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', function($ro
 
       xfbml: true
     });
+
+    facebookService.checkFacebookLoginStage(function(res){
+      userService.loginByFacebook(res.authResponse.accessToken, function(response){
+          var data = response.data;
+          $rootScope.token = data.token;
+          $rootScope.email = data.user.email;
+          $rootScope.avatar = data.user.avatar;
+          $rootScope.firstName = data.user.firstName;
+          $rootScope.uid = data.user._id;
+
+          gatewayService.online();
+          $('#userLogin').modal('hide');
+      });
+    });
   };
+
 
   (function(d){
     // load the Facebook javascript SDK
