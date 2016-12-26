@@ -195,9 +195,16 @@
   .navbar-nav .video-live{
     margin: 5px;
   }
-  .navbar-right{
-    >li{
-      float: left;
-    }
+  .notify .dropdown-menu{
+    width: 100%;
+  }
+  .navbar-nav .open .dropdown-menu{
+    border: 1px solid #ddd;
+  }
+  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 10px;
+  }
+  .nav > li > a{
+    display: inline-block;
   }
 }
