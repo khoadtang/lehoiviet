@@ -96,11 +96,11 @@
                             <div class="details col-sm-9 row col-xs-12">
                                 <select class="col-sm-4 col-xs-5" ng-model="festival.city" ng-change="onChangeValidateInfoTab()" convert-to-number>
                                     <option value="" ng-disabled="true">Chọn Tỉnh / Thành Phố</option>
-                                    <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)" ng-value="province.code">{{province.name}}</option>
+                                    <option ng-repeat="province in provincies" ng-click="onProvinceSelected(province)" value="{{province.code}}">{{province.name}}</option>
                                 </select>
                                 <select class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-2" ng-model="festival.district" ng-change="onChangeValidateInfoTab()" convert-to-number>
                                     <option value="" ng-disabled="true">Chọn Huyện / Phường</option>
-                                    <option ng-repeat="itemDistricts in districts" ng-click="onDistrictSelected(itemDistricts.name)" ng-value="itemDistricts.name">{{itemDistricts.name}}</option>
+                                    <option ng-repeat="itemDistricts in districts" ng-click="onDistrictSelected(itemDistricts.name)" value="{{itemDistricts.name}}">{{itemDistricts.name}}</option>
                                 </select>
                             </div>
                         </div>
@@ -278,46 +278,45 @@
           <section class="hide lastTab feedback-form infoUserTab">
               <div class="infomation-box">
                 <form name='lastPost' novalidate="true">
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input type="number" ng-model="festival.phoneNumber" name="phoneNumber" type="text" onkeypress="return isNumberKey(event)" required/>
-                        </div>
-                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                            <span class="text-error" ng-show="lastPost.phoneNumber.$dirty && lastPost.phoneNumber.$invalid">
-                                <span ng-show="lastPost.phoneNumber.$error.required">số điện thoại là là bắt buộc</span>
-                                <span ng-show="lastPost.phoneNumber.$error.number">phải là một con số</span>
+                  <div class="infomation-content row">
+                      <div class="box-info-normal">
+                          <div class="lable col-sm-3 col-xs-12">Điện thoại</div>
+                          <div class="details col-sm-9 col-xs-12">
+                              <input type="text" ng-model="festival.phoneNumber" name="phoneNumber" type="text" onkeypress="return isNumberKey(event)" required/>
+                          </div>
+                          <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                              <span class="text-error" ng-show="lastPost.phoneNumber.$dirty && lastPost.phoneNumber.$invalid">
+                                  <span ng-show="lastPost.phoneNumber.$error.required">số điện thoại là là bắt buộc</span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="infomation-content row">
+                      <div class="box-info-normal">
+                          <div class="lable col-sm-3 col-xs-12">Email</div>
+                          <div class="details col-sm-9 col-xs-12">
+                              <input type="email" ng-model="festival.emailAddress" name='emailAddress' spellcheck="false" required/>
+                          </div>
+                          <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                            <span class="text-error" ng-show="lastPost.emailAddress.$dirty && lastPost.emailAddress.$invalid">
+                              <span ng-show="lastPost.emailAddress.$error.email">email không hợp lệ</span>
+                              <span ng-show="lastPost.emailAddress.$error.required">email là là bắt buộc</span>
                             </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Email</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input type="email" ng-model="festival.emailAddress" name='emailAddress' spellcheck="false" required/>
-                        </div>
-                        <div class="col-sm-9 col-sm-offset-3 col-xs-12">
-                          <span class="text-error" ng-show="lastPost.emailAddress.$dirty && lastPost.emailAddress.$invalid">
-                            <span ng-show="lastPost.emailAddress.$error.email">email không hợp lệ</span>
-                            <span ng-show="lastPost.emailAddress.$error.required">email là là bắt buộc</span>
-                          </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="infomation-content row">
-                    <div class="box-info-normal">
-                        <div class="lable col-sm-3 col-xs-12">Website</div>
-                        <div class="details col-sm-9 col-xs-12">
-                            <input ng-model="festival.website" type="text" spellcheck="false" />
-                        </div>
-                    </div>
-                </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="infomation-content row">
+                      <div class="box-info-normal">
+                          <div class="lable col-sm-3 col-xs-12">Website</div>
+                          <div class="details col-sm-9 col-xs-12">
+                              <input ng-model="festival.website" type="text" spellcheck="false" />
+                          </div>
+                      </div>
+                  </div>
                 </form>
               </div>
               <div style="text-align:center">
-                  <button ng-click="onSubmit()" class="btn-fix btn-blue">
+                  <button ng-click="onSubmit()" class="btn-fix btn-blue" ng-class="{'disable' : lastPost.$invalid || lastPost.invalid, 'btn-blue': ! lastPost.$invalid && !lastPost.invalid}" ng-disabled="lastPost.$invalid || lastPost.invalid">
                     <div ng-show="!isCreatingFestival">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> {{nameFinalTask}}
                     </div>
