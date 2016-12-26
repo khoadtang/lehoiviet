@@ -10,8 +10,19 @@ app.service("net", function($http, ENV, $rootScope, gatewayService) {
     $http.get(ENV.apiUrl + url).then(eventHandler);
   };
 
-  netService.getGoogle = function(url, eventHandler) {
-    $http.get(url).then(eventHandler);
+  netService.getGoogle = function(path, eventHandler) {
+    $.ajax({
+    url: path,
+
+    // The name of the callback parameter, as specified by the YQL service
+    jsonp: "callback",
+
+    // Tell jQuery we're expecting JSONP
+    dataType: "json",
+
+    // Work with the response
+    success: eventHandler
+});
   };
 
   netService.post = function(url, param, eventHandler) {

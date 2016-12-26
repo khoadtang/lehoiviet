@@ -43,7 +43,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
         $rootScope.title = $scope.festival.title;
         googleService.getLocation($scope.fullAddress, function(response){
-          var data = response.data;
+          var data = response;
           if (data.results.length <= 0){
             $scope.latitude = 10.8230989;
             $scope.longitude = 106.6296638;

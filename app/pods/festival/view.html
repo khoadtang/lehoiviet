@@ -207,7 +207,7 @@
                             <p>Bình luận hàng đầu</p>
                             <div class="row item" ng-repeat="cmt in comments">
                                 <div class=" col-sm-1 comment-author-thumnail">
-                                    <img src="./assets/img/avatar.png" alt="" class="img-responsive">
+                                    <img ng-src="{{cmt.userId.avatar}}" alt="" class="img-responsive">
                                 </div>
                                 <div class="col-sm-11 comment-render-content">
                                     <div class="commen-render-header">

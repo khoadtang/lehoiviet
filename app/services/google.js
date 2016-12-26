@@ -6,7 +6,7 @@ app.service("googleService", function($http, net, $rootScope) {
     googleService.getLocation = function(address, eventHandler){
       console.log("maps.googleapis.com/maps/api/geocode/json?address=".concat(address)
        + "&key=AIzaSyDQMvm2Tiyhav_DY6drBYFDOxpqsfVDcis");
-      net.getGoogle("https://maps.googleapis.com/maps/api/geocode/json?address=".concat(address)
+      net.getGoogle('https://maps.googleapis.com/maps/api/geocode/json?address='.concat(address)
        + "&key=AIzaSyDQMvm2Tiyhav_DY6drBYFDOxpqsfVDcis", eventHandler);
     };
 

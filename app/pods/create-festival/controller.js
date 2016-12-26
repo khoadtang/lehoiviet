@@ -13,6 +13,8 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   var backgroundImage = null;
   var isUpdate = false;
 
+  $scope.festival = {};
+
   $scope.initData = function() {
     $scope.showAlert = false;
 
@@ -36,7 +38,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     if (isUpdate) {
       $scope.isUpdate = true;
       $scope.nameFinalTask = "Cập Nhật Lễ Hội";
-      getFestivalById($routeParams.festivalId);
 
       $('.box-event').addClass('hide');
       $('.btn-create-event').removeClass('hide');
@@ -77,6 +78,10 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     provinceService.get(function(response) {
       if (response.status == 200){
         $scope.provincies = response.data.data;
+
+        if ($scope.isUpdate){
+            getFestivalById($routeParams.festivalId);
+        }
       }
     });
   };
@@ -89,8 +94,15 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
         $scope.backgroundImage = $scope.festival.thumbnail.full;
         $scope.festival.typeEvent = $scope.festival.typeEvent._id;
         $scope.festival.mainAddress = $scope.festival.address.mainAddress;
-        $scope.festival.district = $scope.festival.address.districtCode;
-        $scope.festival.city = $scope.festival.address.cityCode;
+        $scope.festival.district = $scope.festival.address.district;
+
+        $scope.festival.city = parseInt($scope.festival.address.cityCode);
+        for(var province in $scope.provincies){
+          if (parseInt(province) == $scope.festival.city) {
+            $scope.districts = $scope.provincies[province].districts;
+            console.log($scope.districts);
+          }
+        }
       } else {
 
       }
