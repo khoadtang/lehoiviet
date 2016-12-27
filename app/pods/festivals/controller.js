@@ -4,6 +4,8 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
   $scope.festivals = [];
   $scope.currentPage = 1;
   $scope.totalPages = 1;
+
+  $scope.isDefault = true;
   $scope.initData = function() {
     $rootScope.currentPage = "festivals";
 
@@ -15,7 +17,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
 
     var data = {};
     data.page = $scope.currentPage;
-    data.limit = 3;
+    data.limit = 1;
 
     festivalService.getFestivals(data, function(response){
       $scope.festivals = response.data.rows;
@@ -49,7 +51,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
     $scope.currentPage = $scope.currentPage + 1;
     var data = {};
     data.page = $scope.currentPage;
-    data.limit = 3;
+    data.limit = 1;
 
     festivalService.getFestivals(data, function(response){
       for (var i = 0; i < response.data.rows.length; ++i){
@@ -61,6 +63,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
   };
 
   $scope.onFilterByLocation = function(){
+    $scope.isDefault = false;
     if ($scope.location == null || $scope.location == undefined) {
       return;
     }
@@ -71,6 +74,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
   };
 
   $scope.onFilterByType = function(){
+    $scope.isDefault = false;
     if ($scope.types == null || $scope.types.length <= 0) {
       return;
     }
@@ -89,6 +93,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
   };
 
   $scope.onFilterByDate = function(){
+    $scope.isDefault = false;
     if($scope.date == null || $scope.date == undefined) {
       return;
     }
@@ -99,6 +104,7 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
   };
 
   $scope.onFilterByPrice = function(){
+    $scope.isDefault = false;
     if($scope.price == null || $scope.price == undefined){
       return;
     }
