@@ -46,7 +46,6 @@ live.controller("liveController", function($scope, festivalService, $routeParams
           $scope.streamId = $scope.client.getId();
 
           liveService.create(data, function(response) {
-            console.log(response);
             if (response.status == 200) {
               $scope.client.send('readyToStream', { name: data.name, festivalId: data.festivalId});
             }
@@ -60,14 +59,16 @@ live.controller("liveController", function($scope, festivalService, $routeParams
             try {
                 //camera.stream.stop() no longer works
                 $scope.stream.stream.getVideoTracks()[0].stop();
+                $scope.stream.stream.getAudioTracks()[0].stop();
                 $scope.stream.preview.src = '';
+                $scope.isStreaming = false;
                 resolve();
             } catch (error) {
                 reject(error);
             }
           })
         .then(function(result) {
-            
+
         });
     };
 });

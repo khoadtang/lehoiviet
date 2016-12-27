@@ -117,5 +117,14 @@ app.service("festivalService", function($http, net, $rootScope) {
     festivalService.getThumbnailsForSlider = function(eventHandler){
       net.get('/live/slider', eventHandler);
     };
+
+    festivalService.registerStream = function(id, eventHandler){
+      net.post('/live/access/'.concat(id), null, eventHandler);
+    };
+
+    festivalService.getUserCanStream = function(festivalId, eventHandler){
+      net.get('/live/festival/users/'.concat(festivalId), null, eventHandler);
+    };
+
     return festivalService;
 });

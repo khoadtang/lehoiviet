@@ -14,6 +14,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   $scope.editableContent = [];
   $scope.comments = [];
   $scope.album = [];
+  $scope.usersCanStream = {};
   $scope.dateHelper;
   $scope.initData = function() {
     // add listener
@@ -28,6 +29,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     $scope.srcVideo = "https://www.youtube.com/embed/nfwm4uesyFY";
     getFestivalById();
     getComments();
+    getUsersCanStream($routeParams.festivalId);
   };
 
   getFestivalById = function() {
@@ -148,6 +150,13 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.album.push.apply($scope.album, $scope.comments[i].imageId);
       }
     });
+  }
+
+  getUsersCanStream = function(festivalId){
+      festivalService.getUserCanStream(festivalId, function(response){
+
+        $scope.usersCanStream = response.data.data;
+      });
   }
 
   $scope.watchSlide = function (shownImage) {
@@ -546,7 +555,23 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
     data.picture = "https://api.lehoiviet.vn/".concat($scope.festival.thumbnail.resize);
     data.description= $scope.festival.description;
     facebookService.onShareFacebook(data);
-  }
+  };
+
+  $scope.onRegisterStream = function(){
+    festivalService.registerStream($scope.festival._id, function(response){
+      console.log(response);
+    });
+  };
+
+  $scope.isCanStream = function(){
+    for (var i = 0; i < $scope.usersCanStream.length; ++i){
+      if ($scope.usersCanStream[i]._id === $rootScope.uid){
+        return true;
+      }
+    }
+
+    return false;
+  };
 });
 
 

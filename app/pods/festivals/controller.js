@@ -8,6 +8,9 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
     categoryService.get(function(response){
       $scope.categories = response.data.data;
     });
+
+    $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
+    
   };
 
   $scope.onFilterByLocation = function(){
