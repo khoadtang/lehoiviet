@@ -408,4 +408,26 @@
     height: auto;
     margin-top: 30%;
   }
+
+  .info-festival .content h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .info-festival .content {
+    padding-top: 0;
+  }
+
+  .list-info h3 {
+    font-size: 15px;
+  }
+  .list-info h3 i {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 40px;
+    margin-right: 10px;
+    color: #fff;
+  }
 }

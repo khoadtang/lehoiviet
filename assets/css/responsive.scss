@@ -55,7 +55,7 @@
         }
     }
     /*article*/
-    #article {
+    /*#article {
         .font15 {
             font-size: 14px;
         }
@@ -107,13 +107,11 @@
         .related-box .boxContent{
             padding: 10px 0;
         }
-    }
+    }*/
 }
 
 @media screen and (min-width:768px) and (max-width:1200px) {
-    body {
-        font-size: 13px;
-    }
+
     /*----------------------------Home--------------------------------------*/
     .festival-item {
         .festival-info {
@@ -255,29 +253,29 @@
         padding: 0 15px;
     }
     /*article*/
-    #article {
-        .info-festival .content {
-            padding: 10px 0 0 0;
-        }
-        .imageFestival .imgContent img {
-            height: 180px !important;
-        }
-        .item-avatar img,
-        .user-link img {
-            width: 55px !important;
-            margin: 0 auto;
-        }
-        #post-common .panel-heading,
-        #post-common .panel-body {
-            padding: 5px;
-        }
-        .panel .col-xs-9 {
-            padding: 0px;
-        }
-        .related-box .box img{
-            height: 260px;
-        }
-    }
+    //#article {
+    //    .info-festival .content {
+    //        padding: 10px 0 0 0;
+    //    }
+    //    .imageFestival .imgContent img {
+    //        height: 180px !important;
+    //    }
+    //    .item-avatar img,
+    //    .user-link img {
+    //        width: 55px !important;
+    //        margin: 0 auto;
+    //    }
+    //    #post-common .panel-heading,
+    //    #post-common .panel-body {
+    //        padding: 5px;
+    //    }
+    //    .panel .col-xs-9 {
+    //        padding: 0px;
+    //    }
+    //    .related-box .box img{
+    //        height: 260px;
+    //    }
+    //}
 }
 
 @media screen and (max-width:662px) {
@@ -371,7 +369,7 @@
         }
     }
     /*--------------------article-----------------*/
-    #article {
+    /*#article {
         .info-festival img {
             height: 250px;
         }
@@ -399,7 +397,7 @@
                 font-size: 14px;
             }
         }
-    }
+    }*/
     .modal-footer, .modal-body, .modal-header{
         padding: 5px;
     }

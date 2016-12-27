@@ -50,61 +50,61 @@
   }
 
   /*article*/
-  #article {
-    font-size: 14px;
-  }
-  #article .font15 {
-    font-size: 14px;
-  }
-  #article h3,
-  #article .h3 {
-    font-size: 18px;
-  }
-  #article .actionUser {
-    margin-top: 10px;
-  }
-  #article .info-festival .content h3 {
-    margin: 3px 0;
-  }
-  #article .info-festival .content li {
-    margin: 0;
-  }
-  #article .info-festival .res-summary-point {
-    padding: 0;
-  }
-  #article .info-festival .res-summary-point .sumary-point {
-    font-size: 15px;
-  }
-  #article .fontWeitgh600 {
-    font-weight: 500;
-  }
-  #article h2 {
-    font-size: 17px;
-    padding: 5px 0 5px 5px;
-  }
-  #article .imageFestival .imgContent img {
-    height: 100px;
-    width: 100%;
-  }
-  #article .imageFestival .imgContent .col-sm-3,
-  #article .imageFestival .imgContent .col-xs-2 {
-    margin: 5px 0;
-  }
-  #article .related-box .box img {
-    height: 160px;
-  }
-  #article .related-box .info {
-    padding: 5px;
-  }
-  #article .related-box .boxContent {
-    padding: 10px 0;
-  }
+  /*#article {
+      .font15 {
+          font-size: 14px;
+      }
+      font-size: 14px;
+      h3,
+      .h3 {
+          font-size: 18px;
+      }
+      .actionUser {
+          margin-top: 10px;
+      }
+      .info-festival {
+          .content {
+              h3 {
+                  margin: 3px 0;
+              }
+              li {
+                  margin: 0;
+              }
+          }
+          .res-summary-point {
+              padding: 0;
+              .sumary-point {
+                  font-size: 15px;
+              }
+          }
+      }
+      .fontWeitgh600 {
+          font-weight: 500;
+      }
+      h2 {
+          font-size: 17px;
+          padding: 5px 0 5px 5px;
+      }
+      .imageFestival .imgContent img {
+          height: 100px;
+          width: 100%;
+      }
+      .imageFestival .imgContent .col-sm-3,
+      .imageFestival .imgContent .col-xs-2 {
+          margin: 5px 0;
+      }
+      .related-box .box img{
+          height: 160px;
+      }
+      .related-box .info{
+          padding: 5px;
+      }
+      .related-box .boxContent{
+          padding: 10px 0;
+      }
+  }*/
 }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-  body {
-    font-size: 13px;
-  }
-
   /*----------------------------Home--------------------------------------*/
   .festival-item .festival-info .header h3 {
     font-size: 14px;
@@ -266,27 +266,6 @@
   }
 
   /*article*/
-  #article .info-festival .content {
-    padding: 10px 0 0 0;
-  }
-  #article .imageFestival .imgContent img {
-    height: 180px !important;
-  }
-  #article .item-avatar img,
-  #article .user-link img {
-    width: 55px !important;
-    margin: 0 auto;
-  }
-  #article #post-common .panel-heading,
-  #article #post-common .panel-body {
-    padding: 5px;
-  }
-  #article .panel .col-xs-9 {
-    padding: 0px;
-  }
-  #article .related-box .box img {
-    height: 260px;
-  }
 }
 @media screen and (max-width: 662px) {
   body {
@@ -384,32 +363,35 @@
   }
 
   /*--------------------article-----------------*/
-  #article .info-festival img {
-    height: 250px;
-  }
-  #article h3 {
-    font-size: 16px;
-  }
-  #article .container {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  #article #post-common .col-xs-11, #article #post-common .col-xs-12 {
-    padding: 0;
-  }
-  #article .address {
-    display: none;
-  }
-  #article .related-box {
-    padding: 0;
-  }
-  #article .related-box .info {
-    padding: 5px;
-  }
-  #article .related-box .box a {
-    font-size: 14px;
-  }
-
+  /*#article {
+      .info-festival img {
+          height: 250px;
+      }
+      h3 {
+          font-size: 16px;
+      }
+      .container {
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+      #post-common {
+          .col-xs-11 , .col-xs-12{
+              padding: 0;
+          }
+      }
+      .address {
+          display: none;
+      }
+      .related-box{
+          padding: 0;
+          .info{
+              padding: 5px;
+          }
+          .box a{
+              font-size: 14px;
+          }
+      }
+  }*/
   .modal-footer, .modal-body, .modal-header {
     padding: 5px;
   }
