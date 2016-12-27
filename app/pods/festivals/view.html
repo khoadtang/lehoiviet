@@ -96,10 +96,7 @@
         </div>
       </div><!--End: festival-item-base-->
     </div>
-      <div class="text-center" ng-show="currentPage < totalPages">
-
-      </div>
-      <button class="btn-show-more" ng-click="showMore()"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+      <div class="text-center" ng-show="currentPage < totalPages && isDefault"><button class="btn-show-more" ng-click="showMore()"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button></div>
     <h2 class="text-center" style="margin: 30px 0" ng-show="festivals.length <= 0">Không có lễ hội bạn tìm kiếm</h2>
   </div>
 </div>
