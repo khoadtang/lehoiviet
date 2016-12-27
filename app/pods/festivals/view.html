@@ -83,7 +83,7 @@
                     <div class="">
                         <div class="title"><a href="#/festival/{{festival._id}}">{{festival.title}}</a></div>
                         <span class="price">
-                            Giá: <lable>Từ</lable> {{festival.priceTicket}} VNĐ
+                            Giá: <lable>Từ</lable> {{convertToCurrency(festival.priceTicket)}} VNĐ
                         </span>
                         <!-- <span class="price" ng-if="event.priceTicket===0">
                           Giá: Miễn phí
@@ -96,7 +96,7 @@
         </div>
       </div><!--End: festival-item-base-->
     </div>
-      <div class="text-center"><button class="btn-blue btn-fix">Xem thêm <i class="fa fa-spinner" aria-hidden="true" style="animation: spin 1.5s infinite linear"></i></button></div>
+      <div class="text-center" ng-show="currentPage < totalPages"><button class="btn-blue btn-fix" ng-click="showMore()">Xem thêm</button></div>
     <h2 class="text-center" style="margin: 30px 0" ng-show="festivals.length <= 0">Không có lễ hội bạn tìm kiếm</h2>
   </div>
 </div>

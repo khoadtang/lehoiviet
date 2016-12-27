@@ -15,10 +15,48 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
 
     var data = {};
     data.page = $scope.currentPage;
-    data.limit = 10;
+    data.limit = 3;
 
     festivalService.getFestivals(data, function(response){
       $scope.festivals = response.data.rows;
+      $scope.totalPages = response.data.totalPage;
+    });
+  };
+
+  $scope.convertToCurrency = function(data){
+    if (data != null && data != "undefined"){
+      data = data.toString();
+      var result = "";
+      var counter = 0;
+      for (var i = data.length - 1; i >= 0; --i){
+        result += data.charAt(i);
+        ++counter;
+        if (counter % 3 == 0 && counter < data.length){
+          result += ".";
+        }
+      }
+
+      var result = result.split("").reverse().join("");
+      return result;
+    }
+  };
+
+  $scope.showMore = function(){
+    if ($scope.currentPage >= $scope.totalPages){
+      return;
+    }
+
+    $scope.currentPage = $scope.currentPage + 1;
+    var data = {};
+    data.page = $scope.currentPage;
+    data.limit = 3;
+
+    festivalService.getFestivals(data, function(response){
+      for (var i = 0; i < response.data.rows.length; ++i){
+        $scope.festivals.push(response.data.rows[i]);
+      }
+
+      $scope.totalPages = response.data.totalPage;
     });
   };
 
