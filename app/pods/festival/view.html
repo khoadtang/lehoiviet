@@ -14,13 +14,13 @@
     <div class="info-festival bg-white">
         <div class="container" data-ng-init="getReview()">
             <div class="row">
-                <div class="col-sm-7 col-xs-12">
+                <div class="col-xs-12">
                     <div class="thumbnail-article">
                         <img ng-src="https://api.lehoiviet.vn/{{festival.thumbnail.resize}}" />
                     </div>
                 </div>
 
-                <div class="col-sm-5 col-xs-12">
+                <div class="col-sm-8">
                     <div class="content">
                         <span>DANH MỤC: {{festival.typeEvent.name}}</span>
                         <h3>{{festival.title}}</h3>
@@ -71,35 +71,45 @@
                             <li>
                                 <!--<button class="btn-blue btn-xs" ng-click="share(festival._id,festival.title,festival.thumbnail.imgName,festival.description,festival.userId.firstName)">-->
                                     <!--<i class="fa fa-facebook-square"></i> Chia sẻ</button>-->
-                                <div class="clearfix" ng-show="point <= 0">
-                                    <select id="rating-bar" name="rating"  autocomplete="off" ng-model="point" ng-change="onRate()">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="clearfix" ng-show="point > 0">
-                                  <select id="rating-bar-rated" name="rating" ng-show="point > 0" autocomplete="off">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                  </select>
-                                </div>
+
                             </li>
                         </ul>
-                        <div class="actionUser">
-                            <a href="" ng-click="onSubscribe()" title="Lên lịch" class=""><i class="fa fa-rss" aria-hidden="true"></i></a>
-                            <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                            <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                            <a href="" ng-click="onStream()" title="Live stream" ng-show="isCanStream()"><i class="fa fa-video-camera"></i></a>
-                            <a href="" ng-click="onShareFacebook()" title="Share Facebook" data-target="popup" id="sharebutton"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                            <a href="" ng-click="onRegisterStream()" title="Register Stream"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                            <!-- <div class="fb-share-button" data-href="https://lehoiviet.vn#/festival/{{festivalId}}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flehoiviet.vn%2F&amp;src=sdkpreparse">Chia sẻ</a></div> -->
-                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 content">
+                    <h5>Stream video</h5>
+                    <div class="user-stream-video">
+                        <a href=""><img src="https://scontent.xx.fbcdn.net/v/t31.0-1/c90.210.540.540/p720x720/13667857_663805897099860_7681881383050751002_o.jpg?oh=83317b9c823773f89e80915375378098&oe=58E03FFA" alt=""></a>
+                    </div>
+                    <h5>Đánh giá</h5>
+                    <div class="clearfix" ng-show="point <= 0">
+                        <select id="rating-bar" name="rating"  autocomplete="off" ng-model="point" ng-change="onRate()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="clearfix" ng-show="point > 0">
+                        <select id="rating-bar-rated" name="rating" ng-show="point > 0" autocomplete="off">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="actionUser">
+                      <div class="actionUser">
+                          <a href="" ng-click="onSubscribe()" title="Lên lịch" class=""><i class="fa fa-rss" aria-hidden="true"></i></a>
+                          <a href="" ng-click="onLike()" title="Like bài viết"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                          <a href="" ng-click="postVideo()" title="Thêm video Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                          <a href="" ng-click="onStream()" title="Live stream" ng-show="isCanStream()"><i class="fa fa-video-camera"></i></a>
+                          <a href="" ng-click="onShareFacebook()" title="Share Facebook" data-target="popup" id="sharebutton"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                          <a href="" ng-click="onRegisterStream()" title="Register Stream"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                          <!-- <div class="fb-share-button" data-href="https://lehoiviet.vn#/festival/{{festivalId}}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flehoiviet.vn%2F&amp;src=sdkpreparse">Chia sẻ</a></div> -->
+                      </div>
                     </div>
                 </div>
             </div>
