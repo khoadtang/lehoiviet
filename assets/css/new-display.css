@@ -431,3 +431,11 @@
     color: #fff;
   }
 }
+.btn-show-more {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #282F3F;
+  background-color: #fff;
+  color: #282F3F;
+  font-size: 20px;
+}
