@@ -95,12 +95,14 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
         $scope.festival.typeEvent = $scope.festival.typeEvent._id;
         $scope.festival.mainAddress = $scope.festival.address.mainAddress;
         $scope.festival.district = $scope.festival.address.district;
+        $scope.festival.phoneNumber = $scope.festival.contactInfo.phoneNumber;
+        $scope.festival.emailAddress = $scope.festival.contactInfo.emailAddress;
+        $scope.festival.website = $scope.festival.contactInfo.website;
 
         $scope.festival.city = parseInt($scope.festival.address.cityCode);
         for(var province in $scope.provincies){
           if (parseInt(province) == $scope.festival.city) {
             $scope.districts = $scope.provincies[province].districts;
-            console.log($scope.districts);
           }
         }
       } else {
@@ -110,22 +112,17 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
   };
 
   $scope.onChangeTab = function(info){
-
-      console.log(selectedTabPriority);
-      console.log(maxAccessablePriority);
-
     if (info == null || info == undefined) {
       if (selectedTabPriority == maxAccessablePriority) {
         ++maxAccessablePriority;
         ++selectedTabPriority;
       }
 
-      console.log(selectedTabPriority);
-      console.log(maxAccessablePriority);
+
       for (var tabName in tabPriority) {
         if (tabPriority[tabName] == maxAccessablePriority) {
           info = tabName;
-          console.log(tabName);
+
           if (info == 'detailPost' && !$scope.isUpdate){
             $('.btn-create-event').addClass('hide');
             $('.box-save2').addClass('hide')
@@ -234,9 +231,9 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     if ($scope.festival == null || $scope.festival == undefined) {
       return;
     }
-    console.log($scope.festival);
-    $scope.festival.thumbnailFull = backgroundImage;
-    $scope.festival.thumbnailResize = backgroundImage;
+
+    $scope.festival.thumbnailFull = $scope.backgroundImage;
+    $scope.festival.thumbnailResize = $scope.backgroundImage;
     festival = $scope.festival;
 
     if (!tabNeedUpdate) {
@@ -245,7 +242,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
       $scope.isSavingBeforeEnter = true;
     }
 
-    console.log($scope.festival.id);
     festivalService.save(festival, $scope.festival._id, function(response) {
       if (response.status == 200) {
         showSavingNotification("Lưu Thành Công");
@@ -440,16 +436,15 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
 
         festivalId = $scope.festival._id;
 
-        if (!isUpdate) {
-          festivalService.submit(festivalId, function(response) {
-            showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
-            $scope.isCreatingFestival = false;
-            $timeout(function() {
-              window.location = "#/";
-            }, 10 * 1000);
+        festivalService.submit(festivalId, function(response) {
+          showSubmittingNotification("Lễ Hội " + $scope.festival.title + " Đã Được Gửi Lên Quản Trị Viên");
+          $scope.isCreatingFestival = false;
+          $timeout(function() {
+            window.location = "#/";
+          }, 1000);
 
-          })
-        }
+        })
+
       }
     });
   };
