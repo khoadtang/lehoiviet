@@ -1,6 +1,6 @@
 var user = angular.module("lehoiviet");
 
-user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService, $routeParams, dateHelper) {
+user.controller("userController", function($rootScope, $scope, userService, festivalService, FestivalStatus, cookiesManager, gatewayService, $routeParams, dateHelper, facebookService) {
   $scope.isChangingAvatar = false;
   $scope.isVisiter = false;
   $scope.dateHelper = dateHelper;
@@ -166,6 +166,7 @@ user.controller("userController", function($rootScope, $scope, userService, fest
         window.location = "#/";
         gatewayService.offline();
       }
+      facebookService.logout();
     });
   };
 });
