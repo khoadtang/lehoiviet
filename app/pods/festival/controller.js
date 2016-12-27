@@ -154,7 +154,6 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
 
   getUsersCanStream = function(festivalId){
       festivalService.getUserCanStream(festivalId, function(response){
-
         $scope.usersCanStream = response.data.data;
       });
   }

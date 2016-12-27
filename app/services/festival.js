@@ -123,7 +123,7 @@ app.service("festivalService", function($http, net, $rootScope) {
     };
 
     festivalService.getUserCanStream = function(festivalId, eventHandler){
-      net.get('/live/festival/users/'.concat(festivalId), null, eventHandler);
+      net.get('/live/festival/users/'.concat(festivalId), eventHandler);
     };
 
     return festivalService;

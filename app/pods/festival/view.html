@@ -77,9 +77,9 @@
                     </div>
                 </div>
                 <div class="col-sm-4 content">
-                    <h5>Stream video</h5>
+                    <h5>Cộng Tác Viên Live Stream</h5>
                     <div class="user-stream-video">
-                        <a href=""><img src="https://scontent.xx.fbcdn.net/v/t31.0-1/c90.210.540.540/p720x720/13667857_663805897099860_7681881383050751002_o.jpg?oh=83317b9c823773f89e80915375378098&oe=58E03FFA" alt=""></a>
+                        <a ng-repeat="user in usersCanStream" href="#/user/profile/{{user.userId._id}}"><img ng-src="{{user.userId.avatar}}" alt=""></a>
                     </div>
                     <h5>Đánh giá</h5>
                     <div class="clearfix" ng-show="point <= 0">
