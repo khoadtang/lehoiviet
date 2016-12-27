@@ -126,5 +126,9 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.get('/live/festival/users/'.concat(festivalId), eventHandler);
     };
 
+    festivalService.getFestivals = function(data, eventHandler){
+      net.get('/festival/lists/more/'.concat(data.page).concat('/').concat(data.limit), eventHandler);
+    };
+
     return festivalService;
 });

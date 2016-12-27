@@ -563,8 +563,12 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   };
 
   $scope.isCanStream = function(){
+    if ($rootScope.uid == null || $rootScope.uid == undefined){
+      return false;
+    }
+
     for (var i = 0; i < $scope.usersCanStream.length; ++i){
-      if ($scope.usersCanStream[i]._id === $rootScope.uid){
+      if ($scope.usersCanStream[i].userId._id === $rootScope.uid){
         return true;
       }
     }

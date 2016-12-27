@@ -2,6 +2,8 @@ var festivals = angular.module("lehoiviet");
 
 festivals.controller("festivalsController", function($scope, $rootScope, festivalService, dateHelper, categoryService) {
   $scope.festivals = [];
+  $scope.currentPage = 1;
+  $scope.totalPages = 1;
   $scope.initData = function() {
     $rootScope.currentPage = "festivals";
 
@@ -10,7 +12,14 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
     });
 
     $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
-    
+
+    var data = {};
+    data.page = $scope.currentPage;
+    data.limit = 10;
+
+    festivalService.getFestivals(data, function(response){
+      $scope.festivals = response.data.rows;
+    });
   };
 
   $scope.onFilterByLocation = function(){
