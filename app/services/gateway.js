@@ -16,6 +16,7 @@ app.service("gatewayService", function($rootScope, ENV) {
 
   gatewayService.listen = function() {
     socket.on('notification', function(data) {
+      console.log(data);
       if ($rootScope.notification == null) {
         $rootScope.notification = [];
       }
@@ -40,5 +41,23 @@ app.service("gatewayService", function($rootScope, ENV) {
       });
     });
   }
+
+  gatewayService.listenOnReplyRequestStream = function(callback){
+    socket.on("replyRequestStreamByUser", function(data){
+      console.log(data);
+      $rootScope.$apply(function () {
+        callback(data);
+      });
+    });
+  }
+
+  gatewayService.listenOnBroadcastHasStream = function(callback){
+    socket.on("broadcastHasStream", function(data){
+      $rootScope.$apply(function () {
+        callback(data);
+      });
+    });
+  }
+
   return gatewayService;
 });
