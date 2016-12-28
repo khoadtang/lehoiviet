@@ -42,6 +42,9 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
         $scope.festival.timeEnd = dateHelper.parse($scope.festival.timeEnd);
         $scope.fullAddress =  $scope.festival.address.mainAddress + "," +  $scope.festival.address.district + "," + $scope.festival.address.city;
         $scope.fullAddress = $scope.fullAddress.replace(/\s+/g, '+');
+        $scope.phoneNumber = $scope.festival.contactInfo.phoneNumber;
+        $scope.emailAddress = $scope.festival.contactInfo.emailAddress;
+        $scope.website = $scope.festival.contactInfo.website;
 
         $rootScope.title = $scope.festival.title;
         googleService.getLocation($scope.fullAddress, function(response){
@@ -561,7 +564,7 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
       $('#userLogin').modal('show');
       return;
     }
-    
+
     festivalService.registerStream($scope.festival._id, function(response){
       showSavingNotification("Lời yêu cầu đã được gửi đến ban quản trị");
     });

@@ -60,10 +60,10 @@
                                 <span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.priceTicket == 0 ? 'Miễn Phí' : convertToCurrency(festival.priceTicket) + ' VNĐ'}}
                             </li>
                             <li>
-                                <span class="glyphicon glyphicon-globe" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.website)}}
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.contactInfo.website}}
                             </li>
                             <li>
-                                <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.emailAddress)}}
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span> {{festival.contactInfo.emailAddress}}
                             </li>
                             <li>
                                 <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 5px;"></span> {{convertToNumberPhone(festival.contactInfo.phoneNumber)}}
