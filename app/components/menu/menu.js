@@ -12,8 +12,10 @@ menu.directive("topMenu", function(){
 });
 
 menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService, festivalService) {
-  $scope.init = function() {
+  $scope.notificationsForReplyingRequestStream = [];
 
+  $scope.init = function() {
+    gatewayService.listenOnReplyRequestStream($scope.handleReplyRequestStream);
   };
   $scope.loginView = function(){
       $('#userLogin').modal('show');
@@ -52,5 +54,14 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
   };
   $scope.onMaintenance = function(){
     $('#maintenance').modal('show');
-  }
+  };
+
+  $scope.handleReplyRequestStream = function(data){
+    var jsonObject = JSON.parse(data.content);
+    console.log(data);
+  };
+
+  $scope.handleBroadcastHasStream = function(){
+
+  };
 });
