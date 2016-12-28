@@ -557,8 +557,13 @@ festival.controller("festivalController", function($scope, $rootScope, festivalS
   };
 
   $scope.onRegisterStream = function(){
+    if ($rootScope.token == null) {
+      $('#userLogin').modal('show');
+      return;
+    }
+    
     festivalService.registerStream($scope.festival._id, function(response){
-      console.log(response);
+      showSavingNotification("Lời yêu cầu đã được gửi đến ban quản trị");
     });
   };
 
