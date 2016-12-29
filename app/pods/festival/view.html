@@ -12,14 +12,11 @@
 
 <div id="article" ng-init="initData()">
     <div class="info-festival bg-white">
+        <div class="thumbnail-article">
+            <img ng-src="https://api.lehoiviet.vn/{{festival.thumbnail.resize}}" />
+        </div>
         <div class="container" data-ng-init="getReview()">
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="thumbnail-article">
-                        <img ng-src="https://api.lehoiviet.vn/{{festival.thumbnail.resize}}" />
-                    </div>
-                </div>
-
                 <div class="col-sm-8">
                     <div class="content">
                         <span>DANH MỤC: {{festival.typeEvent.name}}</span>
