@@ -43,7 +43,6 @@ app.service("gatewayService", function($rootScope, ENV) {
 
   gatewayService.listenOnReplyRequestStream = function(callback){
     socket.on("replyRequestStreamByUser", function(data){
-      console.log(data);
       $rootScope.$apply(function () {
         callback(data);
       });

@@ -197,7 +197,7 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', 'gatewayServ
 
 }]);
 
-app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus, liveService) {
+app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus, liveService, notificationHelper) {
     $scope.init = function() {
 
         $rootScope.status = FestivalStatus;
@@ -233,10 +233,17 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
             gatewayService.online();
             gatewayService.listen();
 
+            gatewayService.listenOnBroadcastHasStream($scope.handelHasLiveStreamNotify);
         });
     };
 
     $scope.scrollTop = function(){
       $("html, body").stop().animate({scrollTop:0}, '1000', 'swing');
+    };
+
+    $scope.handelHasLiveStreamNotify = function(data){
+      var audio = new Audio('./assets/enough.mp3');
+      audio.play();
+      notificationHelper.hasLiveStream(data);
     };
 });
