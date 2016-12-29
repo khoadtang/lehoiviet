@@ -34,6 +34,6 @@ app.service("postService", function(net) {
     postService.search = function(key, eventHandler){
         net.get('/post/search/title/'.concat(key), eventHandler);
     };
-    
+
     return postService;
 });

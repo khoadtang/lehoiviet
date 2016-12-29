@@ -11,12 +11,11 @@ menu.directive("topMenu", function(){
     };
 });
 
-menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService, festivalService) {
-  $scope.notificationsForReplyingRequestStream = [];
-
+menu.controller("menuController", function($scope, $rootScope, cookiesManager, userService, gatewayService, festivalService, liveService) {
   $scope.init = function() {
     gatewayService.listenOnReplyRequestStream($scope.handleReplyRequestStream);
   };
+
   $scope.loginView = function(){
       $('#userLogin').modal('show');
   };
@@ -43,7 +42,6 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
     });
   };
   $scope.onClickNotification = function() {
-    console.log("Seen");
     if ($rootScope.notification.unseen == null) {
       $rootScope.notification.unseen = 0;
     }
@@ -57,11 +55,18 @@ menu.controller("menuController", function($scope, $rootScope, cookiesManager, u
   };
 
   $scope.handleReplyRequestStream = function(data){
-    var jsonObject = JSON.parse(data.content);
-    console.log(data);
+    $rootScope.notificationsForReplyingRequestStream.unshift(data.data);
+    var audio = new Audio('./assets/enough.mp3');
+    audio.play();
+
+    $scope.unread = true;
   };
 
   $scope.handleBroadcastHasStream = function(){
 
   };
+
+  $scope.onReadStreamNotification = function(){
+    $scope.unread = false;
+  }
 });

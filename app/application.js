@@ -105,7 +105,8 @@ app.config(['$routeProvider', function($routeProvider) {
 app.constant("ENV", {
     apiUrl: "https://api.lehoiviet.vn",
     gateWay: "https://api.lehoiviet.vn"
-
+    // apiUrl: "http://localhost:3000",
+    // gateWay: "http://localhost:3000"
     /*apiUrl: "http://api.lehoiviet.vn",
     gateWay: "http://api.lehoiviet.vn"*/
 });
@@ -196,12 +197,13 @@ app.run(['$rootScope', '$window', 'facebookService', 'userService', 'gatewayServ
 
 }]);
 
-app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus) {
+app.controller("appController", function($scope, $rootScope, userService, gatewayService, festivalService, $route, FestivalStatus, liveService) {
     $scope.init = function() {
 
         $rootScope.status = FestivalStatus;
         $rootScope.token = null;
         $rootScope.notification = {};
+        $rootScope.notificationsForReplyingRequestStream = [];
         userService.autoLogin(function(response) {
             var data = response.data;
             $rootScope.token = data.token;
@@ -220,6 +222,12 @@ app.controller("appController", function($scope, $rootScope, userService, gatewa
                         $rootScope.notification.unseen++;
                     }
                 });
+            });
+
+            liveService.getNotifications(function(response){
+              for (var i = 0; i < response.data.data.notifications.length; ++i){
+                $rootScope.notificationsForReplyingRequestStream.unshift(JSON.parse(response.data.data.notifications[i].content));
+              }
             });
 
             gatewayService.online();

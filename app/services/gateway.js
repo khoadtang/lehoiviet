@@ -16,7 +16,6 @@ app.service("gatewayService", function($rootScope, ENV) {
 
   gatewayService.listen = function() {
     socket.on('notification', function(data) {
-      console.log(data);
       if ($rootScope.notification == null) {
         $rootScope.notification = [];
       }

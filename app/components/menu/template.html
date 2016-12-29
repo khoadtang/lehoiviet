@@ -1,4 +1,4 @@
-<div id="menu">
+<div id="menu" ng-init="init()">
   <nav class="navbar navbar-fixed-top menu-fix-top">
     <div class="container">
       <div class="navbar-header">
@@ -20,23 +20,25 @@
                 <li ng-show="$root.token != null"><a class="menu-create-post" ng-click="createFestivalView()"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
                 <li class="dropdown notify" ng-show="$root.token != null">
                     <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-video-camera" aria-hidden="true"></i>
-                        <span ng-show="$root.notification.unseen > 0">{{$root.notification.unseen}}</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="notification-message-item" ng-repeat="festival in $root.notification">
-                            <a class="clearfix" href="#/festival/{{festival.data._id}}" ng-click="onClickNotification()">
-                                <div class="thumnail">
-                                    <img src="./assets/img/img2.png" alt="" />
-                                </div>
-                                <div class="message">
-                                    <p>{{festival.data.title}}</p>
-                                    <span color='red'>Đang live</span>
-                                </div>
+                        <span ng-show="unread">new</span>
+                      </a>
+                      <ul class="dropdown-menu"  ng-click="onReadStreamNotification()">
+                          <li class="notification-message-item" ng-repeat="notification in $root.notificationsForReplyingRequestStream">
+                            <a class="clearfix" href="#/festival/{{notification.id}}">
+                              <div class="thumnail">
+                                <img ng-src="https://api.lehoiviet.vn{{notification.thumbnail}}" alt="" />
+                              </div>
+                              <div class="message">
+                                <p style="color:#2467A5">{{notification.title}}</p>
+                                <span style="color:#048A05" ng-show="notification.enable">BẠN ĐƯỢC PHÉP LIVE</span>
+                                <span style="color:#9C0100" ng-show="!notification.enable">BẠN KHÔNG ĐƯỢC PHÉP LIVE</span>
+                              </div>
                             </a>
-                        </li>
-                        <li>
+                          </li>
+                          <li>
                             <a href="#" style="display:block; text-align:center; padding: 5px" ng-show="$root.notification.length > 10">Xem thêm</a>
-                        </li>
-                    </ul>
+                          </li>
+                      </ul>
                 </li>
                 <li class="dropdown notify" ng-show="$root.token != null">
                   <a class="dropdown-toggle btn-notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i>

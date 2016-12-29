@@ -31,5 +31,10 @@ app.service("liveService", function(net) {
     liveService.delete = function(id, eventHandler) {
         net.get('/live/delete/'.concat(id), eventHandler);
     };
+
+    liveService.getNotifications = function(eventHandler) {
+        net.get('/live/notifications/', eventHandler);
+    };
+
     return liveService;
 });
