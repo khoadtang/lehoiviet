@@ -112,6 +112,14 @@
     // overflow-x: hidden;
     overflow-y:auto;
   }
+  .message{
+      .span-first{
+        color:#048A05;
+      }
+      .span-last{
+        color:#9C0100;
+      }
+  }
 }
 .dropdown-menu > .notification-message-item > a{
   padding: 10px 5px;
@@ -161,6 +169,11 @@
     &:hover{
       background-color: #247ba0;
       color: #ffffff;
+      .message {
+        .span-first, .span-last{
+          color: #fff;
+        }
+      }
     }
   }
 }

@@ -474,3 +474,13 @@ nav{
         font-size: 15px;
     }
 }
+.notify-data{
+  .col-15{
+    width: 30px;
+    float: left;
+  }
+  .col-85{
+    width: calc(100% - 30px);
+    float: left;
+  }
+}

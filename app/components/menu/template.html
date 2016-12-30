@@ -29,9 +29,9 @@
                                 <img ng-src="https://api.lehoiviet.vn{{notification.thumbnail}}" alt="" />
                               </div>
                               <div class="message">
-                                <p style="color:#2467A5">{{notification.title}}</p>
-                                <span style="color:#048A05" ng-show="notification.enable">BẠN ĐƯỢC PHÉP LIVE</span>
-                                <span style="color:#9C0100" ng-show="!notification.enable">BẠN KHÔNG ĐƯỢC PHÉP LIVE</span>
+                                <p>{{notification.title}}</p>
+                                <span class="span-first" ng-show="notification.enable">BẠN ĐƯỢC PHÉP LIVE</span>
+                                <span class="span-last" ng-show="!notification.enable">BẠN KHÔNG ĐƯỢC PHÉP LIVE</span>
                               </div>
                             </a>
                           </li>

@@ -880,6 +880,15 @@ nav {
     font-size: 15px;
   }
 }
+.notify-data .col-15 {
+  width: 30px;
+  float: left;
+}
+.notify-data .col-85 {
+  width: calc(100% - 30px);
+  float: left;
+}
+
 /*CSS cho cac doi tuong trong website : nut bam, trang tri menu*/
 #pageHome h2 {
   padding: 0px;
@@ -1317,6 +1326,12 @@ nav {
   max-height: 300px;
   overflow-y: auto;
 }
+.notify .message .span-first {
+  color: #048A05;
+}
+.notify .message .span-last {
+  color: #9C0100;
+}
 
 .dropdown-menu > .notification-message-item > a {
   padding: 10px 5px;
@@ -1368,6 +1383,9 @@ nav {
 .dropdown-menu > li > a:hover {
   background-color: #247ba0;
   color: #ffffff;
+}
+.dropdown-menu > li > a:hover .message .span-first, .dropdown-menu > li > a:hover .message .span-last {
+  color: #fff;
 }
 
 .dropdown-user > li > a {

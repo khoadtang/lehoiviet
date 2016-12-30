@@ -21,11 +21,11 @@ helper.service("notificationHelper", function(){
     		from: "bottom",
     		align: "left"
     	},
-    	offset: 20,
+    	offset: 15,
     	spacing: 10,
     	z_index: 1031,
-    	delay: 5000,
-    	timer: 1000,
+    	delay: 10000,
+    	timer: 1,
     	url_target: '_blank',
     	mouse_over: null,
     	animate: {
