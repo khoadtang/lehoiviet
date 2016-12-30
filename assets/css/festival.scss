@@ -19,14 +19,14 @@
 	color: #555;
 	border: 1px solid #eee;
 	.festival-img a{
-		height: 220px;
+		height: 192px;
 		width: 100%;
 		overflow: hidden;
 		display: block;
 		background-color: #ddd;
 		img{
 			width: 100%;
-			min-height: 220px;
+			min-height: 192px;
 		}
 	}
 	.festival-info{
@@ -128,7 +128,11 @@
 	}
 
 	.festival-item-base .festival-img a{
-		height: 130px
+		height: 146px;
+		img{
+			width: 100%;
+			min-height: 146px;
+		}
 	}
 	.before-icon{
 		height: 20px;
@@ -316,6 +320,24 @@
 	border: none;
 	overflow: hidden;
 }
+@media  (max-width: 1082px){
+	.festival-item-base .festival-img a{
+		height: 146px;
+		img{
+			min-height: 146px;
+		}
+	}
+}
+@media  (max-width: 767px){
+	.festivals .festival-item-base .festival-img a, .festival-item-base .festival-img a {
+		height: auto;
+		img {
+			width: 100%;
+			height: auto;
+			min-height: auto;
+		}
+	}
+}
 @media (max-width: 500px){
 	.box-input-search-festivals{
 		h2{
@@ -339,12 +361,6 @@
 	.festival-item-base {
 		.title{
 			font-size: 16px;
-		}
-		.festival-img a{
-			height: 150px;
-			img{
-				min-height: 150px;
-			}
 		}
 	}
 	.input-search-festival > div{
