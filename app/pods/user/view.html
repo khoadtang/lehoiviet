@@ -98,10 +98,10 @@
                       <img src="assets/img/Logo_square.png" alt="" />
                     </div>
                     <div class="left w-80">
-                      <h5>{{festival.title}}</h5>
-                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>Create Time: {{dateHelper.formatDate(festival.createAt != null ? festival.createAt : null)}}</p>
+                      <a href="#/festival/{{festival._id}}"><h5>{{festival.title}}</h5></a>
+                      <p><i class="fa fa-clock-o" aria-hidden="true"></i>Tạo lúc: {{dateHelper.formatDate(festival.createAt != null ? festival.createAt : null)}}</p>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{festival.address.city}}</p>
-                      <div class="action-event">
+                      <div class="action-event" ng-show="festival.status == 1 || festival.status == 2">
                         <button ng-show="!isVisiter" type="button" name="button" ng-click="onEditFestival(festival._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Tiếp tục chỉnh sửa</button>
                         <button ng-show="!isVisiter" type="button" name="button" ng-click="onConfirmDelete(festival._id)"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                       </div>

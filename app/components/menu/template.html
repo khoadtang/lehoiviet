@@ -47,7 +47,7 @@
                       <li class="notification-message-item" ng-repeat="festival in $root.notification">
                         <a class="clearfix" href="#/festival/{{festival.data._id}}" ng-click="onClickNotification()">
                           <div class="thumnail">
-                            <img src="./assets/img/img2.png" alt="" />
+                            <img ng-src="https://api.lehoiviet.vn{{festival.data.thumbnail.full}}" alt="" />
                           </div>
                           <div class="message">
                             <p>{{festival.data.title}}</p>
