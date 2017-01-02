@@ -24,8 +24,8 @@ helper.service("notificationHelper", function(){
     	offset: 15,
     	spacing: 10,
     	z_index: 1031,
-    	delay: 10000,
-    	timer: 1,
+    	delay: 5000,
+    	timer: 1000,
     	url_target: '_blank',
     	mouse_over: null,
     	animate: {
