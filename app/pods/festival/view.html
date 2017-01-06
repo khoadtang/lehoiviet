@@ -167,11 +167,11 @@
                             <img ng-repeat="img in album" ng-click="watchSlide(img.imgName)"class="col-xs-2" src="https://api.lehoiviet.vn/{{img.imgName}}" alt=""/>
                         </div>
                         <h4>Video live stream</h4>
-                        <div class="list-img-article row">
-                            <div class="item-liveStream col-sm-3" ng-repeat="stream in streams" ng-click="watchVideo(stream.streamId)">
+                        <div class="list-img-article clearfix">
+                            <div class="item-liveStream" ng-repeat="stream in streams" ng-click="watchVideo(stream.streamId)">
                                 <img  class="" src="assets/img/gif-bg.gif" alt=""/>
-                                <div class="overlay-front">
-                                    <p>#1</p>
+                                <div class="info-user-live">
+                                    <a href="">{{stream.userId.firstName}}{{stream.userId.lastName}}</a>
                                 </div>
                             </div>
                         </div>
