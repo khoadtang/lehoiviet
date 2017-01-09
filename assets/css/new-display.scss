@@ -192,29 +192,24 @@
         cursor: pointer;
     }
     .item-liveStream{
-        position: relative;
-        overflow: hidden;
+        width: 20%;
+        float: left;
         text-align: center;
         cursor: pointer;
         margin-bottom: 10px;
+        padding: 5px;
         img{
             width: 100%;
             height: auto;
         }
-        .overlay-front{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding: 55px 10px 0;
-            color: #fff;
-            top:0;
-            left: 0;
-            font-size: 25px;
-            p{
-                position: absolute;
-                bottom: 5px;
-                left: 0;
+        .info-user-live{
+            a{
+                color: #555;
+                display: inline-block;
                 width: 100%;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
             }
         }
     }
@@ -407,6 +402,11 @@
     }
 }
 
+@media (max-width: 600px) {
+    .list-img-article .item-liveStream {
+        width: 35%;
+    }
+}
 @media (max-width: 400px) {
     #watchVideo{
         .modal-dialog{
@@ -438,6 +438,9 @@
       color: #fff;
     }
   }
+    .list-img-article .item-liveStream{
+        width: 50%;
+    }
 }
 .btn-show-more{
     width: 40px;
