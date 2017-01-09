@@ -68,6 +68,14 @@ app.service("userService", function(net, $http, $rootScope, cookiesManager) {
         net.post('/user/password/change/'.concat(uid), passwords, eventHandler);
     };
 
+    userService.forgotPassword = function(data, eventHandler){
+      net.post('/user/password/forgot', data, eventHandler);
+    };
+
+    userService.resetPassword = function(data, eventHandler){
+      net.post('/user/password/reset', data, eventHandler);
+    };
+
     userService.loginByFacebook = function(access_token, eventHandler){
         net.get('/user/facebook?access_token='.concat(access_token), eventHandler);
     };

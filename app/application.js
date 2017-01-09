@@ -97,6 +97,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller:"chatController",
             controllerAs:"chatBox"
         })
+        .when('/resetpassword/:token',{
+            templateUrl:'app/pods/reset-password/view.html',
+            controller:"resetPasswordController",
+            controllerAs:"resetPassword"
+        })
         .otherwise({
             redirectTo: '/404'
         });

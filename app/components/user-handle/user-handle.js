@@ -60,6 +60,7 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
       $scope.registerForm.$setPristine();
       $scope.forgotPassword.$setPristine();
       $scope.errorMessage = null;
+      $scope.alertForForgotingPassword = '';
     })
   };
   $scope.showModal = function(id){
@@ -178,7 +179,11 @@ login.controller("userHandleController", function($scope, $rootScope, userServic
   };
 
   $scope.forgetPassword = function() {
-
+    var data = {};
+    data.email = $scope.emailpw;
+    userService.forgotPassword(data, function(response){
+      $scope.alertForForgotingPassword = "Vui lòng kiểm tra email"
+    });
   };
 
   $scope.onLoginFacebook = function(){
