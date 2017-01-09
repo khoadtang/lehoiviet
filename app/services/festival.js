@@ -130,5 +130,9 @@ app.service("festivalService", function($http, net, $rootScope) {
       net.get('/festival/lists/more/'.concat(data.page).concat('/').concat(data.limit), eventHandler);
     };
 
+    festivalService.searchByTitle = function(title, eventHandler){
+      net.get('/festival/search/title/'.concat(title), eventHandler);
+    }
+
     return festivalService;
 });

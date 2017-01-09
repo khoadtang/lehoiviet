@@ -113,4 +113,15 @@ festivals.controller("festivalsController", function($scope, $rootScope, festiva
       $scope.festivals = response.data.rows;
     });
   };
+
+  $scope.searchByTitle = function(){
+    
+    if ($scope.title == null || $scope.title == 'undefined'){
+      return;
+    }
+
+    festivalService.searchByTitle($scope.title, function(response){
+      $scope.festivals = response.data.data;
+    })
+  };
 });

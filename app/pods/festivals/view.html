@@ -4,8 +4,8 @@
     <div class="input-search-festival">
       <h2>Thế giới lễ hội đặc sắc</h2>
       <div>
-        <input type="text" name="name" value="" placeholder="Tìm sự kiện, khóa học, khu vui chơi, ..."/>
-        <button type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <input type="text" ng-model="title" name="name" value="" placeholder="Tìm sự kiện, khóa học, khu vui chơi, ..." ng-keydown="$event.keyCode == 13 ? searchByTitle() : null"/>
+        <button type="button" name="button" ng-click="searchByTitle()"><i class="fa fa-search" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
