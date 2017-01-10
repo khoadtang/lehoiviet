@@ -182,10 +182,6 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     $scope.districts = province.districts;
   };
 
-  $scope.onDistrictSelected = function(district){
-    $scope.festival.district= district;
-  };
-
   $scope.onCreateFestival = function(){
     var festival = {};
     festival.title = $scope.title;
@@ -303,7 +299,18 @@ createFestival.controller("createFestivalController", function($scope, $rootScop
     }
   }
 
-  $scope.onChangeValidateInfoTab = function(){
+  $scope.onChangeValidateInfoTab = function(selectedProvince){
+    if (selectedProvince == 1){
+      angular.forEach($scope.provincies, function(value, key) {
+        if (key == $scope.festival.city){
+          $scope.festival.district = null;
+          $scope.districts = value.districts;
+        }
+      });
+    } else if (selectedProvince == 2) {
+
+    }
+
     if ($scope.backgroundImage == null || $scope.backgroundImage == undefined) {
       $scope.info.invalid = true;
 
