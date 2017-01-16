@@ -68,7 +68,8 @@ live.controller("liveController", function($scope, festivalService, $routeParams
                 }
             })
             .then(function(result) {
-                $scope.send('leave');
+                $scope.client.send('leave');
+                $scope.client.setLocalStream(null);
                 $scope.isStreaming = false;
             });
     };
